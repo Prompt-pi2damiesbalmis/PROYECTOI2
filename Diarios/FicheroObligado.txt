@@ -1,0 +1,78 @@
+## Título
+### Subtítulo
+
+Este es un ejemplo que da entrada a una lista genérica:
+
+- Elemento 1
+  - Elemento 2
+    - Elemento 3
+
+Este es un ejemplo de texto que da una lista numerada:
+
+1. Elemento 1
+   1. Elemento 3
+      1. Elemento 3
+
+Al texto en Markdown puedes añadirle formato como **negrita** o *cursiva* de una manera muy sencilla.
+
+``` kotlin
+kotlin
+val x = 8
+
+```
+
+```consola
+Salida por consola
+```
+
+$$2/5*(8-4)$$
+
+🍔🍕🍟
+
+
+[aqui estoy](#aqui-estoy)
+![imagen](./Assets/mondongo.jpg)
+
+Esto sería un encabezado 1
+===
+Esto sería un encabezado 2
+--
+
+> Un país, una civilización se puede juzgar por la forma en que trata a sus animales. - Mahama Gandhi
+
+|Titulo|Nombre|Edad|
+|:--:|:--|--:|
+|asd<br>sad|asdasd|asdf|
+|asdsad|asdasd|asdf|
+
+**goad**
+*dsaf*
+~~sadf~~
+
+
+
+dasf
+asdf
+as
+f
+dasf
+dad
+sf
+asd
+fa
+fasd
+f
+af
+ad
+fdas
+f
+f
+f
+f
+f
+f
+f
+f
+ads
+
+# aqui estoy
