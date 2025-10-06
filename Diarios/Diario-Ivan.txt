@@ -1,0 +1,68 @@
+# Diario de Trabajo Individual
+
+**Nombre:** Iván Arias Pastor<br>
+**Curso:** 2DAM-B
+
+## Índice de Meses
+
+- 📅 Septiembre 2025
+- 📅 Octubre 2025
+- 📅 Noviembre 2025
+
+## Septiembre 2025
+
+| Fecha | Sesión | Tareas Realizadas | Tiempo | Problemas Encontrados | Soluciones Aplicadas | Reflexión/Aprendizaje |
+|:--: | :--: | :--: | :--: | :--: | :--: | :--: |
+| 29/09/2025 | 📚S1 | - Creación de la Organización y repositorio Git<br> - Primeros commits en ramas<br>- Integración en la rama main con Pull Request | 1h | Git no reconocía mi identidad en los commits | Configuré ``git config --global user.name`` y ``user.email`` | Importancia de configurar correctamente las herramientas desde el inicio. La inversión en setup ahorra tiempo después. |
+| 30/09/2025 | 📚S2 | - Creación del repositorio para los diarios<br> - Integración y aprendizaje de Markdown para su uso diario durante el proyecto<br> - Subida de mi rama ``ivan`` y fichero de prueba  | 2h | - Creación de link para desplazarte entre el documento<br>- Exportación de Markdown a PDF  | - Descargar extensiones de VSCode para facilitar su uso práctico | Aprendizaje del lenguaje tipado Markdown y su implementación su facilidad de aprendizaje y uso. |
+
+**Resumen del mes**:
+
+ - **Total de horas:** 3h
+ - **Principales logros:** 3
+ - **Área de mejora** Aprendiendo Git, Github e integrándolo con VSCode.
+ - **Próximos objetivos:** Implementación de Markdown en el proyecto.
+
+<div style="page-break-after: always;"></div>
+
+🔝 [Volver arriba](#diario-de-trabajo-individual)
+
+ ## Octubre 2025
+| Fecha | Sesión | Tareas Realizadas | Tiempo | Problemas Encontrados | Soluciones Aplicadas | Reflexión/Aprendizaje |
+|:--: | :--: | :--: | :--: | :--: | :--: | :--: |
+| 6/10/2025 | 📚S3 | - Creación de un diario propio. | 1h | --- | --- | Manejo de Markdown y subida de la actividad propuesta |
+
+**Resumen del mes**:
+
+ - **Total de horas:** 1h
+ - **Principales logros:** 1
+ - **Área de mejora:** Apendiendo Markdown.
+ - **Próximos objetivos:** 
+
+<div style="page-break-after: always;"></div>
+
+🔝 [Volver arriba](#diario-de-trabajo-individual)
+
+ ## Noviembre 2025
+| Fecha | Sesión | Tareas Realizadas | Tiempo | Problemas Encontrados | Soluciones Aplicadas | Reflexión/Aprendizaje |
+|:--: | :--: | :--: | :--: | :--: | :--: | :--: |
+| *Pendiente* | - | - | - | - | - | - |
+
+
+**Resumen del mes**:
+
+ - **Total de horas:**  
+ - **Principales logros:**
+ - **Área de mejora:** 
+ - **Próximos objetivos:** 
+
+🔝 [Volver arriba](#diario-de-trabajo-individual)
+
+### Leyenda de Códigos:
+
+- 🔥 Sesión muy productiva
+- ⚠  Sesión con muchos bloqueos
+- 🎯 Sesión enfocada en objetivos específicos
+- 🔄 Sesión de refactoring/mejoras
+- 🐛 Sesión dedicada a debugging
+- 📚 Sesión de aprendizaje/investigació
