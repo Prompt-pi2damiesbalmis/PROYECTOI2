@@ -1,3 +1,5 @@
+<div style="padding: 0px">
+
 # Diario de Trabajo Individual
 
 **Nombre:** Iván Arias Pastor
@@ -31,12 +33,13 @@
 | Fecha | Sesión | Tareas Realizadas | Tiempo | Problemas Encontrados | Soluciones Aplicadas | Reflexión/Aprendizaje |
 |:--: | :--: | :--: | :--: | :--: | :--: | :--: |
 | 6/10/2025 | 📚S3 | - Creación de un diario propio. | 1h | --- | --- | Manejo de Markdown y subida de la actividad propuesta |
+| 7/10/2025 | 🎯S4 | - Planificación del proyecto y creación de una parte de documentación | 2h | Busqueda inspiración para el proyecto en si | Lluvia de ideas propuestas por el equipo  | Repartición de tareas del equipo y puesta en común |
 
 **Resumen del mes**:
 
- - **Total de horas:** 1h
- - **Principales logros:** 1
- - **Área de mejora:** Apendiendo Markdown.
+ - **Total de horas:** 3h
+ - **Principales logros:** 2
+ - **Área de mejora:** Apendiendo Markdown, Planificación del proyecto...
  - **Próximos objetivos:** 
 
 <div style="page-break-after: always;"></div>
@@ -66,3 +69,4 @@
 - 🔄 Sesión de refactoring/mejoras
 - 🐛 Sesión dedicada a debugging
 - 📚 Sesión de aprendizaje/investigació
+
