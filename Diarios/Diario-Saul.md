@@ -34,7 +34,8 @@
 
 | Fecha | Sesión | Tareas Realizadas | Tiempo | Problemas Encontrados | Soluciones Aplicadas | Reflexión/Aprendizaje |
 | ---- |-----|-----|-- | ----|-----|-----| 
-| 06/10 | 🔥📚S1 | Creación del diario en Markdown | ⏱️1h |  |  | He aprendido a usar el Markdown
+| 06/10 | 🔥📚S7 | Creación del diario en Markdown | ⏱️1h |  |  | He aprendido a usar el Markdown
+| 07/10 | 🔥S8 | Creacion de proyecto y nombre | ⏱️2h |  |  | Hemos pensado el proyecto que vamos a hacer y el nombre.
 
 **Resumen del mes (Parcial):**
 
