@@ -38,7 +38,7 @@
 
 | Fecha | Sesión | Tareas Realizadas | Tiempo | Problemas Encontrados | Soluciones Aplicadas | Reflexión / Aprendizaje |
 |-------|---------|-------------------|---------|------------------------|----------------------|--------------------------|
-| Pendiente |  |  |  |  |  |  |
+|   13/10/2025 |  08|Crear concepto de aplicacion  |20 mins  |a la profesora se le cayo un mueble encima  |Generacion del concepto visual  |  |
 
 ---
 
