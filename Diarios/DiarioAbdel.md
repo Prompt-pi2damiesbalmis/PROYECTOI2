@@ -38,7 +38,7 @@
 
 | Fecha | Sesión | Tareas Realizadas | Tiempo | Problemas Encontrados | Soluciones Aplicadas | Reflexión / Aprendizaje |
 |-------|---------|-------------------|---------|------------------------|----------------------|--------------------------|
-| Pendiente |  |  |  |  |  |  |
+| 13/10/2025  |2  |definir la idea de proyecto  |15 mins  |a la profesora se le cayo un mueble  |  |  |
 
 ---
 
