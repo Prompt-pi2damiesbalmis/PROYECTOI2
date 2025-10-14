@@ -41,6 +41,7 @@
 | 06/10 | 📚S4 | - Realización del diario con Markdown | 1h | Ninguna dificultad | No fue necesario | Herramienta muy util donde no es necesario complicarse mucho para hacer un buen pdf |
 | 07/10 | 📚S5 | -Elección de la idea sobre el proyecto, nombre y generación de imagenes para el ejemplo que hay que entregar| 2h | Dificultad al elegir diferentes ideas ya que había muchas con potencial | Hemos hecho una selección con pros y contras y hemos elegido la mas factible con mas pros | Hemos aprendido a optimizar el tiempo  |
 | 13/10 | 📚S6 | -Realizacion del esquema de arquitectura general con el modelo c4 de puml | 1h | Ninguno | - | He aprendido a hacer esquemas de arquitectura general para los usuarios, y administradores. |
+| 14/10 | 📚S7 | -Hemos aprendido que es el scrum, hemos hecho un quiz y un test sobre ello | 2h | Dificultad al tener muchos conceptos diferentes y nuevos, y hacer el test. | Aprendizaje de conceptos nuevos | He aprendido que es el scrum, su funcionamiento y sus diferentes conceptos. |
 | Pendiente | - | - | - | - | - | - |
 
 **Resumen del mes (parcial):**  
