@@ -88,9 +88,10 @@ EcoQuest es una solución multiplataforma diseñada para fomentar la educación 
   
    
 ### Actores y Roles
-- **Usuario**: Cualquier particular que tenga la aplicación.
-- **Comunidades**: Cualquier persona u organización que administre la comunidad.
-- **Administrador**: Un superusuario que gestiona y modera la plataforma a través de la aplicación de escritorio.
+- **Usuario**: Cualquier persona que utiliza la aplicación para interactuar con comunidades o retos.
+- **Comunidades**: 	Grupos creados por personas u organizaciones con intereses comunes.
+- **Administrador de comunidad**: Persona responsable de gestionar y moderar una comunidad específica. Puede aceptar miembros, publicar contenido, y configurar reglas internas.
+- **Administrador**: Superusuario con acceso a la aplicación de escritorio. Supervisa, modera y gestiona el funcionamiento general de la plataforma. Tiene autoridad sobre todas las comunidades.
 
 ### Arquitectura general
 
@@ -100,7 +101,7 @@ EcoQuest es una solución multiplataforma diseñada para fomentar la educación 
   
 ## Casos de Uso Principales
 
-## Para Usuarios
+### 📲 Para Usuarios
 
 | Casos de Uso | Descripción | Prioridad |
 |:-- |:---- | :--: |
@@ -115,7 +116,29 @@ EcoQuest es una solución multiplataforma diseñada para fomentar la educación 
 | Juegos ecologicos para niños | Juegos simples para fomentar las ODS | Baja |
 | Pantalla Informativa para las ODS | Explicar brevemente que son las ODS y como contribuyen | Baja |
 
-## Riesgos y Mitigación
+### 👨‍💻 Para Administradores de Comunidad
+
+| Casos de Uso | Descripción | Prioridad |
+|:-- |:---- | :--: |
+| Gestión de miembros | Aceptar, rechazar o eliminar miembros de la comunidad | Alta |
+| Publicación de contenido | Crear publicaciones, noticias, eventos o retos dentro de la comunidad | Alta |
+| Moderación de contenido | Eliminar publicaciones inapropiadas o fuera de contexto | Alta |
+| Configuración de comunidad | Editar nombre, descripción, imagen, tipo de comunidad, etc. | Media |
+| Estadísticas de comunidad | Visualizar actividad, retos completados y participación | Media |
+| Envío de notificaciones | Enviar mensajes o recordatorios a los miembros | Media |
+
+### 🛠️ Para Administradores de Plataforma
+
+| Casos de Uso | Descripción | Prioridad |
+|:-- |:---- | :--: |
+| Gestión global de usuarios | Ver, suspender o eliminar cuentas de usuarios | Alta |
+| Gestión global de comunidades | Supervisar, editar o eliminar comunidades | Alta |
+| Moderación de contenido | Revisar y eliminar contenido reportado o inapropiado | Alta |
+| Panel de control | Acceso a métricas generales de uso, actividad y crecimiento | Alta |
+| Configuración de plataforma | Ajustes generales como idioma, permisos, categorías de retos | Media |
+| Gestión de retos globales | Crear, editar o eliminar retos ecológicos disponibles para todos | Media |
+
+## ⚠️ Riesgos y Mitigación
 
 | Riesgo | Mitigación |
 |:-- |:---- |
@@ -150,6 +173,7 @@ EcoQuest es una solución multiplataforma diseñada para fomentar la educación 
 ```
 https://github.com/Prompt-pi2damiesbalmis/
 ├── docs/
+|   |── Assets           ← imagenes, iconos, logos
 │   ├── PROYECTO.md      ← visión, ODS, casos de uso
 │   ├── DISENO.md        ← modelo, decisiones arquitectónicas
 │   └── DIARIO.md        ← seguimiento semanal individual
