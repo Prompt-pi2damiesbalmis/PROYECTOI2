@@ -4,7 +4,10 @@
 System_Boundary(sistema, "EcoQuest") {
     Person(usuario, "Usuario")
     Person(comunidad, "Comunidad")
+<<<<<<< HEAD
     Person(administradorComunidad, "AdministradorComunidad")
+=======
+>>>>>>> michel
     Person(administrador, "Administrador")
     
     Container(android_usuario, "App Android", "Android", "Interfaz para Usuarios")
@@ -15,7 +18,10 @@ System_Boundary(sistema, "EcoQuest") {
 
 Rel(usuario, android_usuario, "")
 Rel(comunidad, android_comunidad, "")
+<<<<<<< HEAD
 Rel(administradorComunidad, android_comunidad, "")
+=======
+>>>>>>> michel
 Rel(administrador, wpf_admin, "")
 
 Rel(android_usuario, api_service, "API Rest [HTTP]")
