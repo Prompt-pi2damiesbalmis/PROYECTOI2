@@ -96,7 +96,7 @@ EcoQuest es una solución multiplataforma diseñada para fomentar la educación 
 ### Arquitectura general
 
 <div style="text-align: center;">
-  <img src="./Assets/arquitectura.png" alt="EcoQuest" width="60%"/>
+  <img src="./Assets/arquitectura.png" alt="EcoQuest" width="90%"/>
 </div>
   
 ## Casos de Uso Principales
