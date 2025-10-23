@@ -38,6 +38,7 @@
 | 07/10 | 🔥S8 | Creacion de proyecto y nombre | ⏱️2h |  |  | Hemos pensado el proyecto que vamos a hacer y el nombre.
 | 13/10 | 🎯S9 | Creacion propuesta de proyecto | ⏱️1h |  |  | Hemos creado la propuesta del proyecto
 | 14/10 | 📚S10 | Aprendimos que es la metodologia de SRCUM| ⏱️2h |  |  | Hemos realizado unos test para aprender
+| 21/10 | 📚S11 | Aprendimos los diferentes roles del SCRUM| ⏱️2h |  |  | Hemos realizado una actividad para aprender la funcion de los roles
 
 **Resumen del mes (Parcial):**
 
