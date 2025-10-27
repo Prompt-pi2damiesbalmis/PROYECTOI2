@@ -39,6 +39,7 @@
 | 13/10 | 🎯S9 | Creacion propuesta de proyecto | ⏱️1h |  |  | Hemos creado la propuesta del proyecto
 | 14/10 | 📚S10 | Aprendimos que es la metodologia de SRCUM| ⏱️2h |  |  | Hemos realizado unos test para aprender
 | 21/10 | 📚S11 | Aprendimos los diferentes roles del SCRUM| ⏱️2h |  |  | Hemos realizado una actividad para aprender la funcion de los roles
+| 27/10 | 📚S12 | Realizamos la tarea Scrum con Github Project| ⏱️1h |  |  | Hemos realizado una actividad para aprender a como usar Scrum en Github
 
 **Resumen del mes (Parcial):**
 
