@@ -38,14 +38,12 @@
 | 14/10/2025 | 📚S6 | - Aprendizaje de la metodología Scrum y GitHub Project. + Test Scrum evaluable | 2h | --- | --- | Investigación de Scrum |
 | 21/10/2025 | 📚S7 | - Actividad Scrum: Fábrica de Aviones de Papel, para aprender los roles de Scrum. | 2h | - Falta de organización, los roles no estaban marcados y la actividad no se tomo en serio | No hubo soluciones pero el trabajo de igual forma salió a flote, el único rol que se salvó fue el de Product Manager ya que tenías que rotar de grupo. | La actividad fue divertida pero demasiado caótica ya que mientras iba corriendo el tiempo y los Springs no daba tiempo a organizarse ni hacer nada con todos los requisitos propuestos. |
 | 27/10/2025 | 📚S8 | - Relizamos la tarea del "Tutorial de Scum en GitHub Project" | 1h | --- | --- | Aprendizaje del funcionamiento de GitHub Project |
-| 28/10/2025 | 🎯S9 | Creación de todos los drafts para el proyecto en GitHub Project, y delegación de tareas | 2h | --- | --- | Desarrollo, charla y estimaciones del proyecto, etc... |
-
-
+| 28/10/2025 | 🎯S9 | - Creación de todos los drafts para el proyecto en GitHub Project, y delegación de tareas | 2h | --- | --- | Desarrollo, charla y estimaciones del proyecto, etc... |
 
 
 **Resumen del mes**:
 
- - **Total de horas:** 9h
+ - **Total de horas:** 11h
  - **Principales logros:** 3
  - **Área de mejora:** Apendiendo Markdown, Planificación del proyecto, Roles de Scrum, Aprendizaje de GitHub Project...
  - **Próximos objetivos:** 
@@ -57,12 +55,12 @@
  ## Noviembre 2025
 | Fecha | Sesión | Tareas Realizadas | Tiempo | Problemas Encontrados | Soluciones Aplicadas | Reflexión/Aprendizaje |
 |:--: | :--: | :--: | :--: | :--: | :--: | :--: |
-| *Pendiente* | - | - | - | - | - | - |
+| 3/11/2025 | 🔥S10 | - Desarrollo la base de datos y sus relaciones  | 1h | - | - | Lluvia de ideas para la creación de las tablas de la base de datos y sus relaciones |
 
 
 **Resumen del mes**:
 
- - **Total de horas:**  
+ - **Total de horas: 1h
  - **Principales logros:**
  - **Área de mejora:** 
  - **Próximos objetivos:** 
