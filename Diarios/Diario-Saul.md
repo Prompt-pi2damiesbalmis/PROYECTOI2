@@ -56,6 +56,7 @@
 | Fecha | Sesión | Tareas Realizadas | Tiempo | Problemas Encontrados | Soluciones Aplicadas | Reflexión/Aprendizaje |
 | ---- |-----|-----|-- | ----|-----|-----| 
 | 03/11 | 📚S14 | Empezamos a crear el diagrama de la base de datos | ⏱️1h |  |  | Hemos definido algunas tablas pero aun quedan las relaciones
+| 04/11 | 📚S15 | Terminamos de hacer el diagrama de la base de datos | ⏱️1h |  |  | Hemos definido todas las tablas y relaciones de la base de datos
 
 
 **Resumen del mes (Parcial):**
