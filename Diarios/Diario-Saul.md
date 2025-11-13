@@ -57,6 +57,8 @@
 | ---- |-----|-----|-- | ----|-----|-----| 
 | 03/11 | 📚S14 | Empezamos a crear el diagrama de la base de datos | ⏱️1h |  |  | Hemos definido algunas tablas pero aun quedan las relaciones
 | 04/11 | 📚S15 | Terminamos de hacer el diagrama de la base de datos | ⏱️1h |  |  | Hemos definido todas las tablas y relaciones de la base de datos
+| 11/11 | 📚S16 | Empezamos con el diseño de la aplicacion y la creacion de datos de prueba | ⏱️2h |  |  | Hemos creado datos de prueba para C#, Java y Kotlin y hemos empezado con el prototipo de la aplicacion
+
 
 
 **Resumen del mes (Parcial):**
