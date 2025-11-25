@@ -39,6 +39,8 @@
 | Fecha | Sesión | Tareas Realizadas | Tiempo | Problemas Encontrados | Soluciones Aplicadas | Reflexión / Aprendizaje |
 |-------|---------|-------------------|---------|------------------------|----------------------|--------------------------|
 | 13/10/2025  |2  |definir la idea de proyecto  |15 mins  |a la profesora se le cayo un mueble  |  |  |
+| 27/10/2025  |1  |Crear el backlog en github  |60  mins  |demasiados problemas  | IA | No quiero hacer mas esto | A veces hay que hacer cosas que uno no quiere
+| 8/10/2025  |1  |Crear el backlog del proyecto  |30 mins  |ninguno  |  |  |
 
 ---
 
