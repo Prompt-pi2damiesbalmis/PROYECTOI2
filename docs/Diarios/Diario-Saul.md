@@ -64,7 +64,7 @@
 
 **Resumen del mes (Parcial):**
 
-- **Total de horas:** 1
+- **Total de horas:** 6
 - **Principales logros:**
 - **Area de mejora:**
 - **Proximos objetivos:**

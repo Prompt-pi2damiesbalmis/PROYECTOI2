@@ -40,9 +40,12 @@
 |:------:|:-------|:------------------|:--------|:----------------------|:----------------------|:-------------------------|
 | 06/10 | 📚S4 | - Realización del diario con Markdown | 1h | Ninguna dificultad | No fue necesario | Herramienta muy util donde no es necesario complicarse mucho para hacer un buen pdf |
 | 07/10 | 📚S5 | -Elección de la idea sobre el proyecto, nombre y generación de imagenes para el ejemplo que hay que entregar| 2h | Dificultad al elegir diferentes ideas ya que había muchas con potencial | Hemos hecho una selección con pros y contras y hemos elegido la mas factible con mas pros | Hemos aprendido a optimizar el tiempo  |
-| 13/10 | 📚S6 | -Realizacion del esquema de arquitectura general con el modelo c4 de puml | 1h | Ninguno | - | He aprendido a hacer esquemas de arquitectura general para los usuarios, y administradores. |
+| 13/10 | 📚S6 | -Realizacion del esquema de arquitectura general con el modelo c4 de puml | 1h | Ninguno | Ninguna | He aprendido a hacer esquemas de arquitectura general para los usuarios, y administradores. |
 | 14/10 | 📚S7 | -Hemos aprendido que es el scrum, hemos hecho un quiz y un test sobre ello | 2h | Dificultad al tener muchos conceptos diferentes y nuevos, y hacer el test. | Aprendizaje de conceptos nuevos | He aprendido que es el scrum, su funcionamiento y sus diferentes conceptos. |
-| Pendiente | - | - | - | - | - | - |
+| 21/10 | 📚S8 | -Hemos hecho una actividad sobre el backlog con los issues de los aviones | 2h | Dificultad en poder organizar con nuevos integrantes de product owners y evaluaciones. | Buena organizacion y realizacion de buenos proyectos. | Aprendimos como funcionaba el ToDo, el in process y el done. |
+| 27/10 | 📚S9 | -Realización de actividad de scrum con github  implementar Scrum utilizando exclusivamente las herramientas nativas de GitHub Projects  | 2h | Dificultad al gestionar un proyecto con una nueva interfaz para mi. | Aprendizaje de conceptos nuevos | He aprendido a implementar scrum |
+| 28/10 | 📚S10 | -Planificación aproximada de Sprints por quincena | 2h | Ninguna dificultad | Ningun problema encontrado | Organizacion facil y bien estructurada |  
+
 
 **Resumen del mes (parcial):**  
 - **Total de horas:**  
@@ -56,6 +59,10 @@
 
 | Fecha | Sesión | Tareas Realizadas | Tiempo | Problemas Encontrados | Soluciones Aplicadas | Reflexión / Aprendizaje |
 |:------:|:-------|:------------------|:--------|:----------------------|:----------------------|:-------------------------|
+| 03/11 | 📚S11 | -Planificación en Draw.io de diagramas y relaciones de la aplicacion | 1h | Ninguna dificultad | Ningun problema encontrado | Facilidad de usar ese programa y relaciones terminadas. |  
+| 04/11 | 📚S12 | -Creación de las tablas con planuml y relaciones de dichas tablas | 2h | Dificultad a la hora de relacionar la tablas con lo que queriamos hacer. | Relacionar bien las tablas | Relacion de tablas arregladas y bien hechas. |  
+| 11/11 | 📚S13 | -Creacion del prototipado de figma | 2h | Dificultad a la hora de diseñar las diferentes pantallas y conectores | Diseñar en papel antes de pasar a la web | Mayor flexibilidad para programar despues |
+| 18/11 | 📚S14 | -Seguimos con la creacion del prototipado de figma | 2h | Ninguna dificultad | Ninguna dificultad | Mayor flexibilidad para programar despues |
 | Pendiente | - | - | - | - | - | - |
 
 ---
