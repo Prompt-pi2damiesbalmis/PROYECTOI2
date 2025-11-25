@@ -58,11 +58,12 @@
 | 3/11/2025 | 🔥S10 | - Desarrollo la base de datos y sus relaciones  | 1h | - | - | Lluvia de ideas para la creación de las tablas de la base de datos y sus relaciones |
 | 4/11/2025 | 🔄S11 | - Definir últimos retoques de la base de datos  | 1h | - Ides de la base de datos y definición de los campos y relaciones | -  | Acabar de determinar la base de datos |
 | 11/11/2025 | 🎯S12 | - Distribución de tareas y incio para la realización de estas  | 2h | - | - | Mejorar creatividad para realizar la maquetación de la aplicación |
-
+| 18/11/2025 | 🎯S13 | - Inicio de la maquetación de la aplicación  | 2h | - | - | Maquetación de la aplicación |
+| 25/11/2025 | 🔥S14 | - Fianlización de la maquetación de mi sección de la aplicación  | 2h | - | - | Maquetación de la sección de la aplicación |
 
 **Resumen del mes**:
 
- - **Total de horas: 4h
+ - **Total de horas:** 8h
  - **Principales logros:**
  - **Área de mejora:** 
  - **Próximos objetivos:** 
