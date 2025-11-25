@@ -16,4 +16,8 @@ public class Nivel
             Puntos = puntos;
             Icono = icono;
         }
+        public void NivelSubir()
+        {
+            
+        }
     }
