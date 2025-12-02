@@ -77,12 +77,11 @@
 | Fecha | Sesión | Tareas Realizadas | Tiempo | Problemas Encontrados | Soluciones Aplicadas | Reflexión/Aprendizaje |
 | ---- |-----|-----|-- | ----|-----|-----| 
 | 01/12 | 📚S19 | Empiezo con el prototipo de escritorio | ⏱️1h |  |  | Hemos asignado cual hacer cada uno
-
-
+| 02/12 | 📚S19 | Acabo el prototipado de escritorio eventos | ⏱️2h |  |  | Hemos acabado el Sprint 3
 
 **Resumen del mes: (parcial)**
 
-- **Total de horas:** 1
+- **Total de horas:** 3
 - **Principales logros:** 
 - **Area de mejora:**
 - **Proximos objetivos:**
