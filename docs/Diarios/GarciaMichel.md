@@ -10,7 +10,10 @@
   - [📅 Septiembre 2025](#-septiembre-2025)
     - [🧾 Resumen del mes:](#-resumen-del-mes)
   - [📅 Octubre 2025](#-octubre-2025)
+    - [🧾 Resumen del mes:](#-resumen-del-mes-1)
   - [📅 Noviembre 2025](#-noviembre-2025)
+    - [🧾 Resumen del mes:](#-resumen-del-mes-2)
+  - [📅 Diciembre 2025](#-diciembre-2025)
   - [🧭 Leyenda de Códigos](#-leyenda-de-códigos)
 
 ---
@@ -47,11 +50,12 @@
 | 28/10 | 📚S10 | -Planificación aproximada de Sprints por quincena | 2h | Ninguna dificultad | Ningun problema encontrado | Organizacion facil y bien estructurada |  
 
 
-**Resumen del mes (parcial):**  
-- **Total de horas:**  
-- **Principales logros:**  
-- **Área de mejora:**  
-- **Próximos objetivos:**  
+### 🧾 Resumen del mes:
+
+- **Total de horas:** 12h
+- **Principales logros:** Aprendizaje de Github projects y de Figma.
+- **Área de mejora:** Planificación aproximada de Sprints.
+- **Próximos objetivos:** Prototipado de figma.
 
 ---
 
@@ -63,6 +67,25 @@
 | 04/11 | 📚S12 | -Creación de las tablas con planuml y relaciones de dichas tablas | 2h | Dificultad a la hora de relacionar la tablas con lo que queriamos hacer. | Relacionar bien las tablas | Relacion de tablas arregladas y bien hechas. |  
 | 11/11 | 📚S13 | -Creacion del prototipado de figma | 2h | Dificultad a la hora de diseñar las diferentes pantallas y conectores | Diseñar en papel antes de pasar a la web | Mayor flexibilidad para programar despues |
 | 18/11 | 📚S14 | -Seguimos con la creacion del prototipado de figma | 2h | Ninguna dificultad | Ninguna dificultad | Mayor flexibilidad para programar despues |
+| 25/11 | 📚S15 | -Seguimos con la creacion del prototipado de figma | 2h | Ninguna dificultad | Ninguna dificultad | Mayor flexibilidad para programar despues |
+
+
+### 🧾 Resumen del mes:  
+
+- **Total de horas:** 9h
+- **Principales logros:** Muy buen prototipado.
+- **Área de mejora:** Mejor organizacion y comunicacion.
+- **Próximos objetivos:** Diseño de WPF y la aplicacion de escritorio.
+  
+---
+
+## 📅 Diciembre 2025
+
+| Fecha | Sesión | Tareas Realizadas | Tiempo | Problemas Encontrados | Soluciones Aplicadas | Reflexión / Aprendizaje |
+|:------:|:-------|:------------------|:--------|:----------------------|:----------------------|:-------------------------|
+| 01/12 | 📚S16 | -Seguimos con la creacion del prototipado de figma | 1h | Ninguna dificultad | Ninguna dificultad | Mayor flexibilidad para programar despues |
+| 02/12 | 📚S17 | -Hemos terminado con la creacion del prototipado de figma y el spring 3 | 2h | Dificultad a la hora de la organizacion del nuevo spring | Ningun problema encontrado | Organizacion terminada y hablada entre todos y mejor comunicacion. |  
+
 | Pendiente | - | - | - | - | - | - |
 
 ---
