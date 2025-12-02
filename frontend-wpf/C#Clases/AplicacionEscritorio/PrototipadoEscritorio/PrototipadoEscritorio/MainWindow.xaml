@@ -1,0 +1,153 @@
+﻿<Window x:Class="PrototipadoEscritorio.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PrototipadoEscritorio"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <Grid>
+
+        <!-- Fondo decorativo: degradado y formas suaves tipo paisaje -->
+        <Grid>
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#FFF6F9F5" Offset="0" />
+                    <GradientStop Color="#FFEFF6F0" Offset="1" />
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <!-- Colinas -->
+            <Path Fill="#D5EEDC" Stretch="Fill" Opacity="0.7"
+                  Margin="0,0,0,80"
+                  Data="M0,300 C200,250 300,400 560,340 C800,300 920,420 1120,360 L1120,720 L0,720 Z"/>
+            <Path Fill="#BEE6CC" Stretch="Fill" Opacity="0.6"
+                  Margin="0,0,0,60"
+                  Data="M0,380 C220,330 340,480 600,420 C820,380 940,500 1120,460 L1120,720 L0,720 Z"/>
+            <Path Fill="#9FDDB8" Stretch="Fill" Opacity="0.5"
+                  Margin="0,0,0,40"
+                  Data="M0,440 C240,400 360,520 620,480 C840,450 960,540 1120,520 L1120,720 L0,720 Z"/>
+
+            <!-- Plantas estilizadas (simple) -->
+            <Ellipse Fill="#8CCFA7" Width="140" Height="140" Opacity="0.25" Margin="40,0,0,40" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+            <Ellipse Fill="#74C493" Width="90" Height="90" Opacity="0.25" Margin="140,0,0,30" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+            <Ellipse Fill="#74C493" Width="110" Height="110" Opacity="0.2" Margin="0,0,40,30" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+        </Grid>
+
+        <!-- Layout principal con barra lateral + contenido -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="260"/>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Sidebar -->
+            <Border Grid.Column="0" Background="{StaticResource BrushSidebar}">
+                <Grid Margin="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Logo / título -->
+                    <StackPanel Grid.Row="0" Orientation="Vertical" Margin="0,10,0,10">
+                        <TextBlock Text="EcoQuest" Foreground="White"
+                                   FontFamily="{StaticResource FontSans}"
+                                   FontSize="22" FontWeight="Bold" />
+                        <TextBlock Text="Panel de administración"
+                                   Foreground="#CCFFFFFF"
+                                   FontFamily="{StaticResource FontSans}"
+                                   FontSize="12" />
+                    </StackPanel>
+
+                    <!-- Separador suave -->
+                    <Border Grid.Row="1" Style="{StaticResource SoftSeparator}" Background="#22FFFFFF" />
+
+                    <!-- Navegación -->
+                    <StackPanel Grid.Row="2" Orientation="Vertical">
+                        <Button Style="{StaticResource SidebarButton}" Content="Usuarios" />
+                        <Button Style="{StaticResource SidebarButton}" Content="Eventos" />
+                        <Button Style="{StaticResource SidebarButton}" Content="Comunidades" Background="{StaticResource BrushSidebarAccent}"/>
+                        <Button Style="{StaticResource SidebarButton}" Content="Tienda" />
+                    </StackPanel>
+
+                    <!-- Pie -->
+                    <StackPanel Grid.Row="3" Orientation="Vertical" Margin="0,20,0,0">
+                        <Border Background="#22FFFFFF" CornerRadius="8" Padding="10">
+                            <TextBlock Text="v0.1 • WPF"
+                                       Foreground="#CCFFFFFF"
+                                       FontFamily="{StaticResource FontSans}"
+                                       FontSize="12" />
+                        </Border>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- Contenido principal -->
+            <Grid Grid.Column="1" Margin="30">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <!-- Encabezado -->
+                <StackPanel Grid.Row="0" Orientation="Vertical">
+                    <TextBlock Text="Comunidades" Style="{StaticResource TitleText}" />
+                    <TextBlock Text="Administra comunidades y sus eventos"
+                               Style="{StaticResource SubtitleText}" />
+                </StackPanel>
+
+                <!-- Espaciador -->
+                <Border Grid.Row="1" Style="{StaticResource SoftSeparator}" />
+
+                <!-- Sección de opciones -->
+                <Grid Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Text="Opciones" Style="{StaticResource SectionTitleText}" />
+
+                    <Grid Grid.Row="2">
+                        <!-- Layout 3 columnas para equilibrio visual -->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Lista de Eventos -->
+                        <Border Grid.Column="0" Style="{StaticResource OptionItem}">
+                            <StackPanel>
+                                <TextBlock Text="Lista de Eventos" Style="{StaticResource TitleText}" FontSize="16"/>
+                                <TextBlock Text="Ver el listado de eventos de las comunidades" Style="{StaticResource SubtitleText}"/>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Eventos en revisión -->
+                        <Border Grid.Column="1" Style="{StaticResource OptionItem}">
+                            <StackPanel>
+                                <TextBlock Text="Eventos en revisión" Style="{StaticResource TitleText}" FontSize="16"/>
+                                <TextBlock Text="Gestiona los eventos pendientes de aprobación" Style="{StaticResource SubtitleText}"/>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Eliminar evento -->
+                        <Border Grid.Column="2" Style="{StaticResource OptionItem}">
+                            <StackPanel>
+                                <TextBlock Text="Eliminar evento" Style="{StaticResource TitleText}" FontSize="16"/>
+                                <TextBlock Text="Quita eventos que ya no deban mostrarse" Style="{StaticResource SubtitleText}"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
