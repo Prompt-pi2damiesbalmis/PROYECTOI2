@@ -59,13 +59,14 @@
 | 04/11 | 📚S15 | Terminamos de hacer el diagrama de la base de datos | ⏱️1h |  |  | Hemos definido todas las tablas y relaciones de la base de datos
 | 11/11 | 📚S16 | Empezamos con el diseño de la aplicacion y la creacion de datos de prueba | ⏱️2h |  |  | Hemos creado datos de prueba para C#, Java y Kotlin y hemos empezado con el prototipo de la aplicacion
 | 18/11 | 📚S17 | Sigo con los diseños de la aplicacion movil en Figma | ⏱️2h | Falta de tiempo para el prototipado | Nos hemos repartido los prototipados y decidido cual no hacer aun | Mejorar los plazos de tiempo 
+| 25/11 | 📚S18 | Termino los prototipados de movil| ⏱️2h | Falta de tiempo para el prototipado | Nos hemos repartido los prototipados y decidido cual no hacer aun | Mejorar los plazos de tiempo 
 
 
 
-**Resumen del mes (Parcial):**
+**Resumen del mes:**
 
-- **Total de horas:** 6
-- **Principales logros:**
+- **Total de horas:** 8
+- **Principales logros:** Prototipado de movil 
 - **Area de mejora:**
 - **Proximos objetivos:**
   
