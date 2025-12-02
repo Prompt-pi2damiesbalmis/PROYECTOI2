@@ -72,6 +72,23 @@
   
 [🔝Volver al índice](#índice-de-meses)
 
+## Diciembre 2025
+
+| Fecha | Sesión | Tareas Realizadas | Tiempo | Problemas Encontrados | Soluciones Aplicadas | Reflexión/Aprendizaje |
+| ---- |-----|-----|-- | ----|-----|-----| 
+| 01/12 | 📚S19 | Empiezo con el prototipo de escritorio | ⏱️1h |  |  | Hemos asignado cual hacer cada uno
+
+
+
+**Resumen del mes: (parcial)**
+
+- **Total de horas:** 1
+- **Principales logros:** 
+- **Area de mejora:**
+- **Proximos objetivos:**
+  
+[🔝Volver al índice](#índice-de-meses)
+
 ### Leyenda de Códigos:
 - 🔥 Sesión muy productiva
 - ⚠️ Sesión con muchos bloqueos
