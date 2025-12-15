@@ -8,6 +8,7 @@
 - 📅 Septiembre 2025
 - 📅 Octubre 2025
 - 📅 Noviembre 2025
+- 📅 Diciembre 2025
 
 
 ## Septiembre 2025
@@ -77,11 +78,12 @@
 | Fecha | Sesión | Tareas Realizadas | Tiempo | Problemas Encontrados | Soluciones Aplicadas | Reflexión/Aprendizaje |
 | ---- |-----|-----|-- | ----|-----|-----| 
 | 01/12 | 📚S19 | Empiezo con el prototipo de escritorio | ⏱️1h |  |  | Hemos asignado cual hacer cada uno
-| 02/12 | 📚S19 | Acabo el prototipado de escritorio eventos | ⏱️2h |  |  | Hemos acabado el Sprint 3
+| 02/12 | 📚S20 | Acabo el prototipado de escritorio eventos | ⏱️2h |  |  | Hemos acabado el Sprint 3
+| 15/12 | 📚S21 | Empezamos el diseño de WPF | ⏱️1h | Saber como hacer la estructura | Preguntar a Manuel | Hemos empezado creando el proyecto y la primera base del diseño
 
 **Resumen del mes: (parcial)**
 
-- **Total de horas:** 3
+- **Total de horas:** 4
 - **Principales logros:** 
 - **Area de mejora:**
 - **Proximos objetivos:**
