@@ -80,10 +80,11 @@
 | 01/12 | 📚S19 | Empiezo con el prototipo de escritorio | ⏱️1h |  |  | Hemos asignado cual hacer cada uno
 | 02/12 | 📚S20 | Acabo el prototipado de escritorio eventos | ⏱️2h |  |  | Hemos acabado el Sprint 3
 | 15/12 | 📚S21 | Empezamos el diseño de WPF | ⏱️1h | Saber como hacer la estructura | Preguntar a Manuel | Hemos empezado creando el proyecto y la primera base del diseño
+| 16/12 | 📚S22 | Empezamos el diseño de WPF de Eventos | ⏱️2h |  | | Seguimos con los diseños de WPF
 
 **Resumen del mes: (parcial)**
 
-- **Total de horas:** 4
+- **Total de horas:** 6
 - **Principales logros:** 
 - **Area de mejora:**
 - **Proximos objetivos:**
