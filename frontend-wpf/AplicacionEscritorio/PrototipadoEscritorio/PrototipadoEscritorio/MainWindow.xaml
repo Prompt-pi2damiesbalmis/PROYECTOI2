@@ -12,20 +12,8 @@
 
         <!-- ====================== FONDO CON COLINAS ====================== -->
         <Grid>
-            <Grid.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                    <GradientStop Color="#FFF6F9F5" Offset="0"/>
-                    <GradientStop Color="#FFEFF6F0" Offset="1"/>
-                </LinearGradientBrush>
-            </Grid.Background>
-
-            <Path Fill="#D5EEDC" Opacity="0.7" Stretch="Fill"
-                  Data="M0,300 C200,250 300,400 560,340 C800,300 920,420 1120,360 L1120,720 L0,720 Z"/>
-            <Path Fill="#BEE6CC" Opacity="0.6" Stretch="Fill"
-                  Data="M0,380 C220,330 340,480 600,420 C820,380 940,500 1120,460 L1120,720 L0,720 Z"/>
-            <Path Fill="#9FDDB8" Opacity="0.5" Stretch="Fill"
-                  Data="M0,440 C240,400 360,520 620,480 C840,450 960,540 1120,520 L1120,720 L0,720 Z"/>
-        </Grid>
+            <Image Source="/Assets/Fondo.png" Stretch="Fill" Panel.ZIndex="0" />
+        
 
         <!-- ====================== LAYOUT PRINCIPAL ====================== -->
         <Grid>
@@ -124,5 +112,6 @@
                            VerticalAlignment="Top"/>
             </Grid>
         </Grid>
+    </Grid>
     </Grid>
 </Window>
