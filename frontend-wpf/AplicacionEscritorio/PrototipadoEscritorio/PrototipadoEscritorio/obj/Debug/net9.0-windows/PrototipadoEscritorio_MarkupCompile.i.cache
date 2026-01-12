@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\alumno\Desktop\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorio\PrototipadoEscritorio\PrototipadoEscritorio\App.xaml
-2-237617097
+3-1208890078
 
-7-1193631049
+8-1056337962
 200-1531957912
-MainWindow.xaml;Views\MainWindow.xaml;
+MainWindow.xaml;Views\Base.xaml;Views\Eventos.xaml;
 
 False
 

@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\alumno\\Desktop\\Proyecto\\PROYECTOI2\\frontend-wpf\\AplicacionEscritorio\\PrototipadoEscritorio\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3699BD33-E80C-4111-9100-51110EF0E1C7}|PrototipadoEscritorio\\PrototipadoEscritorio.csproj|c:\\users\\alumno\\desktop\\proyecto\\proyectoi2\\frontend-wpf\\aplicacionescritorio\\prototipadoescritorio\\prototipadoescritorio\\views\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{3699BD33-E80C-4111-9100-51110EF0E1C7}|PrototipadoEscritorio\\PrototipadoEscritorio.csproj|solutionrelative:prototipadoescritorio\\views\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{3699BD33-E80C-4111-9100-51110EF0E1C7}|PrototipadoEscritorio\\PrototipadoEscritorio.csproj|c:\\users\\alumno\\desktop\\proyecto\\proyectoi2\\frontend-wpf\\aplicacionescritorio\\prototipadoescritorio\\prototipadoescritorio\\views\\base.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3699BD33-E80C-4111-9100-51110EF0E1C7}|PrototipadoEscritorio\\PrototipadoEscritorio.csproj|solutionrelative:prototipadoescritorio\\views\\base.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3699BD33-E80C-4111-9100-51110EF0E1C7}|PrototipadoEscritorio\\PrototipadoEscritorio.csproj|c:\\users\\alumno\\desktop\\proyecto\\proyectoi2\\frontend-wpf\\aplicacionescritorio\\prototipadoescritorio\\prototipadoescritorio\\views\\eventos.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3699BD33-E80C-4111-9100-51110EF0E1C7}|PrototipadoEscritorio\\PrototipadoEscritorio.csproj|solutionrelative:prototipadoescritorio\\views\\eventos.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3699BD33-E80C-4111-9100-51110EF0E1C7}|PrototipadoEscritorio\\PrototipadoEscritorio.csproj|c:\\users\\alumno\\desktop\\proyecto\\proyectoi2\\frontend-wpf\\aplicacionescritorio\\prototipadoescritorio\\prototipadoescritorio\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -103,18 +107,30 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\alumno\\Desktop\\Proyecto\\PROYECTOI2\\frontend-wpf\\AplicacionEscritorio\\PrototipadoEscritorio\\PrototipadoEscritorio\\Views\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "PrototipadoEscritorio\\Views\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\alumno\\Desktop\\Proyecto\\PROYECTOI2\\frontend-wpf\\AplicacionEscritorio\\PrototipadoEscritorio\\PrototipadoEscritorio\\Views\\MainWindow.xaml",
-              "RelativeToolTip": "PrototipadoEscritorio\\Views\\MainWindow.xaml",
+              "Title": "Base.xaml",
+              "DocumentMoniker": "C:\\Users\\alumno\\Desktop\\Proyecto\\PROYECTOI2\\frontend-wpf\\AplicacionEscritorio\\PrototipadoEscritorio\\PrototipadoEscritorio\\Views\\Base.xaml",
+              "RelativeDocumentMoniker": "PrototipadoEscritorio\\Views\\Base.xaml",
+              "ToolTip": "C:\\Users\\alumno\\Desktop\\Proyecto\\PROYECTOI2\\frontend-wpf\\AplicacionEscritorio\\PrototipadoEscritorio\\PrototipadoEscritorio\\Views\\Base.xaml",
+              "RelativeToolTip": "PrototipadoEscritorio\\Views\\Base.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-12-16T12:39:34.382Z",
+              "WhenOpened": "2026-01-12T11:24:23.359Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
+              "Title": "Eventos.xaml",
+              "DocumentMoniker": "C:\\Users\\alumno\\Desktop\\Proyecto\\PROYECTOI2\\frontend-wpf\\AplicacionEscritorio\\PrototipadoEscritorio\\PrototipadoEscritorio\\Views\\Eventos.xaml",
+              "RelativeDocumentMoniker": "PrototipadoEscritorio\\Views\\Eventos.xaml",
+              "ToolTip": "C:\\Users\\alumno\\Desktop\\Proyecto\\PROYECTOI2\\frontend-wpf\\AplicacionEscritorio\\PrototipadoEscritorio\\PrototipadoEscritorio\\Views\\Eventos.xaml",
+              "RelativeToolTip": "PrototipadoEscritorio\\Views\\Eventos.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-01-12T11:21:51.676Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "AssemblyInfo.cs",
               "DocumentMoniker": "C:\\Users\\alumno\\Desktop\\Proyecto\\PROYECTOI2\\frontend-wpf\\AplicacionEscritorio\\PrototipadoEscritorio\\PrototipadoEscritorio\\AssemblyInfo.cs",
               "RelativeDocumentMoniker": "PrototipadoEscritorio\\AssemblyInfo.cs",
@@ -122,24 +138,22 @@
               "RelativeToolTip": "PrototipadoEscritorio\\AssemblyInfo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-16T12:27:48.415Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-16T12:27:48.415Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\alumno\\Desktop\\Proyecto\\PROYECTOI2\\frontend-wpf\\AplicacionEscritorio\\PrototipadoEscritorio\\PrototipadoEscritorio\\MainWindow.xaml",
               "RelativeDocumentMoniker": "PrototipadoEscritorio\\MainWindow.xaml",
               "ToolTip": "C:\\Users\\alumno\\Desktop\\Proyecto\\PROYECTOI2\\frontend-wpf\\AplicacionEscritorio\\PrototipadoEscritorio\\PrototipadoEscritorio\\MainWindow.xaml",
               "RelativeToolTip": "PrototipadoEscritorio\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-12-15T11:18:15.139Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-15T11:18:15.139Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "App.xaml",
               "DocumentMoniker": "C:\\Users\\alumno\\Desktop\\Proyecto\\PROYECTOI2\\frontend-wpf\\AplicacionEscritorio\\PrototipadoEscritorio\\PrototipadoEscritorio\\App.xaml",
               "RelativeDocumentMoniker": "PrototipadoEscritorio\\App.xaml",
@@ -151,7 +165,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\alumno\\Desktop\\Proyecto\\PROYECTOI2\\frontend-wpf\\AplicacionEscritorio\\PrototipadoEscritorio\\PrototipadoEscritorio\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "PrototipadoEscritorio\\MainWindow.xaml.cs",
@@ -159,8 +173,7 @@
               "RelativeToolTip": "PrototipadoEscritorio\\MainWindow.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-02T13:39:31.455Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-02T13:39:31.455Z"
             }
           ]
         },
