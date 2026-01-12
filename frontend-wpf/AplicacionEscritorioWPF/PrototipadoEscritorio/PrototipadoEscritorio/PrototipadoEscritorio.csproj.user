@@ -5,6 +5,9 @@
     <Compile Update="Views\Base.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Comunidades.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Eventos.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
