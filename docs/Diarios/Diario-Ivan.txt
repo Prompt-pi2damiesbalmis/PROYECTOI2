@@ -74,6 +74,16 @@
 | Fecha | Sesión | Tareas Realizadas | Tiempo | Problemas Encontrados | Soluciones Aplicadas | Reflexión/Aprendizaje |
 |:--: | :--: | :--: | :--: | :--: | :--: | :--: |
 | 2/12/2025 | 🔥S15 | - Finalización de la maquetación de mi sección de la aplicación de escritorio | 2h | - | - | Gestión de tiempos y organización |
+| 15/12/2025 | 🎯S16 | - Distribución del trabajo para la creación del proyecto de WPF | 1h |  |  | Organización de las tareas a realizar |
+
+
+
+🔝 [Volver arriba](#diario-de-trabajo-individual)
+
+## Enero 2026
+| Fecha | Sesión | Tareas Realizadas | Tiempo | Problemas Encontrados | Soluciones Aplicadas | Reflexión/Aprendizaje |
+|:--: | :--: | :--: | :--: | :--: | :--: | :--: |
+| 12/01/2025 | 🎯S17 | - Organización del código y ramas de github para la subida del trabajo   | 1h | - Commits y organización del trabajo | Borrar proyectos en todos los dispositivos y volver a clonarlos | Gestión de tiempos y organización |
 
 
 
