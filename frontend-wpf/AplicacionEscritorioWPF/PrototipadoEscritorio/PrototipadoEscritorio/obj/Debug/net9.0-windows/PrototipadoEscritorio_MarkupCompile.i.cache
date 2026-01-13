@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\alumno\Desktop\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\App.xaml
-41862683630
+6935310606
 
-91751904283
-200-1531957912
-MainWindow.xaml;Views\Base.xaml;Views\Comunidades.xaml;Views\Eventos.xaml;
+11897014470
+2002054085731
+MainWindow.xaml;Views\Accesorios.xaml;Views\Añadir-Accesorio.xaml;Views\Base.xaml;Views\Comunidades.xaml;Views\Eventos.xaml;
 
-True
+False
 

@@ -84,6 +84,7 @@
 | Fecha | Sesión | Tareas Realizadas | Tiempo | Problemas Encontrados | Soluciones Aplicadas | Reflexión/Aprendizaje |
 |:--: | :--: | :--: | :--: | :--: | :--: | :--: |
 | 12/01/2025 | 🎯S17 | - Organización del código y ramas de github para la subida del trabajo   | 1h | - Commits y organización del trabajo | Borrar proyectos en todos los dispositivos y volver a clonarlos | Gestión de tiempos y organización |
+| 13/01/2025 | 🔥S18 | - División del trabajo de android y WPF y creación de dos pantallas para WPF   | 2h |  |  | Mucho estrés para abordar todo el contenido que nos queda y quedar poco tiempo |
 
 
 
