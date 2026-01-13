@@ -1,12 +1,13 @@
-﻿<Window x:Class="PrototipadoEscritorio.Views.Base"
+﻿<Window x:Class="PrototipadoEscritorio.Views.AñadirAccesorio"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PrototipadoEscritorio.Views"
         mc:Ignorable="d"
-        Title="Base" Height="900" Width="1400"
+        Title="Tienda" Height="900" Width="1400"
         WindowStartupLocation="CenterScreen">
+
     <Grid>
 
         <!-- ====================== FONDO ====================== -->
@@ -105,12 +106,79 @@
                 <StackPanel Grid.Column="1"
                             Margin="60,120,60,60">
 
-                    <Label Content="Texto"
+                    <Label Content="Añadir Accesorio"
                            HorizontalAlignment="Center"
                            FontSize="52"
                            Margin="0,0,0,40"/>
 
-                    
+                    <Border CornerRadius="12"
+                            Background="#F7F9F5"
+                            Padding="20"
+                            Width="420">
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- Nombre -->
+                            <StackPanel Grid.Row="0" Margin="0,0,0,10">
+                                <TextBlock Text="Nombre:" FontWeight="SemiBold"/>
+                                <TextBox Height="32"
+                                         Style="{StaticResource TextBoxPlaceholderStyle}"
+                                         Tag="Introduzca el nombre..."/>
+                            </StackPanel>
+
+                            <!-- Puntos -->
+                            <StackPanel Grid.Row="1" Margin="0,0,0,10">
+                                <TextBlock Text="Puntos:" FontWeight="SemiBold"/>
+                                <TextBox Height="32"
+                                         Style="{StaticResource TextBoxPlaceholderStyle}"
+                                         Tag="Puntos..."/>
+                            </StackPanel>
+
+                            <!-- Imagen -->
+                            <StackPanel Grid.Row="2" Margin="0,0,0,10">
+                                <DockPanel>
+                                    <TextBlock Text="Imagen:"
+                                               FontWeight="SemiBold"
+                                               VerticalAlignment="Center"/>
+                                    <Button Content="Seleccionar img"
+                                            DockPanel.Dock="Right"
+                                            Height="28"
+                                            Padding="10,0" Width="313"/>
+                                </DockPanel>
+
+                                <TextBlock Text="Marco-Personalizado.jpg"
+                                           FontSize="12"
+                                           Foreground="Gray"
+                                           Margin="0,4,0,8"/>
+
+                                <Border BorderBrush="#DDD"
+                                        BorderThickness="1"
+                                        CornerRadius="8"
+                                        Padding="10">
+                                    <Image Width="120"
+                                           Height="120"
+                                           Stretch="Uniform"/>
+                                </Border>
+                            </StackPanel>
+
+                            <!-- Guardar -->
+                            <Button Grid.Row="4"
+                                    Content="Guardar"
+                                    Height="36"
+                                    Width="100"
+                                    HorizontalAlignment="Right"
+                                    Background="#4CAF50"
+                                    Foreground="White"
+                                    BorderThickness="0"/>
+                        </Grid>
+                    </Border>
                 </StackPanel>
 
             </Grid>

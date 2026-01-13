@@ -43,3 +43,14 @@ C:\Users\alumno\Desktop\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorio\Pr
 C:\Users\alumno\Desktop\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorio\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\PrototipadoEscritorio.sourcelink.json
 C:\Users\alumno\Desktop\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorio\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\PrototipadoEscritorio.genruntimeconfig.cache
 C:\Users\alumno\Desktop\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorio\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\ref\PrototipadoEscritorio.dll
+C:\Users\alumno\Desktop\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\MainWindow.g.cs
+C:\Users\alumno\Desktop\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\Views\Añadir-Accesorio.g.cs
+C:\Users\alumno\Desktop\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\Views\Base.g.cs
+C:\Users\alumno\Desktop\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\Views\Comunidades.g.cs
+C:\Users\alumno\Desktop\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\Views\Eventos.g.cs
+C:\Users\alumno\Desktop\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\App.g.cs
+C:\Users\alumno\Desktop\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\PrototipadoEscritorio_MarkupCompile.cache
+C:\Users\alumno\Desktop\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\PrototipadoEscritorio_MarkupCompile.lref
+C:\Users\alumno\Desktop\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\PrototipadoEscritorio.dll
+C:\Users\alumno\Desktop\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\refint\PrototipadoEscritorio.dll
+C:\Users\alumno\Desktop\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\PrototipadoEscritorio.pdb
