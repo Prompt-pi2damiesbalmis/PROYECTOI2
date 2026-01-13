@@ -1,0 +1,20 @@
+# Visual Studio
+.vs/
+**/.vs/
+
+# Archivos de usuario
+*.user
+*.suo
+
+# Archivos de compilación
+bin/
+obj/
+**/bin/
+**/obj/
+
+# Caches
+*.cache
+*.v2
+*.v9.bin
+*.dtbcache.v2
+*.vsidx
