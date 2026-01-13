@@ -91,6 +91,23 @@
   
 [🔝Volver al índice](#índice-de-meses)
 
+## Enero 2026
+
+| Fecha | Sesión | Tareas Realizadas | Tiempo | Problemas Encontrados | Soluciones Aplicadas | Reflexión/Aprendizaje |
+| ---- |-----|-----|-- | ----|-----|-----| 
+| 12/1 | 📚S23 | Ayudo a mi compañeros a actualizar ramas y dejar todo bien | ⏱️1h |  |  | Hemos actualizado ramas
+| 13/1 | 📚S24 | Sigo con el prototipado de WPF, arreglo conflictos creando un gitignore | ⏱️2h |  |  | Crear un gitignore para Visual Studio
+
+
+**Resumen del mes: (parcial)**
+
+- **Total de horas:** 
+- **Principales logros:** 
+- **Area de mejora:**
+- **Proximos objetivos:**
+  
+[🔝Volver al índice](#índice-de-meses)
+
 ### Leyenda de Códigos:
 - 🔥 Sesión muy productiva
 - ⚠️ Sesión con muchos bloqueos
