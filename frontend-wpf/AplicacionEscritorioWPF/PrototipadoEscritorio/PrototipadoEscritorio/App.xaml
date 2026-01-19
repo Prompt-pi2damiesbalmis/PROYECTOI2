@@ -105,17 +105,16 @@
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Padding" Value="0"/>
             <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="Margin" Value="10"/>
 
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border x:Name="Card"
-                Width="200"
-                Height="230"
-                Background="White"
-                CornerRadius="16"
-                Padding="12">
+                            Width="200"
+                            Height="180"
+                            Background="White"
+                            CornerRadius="16"
+                            Padding="0">
 
                             <ContentPresenter/>
                         </Border>
@@ -173,5 +172,8 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+
     </Application.Resources>
 </Application>

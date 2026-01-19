@@ -11,10 +11,12 @@
 
         <!-- ====================== FONDO ====================== -->
         <Grid>
-            <Image Source="/Assets/Fondo.png"
-                   Stretch="Fill"
-                   Panel.ZIndex="0"
-                   Margin="10,0,0,0"/>
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/Fondo.png"
+            Stretch="UniformToFill"
+            AlignmentX="Center"
+            AlignmentY="Center"/>
+            </Grid.Background>
 
             <!-- ====================== LAYOUT PRINCIPAL ====================== -->
             <Grid>
@@ -97,7 +99,6 @@
                             BorderThickness="0"
                             FontSize="20"
                             HorizontalAlignment="Left"
-                            Click="BtnOpciones_Click"
                             />
                 </Grid>
 
@@ -108,7 +109,51 @@
                     <Label Content="Accesorios"
                            HorizontalAlignment="Center"
                            FontSize="52"
-                           Margin="0,0,0,40"/>
+                           Margin="0,0,0,20"/>
+
+                    <Grid Width="600" Height="40"  Margin="0,0,0,40">
+                        <Border
+            CornerRadius="20"
+            Background="White"
+            BorderBrush="#E0E0E0"
+            BorderThickness="1"
+            Padding="12,0"
+        >
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock
+Text="🔍"
+FontSize="16"
+VerticalAlignment="Center"
+Foreground="#888"/>
+
+                                <TextBox
+x:Name="SearchBox"
+Grid.Column="1"
+Margin="8,0,0,0"
+VerticalAlignment="Center"
+BorderThickness="0"
+Background="Transparent"
+FontSize="14"/>
+                            </Grid>
+                        </Border>
+
+                        <TextBlock
+            Text="Buscar accesorio"
+            Margin="48,0,0,0"
+            VerticalAlignment="Center"
+            Foreground="#999"
+            IsHitTestVisible="False"
+            Visibility="{Binding Text.IsEmpty,
+                                 ElementName=SearchBox,
+                    Converter={StaticResource BooleanToVisibilityConverter}}"
+        />
+                    </Grid>
 
 
                     <!-- ====================== WRAP PANNEL PRINCIPAL ====================== -->

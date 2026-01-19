@@ -36,7 +36,7 @@ namespace PrototipadoEscritorio
                 DecelerationRatio = 0.8
             };
 
-            PanelOpcionesContainer.BeginAnimation(HeightProperty, anim);
+            // PanelOpcionesContainer.BeginAnimation(HeightProperty, anim);
         }
     }
 }

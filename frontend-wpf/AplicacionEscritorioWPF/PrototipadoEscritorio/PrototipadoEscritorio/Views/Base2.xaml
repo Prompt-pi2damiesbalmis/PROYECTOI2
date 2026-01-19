@@ -1,0 +1,177 @@
+﻿<Window x:Class="PrototipadoEscritorio.Views.Base2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PrototipadoEscritorio.Views"
+        mc:Ignorable="d"
+            Title="Base" Height="900" Width="1400">
+    <Grid>
+
+        <!-- ====================== FONDO ====================== -->
+        <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/Fondo.png"
+            Stretch="UniformToFill"
+            AlignmentX="Center"
+            AlignmentY="Center"/>
+            </Grid.Background>
+
+            <!-- ====================== LAYOUT PRINCIPAL ====================== -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- ====================== SIDEBAR IZQUIERDO (SIN CAMBIOS) ====================== -->
+                <DockPanel Grid.Column="0" Background="#1E3A2E">
+                    <StackPanel VerticalAlignment="Stretch">
+                        <Grid Height="883">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="179"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- LOGO -->
+                            <StackPanel HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Grid.Row="0"
+                                Margin="0,20,0,20"
+                                Width="122">
+                                <Border Width="123"
+                                Height="123"
+                                CornerRadius="20"
+                                BorderThickness="2">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="/Assets/Captura de pantalla 2025-12-04 132052.png"
+                                            Stretch="UniformToFill"/>
+                                    </Border.Background>
+                                </Border>
+                            </StackPanel>
+
+                            <!-- BOTONES -->
+                            <StackPanel Grid.Row="1">
+
+                                <Button Style="{StaticResource SidebarButton}" Height="175">
+                                    <StackPanel HorizontalAlignment="Center">
+                                        <TextBlock Text="👤" FontSize="28" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="Usuarios" Margin="0,4,0,0"/>
+                                    </StackPanel>
+                                </Button>
+
+                                <Button Style="{StaticResource SidebarButton}" Height="153">
+                                    <StackPanel HorizontalAlignment="Center">
+                                        <TextBlock Text="🏠" FontSize="28" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="Eventos" Margin="0,4,0,0"/>
+                                    </StackPanel>
+                                </Button>
+
+                                <Button Style="{StaticResource SidebarButton}" Height="176">
+                                    <StackPanel HorizontalAlignment="Center">
+                                        <TextBlock Text="📄" FontSize="28" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="Comunidades" Margin="0,4,0,0"/>
+                                    </StackPanel>
+                                </Button>
+
+                                <Button Style="{StaticResource SidebarButton}"
+                                Background="#2B5E45"
+                                Height="175">
+                                    <StackPanel HorizontalAlignment="Center">
+                                        <TextBlock Text="🛒" FontSize="28" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="Tienda" Margin="0,4,0,0"/>
+                                    </StackPanel>
+                                </Button>
+
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </DockPanel>
+
+                <!-- ================= BOTÓN HAMBURGUESA ================= -->
+                <Grid Grid.Column="1"
+              Margin="10"
+              VerticalAlignment="Top">
+                    <Button Content="☰"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    FontSize="20"
+                    HorizontalAlignment="Left"
+                    />
+                    <!--<Button x:Name="BtnOpciones"
+                   Content="☰"
+                   Background="Transparent"
+                   BorderThickness="0"
+                   FontSize="20"
+                   HorizontalAlignment="Left"
+                   />-->
+                </Grid>
+
+                <!-- ====================== CONTENIDO PRINCIPAL ====================== -->
+                <StackPanel Grid.Column="1"
+                    Margin="60,120,60,60">
+
+                    <Label Content="Texto"
+                   HorizontalAlignment="Center"
+                   FontSize="52"
+                   Margin="0,0,0,20"/>
+
+                    <Grid Width="600" Height="40"  Margin="0,0,0,40">
+                        <Border
+                    CornerRadius="20"
+                    Background="White"
+                    BorderBrush="#E0E0E0"
+                    BorderThickness="1"
+                    Padding="12,0"
+                >
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock
+        Text="🔍"
+        FontSize="16"
+        VerticalAlignment="Center"
+        Foreground="#888"/>
+
+                                <TextBox
+        Grid.Column="1"
+        Margin="8,0,0,0"
+        VerticalAlignment="Center"
+        BorderThickness="0"
+        Background="Transparent"
+        FontSize="14"/>
+                                <!--<TextBox
+       x:Name="SearchBox"
+       Grid.Column="1"
+       Margin="8,0,0,0"
+       VerticalAlignment="Center"
+       BorderThickness="0"
+       Background="Transparent"
+       FontSize="14"/>-->
+                            </Grid>
+                        </Border>
+
+                        <TextBlock
+                    Text="Buscar usuario"
+                    Margin="48,0,0,0"
+                    VerticalAlignment="Center"
+                    Foreground="#999"
+                    IsHitTestVisible="False"
+                    Visibility="{Binding Text.IsEmpty,
+                                         ElementName=SearchBox,
+                            Converter={StaticResource BooleanToVisibilityConverter}}"
+                />
+                    </Grid>
+
+
+
+                </StackPanel>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

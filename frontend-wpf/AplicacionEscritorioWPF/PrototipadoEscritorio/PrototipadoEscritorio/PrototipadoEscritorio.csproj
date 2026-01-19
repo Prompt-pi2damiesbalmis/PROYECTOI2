@@ -36,4 +36,8 @@
     <Resource Include="Assets\todosunidos.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+
 </Project>

@@ -84,7 +84,6 @@
                     FontSize="20"
                     Foreground="Black"
                     HorizontalAlignment="Left"
-                    Click="BtnOpciones_Click"
                     Margin="0,0,0,10"/>
                 </Grid>
 

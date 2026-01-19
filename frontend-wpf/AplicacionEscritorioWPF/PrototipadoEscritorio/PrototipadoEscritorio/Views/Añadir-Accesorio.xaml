@@ -12,10 +12,12 @@
 
         <!-- ====================== FONDO ====================== -->
         <Grid>
-            <Image Source="/Assets/Fondo.png"
-                   Stretch="Fill"
-                   Panel.ZIndex="0"
-                   Margin="10,0,0,0"/>
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/Fondo.png"
+            Stretch="UniformToFill"
+            AlignmentX="Center"
+            AlignmentY="Center"/>
+            </Grid.Background>
 
             <!-- ====================== LAYOUT PRINCIPAL ====================== -->
             <Grid>

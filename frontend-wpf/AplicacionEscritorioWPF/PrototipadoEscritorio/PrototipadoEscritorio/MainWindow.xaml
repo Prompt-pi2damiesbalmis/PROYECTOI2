@@ -12,106 +12,114 @@
 
         <!-- ====================== FONDO CON COLINAS ====================== -->
         <Grid>
-            <Image Source="/Assets/Fondo.png" Stretch="Fill" Panel.ZIndex="0" />
-        
 
-        <!-- ====================== LAYOUT PRINCIPAL ====================== -->
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="250" />
-                <ColumnDefinition Width="220" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+            <!-- ====================== FONDO ====================== -->
+            <Grid>
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Assets/Fondo.png"
+                Stretch="UniformToFill"
+                AlignmentX="Center"
+                AlignmentY="Center"/>
+                </Grid.Background>
 
-            <!-- ====================== SIDEBAR IZQUIERDO ====================== -->
-            <Border Grid.Column="0" Background="#1E3A2E">
-                <StackPanel VerticalAlignment="Stretch" Margin="0,30">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="250"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <!-- LOGO -->
-                        <StackPanel HorizontalAlignment="Center" Grid.Row="0" Margin="20">
-                            <Border Width="200" Height="200" CornerRadius="20" BorderThickness="2">
-                                <Border.Background>
-                                    <ImageBrush ImageSource="/Assets/Captura de pantalla 2025-12-04 132052.png" Stretch="UniformToFill" />
-                                </Border.Background>
-                            </Border>
+                <!-- ====================== LAYOUT PRINCIPAL ====================== -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- ====================== SIDEBAR IZQUIERDO (SIN CAMBIOS) ====================== -->
+                    <DockPanel Grid.Column="0" Background="#1E3A2E">
+                        <StackPanel VerticalAlignment="Stretch">
+                            <Grid Height="883">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="179"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <!-- LOGO -->
+                                <StackPanel HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Grid.Row="0"
+                                    Margin="0,20,0,20"
+                                    Width="122">
+                                    <Border Width="123"
+                                    Height="123"
+                                    CornerRadius="20"
+                                    BorderThickness="2">
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="/Assets/Captura de pantalla 2025-12-04 132052.png"
+                                                Stretch="UniformToFill"/>
+                                        </Border.Background>
+                                    </Border>
+                                </StackPanel>
+
+                                <!-- BOTONES -->
+                                <StackPanel Grid.Row="1">
+
+                                    <Button Style="{StaticResource SidebarButton}" Height="175">
+                                        <StackPanel HorizontalAlignment="Center">
+                                            <TextBlock Text="👤" FontSize="28" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="Usuarios" Margin="0,4,0,0"/>
+                                        </StackPanel>
+                                    </Button>
+
+                                    <Button Style="{StaticResource SidebarButton}" Height="153">
+                                        <StackPanel HorizontalAlignment="Center">
+                                            <TextBlock Text="🏠" FontSize="28" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="Eventos" Margin="0,4,0,0"/>
+                                        </StackPanel>
+                                    </Button>
+
+                                    <Button Style="{StaticResource SidebarButton}" Height="176">
+                                        <StackPanel HorizontalAlignment="Center">
+                                            <TextBlock Text="📄" FontSize="28" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="Comunidades" Margin="0,4,0,0"/>
+                                        </StackPanel>
+                                    </Button>
+
+                                    <Button Style="{StaticResource SidebarButton}"
+                                    Background="#2B5E45"
+                                    Height="175">
+                                        <StackPanel HorizontalAlignment="Center">
+                                            <TextBlock Text="🛒" FontSize="28" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="Tienda" Margin="0,4,0,0"/>
+                                        </StackPanel>
+                                    </Button>
+
+                                </StackPanel>
+                            </Grid>
                         </StackPanel>
+                    </DockPanel>
 
-                        <!-- Icon + Texto -->
-                        <StackPanel Margin="10" Grid.Row="1">
-
-                            <Button Style="{StaticResource SidebarButton}" Margin="0 50 0 50">
-                                <StackPanel HorizontalAlignment="Center">
-                                    <TextBlock Text="👤" FontSize="28" HorizontalAlignment="Center"/>
-                                    <TextBlock Text="Usuarios" Margin="0,4,0,0"/>
-                                </StackPanel>
-                            </Button>
-
-                            <Button Style="{StaticResource SidebarButton}" Margin="0 0 0 50">
-                                <StackPanel HorizontalAlignment="Center">
-                                    <TextBlock Text="🏠" FontSize="28" HorizontalAlignment="Center"/>
-                                    <TextBlock Text="Eventos" Margin="0,4,0,0"/>
-                                </StackPanel>
-                            </Button>
-
-                            <Button Style="{StaticResource SidebarButton}" Background="#2B5E45" Margin="0 0 0 50">
-                                <StackPanel HorizontalAlignment="Center">
-                                    <TextBlock Text="📄" FontSize="28" HorizontalAlignment="Center"/>
-                                    <TextBlock Text="Comunidades" Margin="0,4,0,0"/>
-                                </StackPanel>
-                            </Button>
-
-                            <Button Style="{StaticResource SidebarButton}">
-                                <StackPanel HorizontalAlignment="Center">
-                                    <TextBlock Text="🛒" FontSize="28" HorizontalAlignment="Center"/>
-                                    <TextBlock Text="Tienda" Margin="0,4,0,0"/>
-                                </StackPanel>
-                            </Button>
-                        </StackPanel>
-                    </Grid>
-                </StackPanel>
-            </Border>
-
-            <!-- ================= BOTÓN HAMBURGUESA SIEMPRE VISIBLE ================= -->
-            <Grid Grid.Column="1" Margin="20,20,0,0" VerticalAlignment="Top">
-                <Button x:Name="BtnOpciones"
+                    <!-- ================= BOTÓN HAMBURGUESA ================= -->
+                    <Grid Grid.Column="1"
+                  Margin="10"
+                  VerticalAlignment="Top">
+                        <Button x:Name="BtnOpciones"
                         Content="☰"
                         Background="Transparent"
                         BorderThickness="0"
-                        FontFamily="{StaticResource FontSans}"
-                        FontWeight="SemiBold"
                         FontSize="20"
-                        Foreground="Black"
                         HorizontalAlignment="Left"
-                        Click="BtnOpciones_Click"
-                        Margin="0,0,0,10"/>
-            </Grid>
+                        />
+                    </Grid>
 
-            <!-- ================= PANEL DESPLEGABLE COMPLETO ================= -->
-            <Grid Grid.Column="1" x:Name="PanelOpcionesContainer" Height="0" ClipToBounds="True" VerticalAlignment="Top" Margin="0,60,0,0">
-                <Border Background="White">
-                    <StackPanel Margin="20">
-                        <StackPanel Margin="0,10,0,0">
-                            <TextBlock Text="Lista de Eventos" Margin="0,8" FontSize="14" Foreground="Black"/>
-                            <TextBlock Text="Eventos en revisión" Margin="0,8" FontSize="14" Foreground="Black"/>
-                            <TextBlock Text="Eliminar evento" Margin="0,8" FontSize="14" Foreground="Black"/>
-                        </StackPanel>
+                    <!-- ====================== CONTENIDO PRINCIPAL ====================== -->
+                    <StackPanel Grid.Column="1"
+                        Margin="60,120,60,60">
+
+                        <Label Content="Texto"
+                       HorizontalAlignment="Center"
+                       FontSize="52"
+                       Margin="0,0,0,40"/>
+
+
                     </StackPanel>
-                </Border>
-            </Grid>
 
-            <!-- ============= CONTENIDO PRINCIPAL (TÍTULO) ============= -->
-            <Grid Grid.Column="2" Margin="150 10 0 0">
-                <TextBlock Text="Comunidades"
-                           FontSize="60"
-                           FontWeight="Bold"
-                           Foreground="#1F2A24"
-                           VerticalAlignment="Top"/>
+                </Grid>
             </Grid>
         </Grid>
-    </Grid>
     </Grid>
 </Window>
