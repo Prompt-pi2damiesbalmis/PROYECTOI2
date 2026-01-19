@@ -1,68 +1,65 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net9.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <UseWPF>true</UseWPF>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net9.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="Assets\Captura de pantalla 2025-12-04 132052.png" />
-    <None Remove="Assets\comunidad2.jpg" />
-    <None Remove="Assets\comunidad3.jpg" />
-    <None Remove="Assets\comunidad4.jpg" />
-    <None Remove="Assets\comunidad5.jpg" />
-    <None Remove="Assets\comunidad6.jpg" />
-    <None Remove="Assets\EcoTech.jpg" />
-    <None Remove="Assets\Fondo.png" />
-    <None Remove="Assets\mundo.png" />
-    <None Remove="Assets\periodicos.jpg" />
-    <None Remove="Assets\todosunidos.png" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Remove="Assets\Captura de pantalla 2025-12-04 132052.png" />
+		<None Remove="Assets\comunidad2.jpg" />
+		<None Remove="Assets\comunidad3.jpg" />
+		<None Remove="Assets\comunidad4.jpg" />
+		<None Remove="Assets\comunidad5.jpg" />
+		<None Remove="Assets\comunidad6.jpg" />
+		<None Remove="Assets\EcoTech.jpg" />
+		<None Remove="Assets\Fondo.png" />
+		<None Remove="Assets\mundo.png" />
+		<None Remove="Assets\periodicos.jpg" />
+		<None Remove="Assets\todosunidos.png" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Resource Include="Assets\Captura de pantalla 2025-12-04 132052.png" />
-    <Resource Include="Assets\comunidad2.jpg" />
-    <Resource Include="Assets\comunidad3.jpg" />
-    <Resource Include="Assets\comunidad4.jpg" />
-    <Resource Include="Assets\comunidad5.jpg" />
-    <Resource Include="Assets\comunidad6.jpg" />
-    <Resource Include="Assets\EcoTech.jpg" />
-    <Resource Include="Assets\Fondo.png" />
-    <Resource Include="Assets\mundo.png" />
-    <Resource Include="Assets\periodicos.jpg" />
-    <Resource Include="Assets\todosunidos.png" />
-  </ItemGroup>
+	<ItemGroup>
+		<Resource Include="Assets\Captura de pantalla 2025-12-04 132052.png" />
+		<Resource Include="Assets\comunidad2.jpg" />
+		<Resource Include="Assets\comunidad3.jpg" />
+		<Resource Include="Assets\comunidad4.jpg" />
+		<Resource Include="Assets\comunidad5.jpg" />
+		<Resource Include="Assets\comunidad6.jpg" />
+		<Resource Include="Assets\EcoTech.jpg" />
+		<Resource Include="Assets\Fondo.png" />
+		<Resource Include="Assets\mundo.png" />
+		<Resource Include="Assets\periodicos.jpg" />
+		<Resource Include="Assets\todosunidos.png" />
+	</ItemGroup>
 
-  <ItemGroup>
-<<<<<<< HEAD
-    <Folder Include="ViewModels\" />
-=======
-    <Folder Include="Components\" />
-  </ItemGroup>
+	<ItemGroup>
+		<Folder Include="ViewModels\" />
+		<Folder Include="Components\" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="Views\EliminarComunidadUserControl.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\EliminarMarcoUserControl.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\EliminarUsuarioUserControl.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\EliminarEventoUserControl.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\RevisarComunidadUserControl.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\RevisarEventoUserControl.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
->>>>>>> main
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Update="Views\EliminarComunidadUserControl.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Views\EliminarMarcoUserControl.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Views\EliminarUsuarioUserControl.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Views\EliminarEventoUserControl.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Views\RevisarComunidadUserControl.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Views\RevisarEventoUserControl.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+	</ItemGroup>
 
 </Project>

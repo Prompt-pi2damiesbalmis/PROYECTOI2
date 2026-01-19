@@ -53,7 +53,7 @@ namespace PrototipadoEscritorio.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/PrototipadoEscritorio;component/views/comunidades2.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/PrototipadoEscritorio;V1.0.0.0;component/views/comunidades2.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\Comunidades2.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
