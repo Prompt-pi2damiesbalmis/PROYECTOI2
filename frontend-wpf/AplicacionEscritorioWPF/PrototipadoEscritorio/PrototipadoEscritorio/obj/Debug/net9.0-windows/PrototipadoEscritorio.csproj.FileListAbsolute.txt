@@ -54,3 +54,5 @@ C:\Users\alumno\Desktop\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF
 C:\Users\alumno\Desktop\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\PrototipadoEscritorio.dll
 C:\Users\alumno\Desktop\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\refint\PrototipadoEscritorio.dll
 C:\Users\alumno\Desktop\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\PrototipadoEscritorio.pdb
+C:\Users\alumno\Desktop\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\Views\Accesorios.g.cs
+C:\Users\alumno\Desktop\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\Views\UserControl1.g.cs
