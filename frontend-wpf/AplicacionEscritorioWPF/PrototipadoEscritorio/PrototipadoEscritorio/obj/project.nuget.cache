@@ -1,13 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Fv/Bv/hoyg0=",
+  "dgSpecHash": "Q6DNPhnuU2Q=",
   "success": true,
-  "projectFilePath": "C:\\Users\\alumno\\Desktop\\Proyecto2\\PROYECTOI2\\frontend-wpf\\AplicacionEscritorioWPF\\PrototipadoEscritorio\\PrototipadoEscritorio\\PrototipadoEscritorio.csproj",
+  "projectFilePath": "C:\\Users\\alumno\\Desktop\\Proyecto\\wqe\\PROYECTOI2\\frontend-wpf\\AplicacionEscritorioWPF\\PrototipadoEscritorio\\PrototipadoEscritorio\\PrototipadoEscritorio.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\alumno\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\9.0.12\\microsoft.windowsdesktop.app.ref.9.0.12.nupkg.sha512",
-    "C:\\Users\\alumno\\.nuget\\packages\\microsoft.netcore.app.ref\\9.0.12\\microsoft.netcore.app.ref.9.0.12.nupkg.sha512",
-    "C:\\Users\\alumno\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\9.0.12\\microsoft.aspnetcore.app.ref.9.0.12.nupkg.sha512",
-    "C:\\Users\\alumno\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\9.0.12\\microsoft.netcore.app.host.win-x64.9.0.12.nupkg.sha512"
+    "C:\\Users\\alumno\\.nuget\\packages\\communitytoolkit.mvvm\\8.4.0\\communitytoolkit.mvvm.8.4.0.nupkg.sha512"
   ],
   "logs": []
 }
