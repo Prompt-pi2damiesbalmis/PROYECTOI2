@@ -90,24 +90,19 @@
 
                 <!-- ================= BOTÓN HAMBURGUESA ================= -->
                 <Grid Grid.Column="1"
-              Margin="10"
-              VerticalAlignment="Top">
+                    Margin="10"
+                    VerticalAlignment="Top"
+                >
                     <Button Content="☰"
-                    Background="Transparent"
-                    BorderThickness="0"
-                    FontSize="20"
-                    HorizontalAlignment="Left"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        FontSize="20"
+                        HorizontalAlignment="Left"
                     />
-                    <!--<Button x:Name="BtnOpciones"
-                   Content="☰"
-                   Background="Transparent"
-                   BorderThickness="0"
-                   FontSize="20"
-                   HorizontalAlignment="Left"
-                   />-->
                 </Grid>
 
                 <!-- ====================== CONTENIDO PRINCIPAL ====================== -->
+                
                 <StackPanel Grid.Column="1"
                     Margin="60,120,60,60">
 
@@ -118,12 +113,12 @@
 
                     <Grid Width="600" Height="40"  Margin="0,0,0,40">
                         <Border
-                    CornerRadius="20"
-                    Background="White"
-                    BorderBrush="#E0E0E0"
-                    BorderThickness="1"
-                    Padding="12,0"
-                >
+                            CornerRadius="20"
+                            Background="White"
+                            BorderBrush="#E0E0E0"
+                            BorderThickness="1"
+                            Padding="12,0"
+                        >
 
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -132,45 +127,39 @@
                                 </Grid.ColumnDefinitions>
 
                                 <TextBlock
-        Text="🔍"
-        FontSize="16"
-        VerticalAlignment="Center"
-        Foreground="#888"/>
+                                Text="🔍"
+                                FontSize="16"
+                                VerticalAlignment="Center"
+                                Foreground="#888"
+                            />
 
                                 <TextBox
-        Grid.Column="1"
-        Margin="8,0,0,0"
-        VerticalAlignment="Center"
-        BorderThickness="0"
-        Background="Transparent"
-        FontSize="14"/>
-                                <!--<TextBox
-       x:Name="SearchBox"
-       Grid.Column="1"
-       Margin="8,0,0,0"
-       VerticalAlignment="Center"
-       BorderThickness="0"
-       Background="Transparent"
-       FontSize="14"/>-->
+                                    Grid.Column="1"
+                                    Margin="8,0,0,0"
+                                    VerticalAlignment="Center"
+                                    BorderThickness="0"
+                                    Background="Transparent"
+                                    FontSize="14"
+                                />
                             </Grid>
                         </Border>
 
                         <TextBlock
-                    Text="Buscar usuario"
-                    Margin="48,0,0,0"
-                    VerticalAlignment="Center"
-                    Foreground="#999"
-                    IsHitTestVisible="False"
-                    Visibility="{Binding Text.IsEmpty,
-                                         ElementName=SearchBox,
-                            Converter={StaticResource BooleanToVisibilityConverter}}"
-                />
+                            Text="Buscar usuario"
+                            Margin="48,0,0,0"
+                            VerticalAlignment="Center"
+                            Foreground="#999"
+                            IsHitTestVisible="False"
+                            Visibility="{Binding Text.IsEmpty,
+                                                    ElementName=SearchBox,
+                                    Converter={StaticResource BooleanToVisibilityConverter}}"
+                        />
                     </Grid>
-
+                    
+                    <!--================== CONTENIDO PRINCIPAL ==================-->
 
 
                 </StackPanel>
-
             </Grid>
         </Grid>
     </Grid>

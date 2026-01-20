@@ -64,7 +64,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
@@ -77,18 +77,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2026-01-12T11:57:00.959Z",
               "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Accesorios.xaml",
-              "DocumentMoniker": "C:\\Users\\alumno\\Desktop\\Proyecto2\\PROYECTOI2\\frontend-wpf\\AplicacionEscritorioWPF\\PrototipadoEscritorio\\PrototipadoEscritorio\\Views\\Accesorios.xaml",
-              "RelativeDocumentMoniker": "PrototipadoEscritorio\\Views\\Accesorios.xaml",
-              "ToolTip": "C:\\Users\\alumno\\Desktop\\Proyecto2\\PROYECTOI2\\frontend-wpf\\AplicacionEscritorioWPF\\PrototipadoEscritorio\\PrototipadoEscritorio\\Views\\Accesorios.xaml",
-              "RelativeToolTip": "PrototipadoEscritorio\\Views\\Accesorios.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-01-19T13:40:00.946Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -108,6 +96,18 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Accesorios.xaml",
+              "DocumentMoniker": "C:\\Users\\alumno\\Desktop\\Proyecto2\\PROYECTOI2\\frontend-wpf\\AplicacionEscritorioWPF\\PrototipadoEscritorio\\PrototipadoEscritorio\\Views\\Accesorios.xaml",
+              "RelativeDocumentMoniker": "PrototipadoEscritorio\\Views\\Accesorios.xaml",
+              "ToolTip": "C:\\Users\\alumno\\Desktop\\Proyecto2\\PROYECTOI2\\frontend-wpf\\AplicacionEscritorioWPF\\PrototipadoEscritorio\\PrototipadoEscritorio\\Views\\Accesorios.xaml",
+              "RelativeToolTip": "PrototipadoEscritorio\\Views\\Accesorios.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-01-19T13:40:00.946Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "PrototipadoEscritorio.csproj",
               "DocumentMoniker": "C:\\Users\\alumno\\Desktop\\Proyecto2\\PROYECTOI2\\frontend-wpf\\AplicacionEscritorioWPF\\PrototipadoEscritorio\\PrototipadoEscritorio\\PrototipadoEscritorio.csproj",
@@ -116,8 +116,7 @@
               "RelativeToolTip": "PrototipadoEscritorio\\PrototipadoEscritorio.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-01-19T13:36:56.64Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-19T13:36:56.64Z"
             },
             {
               "$type": "Document",

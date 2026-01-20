@@ -4,25 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\alumno\Desktop\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\
+C:\Users\alumno\Desktop\Proyecto2\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\
 PrototipadoEscritorio
 none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
-C:\Users\alumno\Desktop\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\App.xaml
-<<<<<<< HEAD
-61515626340
+C:\Users\alumno\Desktop\Proyecto2\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\App.xaml
+13636158160
 
-9-790622835
+161669001634
 2002054085731
-MainWindow.xaml;Views\Accesorios.xaml;Views\Añadir-Accesorio.xaml;Views\Base2.xaml;Views\Comunidades2.xaml;Views\Eventos.xaml;
-=======
-7-758458666
+MainWindow.xaml;Views\Accesorios.xaml;Views\Añadir-Accesorio.xaml;Views\Base2.xaml;Views\BloquearUsuarioUserControl.xaml;Views\Comunidades2.xaml;Views\EliminarComunidadUserControl.xaml;Views\EliminarEventoUserControl.xaml;Views\EliminarMarcoUserControl.xaml;Views\EliminarUsuarioUserControl.xaml;Views\Eventos.xaml;Views\RevisarComunidadUserControl.xaml;Views\RevisarEventoUserControl.xaml;
 
-102110288844
-200-1531957912
-MainWindow.xaml;Views\Accesorios.xaml;Views\Añadir-Accesorio.xaml;Views\Base.xaml;Views\Comunidades.xaml;Views\Eventos.xaml;Views\UserControl1.xaml;
->>>>>>> main
-
-False
+True
 

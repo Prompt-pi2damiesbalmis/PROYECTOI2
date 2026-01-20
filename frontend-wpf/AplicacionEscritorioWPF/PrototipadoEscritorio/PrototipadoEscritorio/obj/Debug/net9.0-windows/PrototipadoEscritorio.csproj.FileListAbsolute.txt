@@ -77,6 +77,24 @@ C:\Users\alumno\Desktop\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF
 C:\Users\alumno\Desktop\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\PrototipadoEscritorio.genruntimeconfig.cache
 C:\Users\alumno\Desktop\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\ref\PrototipadoEscritorio.dll
 =======
-C:\Users\alumno\Desktop\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\Views\Accesorios.g.cs
 C:\Users\alumno\Desktop\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\Views\UserControl1.g.cs
 >>>>>>> main
+C:\Users\alumno\Desktop\Proyecto2\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\MainWindow.g.cs
+C:\Users\alumno\Desktop\Proyecto2\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\Views\Accesorios.g.cs
+C:\Users\alumno\Desktop\Proyecto2\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\Views\Añadir-Accesorio.g.cs
+C:\Users\alumno\Desktop\Proyecto2\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\Views\Base2.g.cs
+C:\Users\alumno\Desktop\Proyecto2\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\Views\BloquearUsuarioUserControl.g.cs
+C:\Users\alumno\Desktop\Proyecto2\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\Views\Comunidades2.g.cs
+C:\Users\alumno\Desktop\Proyecto2\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\Views\EliminarComunidadUserControl.g.cs
+C:\Users\alumno\Desktop\Proyecto2\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\Views\EliminarEventoUserControl.g.cs
+C:\Users\alumno\Desktop\Proyecto2\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\Views\EliminarMarcoUserControl.g.cs
+C:\Users\alumno\Desktop\Proyecto2\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\Views\EliminarUsuarioUserControl.g.cs
+C:\Users\alumno\Desktop\Proyecto2\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\Views\RevisarComunidadUserControl.g.cs
+C:\Users\alumno\Desktop\Proyecto2\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\Views\RevisarEventoUserControl.g.cs
+C:\Users\alumno\Desktop\Proyecto2\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\App.g.cs
+C:\Users\alumno\Desktop\Proyecto2\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\PrototipadoEscritorio_MarkupCompile.cache
+C:\Users\alumno\Desktop\Proyecto2\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\PrototipadoEscritorio_MarkupCompile.lref
+C:\Users\alumno\Desktop\Proyecto2\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\PrototipadoEscritorio.dll
+C:\Users\alumno\Desktop\Proyecto2\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\refint\PrototipadoEscritorio.dll
+C:\Users\alumno\Desktop\Proyecto2\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\PrototipadoEscritorio.pdb
+C:\Users\alumno\Desktop\Proyecto2\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\Views\Eventos.g.cs

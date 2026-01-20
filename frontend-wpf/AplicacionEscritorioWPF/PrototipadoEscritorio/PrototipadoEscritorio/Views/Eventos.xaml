@@ -9,19 +9,23 @@
          WindowStartupLocation="CenterScreen">
     <Grid>
 
-        <!-- ====================== FONDO CON COLINAS ====================== -->
+        <!-- ====================== FONDO ====================== -->
         <Grid>
-            <Image Source="/Assets/Fondo.png" Stretch="Fill" Panel.ZIndex="0" />
-
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/Fondo.png"
+        Stretch="UniformToFill"
+        AlignmentX="Center"
+        AlignmentY="Center"/>
+            </Grid.Background>
 
             <!-- ====================== LAYOUT PRINCIPAL ====================== -->
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="250" />
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <!-- ====================== SIDEBAR IZQUIERDO ====================== -->
+                <!-- ====================== SIDEBAR IZQUIERDO (SIN CAMBIOS) ====================== -->
                 <DockPanel Grid.Column="0" Background="#1E3A2E">
                     <StackPanel VerticalAlignment="Stretch">
                         <Grid Height="883">
@@ -32,17 +36,17 @@
 
                             <!-- LOGO -->
                             <StackPanel HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Grid.Row="0"
-                        Margin="0,20,0,20"
-                        Width="122">
+                            VerticalAlignment="Center"
+                            Grid.Row="0"
+                            Margin="0,20,0,20"
+                            Width="122">
                                 <Border Width="123"
-                        Height="123"
-                        CornerRadius="20"
-                        BorderThickness="2">
+                            Height="123"
+                            CornerRadius="20"
+                            BorderThickness="2">
                                     <Border.Background>
                                         <ImageBrush ImageSource="/Assets/Captura de pantalla 2025-12-04 132052.png"
-                                    Stretch="UniformToFill"/>
+                                        Stretch="UniformToFill"/>
                                     </Border.Background>
                                 </Border>
                             </StackPanel>
@@ -72,8 +76,7 @@
                                 </Button>
 
                                 <Button Style="{StaticResource SidebarButton}"
-                        
-                        Height="175">
+                            Height="175">
                                     <StackPanel HorizontalAlignment="Center">
                                         <TextBlock Text="🛒" FontSize="28" HorizontalAlignment="Center"/>
                                         <TextBlock Text="Tienda" Margin="0,4,0,0"/>
@@ -85,60 +88,77 @@
                     </StackPanel>
                 </DockPanel>
 
-                <!-- ================= BOTÓN HAMBURGUESA SIEMPRE VISIBLE ================= -->
+                <!-- ================= BOTÓN HAMBURGUESA ================= -->
                 <Grid Grid.Column="1"
-                       Margin="10"
-                            VerticalAlignment="Top"> 
-                    <Button x:Name="BtnOpciones"
-<<<<<<< HEAD
-                    Content="☰"
+                Margin="10"
+                VerticalAlignment="Top"
+            >
+                    <Button Content="☰"
                     Background="Transparent"
                     BorderThickness="0"
-                    FontFamily="{StaticResource FontSans}"
-                    FontWeight="SemiBold"
                     FontSize="20"
-                    Foreground="Black"
                     HorizontalAlignment="Left"
-                    Margin="0,0,0,10"/>
-=======
-             Content="☰"
-             Background="Transparent"
-             BorderThickness="0"
-             FontSize="30"
-             HorizontalAlignment="Left"
-             Click="BtnOpciones_Click"
-             />
->>>>>>> main
+                />
                 </Grid>
 
-                <!-- ================= PANEL DESPLEGABLE COMPLETO ================= -->
-                <!-- ============= CONTENIDO PRINCIPAL (TÍTULO) ============= -->
-                <StackPanel Grid.Column="1" VerticalAlignment="Center" Orientation="Vertical">
+                <!-- ====================== CONTENIDO PRINCIPAL ====================== -->
 
-                    <TextBlock Text="Lista eventos"
-                       FontSize="52"
-                       
-                       Foreground="#1F2A24"
-                        HorizontalAlignment="Center"
-                               Margin="20"/>
-                    <Border CornerRadius="10"
-                    Background="White"
-                        BorderBrush="Black"
+                <StackPanel Grid.Column="1"
+                Margin="60,120,60,60">
+
+                    <Label Content="Lista Eventos"
+               HorizontalAlignment="Center"
+               FontSize="52"
+               Margin="0,0,0,20"/>
+
+                    <Grid Width="600" Height="40"  Margin="0,0,0,40">
+                        <Border
+                        CornerRadius="20"
+                        Background="White"
+                        BorderBrush="#E0E0E0"
                         BorderThickness="1"
-                    Width="950"
-                        Height="50"
-                        VerticalAlignment="Top"
-                    HorizontalAlignment="Center">
-                        <TextBox Text="Buscar..."
-                         FontSize="18"
-                         Foreground="#1F2A24"
-                         VerticalAlignment="Center"
-                         Background="Transparent"
-                         BorderThickness="0"
-                                 Margin="10"/>
-                    </Border>
+                        Padding="12,0"
+                    >
 
-                    <UniformGrid Rows="4" Columns="2" VerticalAlignment="Bottom" Width="1000" Margin="30">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock
+                            Text="🔍"
+                            FontSize="16"
+                            VerticalAlignment="Center"
+                            Foreground="#888"
+                        />
+
+                                <TextBox
+                                Grid.Column="1"
+                                Margin="8,0,0,0"
+                                VerticalAlignment="Center"
+                                BorderThickness="0"
+                                Background="Transparent"
+                                FontSize="14"
+                            />
+                            </Grid>
+                        </Border>
+
+                        <TextBlock
+                        Text="Buscar usuario"
+                        Margin="48,0,0,0"
+                        VerticalAlignment="Center"
+                        Foreground="#999"
+                        IsHitTestVisible="False"
+                        Visibility="{Binding Text.IsEmpty,
+                                                ElementName=SearchBox,
+                                Converter={StaticResource BooleanToVisibilityConverter}}"
+                    />
+                    </Grid>
+
+                    <!--================== CONTENIDO PRINCIPAL ==================-->
+
+                    <UniformGrid Rows="4" Columns="2" VerticalAlignment="Bottom" Width="1000">
                         <Border Width="450" Height="100" CornerRadius="10" Background="#FFF5F5F5"  BorderBrush="#DDD" BorderThickness="1">
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -275,8 +295,10 @@
                                 <Image Grid.Column="2" Source="/Assets/periodicos.jpg" Stretch="Fill" Margin="2"/>
                             </Grid>
                         </Border>
-                        
+
                     </UniformGrid>
+
+
                 </StackPanel>
             </Grid>
         </Grid>
