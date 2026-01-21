@@ -17,7 +17,7 @@
     <Compile Update="Views\Añadir-Accesorio.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\BloquearUsuarioUserControl.xaml.cs">
+    <Compile Update="Views\UserControl\BloquearUsuarioUserControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

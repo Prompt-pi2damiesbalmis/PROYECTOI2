@@ -37,27 +37,30 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="ViewModels\" />
 		<Folder Include="Components\" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<Compile Update="Views\EliminarComunidadUserControl.xaml.cs">
+	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Views\UserControl\EliminarComunidadUserControl.xaml.cs">
 			<SubType>Code</SubType>
 		</Compile>
-		<Compile Update="Views\EliminarMarcoUserControl.xaml.cs">
+		<Compile Update="Views\UserControl\EliminarMarcoUserControl.xaml.cs">
 			<SubType>Code</SubType>
 		</Compile>
-		<Compile Update="Views\EliminarUsuarioUserControl.xaml.cs">
+		<Compile Update="Views\UserControl\EliminarUsuarioUserControl.xaml.cs">
 			<SubType>Code</SubType>
 		</Compile>
-		<Compile Update="Views\EliminarEventoUserControl.xaml.cs">
+		<Compile Update="Views\UserControl\EliminarEventoUserControl.xaml.cs">
 			<SubType>Code</SubType>
 		</Compile>
-		<Compile Update="Views\RevisarComunidadUserControl.xaml.cs">
+		<Compile Update="Views\UserControl\RevisarComunidadUserControl.xaml.cs">
 			<SubType>Code</SubType>
 		</Compile>
-		<Compile Update="Views\RevisarEventoUserControl.xaml.cs">
+		<Compile Update="Views\UserControl\RevisarEventoUserControl.xaml.cs">
 			<SubType>Code</SubType>
 		</Compile>
 	</ItemGroup>

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PrototipadoEscritorio.ViewModels
 {
-    public partial class BloquearUsuarioUserControlVM : ObservableObject
+    public partial class RevisarComunidadUserControlVM : ObservableObject
     {
 
         
