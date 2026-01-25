@@ -9,6 +9,7 @@
 - 📅 Octubre 2025
 - 📅 Noviembre 2025
 - 📅 Diciembre 2025
+- 📅 Enero 2026
 
 
 ## Septiembre 2025
@@ -68,8 +69,8 @@
 
 - **Total de horas:** 8
 - **Principales logros:** Prototipado de movil 
-- **Area de mejora:**
-- **Proximos objetivos:**
+- **Area de mejora:** Perder menos tiempo
+- **Proximos objetivos:** Prototipado Escritorio
   
 [🔝Volver al índice](#índice-de-meses)
 
@@ -81,10 +82,30 @@
 | 02/12 | 📚S20 | Acabo el prototipado de escritorio eventos | ⏱️2h |  |  | Hemos acabado el Sprint 3
 | 15/12 | 📚S21 | Empezamos el diseño de WPF | ⏱️1h | Saber como hacer la estructura | Preguntar a Manuel | Hemos empezado creando el proyecto y la primera base del diseño
 | 16/12 | 📚S22 | Empezamos el diseño de WPF de Eventos | ⏱️2h |  | | Seguimos con los diseños de WPF
+| 22/12 | 📚S23 | Sigo con diseños de WPF | ⏱️1h |  | | Seguimos con los diseños de WPF
+
+**Resumen del mes:**
+
+- **Total de horas:** 7
+- **Principales logros:** Prototipado de escritorio y empezamos con WPF
+- **Area de mejora:** Ser mas productivos
+- **Proximos objetivos:** Funcionalidad de WPF
+  
+[🔝Volver al índice](#índice-de-meses)
+
+## Enero 2026
+
+| Fecha | Sesión | Tareas Realizadas | Tiempo | Problemas Encontrados | Soluciones Aplicadas | Reflexión/Aprendizaje |
+| ---- |-----|-----|-- | ----|-----|-----| 
+| 12/01 | 📚S24 | Sigo con el diseño de eventos | ⏱️1h |  |  | Sigo con el diseño de WPF
+| 13/01 | 📚S25 | Ayudo a problemas con las ramas mias y de mis compañeros | ⏱️2h | Problemas con mi rama | Actualizacion de mi rama con la main | He arreglado el problema
+| 19/01 | 🔥S26 | Creo componentes de WPF y creo modelos, viewmodels. | ⏱️1h |  |  | Uso de usercontrols en WPF
+
+
 
 **Resumen del mes: (parcial)**
 
-- **Total de horas:** 6
+- **Total de horas:** 4
 - **Principales logros:** 
 - **Area de mejora:**
 - **Proximos objetivos:**
