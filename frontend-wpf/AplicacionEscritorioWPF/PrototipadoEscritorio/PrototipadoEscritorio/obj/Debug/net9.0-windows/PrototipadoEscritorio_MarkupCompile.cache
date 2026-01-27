@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\alumno\Desktop\Proyecto2\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\App.xaml
-13636158160
+14-1128511277
+22971025609
+45-1406679937
+210-327034668
+MainWindow.xaml;Views\Accesorios.xaml;Views\Añadir-Accesorio.xaml;Views\Comunidades2.xaml;Views\Eventos.xaml;Views\Main.xaml;Views\UserControl\BloquearUsuarioUserControl.xaml;Views\UserControl\EliminarComunidadUserControl.xaml;Views\UserControl\EliminarEventoUserControl.xaml;Views\UserControl\EliminarMarcoUserControl.xaml;Views\UserControl\EliminarUsuarioUserControl.xaml;Views\UserControl\RevisarComunidadUserControl.xaml;Views\UserControl\RevisarEventoUserControl.xaml;Views\Usuarios.xaml;
 
-161669001634
-2002054085731
-MainWindow.xaml;Views\Accesorios.xaml;Views\Añadir-Accesorio.xaml;Views\Base2.xaml;Views\BloquearUsuarioUserControl.xaml;Views\Comunidades2.xaml;Views\EliminarComunidadUserControl.xaml;Views\EliminarEventoUserControl.xaml;Views\EliminarMarcoUserControl.xaml;Views\EliminarUsuarioUserControl.xaml;Views\Eventos.xaml;Views\RevisarComunidadUserControl.xaml;Views\RevisarEventoUserControl.xaml;
-
-True
+False
 
