@@ -5,7 +5,7 @@
     <Compile Update="Views\Accesorios.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Base2.xaml.cs">
+    <Compile Update="Views\Main.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Comunidades2.xaml.cs">
@@ -18,6 +18,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\UserControl\BloquearUsuarioUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Usuarios.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

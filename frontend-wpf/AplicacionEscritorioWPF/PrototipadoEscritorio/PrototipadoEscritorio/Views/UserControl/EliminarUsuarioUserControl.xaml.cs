@@ -18,9 +18,9 @@ namespace PrototipadoEscritorio.Views
     /// <summary>
     /// Lógica de interacción para UserControl1.xaml
     /// </summary>
-    public partial class UserControl1 : UserControl
+    public partial class EliminarUsuarioUserControl : UserControl
     {
-        public UserControl1()
+        public EliminarUsuarioUserControl()
         {
             InitializeComponent();
         }
