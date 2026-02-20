@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PrototipadoEscritorio.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,48 +10,42 @@ namespace PrototipadoEscritorio.Services
 {
     internal class NavegacionService
     {
-        private static UserControl listadoPersonasVista, NuevaPersonaUserControl, consultaPersonaUserControl;
+        private static UserControl usuariosVista, accesoriosVista, eventosVista, comunidadesVista;
+        public UserControl ObtenerVentanaUsuarios()
+        {
+            if (usuariosVista is null)
+            {
+                usuariosVista = new UsuariosUserControl();
+            }
+            return usuariosVista;
+        }
 
-        //public UserControl ObtenerNuevaPersona()
-        //{
-        //    if (NuevaPersonaUserControl is null)
-        //    {
-        //        NuevaPersonaUserControl = new NuevaPersonaUserControl();
-        //    }
-        //    return NuevaPersonaUserControl;
-        //}
+        public UserControl ObtenerVentanaAccesorios()
+        {
+            if (accesoriosVista is null)
+            {
+                accesoriosVista = new AccesoriosUserControl();
+            }
+            return accesoriosVista;
+        }
 
-        //public UserControl ObtenerListadoPersonas()
-        //{
-        //    if (listadoPersonasVista is null)
-        //    {
-        //        listadoPersonasVista = new ListadoPersonasUserControl();
-        //    }
-        //    return listadoPersonasVista;
-        //}
+        public UserControl ObtenerVentanaEventos()
+        {
+            if (eventosVista is null)
+            {
+                eventosVista = new EventosUserControl();
+            }
+            return eventosVista;
+        }
 
-        //public UserControl ObtenerConsultaPersonas()
-        //{
-        //    //if (consultaPersonaUserControl is null)
-        //    //{
-        //    //    consultaPersonaUserControl = new ConsultaPersonaUserControl();
-        //    //}
-        //    //return consultaPersonaUserControl;
+        public UserControl ObtenerVentanaComunidades()
+        {
+            if (comunidadesVista is null)
+            {
+                comunidadesVista = new ComunidadesUserControl();
+            }
+            return comunidadesVista;
+        }
 
-        //    return new ConsultaPersonaUserControl();
-        //}
-
-        //public void AbrirDialogoNacionalidad()
-        //{
-        //    DialogoNacionalidad dialogo = new DialogoNacionalidad();
-        //    dialogo.ShowDialog();
-        //}
-
-        //public void CerrarDialogoNacionalidad(DialogoNacionalidad dialogo)
-        //{
-        //    // Con poner "DialogResult=true" se cierra la ventana modal.
-        //    // No se necesita llamar al método "Close()" de la ventana.
-        //    dialogo.DialogResult = true;
-        //}
     }
 }

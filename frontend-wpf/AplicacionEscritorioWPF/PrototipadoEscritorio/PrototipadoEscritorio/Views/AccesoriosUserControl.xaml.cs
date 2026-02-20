@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace PrototipadoEscritorio.Views
 {
     /// <summary>
-    /// Lógica de interacción para Base2.xaml
+    /// Lógica de interacción para AccesoriosUserControl.xaml
     /// </summary>
-    public partial class Main : Window
+    public partial class AccesoriosUserControl : UserControl
     {
-        public Main()
+        public AccesoriosUserControl()
         {
             InitializeComponent();
         }

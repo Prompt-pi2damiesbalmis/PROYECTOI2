@@ -2,16 +2,16 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="Views\Accesorios.xaml.cs">
+    <Compile Update="Views\AccesoriosUserControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Main.xaml.cs">
+    <Compile Update="Views\ComunidadesUserControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Comunidades2.xaml.cs">
+    <Compile Update="Views\EventosUserControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Eventos.xaml.cs">
+    <Compile Update="Views\MainWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Añadir-Accesorio.xaml.cs">
@@ -20,7 +20,7 @@
     <Compile Update="Views\UserControl\BloquearUsuarioUserControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Usuarios.xaml.cs">
+    <Compile Update="Views\UsuariosUserControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

@@ -83,10 +83,11 @@
 ## Enero 2026
 | Fecha | Sesión | Tareas Realizadas | Tiempo | Problemas Encontrados | Soluciones Aplicadas | Reflexión/Aprendizaje |
 |:--: | :--: | :--: | :--: | :--: | :--: | :--: |
-| 12/01/2025 | 🎯S17 | - Organización del código y ramas de github para la subida del trabajo   | 1h | - Commits y organización del trabajo | Borrar proyectos en todos los dispositivos y volver a clonarlos | Gestión de tiempos y organización |
-| 13/01/2025 | 🔥S18 | - División del trabajo de android y WPF y creación de dos pantallas para WPF   | 2h |  |  | Mucho estrés para abordar todo el contenido que nos queda y quedar poco tiempo |
-| 19/01/2025 | 🔄S19 | - Mejoras en algunas pantallas creadas previamente en WPF y cambio de arquitectura de la ventana base  | 1h |  |  | Mejor uso de git y refactorización del código de WPF |
-| 26/01/2025 | ⚠S20 | - Bloqueos en los merges de las ramas de git y creación de la pantalla Usuarios  | 1h | - Muchos errores al intentar subir los archivos de la rama local a la nube | - Remover commits que se habían quedado en el historial y cambios en la compilación del proyecto | Mejorar el flujo de las ramas de git y la comunicación a la hora de hacer un merge |
+| 12/01/2026 | 🎯S17 | - Organización del código y ramas de github para la subida del trabajo   | 1h | - Commits y organización del trabajo | Borrar proyectos en todos los dispositivos y volver a clonarlos | Gestión de tiempos y organización |
+| 13/01/2026 | 🔥S18 | - División del trabajo de android y WPF y creación de dos pantallas para WPF   | 2h |  |  | Mucho estrés para abordar todo el contenido que nos queda y quedar poco tiempo |
+| 19/01/2026 | 🔄S19 | - Mejoras en algunas pantallas creadas previamente en WPF y cambio de arquitectura de la ventana base  | 1h |  |  | Mejor uso de git y refactorización del código de WPF |
+| 26/01/2026 | ⚠S20 | - Bloqueos en los merges de las ramas de git y creación de la pantalla Usuarios  | 1h | - Muchos errores al intentar subir los archivos de la rama local a la nube | - Remover commits que se habían quedado en el historial y cambios en la compilación del proyecto | Mejorar el flujo de las ramas de git y la comunicación a la hora de hacer un merge |
+| 3/02/2026 | 🔄S21 | - Creación de la navegación y compilación del proyecto  | 2h |  |  | Implementación de la navegación en WPF |
 
 
 
