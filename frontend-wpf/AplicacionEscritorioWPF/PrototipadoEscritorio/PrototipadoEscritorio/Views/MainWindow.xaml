@@ -1,11 +1,17 @@
-﻿<Window x:Class="PrototipadoEscritorio.Views.Main"
+﻿<Window x:Class="PrototipadoEscritorio.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PrototipadoEscritorio.Views"
+        xmlns:vm="clr-namespace:PrototipadoEscritorio.ViewModels"
         mc:Ignorable="d"
-            Title="Base" Height="900" Width="1400">
+        Title="Base" Height="900" Width="1400">
+
+    <Window.DataContext>
+        <vm:MainWindowVM></vm:MainWindowVM>
+    </Window.DataContext>
+    
     <Grid>
 
         <!-- ====================== FONDO ====================== -->
@@ -53,30 +59,28 @@
                             <!-- BOTONES -->
                             <StackPanel Grid.Row="1">
 
-                                <Button Style="{StaticResource SidebarButton}" Height="175">
+                                <Button Style="{StaticResource SidebarButton}" Command="{Binding AbrirVentanaUsuariosCommand}" Height="175">
                                     <StackPanel HorizontalAlignment="Center">
                                         <TextBlock Text="👤" FontSize="28" HorizontalAlignment="Center"/>
                                         <TextBlock Text="Usuarios" Margin="0,4,0,0"/>
                                     </StackPanel>
                                 </Button>
 
-                                <Button Style="{StaticResource SidebarButton}" Height="153">
+                                <Button Style="{StaticResource SidebarButton}" Command="{Binding AbrirVentanaEventosCommand}" Height="153">
                                     <StackPanel HorizontalAlignment="Center">
                                         <TextBlock Text="🏠" FontSize="28" HorizontalAlignment="Center"/>
                                         <TextBlock Text="Eventos" Margin="0,4,0,0"/>
                                     </StackPanel>
                                 </Button>
 
-                                <Button Style="{StaticResource SidebarButton}" Height="176">
+                                <Button Style="{StaticResource SidebarButton}" Command="{Binding AbrirVentanaComunidadesCommand}" Height="176">
                                     <StackPanel HorizontalAlignment="Center">
                                         <TextBlock Text="📄" FontSize="28" HorizontalAlignment="Center"/>
                                         <TextBlock Text="Comunidades" Margin="0,4,0,0"/>
                                     </StackPanel>
                                 </Button>
 
-                                <Button Style="{StaticResource SidebarButton}"
-                                Background="#2B5E45"
-                                Height="175">
+                                <Button Style="{StaticResource SidebarButton}" Command="{Binding AbrirVentanaAccesoriosCommand}" Height="175">
                                     <StackPanel HorizontalAlignment="Center">
                                         <TextBlock Text="🛒" FontSize="28" HorizontalAlignment="Center"/>
                                         <TextBlock Text="Tienda" Margin="0,4,0,0"/>
@@ -88,78 +92,15 @@
                     </StackPanel>
                 </DockPanel>
 
-                <!-- ================= BOTÓN HAMBURGUESA ================= -->
-                <Grid Grid.Column="1"
-                    Margin="10"
-                    VerticalAlignment="Top"
-                >
-                    <Button Content="☰"
-                        Background="Transparent"
-                        BorderThickness="0"
-                        FontSize="20"
-                        HorizontalAlignment="Left"
-                    />
-                </Grid>
+                
 
                 <!-- ====================== CONTENIDO PRINCIPAL ====================== -->
-                
-                <StackPanel Grid.Column="1"
-                    Margin="60,120,60,60">
 
-                    <Label Content="Texto"
-                   HorizontalAlignment="Center"
-                   FontSize="52"
-                   Margin="0,0,0,20"/>
+                <ContentControl 
+                    Grid.Column="1"
+                    Content="{Binding ContenidoVentana}"
+                />
 
-                    <Grid Width="600" Height="40"  Margin="0,0,0,40">
-                        <Border
-                            CornerRadius="20"
-                            Background="White"
-                            BorderBrush="#E0E0E0"
-                            BorderThickness="1"
-                            Padding="12,0"
-                        >
-
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-
-                                <TextBlock
-                                Text="🔍"
-                                FontSize="16"
-                                VerticalAlignment="Center"
-                                Foreground="#888"
-                            />
-
-                                <TextBox
-                                    Grid.Column="1"
-                                    Margin="8,0,0,0"
-                                    VerticalAlignment="Center"
-                                    BorderThickness="0"
-                                    Background="Transparent"
-                                    FontSize="14"
-                                />
-                            </Grid>
-                        </Border>
-
-                        <TextBlock
-                            Text="Buscar usuario"
-                            Margin="48,0,0,0"
-                            VerticalAlignment="Center"
-                            Foreground="#999"
-                            IsHitTestVisible="False"
-                            Visibility="{Binding Text.IsEmpty,
-                                                    ElementName=SearchBox,
-                                    Converter={StaticResource BooleanToVisibilityConverter}}"
-                        />
-                    </Grid>
-                    
-                    <!--================== CONTENIDO PRINCIPAL ==================-->
-
-
-                </StackPanel>
             </Grid>
         </Grid>
     </Grid>

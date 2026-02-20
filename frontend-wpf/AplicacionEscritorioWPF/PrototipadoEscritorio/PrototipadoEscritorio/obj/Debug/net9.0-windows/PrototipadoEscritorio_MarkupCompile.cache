@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\alumno\Desktop\Proyecto2\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\
+C:\Users\Ivan\Desktop\Carpeta personal\Estudios\Ciclo\2_DAM\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\obj\Debug\net9.0-windows\
 PrototipadoEscritorio
 none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
-C:\Users\alumno\Desktop\Proyecto2\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\App.xaml
-14-1128511277
-22971025609
-45-1406679937
-210-327034668
-MainWindow.xaml;Views\Accesorios.xaml;Views\Añadir-Accesorio.xaml;Views\Comunidades2.xaml;Views\Eventos.xaml;Views\Main.xaml;Views\UserControl\BloquearUsuarioUserControl.xaml;Views\UserControl\EliminarComunidadUserControl.xaml;Views\UserControl\EliminarEventoUserControl.xaml;Views\UserControl\EliminarMarcoUserControl.xaml;Views\UserControl\EliminarUsuarioUserControl.xaml;Views\UserControl\RevisarComunidadUserControl.xaml;Views\UserControl\RevisarEventoUserControl.xaml;Views\Usuarios.xaml;
+C:\Users\Ivan\Desktop\Carpeta personal\Estudios\Ciclo\2_DAM\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\App.xaml
+141817745416
+23273839064
+471145680053
+210-94908878
+Styles\EstilosGeneral.xaml;Views\AccesoriosUserControl.xaml;Views\Añadir-Accesorio.xaml;Views\ComunidadesUserControl.xaml;Views\EventosUserControl.xaml;Views\MainWindow.xaml;Views\UserControl\BloquearUsuarioUserControl.xaml;Views\UserControl\EliminarComunidadUserControl.xaml;Views\UserControl\EliminarEventoUserControl.xaml;Views\UserControl\EliminarMarcoUserControl.xaml;Views\UserControl\EliminarUsuarioUserControl.xaml;Views\UserControl\RevisarComunidadUserControl.xaml;Views\UserControl\RevisarEventoUserControl.xaml;Views\UsuariosUserControl.xaml;
 
 False
 

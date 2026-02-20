@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace PrototipadoEscritorio.Views
 {
     /// <summary>
-    /// Lógica de interacción para Comunidades2.xaml
+    /// Lógica de interacción para Base2.xaml
     /// </summary>
-    public partial class Comunidades2 : Window
+    public partial class MainWindow : Window
     {
-        public Comunidades2()
+        public MainWindow()
         {
             InitializeComponent();
         }
