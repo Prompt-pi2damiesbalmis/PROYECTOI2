@@ -14,6 +14,10 @@
   - [📅 Noviembre 2025](#-noviembre-2025)
     - [🧾 Resumen del mes:](#-resumen-del-mes-2)
   - [📅 Diciembre 2025](#-diciembre-2025)
+    - [🧾 Resumen del mes:](#-resumen-del-mes-3)
+  - [📅 Enero 2026](#-enero-2026)
+    - [🧾 Resumen del mes:](#-resumen-del-mes-4)
+  - [📅 Febrero 2026](#-febrero-2026)
   - [🧭 Leyenda de Códigos](#-leyenda-de-códigos)
 
 ---
@@ -89,6 +93,48 @@
 | Pendiente | - | - | - | - | - | - |
 
 ---
+
+### 🧾 Resumen del mes:  
+
+- **Total de horas:** 10h
+- **Principales logros:** Muy buen prototipado.
+- **Área de mejora:** Mejor organizacion y comunicacion.
+- **Próximos objetivos:** Diseño de las pantallas de android.
+  
+---
+
+## 📅 Enero 2026
+
+| Fecha | Sesión | Tareas Realizadas | Tiempo | Problemas Encontrados | Soluciones Aplicadas | Reflexión / Aprendizaje |
+|:------:|:-------|:------------------|:--------|:----------------------|:----------------------|:-------------------------|
+| 05/01 | 📚S18 | -Comienzo de la estructura del proyecto y la arquitectura de archivos | 1h | Ninguna dificultad | Ningun problema encontrado | Facilidad de hacer con la estructura ya dada. |  
+| 06/01 | 📚S19 | -Creación dos proyectos para Inicio y otro para comunidades, donde luego se implementaran en un solo proyecto | 2h | Dificultad a la hora de relacionar los proyectos con lo que queriamos hacer. | Relacionar bien los proyectos | Ningun problema encontrado |  
+| 12/01 | 📚S20 | -Creacion de las pantallas de Inicio y registro | 2h | Dificultad a la hora de diseñar las diferentes pantallas y conectores | Problema con los button y los Theme para que quede correcta la pantalla | Buena arquitectura y desarrollo |
+| 13/01 | 📚S21 | -Hemos terminado con la creacion de las pantallas de Inicio y registro | 2h | Ninguna dificultad | Ninguna dificultad | Mayor flexibilidad para programar despues |
+| 20/01 | 📚S22 | -Hemos seguido con la creacion del proyecto de comunidades | 1h | Ninguna dificultad | Ninguna dificultad | Mayor flexibilidad para programar despues |
+| 26/01 | 📚S23 | -Seguimos con la creacion de las pantallas de Comunidades | 2h | Dificultad en la creacion del Scaffold sin funcionalidades | Ninguna dificultad | Problema de uso de la preview para poder ver las pantallas |
+
+### 🧾 Resumen del mes:  
+
+- **Total de horas:** h
+- **Principales logros:** Muy buen prototipado.
+- **Área de mejora:** Mejor organizacion y comunicacion.
+- **Próximos objetivos:** Diseño de las pantallas de Android.
+  
+---
+
+## 📅 Febrero 2026
+
+| Fecha | Sesión | Tareas Realizadas | Tiempo | Problemas Encontrados | Soluciones Aplicadas | Reflexión / Aprendizaje |
+|:------:|:-------|:------------------|:--------|:----------------------|:----------------------|:-------------------------|
+| 02/02 | 📚S24 | -Hemos seguido con las pantallas de android | 1h | Ninguna dificultad | Ningun problema encontrado | Facilidad de hacer con la estructura ya dada. |  
+| 23/02 | 📚S25 | -Hemos seguido con las pantallas de android | 1h | Ninguna dificultad | Ningun problema encontrado | Facilidad de hacer con la estructura ya dada. |
+<!-- | 12/01 | 📚S20 | -Creacion de las pantallas de Inicio y registro | 2h | Dificultad a la hora de diseñar las diferentes pantallas y conectores | Problema con los button y los Theme para que quede correcta la pantalla | Buena arquitectura y desarrollo |
+| 13/01 | 📚S21 | -Hemos terminado con la creacion de las pantallas de Inicio y registro | 2h | Ninguna dificultad | Ninguna dificultad | Mayor flexibilidad para programar despues |
+| 20/01 | 📚S22 | -Hemos seguido con la creacion del proyecto de comunidades | 2h | Ninguna dificultad | Ninguna dificultad | Mayor flexibilidad para programar despues |
+| 26/01 | 📚S23 | -Seguimos con la creacion de las pantallas de Comunidades | 2h | Dificultad en la creacion del Scaffold sin funcionalidades | Ninguna dificultad | Problema de uso de la preview para poder ver las pantallas | -->
+
+
 
 ## 🧭 Leyenda de Códigos
 
