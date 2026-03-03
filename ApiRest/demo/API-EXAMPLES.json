@@ -1,0 +1,282 @@
+{
+  "info": {
+    "name": "API REST - Plataforma Gamificación",
+    "description": "Colección de ejemplos para todos los endpoints",
+    "version": "1.0.0"
+  },
+  "baseUrl": "http://localhost:8080/api",
+  "requests": [
+    {
+      "name": "Info API",
+      "method": "GET",
+      "endpoint": "/api",
+      "description": "Obtiene información general de la API"
+    },
+    {
+      "name": "Health Check",
+      "method": "GET",
+      "endpoint": "/api/health",
+      "description": "Verifica el estado de la API"
+    },
+    {
+      "section": "USUARIOS",
+      "endpoints": [
+        {
+          "name": "Obtener todos los usuarios",
+          "method": "GET",
+          "endpoint": "/api/usuarios",
+          "description": "Lista todos los usuarios del sistema"
+        },
+        {
+          "name": "Obtener usuario por ID",
+          "method": "GET",
+          "endpoint": "/api/usuarios/1",
+          "description": "Obtiene un usuario específico"
+        },
+        {
+          "name": "Crear usuario",
+          "method": "POST",
+          "endpoint": "/api/usuarios",
+          "description": "Crea un nuevo usuario",
+          "body": {
+            "usuario": "nuevo_usuario",
+            "contraseña": "password123",
+            "nombre": "Juan",
+            "apellidos": "Pérez González",
+            "correo": "juan@example.com",
+            "admin": false,
+            "puntos": 0,
+            "puntosExperiencia": 0
+          }
+        },
+        {
+          "name": "Actualizar usuario",
+          "method": "PUT",
+          "endpoint": "/api/usuarios/1",
+          "description": "Actualiza datos de un usuario",
+          "body": {
+            "nombre": "Juan Roberto",
+            "apellidos": "Pérez López",
+            "puntos": 150
+          }
+        },
+        {
+          "name": "Eliminar usuario",
+          "method": "DELETE",
+          "endpoint": "/api/usuarios/1",
+          "description": "Elimina un usuario"
+        }
+      ]
+    },
+    {
+      "section": "COMUNIDADES",
+      "endpoints": [
+        {
+          "name": "Obtener todas las comunidades",
+          "method": "GET",
+          "endpoint": "/api/comunidades",
+          "description": "Lista todas las comunidades"
+        },
+        {
+          "name": "Obtener comunidad por ID",
+          "method": "GET",
+          "endpoint": "/api/comunidades/1",
+          "description": "Obtiene una comunidad específica"
+        },
+        {
+          "name": "Crear comunidad",
+          "method": "POST",
+          "endpoint": "/api/comunidades",
+          "description": "Crea una nueva comunidad",
+          "body": {
+            "nombre": "Comunidad de Python",
+            "descripcion": "Para desarrolladores de Python",
+            "imagen": "https://example.com/imagen.jpg"
+          }
+        },
+        {
+          "name": "Actualizar comunidad",
+          "method": "PUT",
+          "endpoint": "/api/comunidades/1",
+          "description": "Actualiza una comunidad",
+          "body": {
+            "nombre": "Comunidad Python Avanzada",
+            "descripcion": "Para pythonistas experimentados"
+          }
+        },
+        {
+          "name": "Eliminar comunidad",
+          "method": "DELETE",
+          "endpoint": "/api/comunidades/1",
+          "description": "Elimina una comunidad"
+        }
+      ]
+    },
+    {
+      "section": "EVENTOS",
+      "endpoints": [
+        {
+          "name": "Obtener todos los eventos",
+          "method": "GET",
+          "endpoint": "/api/eventos",
+          "description": "Lista todos los eventos"
+        },
+        {
+          "name": "Obtener evento por ID",
+          "method": "GET",
+          "endpoint": "/api/eventos/1",
+          "description": "Obtiene un evento específico"
+        },
+        {
+          "name": "Crear evento",
+          "method": "POST", 
+          "endpoint": "/api/eventos",
+          "description": "Crea un nuevo evento",
+          "body": {
+            "nombre": "Meetup Python",
+            "ubicacion": "Centro de Innovación",
+            "descripcion": "Encuentro mensual de pythonistas",
+            "imagen": "https://example.com/evento.jpg",
+            "fecha": "2024-03-15T18:00:00"
+          }
+        },
+        {
+          "name": "Actualizar evento",
+          "method": "PUT",
+          "endpoint": "/api/eventos/1",
+          "description": "Actualiza un evento",
+          "body": {
+            "nombre": "Meetup Python Actualizado",
+            "fecha": "2024-03-20T18:00:00"
+          }
+        },
+        {
+          "name": "Eliminar evento",
+          "method": "DELETE",
+          "endpoint": "/api/eventos/1",
+          "description": "Elimina un evento"
+        }
+      ]
+    },
+    {
+      "section": "PRODUCTOS",
+      "endpoints": [
+        {
+          "name": "Obtener todos los productos",
+          "method": "GET",
+          "endpoint": "/api/productos",
+          "description": "Lista todos los productos disponibles"
+        },
+        {
+          "name": "Crear producto",
+          "method": "POST",
+          "endpoint": "/api/productos",
+          "description": "Crea un nuevo producto (badge/premio)",
+          "body": {
+            "nombre": "Badge Certificado",
+            "descripcion": "Badge por completar curso",
+            "puntos": 250
+          }
+        }
+      ]
+    },
+    {
+      "section": "RETOS",
+      "endpoints": [
+        {
+          "name": "Obtener todos los retos",
+          "method": "GET",
+          "endpoint": "/api/retos",
+          "description": "Lista todos los retos disponibles"
+        },
+        {
+          "name": "Crear reto",
+          "method": "POST",
+          "endpoint": "/api/retos",
+          "description": "Crea un nuevo reto",
+          "body": {
+            "nombre": "Reto JavaScript Avanzado",
+            "descripcion": "Domina los conceptos avanzados de JavaScript",
+            "puntos": 400
+          }
+        }
+      ]
+    },
+    {
+      "section": "NIVELES",
+      "endpoints": [
+        {
+          "name": "Obtener todos los niveles",
+          "method": "GET",
+          "endpoint": "/api/niveles",
+          "description": "Lista todos los niveles del sistema"
+        },
+        {
+          "name": "Crear nivel",
+          "method": "POST",
+          "endpoint": "/api/niveles",
+          "description": "Crea un nuevo nivel",
+          "body": {
+            "nombre": "Legendario",
+            "descripcion": "Máximo nivel alcanzable",
+            "puntos": 5000,
+            "icono": "⭐⭐⭐⭐⭐"
+          }
+        }
+      ]
+    },
+    {
+      "section": "ROLES",
+      "endpoints": [
+        {
+          "name": "Obtener todos los roles",
+          "method": "GET",
+          "endpoint": "/api/roles",
+          "description": "Lista todos los roles"
+        },
+        {
+          "name": "Crear rol",
+          "method": "POST",
+          "endpoint": "/api/roles",
+          "description": "Crea un nuevo rol",
+          "body": {
+            "nombreRol": "Mentor"
+          }
+        }
+      ]
+    },
+    {
+      "section": "NOTICIAS",
+      "endpoints": [
+        {
+          "name": "Obtener todas las noticias",
+          "method": "GET",
+          "endpoint": "/api/noticias",
+          "description": "Lista todas las noticias"
+        },
+        {
+          "name": "Crear noticia",
+          "method": "POST",
+          "endpoint": "/api/noticias",
+          "description": "Crea una nueva noticia",
+          "body": {
+            "nombre": "Nuevo Update de la Plataforma",
+            "autor": "Admin",
+            "descripcion": "Se ha lanzado la versión 2.0 con nuevas funcionalidades",
+            "imagen": "https://example.com/noticia.jpg"
+          }
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Base URL: http://localhost:8080/api",
+    "H2 Console: http://localhost:8080/h2-console",
+    "Usuario BD: sa",
+    "Contraseña BD: (vacío)",
+    "CORS está habilitado para todos los orígenes",
+    "Todos los endpoints soportan GET, POST, PUT, DELETE",
+    "Las respuestas usan JSON",
+    "Los ID se generan automáticamente"
+  ]
+}
