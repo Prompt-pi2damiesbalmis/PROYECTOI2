@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\alumno\Desktop\Proyecto\PROYECTOI2\frontend-wpf\AplicacionEscritorioWPF\PrototipadoEscritorio\PrototipadoEscritorio\App.xaml
-141817745416
+15-232844980
 23-2121444125
-471145680053
-210-327034668
-Styles\EstilosGeneral.xaml;Views\AccesoriosUserControl.xaml;Views\Añadir-Accesorio.xaml;Views\ComunidadesUserControl.xaml;Views\EventosUserControl.xaml;Views\MainWindow.xaml;Views\UserControl\BloquearUsuarioUserControl.xaml;Views\UserControl\EliminarComunidadUserControl.xaml;Views\UserControl\EliminarEventoUserControl.xaml;Views\UserControl\EliminarMarcoUserControl.xaml;Views\UserControl\EliminarUsuarioUserControl.xaml;Views\UserControl\RevisarComunidadUserControl.xaml;Views\UserControl\RevisarEventoUserControl.xaml;Views\UsuariosUserControl.xaml;
+49-2010902515
+210-1535814244
+Styles\EstilosGeneral.xaml;Views\Añadir-Accesorio.xaml;Views\MainWindow.xaml;Views\UserControl\AccesoriosUserControl.xaml;Views\UserControl\ComunidadesUserControl.xaml;Views\UserControl\Comunidades\EliminarComunidadUserControl.xaml;Views\UserControl\Comunidades\RevisarComunidadUserControl.xaml;Views\UserControl\EliminarMarcoUserControl.xaml;Views\UserControl\EventosUserControl.xaml;Views\UserControl\Eventos\EliminarEventoUserControl.xaml;Views\UserControl\Eventos\RevisarEventoUserControl.xaml;Views\UserControl\Tienda\AñadirAccesorioUserControl.xaml;Views\UserControl\UsuariosUserControl.xaml;Views\UserControl\Usuarios\BloquearUsuarioUserControl.xaml;Views\UserControl\Usuarios\EliminarUsuarioUserControl.xaml;
 
 False
 

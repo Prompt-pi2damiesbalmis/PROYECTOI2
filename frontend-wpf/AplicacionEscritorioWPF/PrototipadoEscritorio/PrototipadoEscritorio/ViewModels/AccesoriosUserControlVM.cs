@@ -1,14 +1,33 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CommunityToolkit.Mvvm.Input;
+using PrototipadoEscritorio.Services;
 
 namespace PrototipadoEscritorio.ViewModels
 {
     public partial class AccesoriosUserControlVM : ObservableObject
     {
 
+        private NavegacionService sn;
+
+        [ObservableProperty]
+        private bool isDockVisible = false;
+
+        public AccesoriosUserControlVM()
+        {
+            sn = new NavegacionService();
+        }
+
+        [RelayCommand]
+        private void ToggleDock()
+        {
+            IsDockVisible = !IsDockVisible;
+        }
+
+        // Navegación entre ventanas de accesorios
+        [RelayCommand]
+        private void AbrirAñadirAccesorio()
+        {
+            sn.ObtenerVentanaAñadirAccesorio();
+        }
     }
 }

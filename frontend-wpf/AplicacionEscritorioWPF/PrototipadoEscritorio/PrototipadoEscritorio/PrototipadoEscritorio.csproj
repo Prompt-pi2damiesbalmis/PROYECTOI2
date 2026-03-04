@@ -57,22 +57,22 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Compile Update="Views\UserControl\EliminarComunidadUserControl.xaml.cs">
+		<Compile Update="Views\UserControl\Comunidades\EliminarComunidadUserControl.xaml.cs">
 			<SubType>Code</SubType>
 		</Compile>
 		<Compile Update="Views\UserControl\EliminarMarcoUserControl.xaml.cs">
 			<SubType>Code</SubType>
 		</Compile>
-		<Compile Update="Views\UserControl\EliminarUsuarioUserControl.xaml.cs">
+		<Compile Update="Views\UserControl\Usuarios\EliminarUsuarioUserControl.xaml.cs">
 			<SubType>Code</SubType>
 		</Compile>
-		<Compile Update="Views\UserControl\EliminarEventoUserControl.xaml.cs">
+		<Compile Update="Views\UserControl\Eventos\EliminarEventoUserControl.xaml.cs">
 			<SubType>Code</SubType>
 		</Compile>
-		<Compile Update="Views\UserControl\RevisarComunidadUserControl.xaml.cs">
+		<Compile Update="Views\UserControl\Comunidades\RevisarComunidadUserControl.xaml.cs">
 			<SubType>Code</SubType>
 		</Compile>
-		<Compile Update="Views\UserControl\RevisarEventoUserControl.xaml.cs">
+		<Compile Update="Views\UserControl\Eventos\RevisarEventoUserControl.xaml.cs">
 			<SubType>Code</SubType>
 		</Compile>
 	</ItemGroup>

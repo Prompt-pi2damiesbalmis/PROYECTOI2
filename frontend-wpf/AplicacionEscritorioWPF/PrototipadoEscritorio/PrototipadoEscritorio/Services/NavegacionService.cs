@@ -11,12 +11,18 @@ namespace PrototipadoEscritorio.Services
     internal class NavegacionService
     {
         private static UserControl usuariosVista, accesoriosVista, eventosVista, comunidadesVista;
+        private static UserControl añadirAccesorio;
+
+        // Evento para notificar cambios en la navegación
+        public event EventHandler<UserControl>? NavegacionSolicitada;
+
         public UserControl ObtenerVentanaUsuarios()
         {
             if (usuariosVista is null)
             {
                 usuariosVista = new UsuariosUserControl();
             }
+            NotificarNavegacion(usuariosVista);
             return usuariosVista;
         }
 
@@ -26,6 +32,7 @@ namespace PrototipadoEscritorio.Services
             {
                 accesoriosVista = new AccesoriosUserControl();
             }
+            NotificarNavegacion(accesoriosVista);
             return accesoriosVista;
         }
 
@@ -35,6 +42,7 @@ namespace PrototipadoEscritorio.Services
             {
                 eventosVista = new EventosUserControl();
             }
+            NotificarNavegacion(eventosVista);
             return eventosVista;
         }
 
@@ -44,8 +52,23 @@ namespace PrototipadoEscritorio.Services
             {
                 comunidadesVista = new ComunidadesUserControl();
             }
+            NotificarNavegacion(comunidadesVista);
             return comunidadesVista;
         }
 
+        public UserControl ObtenerVentanaAñadirAccesorio()
+        {
+            if (añadirAccesorio is null)
+            {
+                añadirAccesorio = new AñadirAccesorioUserControl();
+            }
+            NotificarNavegacion(añadirAccesorio);
+            return añadirAccesorio;
+        }
+
+        private void NotificarNavegacion(UserControl control)
+        {
+            NavegacionSolicitada?.Invoke(this, control);
+        }
     }
 }

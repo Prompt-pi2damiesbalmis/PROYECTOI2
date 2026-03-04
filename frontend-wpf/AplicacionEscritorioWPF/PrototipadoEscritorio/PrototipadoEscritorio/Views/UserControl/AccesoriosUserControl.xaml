@@ -5,62 +5,21 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:PrototipadoEscritorio.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:PrototipadoEscritorio.ViewModels"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </UserControl.Resources>
+
+    <UserControl.DataContext>
+        <vm:AccesoriosUserControlVM />
+    </UserControl.DataContext>
+
     <Grid>
-        <Grid
-            Grid.Column="1"
-            Margin="10"
-            VerticalAlignment="Top">
-            <Grid>
 
-                <Button
-                    x:Name="BtnOpciones"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Background="Transparent"
-                    BorderThickness="0"
-                    Click="BtnOpciones_Click"
-                    Content="☰"
-                    Cursor="Hand"
-                    FontSize="20" />
-
-                <!--  🔥 POPUP  -->
-                <Popup
-                    x:Name="PopupOpciones"
-                    AllowsTransparency="True"
-                    Placement="Bottom"
-                    PlacementTarget="{Binding ElementName=BtnOpciones}"
-                    StaysOpen="False">
-
-                    <Border
-                        Width="180"
-                        Padding="10"
-                        Background="White"
-                        BorderBrush="#E0E0E0"
-                        BorderThickness="1"
-                        CornerRadius="10">
-
-                        <StackPanel>
-
-                            <Button Content="Perfil" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" />
-
-                            <Button Content="Mis accesorios" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" />
-
-                            <Separator Margin="5" />
-
-                            <Button Content="Configuración" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" />
-
-                            <Button Content="Cerrar sesión" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" />
-
-                        </StackPanel>
-                    </Border>
-
-                </Popup>
-
-            </Grid>
-        </Grid>
 
         <!--  ====================== CONTENIDO PRINCIPAL ======================  -->
         <StackPanel Grid.Column="1" Margin="60,120,60,60">
@@ -113,7 +72,6 @@
                     Text="Buscar accesorio"
                     Visibility="{Binding Text.IsEmpty, ElementName=SearchBox, Converter={StaticResource BooleanToVisibilityConverter}}" />
             </Grid>
-
 
             <!--  ====================== WRAP PANNEL PRINCIPAL ======================  -->
             <WrapPanel HorizontalAlignment="Center">
@@ -628,5 +586,72 @@
 
 
         </StackPanel>
+
+        <!--<DockPanel
+            Width="200"
+            HorizontalAlignment="Left"
+            Background="White"
+            Opacity="0.8"
+            Visibility="{Binding IsDockVisible, Converter={StaticResource BoolToVisibilityConverter}}">-->
+
+        <DockPanel
+            x:Name="MenuDockPanel"
+            Width="200"
+            HorizontalAlignment="Left"
+            Background="White"
+            Opacity="0.8"
+            Visibility="{Binding IsDockVisible, Converter={StaticResource BoolToVisibilityConverter}}">
+
+            <StackPanel
+                Margin="0,70,0,0"
+                HorizontalAlignment="Center"
+                DockPanel.Dock="Left"
+                Orientation="Vertical">
+
+                <TextBlock
+                    Padding="20"
+                    HorizontalAlignment="Center"
+                    FontSize="34">
+                    Opciones
+                </TextBlock>
+
+                <Button
+                    HorizontalAlignment="Center"
+                    Command="{Binding AbrirAñadirAccesorioCommand}"
+                    Style="{DynamicResource BotonesMenuHamburguesa}">
+                    Lista de Accesorios
+                </Button>
+
+                <Button
+                    HorizontalAlignment="Center"
+                    Command="{Binding AbrirAñadirAccesorioCommand}"
+                    Style="{DynamicResource BotonesMenuHamburguesa}">
+                    Añadir Accesorio
+                </Button>
+
+                <Button HorizontalAlignment="Center" Style="{DynamicResource BotonesMenuHamburguesa}">Eliminar Accesorio</Button>
+            </StackPanel>
+        </DockPanel>
+
+        <Grid
+            Grid.Column="1"
+            Margin="10"
+            VerticalAlignment="Top">
+            <Grid>
+
+                <Button
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Command="{Binding ToggleDockCommand}"
+                    Content="☰"
+                    Cursor="Hand"
+                    FontSize="20" />
+
+
+            </Grid>
+        </Grid>
+
     </Grid>
 </UserControl>
