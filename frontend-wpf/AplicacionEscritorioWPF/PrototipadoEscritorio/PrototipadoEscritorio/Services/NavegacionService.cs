@@ -11,10 +11,7 @@ namespace PrototipadoEscritorio.Services
     internal class NavegacionService
     {
         private static UserControl usuariosVista, accesoriosVista, eventosVista, comunidadesVista;
-        private static UserControl añadirAccesorio;
-
-        // Evento para notificar cambios en la navegación
-        public event EventHandler<UserControl>? NavegacionSolicitada;
+        private static UserControl listadoAccesorios, añadirAccesorio;
 
         public UserControl ObtenerVentanaUsuarios()
         {
@@ -22,7 +19,6 @@ namespace PrototipadoEscritorio.Services
             {
                 usuariosVista = new UsuariosUserControl();
             }
-            NotificarNavegacion(usuariosVista);
             return usuariosVista;
         }
 
@@ -32,7 +28,6 @@ namespace PrototipadoEscritorio.Services
             {
                 accesoriosVista = new AccesoriosUserControl();
             }
-            NotificarNavegacion(accesoriosVista);
             return accesoriosVista;
         }
 
@@ -42,7 +37,6 @@ namespace PrototipadoEscritorio.Services
             {
                 eventosVista = new EventosUserControl();
             }
-            NotificarNavegacion(eventosVista);
             return eventosVista;
         }
 
@@ -52,8 +46,16 @@ namespace PrototipadoEscritorio.Services
             {
                 comunidadesVista = new ComunidadesUserControl();
             }
-            NotificarNavegacion(comunidadesVista);
             return comunidadesVista;
+        }
+
+        public UserControl ObtenerVentanaListadoAccesorios()
+        {
+            if (listadoAccesorios is null)
+            {
+                listadoAccesorios = new ListadoAccesoriosUserControl();
+            }
+            return listadoAccesorios;
         }
 
         public UserControl ObtenerVentanaAñadirAccesorio()
@@ -62,13 +64,7 @@ namespace PrototipadoEscritorio.Services
             {
                 añadirAccesorio = new AñadirAccesorioUserControl();
             }
-            NotificarNavegacion(añadirAccesorio);
             return añadirAccesorio;
-        }
-
-        private void NotificarNavegacion(UserControl control)
-        {
-            NavegacionSolicitada?.Invoke(this, control);
         }
     }
 }

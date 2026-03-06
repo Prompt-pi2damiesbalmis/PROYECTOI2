@@ -20,47 +20,33 @@ namespace PrototipadoEscritorio.ViewModels
 
         public MainWindowVM()
         {
-            //sn = new NavegacionService();
-            //ContenidoVentana = sn.ObtenerVentanaUsuarios();
-
             sn = new NavegacionService();
-
-            sn.NavegacionSolicitada += OnNavegacionSolicitada;
-
             ContenidoVentana = sn.ObtenerVentanaUsuarios();
         }
 
-        private void OnNavegacionSolicitada(object? sender, UserControl control)
-        {
-            ContenidoVentana = control;
-        }
 
         [RelayCommand]
         public void AbrirVentanaUsuarios()
         {
-            //ContenidoVentana = sn.ObtenerVentanaUsuarios();
-            sn.ObtenerVentanaUsuarios();
+            ContenidoVentana = sn.ObtenerVentanaUsuarios();
         }
 
         [RelayCommand]
         public void AbrirVentanaAccesorios()
         {
-            //ContenidoVentana = sn.ObtenerVentanaAccesorios();
-            sn.ObtenerVentanaAccesorios();
+            ContenidoVentana = sn.ObtenerVentanaAccesorios();
         }
 
         [RelayCommand]
         public void AbrirVentanaEventos()
         {
-            //ContenidoVentana = sn.ObtenerVentanaEventos();
-            sn.ObtenerVentanaEventos();
+            ContenidoVentana = sn.ObtenerVentanaEventos();
         }
 
         [RelayCommand]
         public void AbrirVentanaComunidades()
         {
-            //ContenidoVentana = sn.ObtenerVentanaComunidades();
-            sn.ObtenerVentanaComunidades();
+            ContenidoVentana = sn.ObtenerVentanaComunidades();
         }
 
     }

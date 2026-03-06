@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using PrototipadoEscritorio.Services;
+using System.Windows.Controls;
 
 namespace PrototipadoEscritorio.ViewModels
 {
@@ -12,9 +13,13 @@ namespace PrototipadoEscritorio.ViewModels
         [ObservableProperty]
         private bool isDockVisible = false;
 
+        [ObservableProperty]
+        private UserControl? _contenidoVentana;
+
         public AccesoriosUserControlVM()
         {
             sn = new NavegacionService();
+            ContenidoVentana = sn.ObtenerVentanaListadoAccesorios();
         }
 
         [RelayCommand]
@@ -23,11 +28,16 @@ namespace PrototipadoEscritorio.ViewModels
             IsDockVisible = !IsDockVisible;
         }
 
-        // Navegación entre ventanas de accesorios
+        [RelayCommand]
+        private void AbrirListadoAccesorios()
+        {
+            ContenidoVentana = sn.ObtenerVentanaAccesorios();
+        }
+
         [RelayCommand]
         private void AbrirAñadirAccesorio()
         {
-            sn.ObtenerVentanaAñadirAccesorio();
+            ContenidoVentana = sn.ObtenerVentanaAñadirAccesorio();
         }
     }
 }
