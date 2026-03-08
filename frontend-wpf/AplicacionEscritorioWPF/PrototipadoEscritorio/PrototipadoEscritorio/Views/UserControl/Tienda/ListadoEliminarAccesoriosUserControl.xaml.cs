@@ -10,23 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace PrototipadoEscritorio.Views
 {
     /// <summary>
-    /// Lógica de interacción para Tienda.xaml
+    /// Lógica de interacción para ListadoEliminarAccesoriosUserControl.xaml
     /// </summary>
-    public partial class AñadirAccesorio : Window
+    public partial class ListadoEliminarAccesoriosUserControl : UserControl
     {
-        public AñadirAccesorio()
+        public ListadoEliminarAccesoriosUserControl()
         {
             InitializeComponent();
-        }
-
-        private void BtnOpciones_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

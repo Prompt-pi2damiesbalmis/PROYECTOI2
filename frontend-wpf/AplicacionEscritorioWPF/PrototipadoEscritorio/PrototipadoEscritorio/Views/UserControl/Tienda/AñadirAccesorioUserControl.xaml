@@ -14,93 +14,93 @@
         <vm:AñadirAccesorioUserControlVM />
     </UserControl.DataContext>
 
-    <Grid>
-        <StackPanel Grid.Column="1" Margin="60,120,60,60">
+    <StackPanel>
 
-            <Label
-                Margin="0,0,0,40"
-                HorizontalAlignment="Center"
-                Content="Añadir Accesorio"
-                FontSize="52" />
+        <Label
+            Margin="0,0,0,40"
+            HorizontalAlignment="Center"
+            Content="Añadir Accesorio"
+            FontSize="52" />
 
-            <Border
-                Width="420"
-                Padding="20"
-                Background="#F7F9F5"
-                CornerRadius="12">
+        <Border
+            Width="420"
+            Padding="20"
+            Background="White"
+            CornerRadius="12">
 
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
 
-                    <!--  Nombre  -->
-                    <StackPanel Grid.Row="0" Margin="0,0,0,10">
-                        <TextBlock FontWeight="SemiBold" Text="Nombre:" />
-                        <TextBox
-                            Height="32"
-                            Style="{StaticResource TextBoxPlaceholderStyle}"
-                            Tag="Introduzca el nombre..." />
-                    </StackPanel>
+                <!--  Nombre  -->
+                <StackPanel Grid.Row="0" Margin="0,0,0,10">
+                    <TextBlock FontWeight="SemiBold" Text="Nombre:" />
+                    <TextBox
+                        Height="32"
+                        VerticalAlignment="Center"
+                        Style="{StaticResource TextBoxPlaceholderStyle}"
+                        Tag="Introduzca el nombre..." />
+                </StackPanel>
 
-                    <!--  Puntos  -->
-                    <StackPanel Grid.Row="1" Margin="0,0,0,10">
-                        <TextBlock FontWeight="SemiBold" Text="Puntos:" />
-                        <TextBox
-                            Height="32"
-                            Style="{StaticResource TextBoxPlaceholderStyle}"
-                            Tag="Puntos..." />
-                    </StackPanel>
+                <!--  Puntos  -->
+                <StackPanel Grid.Row="1" Margin="0,0,0,10">
+                    <TextBlock FontWeight="SemiBold" Text="Puntos:" />
+                    <TextBox
+                        Height="32"
+                        Style="{StaticResource TextBoxPlaceholderStyle}"
+                        Tag="Puntos..." />
+                </StackPanel>
 
-                    <!--  Imagen  -->
-                    <StackPanel Grid.Row="2" Margin="0,0,0,10">
-                        <DockPanel>
-                            <TextBlock
-                                VerticalAlignment="Center"
-                                FontWeight="SemiBold"
-                                Text="Imagen:" />
-                            <Button
-                                Width="313"
-                                Height="28"
-                                Padding="10,0"
-                                Content="Seleccionar img"
-                                DockPanel.Dock="Right" />
-                        </DockPanel>
-
+                <!--  Imagen  -->
+                <StackPanel Grid.Row="2" Margin="0,0,0,10">
+                    <DockPanel>
                         <TextBlock
-                            Margin="0,4,0,8"
-                            FontSize="12"
-                            Foreground="Gray"
-                            Text="Marco-Personalizado.jpg" />
+                            VerticalAlignment="Center"
+                            FontWeight="SemiBold"
+                            Text="Imagen:" />
+                        <Button
+                            Width="150"
+                            Height="28"
+                            Padding="10,0"
+                            HorizontalAlignment="Right"
+                            Content="Seleccionar img"
+                            DockPanel.Dock="Right" />
+                    </DockPanel>
 
-                        <Border
-                            Padding="10"
-                            BorderBrush="#DDD"
-                            BorderThickness="1"
-                            CornerRadius="8">
-                            <Image
-                                Width="120"
-                                Height="120"
-                                Stretch="Uniform" />
-                        </Border>
-                    </StackPanel>
+                    <TextBlock
+                        Margin="0,4,0,8"
+                        FontSize="12"
+                        Foreground="Gray"
+                        Text="Marco-Personalizado.jpg" />
 
-                    <!--  Guardar  -->
-                    <Button
-                        Grid.Row="4"
-                        Width="100"
-                        Height="36"
-                        HorizontalAlignment="Right"
-                        Background="#4CAF50"
-                        BorderThickness="0"
-                        Content="Guardar"
-                        Foreground="White" />
-                </Grid>
-            </Border>
-        </StackPanel>
-    </Grid>
+                    <Border
+                        Padding="10"
+                        BorderBrush="#DDD"
+                        BorderThickness="1"
+                        CornerRadius="8">
+                        <Image
+                            Width="120"
+                            Height="120"
+                            Stretch="Uniform" />
+                    </Border>
+                </StackPanel>
+
+                <!--  Guardar  -->
+                <Button
+                    Grid.Row="4"
+                    Width="100"
+                    Height="36"
+                    HorizontalAlignment="Right"
+                    Background="#4CAF50"
+                    BorderThickness="0"
+                    Content="Guardar"
+                    Foreground="White" />
+            </Grid>
+        </Border>
+    </StackPanel>
 </UserControl>

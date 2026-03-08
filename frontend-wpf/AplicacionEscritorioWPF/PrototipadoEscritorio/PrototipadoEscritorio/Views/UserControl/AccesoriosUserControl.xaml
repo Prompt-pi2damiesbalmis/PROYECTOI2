@@ -63,7 +63,12 @@
                     Añadir Accesorio
                 </Button>
 
-                <Button HorizontalAlignment="Center" Style="{DynamicResource BotonesMenuHamburguesa}">Eliminar Accesorio</Button>
+                <Button
+                    HorizontalAlignment="Center"
+                    Command="{Binding AbrirEliminarAccesorioCommand}"
+                    Style="{DynamicResource BotonesMenuHamburguesa}">
+                    Eliminar Accesorio
+                </Button>
             </StackPanel>
         </DockPanel>
 

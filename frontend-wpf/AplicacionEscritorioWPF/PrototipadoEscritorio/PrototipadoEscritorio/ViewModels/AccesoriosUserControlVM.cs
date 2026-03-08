@@ -28,16 +28,23 @@ namespace PrototipadoEscritorio.ViewModels
             IsDockVisible = !IsDockVisible;
         }
 
+        // Navegación entre vistas
         [RelayCommand]
         private void AbrirListadoAccesorios()
         {
-            ContenidoVentana = sn.ObtenerVentanaAccesorios();
+            ContenidoVentana = sn.ObtenerVentanaListadoAccesorios();
         }
 
         [RelayCommand]
         private void AbrirAñadirAccesorio()
         {
             ContenidoVentana = sn.ObtenerVentanaAñadirAccesorio();
+        }
+
+        [RelayCommand]
+        private void AbrirEliminarAccesorio()
+        {
+            ContenidoVentana = sn.ObtenerVentanaEliminarAccesorios();
         }
     }
 }

@@ -2,6 +2,9 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="Views\UserControl\Tienda\ListadoEliminarAccesoriosUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\UserControl\Tienda\ListadoAccesoriosUserControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -18,9 +21,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\MainWindow.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\Añadir-Accesorio.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\UserControl\Usuarios\BloquearUsuarioUserControl.xaml.cs">
