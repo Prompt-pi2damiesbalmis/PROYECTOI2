@@ -22,20 +22,24 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.pmdm.proyectobase2425.R
+import com.pmdm.proyectobase2425.ui.features.home.HomeViewModel
 import com.pmdm.proyectobase2425.ui.theme.features.comunidades.ComunidadesScreen
 import com.pmdm.proyectobase2425.ui.theme.GreenBar
 import com.pmdm.proyectobase2425.ui.theme.ProyectoBase2425Theme
+import com.pmdm.proyectobase2425.ui.theme.navigation.AppNavHost
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(homeEvent: (HomeEvent) -> Unit) {
-
-    val navController = rememberNavController()
+fun HomeScreen(
+    vm: HomeViewModel = viewModel(),
+    onEvent: (HomeEvent) -> Unit
+) {
 
     Box(modifier = Modifier.fillMaxSize()) {
         Image(
@@ -46,31 +50,20 @@ fun HomeScreen(homeEvent: (HomeEvent) -> Unit) {
         )
 
         Scaffold(
-            topBar = { TopBar(onEvent = homeEvent) },
-            bottomBar = { BottomBar(onEvent = { homeEvent }) },
+            topBar = { TopBar(onEvent = onEvent) },
+            bottomBar = { BottomBar(onEvent = onEvent) },
             containerColor = Color.Transparent
         ) { paddingValues ->
-
-            NavHost(
-                navController = navController,
-                startDestination = "home",
-                modifier = Modifier.padding(paddingValues)
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(paddingValues)
             ) {
-                composable("home") { /*HomeScreenContent()*/ }
-                composable("comunidad") { ComunidadesScreen(homeEvent) }
-                composable("tienda") { /*TiendaScreen()*/ }
+                AppNavHost(
+                    navController = rememberNavController()
+                )
             }
         }
-    }
-}
-
-private fun handleHomeEvent(event: HomeEvent, navController: NavHostController) {
-        when (event) {
-        HomeEvent.GoHome -> navController.navigate("home")
-        HomeEvent.GoComunidad -> navController.navigate("comunidad")
-        HomeEvent.GoTienda -> navController.navigate("tienda")
-        HomeEvent.OpenPerfil -> navController.navigate("perfil")
-        HomeEvent.OpenSettings -> navController.navigate("settings")
     }
 }
 

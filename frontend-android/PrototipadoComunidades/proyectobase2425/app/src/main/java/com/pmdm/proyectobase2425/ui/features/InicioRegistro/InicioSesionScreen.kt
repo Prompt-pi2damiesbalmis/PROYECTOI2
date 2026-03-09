@@ -11,10 +11,6 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -26,15 +22,17 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.pmdm.proyectobase2425.R
+import com.pmdm.proyectobase2425.ui.features.InicioRegistro.InicioRegistroEvent
+import com.pmdm.proyectobase2425.ui.features.InicioRegistro.InicioRegistroUiState
 import com.pmdm.proyectobase2425.ui.theme.ProyectoBase2425Theme
 import com.pmdm.proyectobase2425.ui.theme.LightGrayBackground
 import com.pmdm.proyectobase2425.ui.theme.greenPrimary
 
 @Composable
-fun InicioSesionScreen() {
-    var email by remember { mutableStateOf("") }
-    var password by remember { mutableStateOf("") }
-
+fun InicioSesionScreen(
+    uiState: InicioRegistroUiState,
+    onEvent: (InicioRegistroEvent) -> Unit
+) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -71,8 +69,8 @@ fun InicioSesionScreen() {
 
             // Campo correo
             OutlinedTextField(
-                value = email,
-                onValueChange = { email = it },
+                value = uiState.email,
+                onValueChange = { onEvent(InicioRegistroEvent.OnEmailChanged(it)) },
                 label = { Text("Correo") },
                 placeholder = { Text("ejemplo@example.com") },
                 modifier = Modifier.fillMaxWidth(),
@@ -86,8 +84,8 @@ fun InicioSesionScreen() {
 
             // Campo contraseña
             OutlinedTextField(
-                value = password,
-                onValueChange = { password = it },
+                value = uiState.password,
+                onValueChange = { onEvent(InicioRegistroEvent.OnPasswordChanged(it)) },
                 label = { Text("Contraseña") },
                 visualTransformation = PasswordVisualTransformation(),
                 modifier = Modifier.fillMaxWidth(),
@@ -101,7 +99,9 @@ fun InicioSesionScreen() {
 
             // Botón
             Button(
-                onClick = { },
+                onClick = {
+                    { onEvent(InicioRegistroEvent.OnLoginClicked) }
+                },
                 modifier = Modifier
                     .width(200.dp)
                     .height(52.dp),
@@ -124,7 +124,16 @@ fun InicioSesionScreen() {
 @Preview(showBackground = true)
 @Composable
 fun InicioSesionScreenPreview() {
+
+    val fakeState = InicioRegistroUiState(
+        email = "usuario@email.com",
+        password = "123456"
+    )
+
     ProyectoBase2425Theme {
-        InicioSesionScreen()
+        InicioSesionScreen(
+            uiState = fakeState,
+            onEvent = {}
+        )
     }
 }

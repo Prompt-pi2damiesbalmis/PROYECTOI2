@@ -33,18 +33,17 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.pmdm.proyectobase2425.ui.features.InicioRegistro.InicioRegistroEvent
+import com.pmdm.proyectobase2425.ui.features.InicioRegistro.InicioRegistroUiState
 import com.pmdm.proyectobase2425.ui.theme.ProyectoBase2425Theme
 import com.pmdm.proyectobase2425.ui.theme.LightGrayBackground
 import com.pmdm.proyectobase2425.ui.theme.greenPrimary
 
 @Composable
-fun RegistroScreen() {
-
-    var email by remember { mutableStateOf("") }
-    var username by remember { mutableStateOf("") }
-    var birthDate by remember { mutableStateOf("") }
-    var password by remember { mutableStateOf("") }
-    var confirmPassword by remember { mutableStateOf("") }
+fun RegistroScreen(
+    uiState: InicioRegistroUiState,
+    onEvent: (InicioRegistroEvent) -> Unit
+) {
 
     Box(
         modifier = Modifier
@@ -82,8 +81,8 @@ fun RegistroScreen() {
 
             // Correo
             OutlinedTextField(
-                value = email,
-                onValueChange = { email = it },
+                value = uiState.email,
+                onValueChange = { onEvent(InicioRegistroEvent.OnEmailChanged(it)) },
                 label = { Text("Correo") },
                 placeholder = { Text("ejemplo@example.com") },
                 modifier = Modifier.fillMaxWidth(),
@@ -97,8 +96,8 @@ fun RegistroScreen() {
 
             // Nombre de usuario
             OutlinedTextField(
-                value = username,
-                onValueChange = { username = it },
+                value = uiState.username,
+                onValueChange = { onEvent(InicioRegistroEvent.OnUsernameChanged(it)) },
                 label = { Text("Nombre usuario") },
                 placeholder = { Text("Nombre de usuario") },
                 modifier = Modifier.fillMaxWidth(),
@@ -112,8 +111,8 @@ fun RegistroScreen() {
 
             // Fecha de nacimiento
             OutlinedTextField(
-                value = birthDate,
-                onValueChange = { birthDate = it },
+                value = uiState.birthDate,
+                onValueChange = { onEvent(InicioRegistroEvent.OnBirthDateChanged(it)) },
                 label = { Text("Fecha de nacimiento") },
                 placeholder = { Text("dd/mm/yyyy") },
                 modifier = Modifier.fillMaxWidth(),
@@ -127,8 +126,8 @@ fun RegistroScreen() {
 
             // Contraseña
             OutlinedTextField(
-                value = password,
-                onValueChange = { password = it },
+                value = uiState.password,
+                onValueChange = { onEvent(InicioRegistroEvent.OnPasswordChanged(it)) },
                 label = { Text("Contraseña") },
                 visualTransformation = PasswordVisualTransformation(),
                 modifier = Modifier.fillMaxWidth(),
@@ -142,8 +141,8 @@ fun RegistroScreen() {
 
             // Confirmar contraseña
             OutlinedTextField(
-                value = confirmPassword,
-                onValueChange = { confirmPassword = it },
+                value = uiState.confirmPassword,
+                onValueChange = { onEvent(InicioRegistroEvent.OnConfirmPasswordChanged(it)) },
                 label = { Text("Confirmar contraseña") },
                 visualTransformation = PasswordVisualTransformation(),
                 modifier = Modifier.fillMaxWidth(),
@@ -158,7 +157,7 @@ fun RegistroScreen() {
             // Botón crear cuenta
             Button(
                 onClick = {
-                    // Acción de registro (lógica después)
+                    onEvent(InicioRegistroEvent.OnRegisterClicked)
                 },
                 modifier = Modifier
                     .width(200.dp)
@@ -179,10 +178,22 @@ fun RegistroScreen() {
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun RegistroScreenPreview() {
+
+    val fakeState = InicioRegistroUiState(
+        email = "usuario@email.com",
+        username = "EcoUser",
+        birthDate = "01/01/2000",
+        password = "123456",
+        confirmPassword = "123456"
+    )
+
     ProyectoBase2425Theme {
-        RegistroScreen()
+        RegistroScreen(
+            uiState = fakeState,
+            onEvent = {}
+        )
     }
 }

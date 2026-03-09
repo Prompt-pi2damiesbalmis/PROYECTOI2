@@ -27,6 +27,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.pmdm.proyectobase2425.CommunityMode
 import com.pmdm.proyectobase2425.R
+import com.pmdm.proyectobase2425.models.Comunidad
+import com.pmdm.proyectobase2425.ui.features.comunidades.dialogos.CrearComunidadDialog
+import com.pmdm.proyectobase2425.ui.features.comunidades.dialogos.EditarComunidadDialog
 import com.pmdm.proyectobase2425.ui.theme.features.home.BottomBar
 import com.pmdm.proyectobase2425.ui.theme.features.home.HomeEvent
 import com.pmdm.proyectobase2425.ui.theme.features.home.TopBar
@@ -41,6 +44,7 @@ fun ComunidadesDentroScreen(
 ) {
     var menuExpanded by remember { mutableStateOf(false) }
     var dialogMode by remember { mutableStateOf(CommunityMode.NONE) }
+    var comunidadSeleccionada by remember { mutableStateOf<Comunidad?>(null) }
 
     Box(modifier = Modifier.fillMaxSize()) {
 
@@ -182,88 +186,25 @@ fun ComunidadesDentroScreen(
         }
 
         // 👉 DIÁLOGOS
-        if (dialogMode == CommunityMode.CREATE) {
-            CrearComunidadDialog(
-                onConfirm = {  },
-                onDismiss = { dialogMode = CommunityMode.NONE }
-            )
-        }
-
         if (dialogMode == CommunityMode.EDIT) {
-            CrearComunidadDialog(
-                onConfirm = {  },
-                onDismiss = { dialogMode = CommunityMode.NONE }
+            EditarComunidadDialog(
+                nombreInicial = comunidadSeleccionada!!.nombre,
+                descripcionInicial = comunidadSeleccionada!!.descripcion,
+                onConfirm = { nuevoNombre, nuevaDescripcion ->
+
+                    // Aquí actualizarías la comunidad
+                    // ejemplo:
+                    // viewModel.editarComunidad(nuevoNombre, nuevaDescripcion)
+
+                    dialogMode = CommunityMode.EDIT
+                },
+                onDismiss = {
+                    dialogMode = CommunityMode.NONE
+                }
             )
         }
     }
 }
-
-@Composable
-fun EditarComunidadDialog(
-    nombreInicial: String,
-    descripcionInicial: String,
-    onDismiss: () -> Unit,
-    onConfirm: (String, String) -> Unit
-) {
-    var nombre by remember { mutableStateOf(nombreInicial) }
-    var descripcion by remember { mutableStateOf(descripcionInicial) }
-
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = {
-            Text(
-                text = "Editar comunidad",
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Bold
-            )
-        },
-        text = {
-            Column(
-                verticalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-
-                OutlinedTextField(
-                    value = nombre,
-                    onValueChange = { nombre = it },
-                    label = { Text("Nombre de la comunidad") },
-                    modifier = Modifier.fillMaxWidth()
-                )
-
-                OutlinedTextField(
-                    value = descripcion,
-                    onValueChange = { descripcion = it },
-                    label = { Text("Descripción") },
-                    modifier = Modifier.fillMaxWidth(),
-                    minLines = 3
-                )
-
-                Button(
-                    onClick = { /* cambiar imagen más adelante */ },
-                    modifier = Modifier.align(Alignment.Start)
-                ) {
-                    Text("Cambiar foto")
-                }
-            }
-        },
-        confirmButton = {
-            Button(
-                onClick = {
-                    onConfirm(nombre, descripcion)
-                }
-            ) {
-                Text("Guardar cambios")
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text("Cancelar")
-            }
-        }
-    )
-}
-
-
-
 
 @Preview(showBackground = true)
 @Composable

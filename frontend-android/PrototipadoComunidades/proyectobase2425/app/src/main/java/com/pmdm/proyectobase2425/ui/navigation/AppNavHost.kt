@@ -24,15 +24,10 @@ fun AppNavHost(
         modifier = modifier
     ) {
 
-        composable(AppRoute.Home.route) {
-            HomeScreen( {})
-        }
 
-        composable(AppRoute.Comunidades.route) {
-            ComunidadesScreen(
-                onHomeEvent = {}
-            )
-        }
+
+
+
     }
 }
 

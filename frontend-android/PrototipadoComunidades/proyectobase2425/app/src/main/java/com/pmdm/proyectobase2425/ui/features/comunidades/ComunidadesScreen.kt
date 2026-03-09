@@ -42,15 +42,24 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.pmdm.proyectobase2425.CommunityMode
 import com.pmdm.proyectobase2425.R
+import com.pmdm.proyectobase2425.models.Comunidad
+import com.pmdm.proyectobase2425.models.Rol
+import com.pmdm.proyectobase2425.ui.features.comunidades.ComunidadesEvent
+import com.pmdm.proyectobase2425.ui.features.comunidades.ComunidadesGrid
+import com.pmdm.proyectobase2425.ui.features.comunidades.ComunidadesUiState
+import com.pmdm.proyectobase2425.ui.features.comunidades.dialogos.CrearComunidadDialog
 import com.pmdm.proyectobase2425.ui.theme.features.home.BottomBar
 import com.pmdm.proyectobase2425.ui.theme.features.home.TopBar
 import com.pmdm.proyectobase2425.ui.theme.features.home.HomeEvent
 import com.pmdm.proyectobase2425.ui.theme.GreenBar
 import com.pmdm.proyectobase2425.ui.theme.ProyectoBase2425Theme
+import com.pmdm.proyectobase2425.ui.theme.navigation.AppRoute
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ComunidadesScreen(
+    uiState: ComunidadesUiState,
+    onEvent: (ComunidadesEvent) -> Unit,
     onHomeEvent: (HomeEvent) -> Unit
 ) {
     var mode by remember { mutableStateOf(CommunityMode.NONE) }
@@ -85,6 +94,8 @@ fun ComunidadesScreen(
                 )
 
                 ComunidadesGrid(
+                    comunidades = uiState.comunidades,
+                    onComunidadClick = {},
                     modifier = Modifier.weight(1f)
                 )
             }
@@ -94,84 +105,22 @@ fun ComunidadesScreen(
                     .align(Alignment.BottomEnd)
                     .padding(end = 20.dp, bottom = 90.dp),
                 onClick = {
-                    mode = CommunityMode.CREATE
+                    onEvent(ComunidadesEvent.OnAddComunidadClick)
                 }
             )
         }
 
-        if (mode == CommunityMode.CREATE) {
+        if (uiState.dialogMode == CommunityMode.CREATE) {
             CrearComunidadDialog(
                 onDismiss = {
-                    mode = CommunityMode.NONE
+                    onEvent(ComunidadesEvent.OnDismissDialog)
                 },
                 onConfirm = {
-                    mode = CommunityMode.NONE
+                    //onEvent(ComunidadesEvent.OnCreateComunidad)
                 }
             )
         }
     }
-}
-
-@Composable
-fun CrearComunidadDialog(
-    onDismiss: () -> Unit,
-    onConfirm: () -> Unit
-) {
-    var nombre by remember { mutableStateOf("") }
-    var descripcion by remember { mutableStateOf("") }
-
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        confirmButton = {
-            Button(
-                onClick = {
-                    onConfirm()
-                }
-            ) {
-                Text("Crear comunidad")
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text("Cancelar")
-            }
-        },
-        title = {
-            Text(
-                text = "Creador de comunidad",
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Bold
-            )
-        },
-        text = {
-            Column(
-                verticalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-
-                OutlinedTextField(
-                    value = nombre,
-                    onValueChange = { nombre = it },
-                    label = { Text("Nombre de la comunidad") },
-                    modifier = Modifier.fillMaxWidth()
-                )
-
-                OutlinedTextField(
-                    value = descripcion,
-                    onValueChange = { descripcion = it },
-                    label = { Text("Descripción") },
-                    modifier = Modifier.fillMaxWidth(),
-                    minLines = 3
-                )
-
-                Button(
-                    onClick = { /* selector de imagen más adelante */ },
-                    modifier = Modifier.align(Alignment.Start)
-                ) {
-                    Text("Seleccionar foto")
-                }
-            }
-        }
-    )
 }
 
 @Composable
@@ -194,104 +143,45 @@ fun AddComunidadesButton(
     }
 }
 
-@Composable
-fun ComunidadesGrid(
-    modifier: Modifier = Modifier
-) {
-    LazyVerticalGrid(
-        columns = GridCells.Fixed(2),
-        modifier = modifier.padding(horizontal = 12.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp),
-        horizontalArrangement = Arrangement.spacedBy(12.dp)
-    ) {
-        item {
-            ComunidadCard(
-                title = "Todos unidos",
-                imageRes = R.drawable.comunidad2
-            )
-        }
-
-        item {
-            ComunidadCard(
-                title = "Por el planeta",
-                imageRes = R.drawable.mundo
-            )
-        }
-
-        item {
-            ComunidadCard(
-                title = "Eco Acción",
-                imageRes = R.drawable.comunidad3
-            )
-        }
-
-        item {
-            ComunidadCard(
-                title = "Tribu verde",
-                imageRes = R.drawable.comunidad4
-            )
-        }
-
-        item {
-            ComunidadCard(
-                title = "Olas limpias",
-                imageRes = R.drawable.comunidad5
-            )
-        }
-
-        item {
-            ComunidadCard(
-                title = "Eco Tech",
-                imageRes = R.drawable.comunidad6
-            )
-        }
-    }
-}
-
-
-@Composable
-fun ComunidadCard(
-    title: String,
-    imageRes: Int
-) {
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .aspectRatio(1f),
-        shape = RoundedCornerShape(12.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = Color.White
-        )
-    ) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(8.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text(
-                text = title,
-                fontSize = 13.sp,
-                fontWeight = FontWeight.SemiBold,
-                color = Color.Black,
-                modifier = Modifier.padding(bottom = 8.dp)
-            )
-
-            Image(
-                painter = painterResource(id = imageRes),
-                contentDescription = title,
-                modifier = Modifier.fillMaxSize(),
-                contentScale = ContentScale.Fit
-            )
-        }
-    }
-}
-
 @Preview(showBackground = true)
 @Composable
 fun ComunidadesScreenPreview() {
+    val roles = listOf(
+        Rol(1, "Admin"),
+        Rol(2, "Editor"),
+        Rol(3, "User"),
+        Rol(4, "Guest")
+    )
+    val fakeState = ComunidadesUiState(
+        dialogMode = CommunityMode.NONE,
+        comunidades =  listOf(
+            Comunidad(
+                1,
+                "EcoValencia",
+                "valencia_eco.jpg",
+                "Comunidad dedicada a la sostenibilidad en Valencia y alrededores.",
+                roles[0],
+                mutableListOf(),
+                mutableListOf()
+            ),
+            Comunidad(
+                2,
+                "Madrid Sostenible",
+                "madrid_sustainable.jpg",
+                "Iniciativas ecológicas y sostenibles en la capital.",
+                roles[1],
+                mutableListOf(),
+                mutableListOf()
+            )),
+        isLoading = false,
+        error = null
+    )
+
     ProyectoBase2425Theme {
-        ComunidadesScreen(onHomeEvent = {})
+        ComunidadesScreen(
+            uiState = fakeState,
+            onEvent = {},
+            onHomeEvent = {}
+        )
     }
 }
