@@ -18,9 +18,8 @@ import androidx.compose.ui.text.font.FontWeight
 @Composable
 fun CrearComunidadDialog(
     onDismiss: () -> Unit,
-    onConfirm: () -> Unit
+    onConfirm: (String, String) -> Unit
 ) {
-
     var nombre by remember { mutableStateOf("") }
     var descripcion by remember { mutableStateOf("") }
 
@@ -28,9 +27,7 @@ fun CrearComunidadDialog(
         onDismissRequest = onDismiss,
         confirmButton = {
             Button(
-                onClick = {
-                    onConfirm()
-                }
+                onClick = { onConfirm(nombre, descripcion) }
             ) {
                 Text("Crear comunidad")
             }
@@ -48,11 +45,9 @@ fun CrearComunidadDialog(
             )
         },
         text = {
-
             Column(
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-
                 OutlinedTextField(
                     value = nombre,
                     onValueChange = { nombre = it },

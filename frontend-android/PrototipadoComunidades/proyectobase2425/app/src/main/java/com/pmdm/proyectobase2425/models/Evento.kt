@@ -3,7 +3,7 @@ package com.pmdm.proyectobase2425.models
 import java.time.LocalDateTime
 
 data class Evento(
-    var eventoId: Int,
+    var eventoId: Long,
     var nombre: String,
     var ubicacion: String,
     var descripcion: String,

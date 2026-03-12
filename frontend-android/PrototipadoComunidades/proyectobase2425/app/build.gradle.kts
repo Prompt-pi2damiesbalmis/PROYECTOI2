@@ -2,8 +2,9 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.compose.compiler)
-//    alias(libs.plugins.devtools.ksp)
-//    alias(libs.plugins.com.google.dagger)
+    alias(libs.plugins.devtools.ksp)
+    alias(libs.plugins.com.google.dagger)
+    alias(libs.plugins.kotlin.serialization)
     id("kotlin-parcelize")
 }
 
@@ -68,10 +69,11 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.compose.runtime)
 
-//    implementation(libs.dagger.hilt.android)
-//    implementation(libs.androidx.hilt.navigation.compose)
-//    ksp(libs.dagger.hilt.android.compiler)
-//    kspAndroidTest(libs.dagger.hilt.android.compiler)
+    implementation(libs.dagger.hilt.android)
+    implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.kotlinx.serialization.json)
+    ksp(libs.dagger.hilt.android.compiler)
+    kspAndroidTest(libs.dagger.hilt.android.compiler)
 //
 //    implementation(libs.compose.navigation)
 //

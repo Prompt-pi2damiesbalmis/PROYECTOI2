@@ -5,6 +5,4 @@ sealed interface ComunidadesEvent {
     object OnDismissDialog : ComunidadesEvent
     data class OnCreateComunidad(val nombre: String, val descripcion: String) : ComunidadesEvent
     data class OnComunidadClick(val comunidadId: Int) : ComunidadesEvent
-    object OnEditComunidadClick : ComunidadesEvent
-    data class OnConfirmEditComunidad(val nombre: String, val descripcion: String) : ComunidadesEvent
 }

@@ -1,7 +1,7 @@
 package com.pmdm.proyectobase2425.models
 
 data class Producto(
-    var productoId: Int,
+    var productoId: Long,
     var nombre: String,
     var descripcion: String,
     var puntos: Int

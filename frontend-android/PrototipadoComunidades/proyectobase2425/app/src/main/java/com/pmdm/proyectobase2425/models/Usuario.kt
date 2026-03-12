@@ -3,7 +3,7 @@ package com.pmdm.proyectobase2425.models
 import java.time.LocalDateTime
 
 data class Usuario(
-    var usuarioId: Int,
+    var usuarioId: Long,
     var contraseña: String,
     var admin: Boolean,
     var nombreUsuario: String,

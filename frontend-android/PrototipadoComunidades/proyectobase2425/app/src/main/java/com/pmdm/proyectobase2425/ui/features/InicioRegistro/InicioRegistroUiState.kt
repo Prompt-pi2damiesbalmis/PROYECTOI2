@@ -9,6 +9,8 @@ data class InicioRegistroUiState (
     val confirmPassword: String = "",
 
     val isLoading: Boolean = false,
+    val isLoggedIn: Boolean = false,
     val error: String? = null,
-    val isLoggedIn: Boolean = false
+
+    val navigateToHome: Boolean = false
 )

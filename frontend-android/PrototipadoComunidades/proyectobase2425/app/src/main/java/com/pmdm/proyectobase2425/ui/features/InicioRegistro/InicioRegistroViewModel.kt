@@ -2,8 +2,11 @@ package com.pmdm.proyectobase2425.ui.features.InicioRegistro
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class InicioRegistroViewModel : ViewModel() {
+@HiltViewModel
+class InicioRegistroViewModel @Inject constructor() : ViewModel() {
 
     var uiState =  mutableStateOf(InicioRegistroUiState())
         private set
@@ -52,6 +55,16 @@ class InicioRegistroViewModel : ViewModel() {
             is InicioRegistroEvent.OnRegisterClicked -> {
                 register()
             }
+
+            is InicioRegistroEvent.OnGoToRegistro -> { /* NavHost lo intercepta */ }
+
+            is InicioRegistroEvent.OnRegistroExitoso -> {
+                uiState.value = InicioRegistroUiState()
+            }
+
+            is InicioRegistroEvent.OnNavigateToHomeConsumed -> {
+                uiState.value = uiState.value.copy(navigateToHome = false)
+            }
         }
     }
 
@@ -66,7 +79,8 @@ class InicioRegistroViewModel : ViewModel() {
 
         uiState.value = uiState.value.copy(
             isLoading = false,
-            isLoggedIn = true
+            isLoggedIn = true,
+            navigateToHome = true
         )
     }
 
@@ -88,7 +102,8 @@ class InicioRegistroViewModel : ViewModel() {
 
         uiState.value = uiState.value.copy(
             isLoading = false,
-            isLoggedIn = true
+            isLoggedIn = false
         )
+        onEvent(InicioRegistroEvent.OnRegistroExitoso)
     }
 }

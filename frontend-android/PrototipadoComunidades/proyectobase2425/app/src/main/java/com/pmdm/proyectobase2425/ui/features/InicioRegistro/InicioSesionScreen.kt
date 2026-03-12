@@ -10,6 +10,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -99,15 +100,11 @@ fun InicioSesionScreen(
 
             // Botón
             Button(
-                onClick = {
-                    { onEvent(InicioRegistroEvent.OnLoginClicked) }
-                },
+                onClick = { onEvent(InicioRegistroEvent.OnLoginClicked) },
                 modifier = Modifier
                     .width(200.dp)
                     .height(52.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = greenPrimary
-                ),
+                colors = ButtonDefaults.buttonColors(containerColor = greenPrimary),
                 shape = RoundedCornerShape(12.dp)
             ) {
                 Text(
@@ -115,6 +112,12 @@ fun InicioSesionScreen(
                     fontSize = 18.sp,
                     fontWeight = FontWeight.SemiBold,
                     color = Color.Black
+                )
+            }
+            TextButton(onClick = { onEvent(InicioRegistroEvent.OnGoToRegistro) }) {
+                Text(
+                    text = "¿No tienes cuenta? Regístrate",
+                    color = greenPrimary
                 )
             }
         }
