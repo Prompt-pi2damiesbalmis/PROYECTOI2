@@ -1,0 +1,106 @@
+﻿<UserControl
+    x:Class="PrototipadoEscritorio.Views.ListadoEliminarAccesoriosUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:PrototipadoEscritorio.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <StackPanel>
+
+        <Label
+            Margin="0,0,0,20"
+            HorizontalAlignment="Center"
+            Content="Accesorios"
+            FontSize="52" />
+
+        <Grid
+            Width="600"
+            Height="40"
+            Margin="0,0,0,40">
+            <Border
+                Padding="12,0"
+                Background="White"
+                BorderBrush="#E0E0E0"
+                BorderThickness="1"
+                CornerRadius="20">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Foreground="#888"
+                        Text="🔍" />
+
+                    <TextBox
+                        x:Name="SearchBox"
+                        Grid.Column="1"
+                        Margin="8,0,0,0"
+                        VerticalAlignment="Center"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        FontSize="14" />
+                </Grid>
+            </Border>
+
+            <TextBlock
+                Margin="48,0,0,0"
+                VerticalAlignment="Center"
+                Foreground="#999"
+                IsHitTestVisible="False"
+                Text="Buscar accesorio"
+                Visibility="{Binding Text.IsEmpty, ElementName=SearchBox, Converter={StaticResource BooleanToVisibilityConverter}}" />
+        </Grid>
+
+        <!--  ====================== WRAP PANNEL PRINCIPAL ======================  -->
+        <WrapPanel HorizontalAlignment="Center">
+
+            <Border Style="{StaticResource CardContainerStyle}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock
+                        Grid.Row="0"
+                        Style="{StaticResource CardTitleStyle}"
+                        Text="Marco Perfil" />
+
+                    <TextBlock
+                        Grid.Row="1"
+                        Style="{StaticResource CardSubTextStyle}"
+                        Text="500 pts" />
+
+                    <Border Grid.Row="2" Style="{StaticResource CardImageContainerStyle}">
+                        <Image
+                            Width="120"
+                            Height="120"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Source="/Assets/Marco-Personalizado.jpg"
+                            Stretch="Uniform" />
+                    </Border>
+
+                    <Button
+                        Grid.Row="3"
+                        Background="IndianRed"
+                        Content="Eliminar"
+                        Style="{StaticResource CardButtonStyle}" />
+                </Grid>
+            </Border>
+
+        </WrapPanel>
+
+
+    </StackPanel>
+</UserControl>

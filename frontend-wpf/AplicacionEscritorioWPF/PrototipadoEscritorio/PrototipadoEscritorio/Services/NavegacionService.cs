@@ -11,6 +11,8 @@ namespace PrototipadoEscritorio.Services
     internal class NavegacionService
     {
         private static UserControl usuariosVista, accesoriosVista, eventosVista, comunidadesVista;
+        private static UserControl listadoAccesorios, añadirAccesorio, eliminarAccesorios;
+
         public UserControl ObtenerVentanaUsuarios()
         {
             if (usuariosVista is null)
@@ -47,5 +49,31 @@ namespace PrototipadoEscritorio.Services
             return comunidadesVista;
         }
 
+        public UserControl ObtenerVentanaListadoAccesorios()
+        {
+            if (listadoAccesorios is null)
+            {
+                listadoAccesorios = new ListadoAccesoriosUserControl();
+            }
+            return listadoAccesorios;
+        }
+
+        public UserControl ObtenerVentanaAñadirAccesorio()
+        {
+            if (añadirAccesorio is null)
+            {
+                añadirAccesorio = new AñadirAccesorioUserControl();
+            }
+            return añadirAccesorio;
+        }
+
+        public UserControl ObtenerVentanaEliminarAccesorios()
+        {
+            if (eliminarAccesorios is null)
+            {
+                eliminarAccesorios = new ListadoEliminarAccesoriosUserControl();
+            }
+            return eliminarAccesorios;
+        }
     }
 }
