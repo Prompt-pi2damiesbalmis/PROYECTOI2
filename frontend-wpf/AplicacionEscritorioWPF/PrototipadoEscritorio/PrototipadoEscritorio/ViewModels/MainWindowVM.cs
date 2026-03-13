@@ -16,13 +16,14 @@ namespace PrototipadoEscritorio.ViewModels
         private NavegacionService sn;
 
         [ObservableProperty]
-        private UserControl? _contenidoVentana;
+        public UserControl? _contenidoVentana;
 
         public MainWindowVM()
         {
             sn = new NavegacionService();
             ContenidoVentana = sn.ObtenerVentanaUsuarios();
         }
+
 
         [RelayCommand]
         public void AbrirVentanaUsuarios()
