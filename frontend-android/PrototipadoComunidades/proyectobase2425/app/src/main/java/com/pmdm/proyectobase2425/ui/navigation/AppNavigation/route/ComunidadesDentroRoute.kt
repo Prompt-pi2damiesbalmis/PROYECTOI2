@@ -20,7 +20,7 @@ fun NavGraphBuilder.comunidadDentroDestination(
         val vm: ComunidadesDentroViewModel = hiltViewModel()
 
          ComunidadesDentroScreen(
-            comunidadId = route.comunidadId,
+            comunidadId = route.comunidadId.toLong(),
             uiState = vm.state,
             onEvent = { event -> vm.onEvent(event) },
             onNavigateToEvento = { eventoId ->

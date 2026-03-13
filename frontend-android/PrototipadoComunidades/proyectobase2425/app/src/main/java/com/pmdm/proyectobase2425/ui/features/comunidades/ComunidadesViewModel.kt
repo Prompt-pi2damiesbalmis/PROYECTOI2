@@ -49,10 +49,11 @@ class ComunidadesViewModel @Inject constructor() : ViewModel() {
         }
 
         val nuevaComunidad = Comunidad(
-            comunidadId = (state.comunidades.maxOfOrNull { it.comunidadId } ?: 0) + 1,
+            id = (state.comunidades.maxOfOrNull { it.id } ?: 0L) + 1L,
             nombre = nombre,
             imagen = "",
             descripcion = descripcion
+            // eventos y usuarios son emptyList() por defecto
         )
 
         state = state.copy(

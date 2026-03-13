@@ -72,19 +72,20 @@ dependencies {
     implementation(libs.dagger.hilt.android)
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.kotlinx.serialization.json)
+    implementation(libs.firebase.appdistribution.gradle)
     ksp(libs.dagger.hilt.android.compiler)
     kspAndroidTest(libs.dagger.hilt.android.compiler)
-//
-//    implementation(libs.compose.navigation)
-//
-//    implementation(libs.androidx.room.ktx)
-//    ksp(libs.androidx.room.compiler)
-//
-//    implementation(libs.com.squareup.retrofit2.converter.gson)
-//    implementation(libs.com.squareup.retrofit2.retrofit)
-//    implementation(platform(libs.com.squareup.okhttp3.okhttp.bom))
-//    implementation(libs.com.squareup.okhttp3.okhttp)
-//    implementation(libs.com.squareup.okhttp3.logging.interceptor)
+
+    implementation(libs.compose.navigation)
+
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
+
+    implementation(libs.com.squareup.retrofit2.converter.gson)
+    implementation(libs.com.squareup.retrofit2.retrofit)
+    implementation(platform(libs.com.squareup.okhttp3.okhttp.bom))
+    implementation(libs.com.squareup.okhttp3.okhttp)
+    implementation(libs.com.squareup.okhttp3.logging.interceptor)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

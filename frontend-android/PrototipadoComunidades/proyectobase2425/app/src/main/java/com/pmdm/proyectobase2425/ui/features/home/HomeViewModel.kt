@@ -9,33 +9,11 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor() : ViewModel() {
+
     var uiState by mutableStateOf(HomeUiState())
         private set
-    init {
-        onHomeEvent(HomeEvent.GoHome)
-    }
 
-    fun onHomeEvent(evento: HomeEvent) {
-        when (evento) {
-            is HomeEvent.GoHome -> {
-                uiState = uiState.copy(currentRoute = "home")
-            }
-
-            is HomeEvent.GoComunidad -> {
-                uiState = uiState.copy(currentRoute = "comunidad")
-            }
-
-            is HomeEvent.GoTienda -> {
-                uiState = uiState.copy(currentRoute = "tienda")
-            }
-
-            is HomeEvent.OpenPerfil -> {
-                uiState = uiState.copy(currentRoute = "perfil")
-            }
-
-            is HomeEvent.OpenSettings -> {
-                uiState = uiState.copy(currentRoute = "settings")
-            }
-        }
-    }
+    // La navegación entre destinos la gestiona navController directamente en HomeScreen.
+    // Este ViewModel queda listo para cargar datos del usuario al iniciar (p.ej. eventos recientes).
+    // TODO: cargar datos iniciales desde repositorio
 }

@@ -14,7 +14,7 @@ class ComunidadesDentroViewModel @Inject constructor() : ViewModel() {
     var state by mutableStateOf(ComunidadesDentroUiState())
         private set
 
-    fun cargarComunidad(comunidadId: Int) {
+    fun cargarComunidad(comunidadId: Long) {
         // TODO: cargar comunidad por ID desde repositorio
         state = state.copy(isLoading = false)
     }

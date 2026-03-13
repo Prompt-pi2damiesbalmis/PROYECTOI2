@@ -157,7 +157,6 @@ fun HomeScreenPreview() {
         HomeScreenContent(
             navController = rememberNavController(),
             content = {
-                // Contenido fake para el preview
                 Box(modifier = Modifier.fillMaxSize()) {
                     Text("Home — preview")
                 }

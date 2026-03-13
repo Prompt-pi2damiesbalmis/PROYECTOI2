@@ -1,13 +1,8 @@
 package com.pmdm.proyectobase2425.models
 
 data class UsuarioComunidad(
-    var usuarioComunidadId: Long,
-    var usuarioId: Long,
-    var comunidadId: Int
-) {
-    constructor() : this(
-        usuarioComunidadId = 0,
-        usuarioId = 0,
-        comunidadId = 0
-    )
-}
+    val id: Long = 0,
+    val usuario: Usuario = Usuario(),
+    val comunidad: Comunidad = Comunidad(),
+    val rol: String = ""
+)

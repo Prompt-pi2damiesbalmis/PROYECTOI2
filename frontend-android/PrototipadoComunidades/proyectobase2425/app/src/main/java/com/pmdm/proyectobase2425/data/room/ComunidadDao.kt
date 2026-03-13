@@ -1,0 +1,30 @@
+package com.pmdm.proyectobase2425.data.room
+
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Query
+import androidx.room.Upsert
+import com.pmdm.proyectobase2425.data.services.ComunidadEntity
+import kotlinx.coroutines.flow.Flow
+
+@Dao
+interface ComunidadDao {
+
+    @Query("SELECT * FROM comunidades")
+    fun getAll(): Flow<List<ComunidadEntity>>
+
+    @Query("SELECT * FROM comunidades WHERE id = :id")
+    fun getById(id: Long): Flow<ComunidadEntity?>
+
+    @Upsert
+    suspend fun upsertAll(comunidades: List<ComunidadEntity>)
+
+    @Upsert
+    suspend fun upsert(comunidad: ComunidadEntity)
+
+    @Delete
+    suspend fun delete(comunidad: ComunidadEntity)
+
+    @Query("DELETE FROM comunidades")
+    suspend fun deleteAll()
+}

@@ -22,13 +22,13 @@ class PerfilViewModel @Inject constructor() : ViewModel() {
             is PerfilEvent.OnToggleComunidades -> {
                 state = state.copy(
                     showComunidades = !state.showComunidades,
-                    showEventos = false // cierra el otro si estaba abierto
+                    showEventos = false
                 )
             }
             is PerfilEvent.OnToggleEventos -> {
                 state = state.copy(
                     showEventos = !state.showEventos,
-                    showComunidades = false // cierra el otro si estaba abierto
+                    showComunidades = false
                 )
             }
         }

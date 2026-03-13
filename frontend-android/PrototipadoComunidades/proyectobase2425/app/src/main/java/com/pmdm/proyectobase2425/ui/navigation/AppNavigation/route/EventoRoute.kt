@@ -12,7 +12,7 @@ import androidx.navigation.toRoute
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class EventoRoute(val eventoId: Int)
+data class EventoRoute(val eventoId: Long)
 
 fun NavGraphBuilder.eventoDestination(
     navController: NavHostController

@@ -32,10 +32,10 @@ import com.pmdm.proyectobase2425.ui.theme.ProyectoBase2425Theme
 
 @Composable
 fun ComunidadesDentroScreen(
-    comunidadId: Int,
+    comunidadId: Long,
     uiState: ComunidadesDentroUiState,
     onEvent: (ComunidadesDentroEvent) -> Unit,
-    onNavigateToEvento: (Int) -> Unit
+    onNavigateToEvento: (Long) -> Unit
 ) {
     var menuExpanded by remember { mutableStateOf(false) }
 
@@ -104,7 +104,7 @@ fun ComunidadesDentroScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(bottom = 120.dp),
-                onClick = { onNavigateToEvento(1) } // TODO: pasar ID real del evento
+                onClick = { onNavigateToEvento(1L) } // TODO: pasar ID real del evento
             ) {
                 Column {
                     Image(
@@ -158,7 +158,6 @@ fun ComunidadesDentroScreen(
             }
         }
 
-        // Diálogo editar comunidad
         if (uiState.dialogMode == CommunityMode.EDIT) {
             EditarComunidadDialog(
                 nombreInicial = uiState.comunidad?.nombre ?: "",
@@ -170,7 +169,6 @@ fun ComunidadesDentroScreen(
             )
         }
 
-        // Diálogo crear evento
         if (uiState.dialogMode == CommunityMode.CREATE) {
             CrearComunidadDialog(
                 onDismiss = { onEvent(ComunidadesDentroEvent.OnDismissDialog) },
@@ -182,16 +180,12 @@ fun ComunidadesDentroScreen(
     }
 }
 
-// ─────────────────────────────────────────────
-// ComunidadesDentroScreen
-// ─────────────────────────────────────────────
-
+// ─── Previews ───
 private val fakeComunidad = Comunidad(
-    comunidadId = 1,
+    id = 1L,
     nombre = "Todos Unidos",
     imagen = "",
-    descripcion = "Somos la Comunidad Eco-Conexión, y ¡acabamos de aterrizar en esta aplicación!",
-    rol = Rol()
+    descripcion = "Somos la Comunidad Eco-Conexión, y ¡acabamos de aterrizar en esta aplicación!"
 )
 
 @Preview(showBackground = true, name = "ComunidadesDentroScreen - normal")
@@ -199,7 +193,7 @@ private val fakeComunidad = Comunidad(
 fun ComunidadesDentroScreenPreview() {
     ProyectoBase2425Theme {
         ComunidadesDentroScreen(
-            comunidadId = 1,
+            comunidadId = 1L,
             uiState = ComunidadesDentroUiState(comunidad = fakeComunidad),
             onEvent = {},
             onNavigateToEvento = {}
@@ -212,7 +206,7 @@ fun ComunidadesDentroScreenPreview() {
 fun ComunidadesDentroScreenEditarPreview() {
     ProyectoBase2425Theme {
         ComunidadesDentroScreen(
-            comunidadId = 1,
+            comunidadId = 1L,
             uiState = ComunidadesDentroUiState(
                 comunidad = fakeComunidad,
                 dialogMode = CommunityMode.EDIT
@@ -228,7 +222,7 @@ fun ComunidadesDentroScreenEditarPreview() {
 fun ComunidadesDentroScreenCrearEventoPreview() {
     ProyectoBase2425Theme {
         ComunidadesDentroScreen(
-            comunidadId = 1,
+            comunidadId = 1L,
             uiState = ComunidadesDentroUiState(
                 comunidad = fakeComunidad,
                 dialogMode = CommunityMode.CREATE

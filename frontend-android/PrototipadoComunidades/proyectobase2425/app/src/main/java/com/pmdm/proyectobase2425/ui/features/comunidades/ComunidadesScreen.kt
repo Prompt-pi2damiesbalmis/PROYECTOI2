@@ -8,6 +8,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -34,7 +35,7 @@ fun ComunidadesScreen(
                 text = "Comunidades",
                 fontSize = 26.sp,
                 fontWeight = FontWeight.Bold,
-                color = androidx.compose.ui.graphics.Color(0xFF2E2E2E),
+                color = Color(0xFF2E2E2E),
                 modifier = Modifier.padding(horizontal = 16.dp, vertical = 16.dp)
             )
 
@@ -53,7 +54,7 @@ fun ComunidadesScreen(
             modifier = Modifier
                 .align(Alignment.BottomEnd)
                 .padding(end = 20.dp, bottom = 16.dp),
-            containerColor = androidx.compose.ui.graphics.Color.White,
+            containerColor = Color.White,
             contentColor = GreenBar,
             shape = CircleShape
         ) {
@@ -72,15 +73,12 @@ fun ComunidadesScreen(
     }
 }
 
-// ─────────────────────────────────────────────
-// ComunidadesScreen
-// ─────────────────────────────────────────────
-
+// ─── Previews ───
 private val fakeComunidades = listOf(
-    Comunidad(1, "EcoValencia", "", "Comunidad dedicada a la sostenibilidad en Valencia."),
-    Comunidad(2, "Madrid Sostenible", "", "Iniciativas ecológicas en la capital."),
-    Comunidad(3, "Barcelona Verde", "", "Proyectos verdes en Barcelona."),
-    Comunidad(4, "Sevilla Eco", "", "Reciclaje y medio ambiente en Sevilla.",
+    Comunidad(id = 1L, nombre = "EcoValencia", imagen = "", descripcion = "Comunidad dedicada a la sostenibilidad en Valencia."),
+    Comunidad(id = 2L, nombre = "Madrid Sostenible", imagen = "", descripcion = "Iniciativas ecológicas en la capital."),
+    Comunidad(id = 3L, nombre = "Barcelona Verde", imagen = "", descripcion = "Proyectos verdes en Barcelona."),
+    Comunidad(id = 4L, nombre = "Sevilla Eco", imagen = "", descripcion = "Reciclaje y medio ambiente en Sevilla.")
 )
 
 @Preview(showBackground = true, name = "ComunidadesScreen - con comunidades")
@@ -89,7 +87,7 @@ fun ComunidadesScreenPreview() {
     ProyectoBase2425Theme {
         ComunidadesScreen(
             uiState = ComunidadesUiState(comunidades = fakeComunidades),
-            onEvent = {}
+            onEvent = { }
         )
     }
 }

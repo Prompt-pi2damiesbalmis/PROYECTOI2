@@ -40,7 +40,6 @@ fun PerfilScreen(
             .padding(horizontal = 24.dp, vertical = 16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-
         Spacer(modifier = Modifier.height(16.dp))
 
         // Avatar
@@ -63,7 +62,7 @@ fun PerfilScreen(
 
         // Nombre completo
         Text(
-            text = "${uiState.usuario.nombre} ${uiState.usuario.apellidos}",
+            text = "${uiState.usuario.nombre} ${uiState.usuario.apellido}",
             fontSize = 22.sp,
             fontWeight = FontWeight.Bold,
             color = Color(0xFF2E2E2E)
@@ -230,7 +229,7 @@ private fun EventoItem(evento: Evento) {
                 contentAlignment = Alignment.Center
             ) {
                 Text(
-                    text = evento.fecha.dayOfMonth.toString(),
+                    text = evento.fechaHora.dayOfMonth.toString(),
                     fontWeight = FontWeight.Bold,
                     color = GreenBar,
                     fontSize = 14.sp
@@ -254,28 +253,25 @@ private fun EventoItem(evento: Evento) {
     }
 }
 
-// ─── Preview ───
+// ─── Previews ───
+private val fakeUsuario = Usuario(
+    id = 1L,
+    nombreUsuario = "manolo99",
+    contraseña = "",
+    nombre = "Manolo",
+    apellido = "Martinez Alvarez",
+    descripcion = "",
+    edad = 25,
+    email = "manolo@email.com",
+    imagen = ""
+)
+
 @Preview(showBackground = true, name = "PerfilScreen - vacío")
 @Composable
 fun PerfilScreenPreview() {
     ProyectoBase2425Theme {
         PerfilScreen(
-            uiState = PerfilUiState(
-                usuario = Usuario(
-                    usuarioId = 1,
-                    contraseña = "",
-                    admin = false,
-                    nombreUsuario = "manolo67",
-                    nombre = "Manolo",
-                    apellidos = "Martinez Alvarez",
-                    correo = "manolo@email.com",
-                    imagen = "",
-                    descripcion = "",
-                    edad = LocalDateTime.now(),
-                    puntos = 120,
-                    puntosExperiencia = 70
-                )
-            ),
+            uiState = PerfilUiState(usuario = fakeUsuario),
             onEvent = {}
         )
     }
@@ -287,24 +283,11 @@ fun PerfilScreenComunidadesPreview() {
     ProyectoBase2425Theme {
         PerfilScreen(
             uiState = PerfilUiState(
-                usuario = Usuario(
-                    usuarioId = 1,
-                    contraseña = "",
-                    admin = false,
-                    nombreUsuario = "manolo67",
-                    nombre = "Manolo",
-                    apellidos = "Martinez Alvarez",
-                    correo = "manolo@email.com",
-                    imagen = "",
-                    descripcion = "",
-                    edad = LocalDateTime.now(),
-                    puntos = 120,
-                    puntosExperiencia = 70
-                ),
+                usuario = fakeUsuario,
                 showComunidades = true,
                 comunidades = listOf(
-                    Comunidad(1, "EcoValencia", "", "Sostenibilidad en Valencia", Rol()),
-                    Comunidad(2, "Madrid Sostenible", "", "Iniciativas en Madrid", Rol())
+                    Comunidad(id = 1L, nombre = "EcoValencia", descripcion = "Sostenibilidad en Valencia", imagen = ""),
+                    Comunidad(id = 2L, nombre = "Madrid Sostenible", descripcion = "Iniciativas en Madrid", imagen = "")
                 )
             ),
             onEvent = {}
@@ -318,24 +301,11 @@ fun PerfilScreenEventosPreview() {
     ProyectoBase2425Theme {
         PerfilScreen(
             uiState = PerfilUiState(
-                usuario = Usuario(
-                    usuarioId = 1,
-                    contraseña = "",
-                    admin = false,
-                    nombreUsuario = "manolo67",
-                    nombre = "Manolo",
-                    apellidos = "Martinez Alvarez",
-                    correo = "manolo@email.com",
-                    imagen = "",
-                    descripcion = "",
-                    edad = LocalDateTime.now(),
-                    puntos = 120,
-                    puntosExperiencia = 70
-                ),
+                usuario = fakeUsuario,
                 showEventos = true,
                 eventos = listOf(
-                    Evento(1, "Limpieza playa", "Valencia", "Limpieza de residuos", "", LocalDateTime.now()),
-                    Evento(2, "Plantación árboles", "Madrid", "Reforestación urbana", "", LocalDateTime.now())
+                    Evento(id = 1L, nombre = "Limpieza playa", descripcion = "Limpieza de residuos", fechaHora = LocalDateTime.now(), ubicacion = "Valencia", imagen = "", estado = ""),
+                    Evento(id = 2L, nombre = "Plantación árboles", descripcion = "Reforestación urbana", fechaHora = LocalDateTime.now(), ubicacion = "Madrid", imagen = "", estado = "")
                 )
             ),
             onEvent = {}
