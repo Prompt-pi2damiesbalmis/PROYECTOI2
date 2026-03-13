@@ -83,6 +83,13 @@ public class EventoService {
         });
     }
 
+    public Optional<Evento> cambiarEstado(Long id, String nuevoEstado) {
+        return eventoRepository.findById(id).map(evento -> {
+            evento.setEstado(nuevoEstado);
+            return eventoRepository.save(evento);
+        });
+    }
+
     public boolean eliminar(Long id) {
         if (!eventoRepository.existsById(id))
             return false;
