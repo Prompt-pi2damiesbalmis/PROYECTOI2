@@ -1,0 +1,10 @@
+package com.pmdm.proyectobase2425.models
+
+data class Comunidad(
+    val id: Long = 0,
+    val nombre: String = "",
+    val descripcion: String = "",
+    val imagen: String = "",
+    val eventos: List<Evento> = emptyList(),
+    val usuarios: List<UsuarioComunidad> = emptyList()
+)
