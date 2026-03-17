@@ -45,19 +45,16 @@
                 BorderBrush="#E0E0E0"
                 BorderThickness="1"
                 CornerRadius="20">
-
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-
                     <TextBlock
                         VerticalAlignment="Center"
                         FontSize="16"
                         Foreground="#888"
                         Text="🔍" />
-
                     <TextBox
                         x:Name="SearchBox"
                         Grid.Column="1"
@@ -65,10 +62,10 @@
                         VerticalAlignment="Center"
                         Background="Transparent"
                         BorderThickness="0"
-                        FontSize="14" />
+                        FontSize="14"
+                        Text="{Binding TextoBusqueda, UpdateSourceTrigger=PropertyChanged}" />
                 </Grid>
             </Border>
-
             <TextBlock
                 Margin="48,0,0,0"
                 VerticalAlignment="Center"

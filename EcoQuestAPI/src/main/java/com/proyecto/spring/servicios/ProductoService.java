@@ -3,6 +3,7 @@ package com.proyecto.spring.servicios;
 import com.proyecto.spring.modelos.Producto;
 import com.proyecto.spring.repository.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,8 +15,16 @@ public class ProductoService {
     @Autowired
     private ProductoRepository productoRepository;
 
+    @Value("${app.base.url}")
+    private String baseUrl;
+
     public List<Producto> obtenerTodos() {
-        return productoRepository.findAll();
+        return productoRepository.findAll().stream()
+                .map(p -> {
+                    p.setImagen(baseUrl + "/api/productos/imagen/" + p.getImagen());
+                    return p;
+                })
+                .toList();
     }
 
     public Optional<Producto> obtenerPorId(Long id) {
@@ -36,8 +45,18 @@ public class ProductoService {
     }
 
     public boolean eliminar(Long id) {
-        if (!productoRepository.existsById(id)) return false;
+        if (!productoRepository.existsById(id))
+            return false;
         productoRepository.deleteById(id);
         return true;
+    }
+
+    public List<Producto> buscarPorNombre(String nombre) {
+        return productoRepository.findByNombreContainingIgnoreCase(nombre).stream()
+                .map(p -> {
+                    p.setImagen(baseUrl + "/api/productos/imagen/" + p.getImagen());
+                    return p;
+                })
+                .toList();
     }
 }

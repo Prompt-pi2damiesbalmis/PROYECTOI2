@@ -15,15 +15,32 @@ namespace PrototipadoEscritorio.ViewModels.Tienda
         [ObservableProperty]
         private ObservableCollection<Producto> _listaProductos = new();
 
+        [ObservableProperty]
+        private string _textoBusqueda = string.Empty;
+
+        partial void OnTextoBusquedaChanged(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                CargarProductos();
+            else
+                BuscarProductos(value);
+        }
+
         public ListadoAccesoriosVM()
         {
             CargarProductos();
         }
 
-        private async void CargarProductos()
+        private void CargarProductos()
         {
-            var productosApi = ApiRestService.GetProductos();
-            ListaProductos = new ObservableCollection<Producto>(productosApi);
+            var productos = ApiRestService.GetProductos();
+            ListaProductos = new ObservableCollection<Producto>(productos);
+        }
+
+        private void BuscarProductos(string nombre)
+        {
+            var productos = ApiRestService.BuscarProductosPorNombre(nombre);
+            ListaProductos = new ObservableCollection<Producto>(productos);
         }
     }
 }
