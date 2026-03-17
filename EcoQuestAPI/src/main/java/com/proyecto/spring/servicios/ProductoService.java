@@ -29,7 +29,7 @@ public class ProductoService {
     public Optional<Producto> actualizar(Long id, Producto productoActualizado) {
         return productoRepository.findById(id).map(producto -> {
             producto.setNombre(productoActualizado.getNombre());
-            producto.setDescripcion(productoActualizado.getDescripcion());
+            producto.setImagen(productoActualizado.getImagen());
             producto.setPrecio(productoActualizado.getPrecio());
             return productoRepository.save(producto);
         });

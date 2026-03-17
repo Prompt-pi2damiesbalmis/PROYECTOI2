@@ -57,6 +57,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Compile Update="Properties\Settings.Designer.cs">
+		  <DesignTimeSharedInput>True</DesignTimeSharedInput>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>Settings.settings</DependentUpon>
+		</Compile>
 		<Compile Update="Views\UserControl\Comunidades\EliminarComunidadUserControl.xaml.cs">
 			<SubType>Code</SubType>
 		</Compile>
@@ -75,6 +80,13 @@
 		<Compile Update="Views\UserControl\Eventos\RevisarEventoUserControl.xaml.cs">
 			<SubType>Code</SubType>
 		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="Properties\Settings.settings">
+	    <Generator>SettingsSingleFileGenerator</Generator>
+	    <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+	  </None>
 	</ItemGroup>
 
 </Project>

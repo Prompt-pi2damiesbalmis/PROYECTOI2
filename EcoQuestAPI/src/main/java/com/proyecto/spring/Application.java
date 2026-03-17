@@ -98,10 +98,10 @@ public class Application {
 				usuarioRepository.crear(u3);
 
 				// Productos
-				productoRepository.save(new Producto("Cuerda de Escalada", "Cuerda dinámica de 60m", 89));
+				productoRepository.save(new Producto("Cuerda de Escalada", "cuerda.jpg", 89));
 				productoRepository
-						.save(new Producto("Cámara Réflex", "Canon EOS 2000D con objetivo 18-55mm", 450));
-				productoRepository.save(new Producto("Mochila Trail", "Mochila trail running 20L", 65));
+						.save(new Producto("Cámara Réflex", "camara.jpg", 450));
+				productoRepository.save(new Producto("Mochila Trail", "mochila.jpg", 65));
 
 				System.out.println("********************************************************************************");
 				System.out.println("Datos de ejemplo cargados correctamente");

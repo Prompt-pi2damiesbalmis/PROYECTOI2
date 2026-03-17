@@ -1,34 +1,49 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace PrototipadoEscritorio.Models
 {
+    [DataContract]
     public partial class Producto : ObservableObject
     {
-        public int ProductoId { get; set; } // No reactivo
+        [ObservableProperty]
+        [JsonProperty("id")]
+        [DataMember]
+        private int _id;
 
         [ObservableProperty]
+        [JsonProperty("nombre")]
+        [DataMember]
         private string nombre;
 
         [ObservableProperty]
-        private string descripcion;
+        [JsonProperty("imagen")]
+        [DataMember]
+        private string imagen;
 
         [ObservableProperty]
-        private int puntos;
+        [JsonProperty("precio")]
+        [DataMember]
+        private int precio;
 
-        public Producto() { }
+        public Producto() {
+            Nombre = string.Empty;
+            Imagen = string.Empty;
+            Precio = 0;
+        }
 
-        public Producto(int productoId, string nombre, string descripcion, int puntos)
+        public Producto(string nombre, string imagen, int precio)
         {
-            ProductoId = productoId;
             Nombre = nombre;
-            Descripcion = descripcion;
-            Puntos = puntos;
+            Imagen = imagen;
+            Precio = precio;
         }
     }
 }

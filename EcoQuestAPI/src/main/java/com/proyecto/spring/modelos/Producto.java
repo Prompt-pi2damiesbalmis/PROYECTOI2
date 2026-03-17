@@ -8,21 +8,21 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-@JsonPropertyOrder({ "id", "nombre", "descripcion", "precio" })
+@JsonPropertyOrder({ "id", "nombre", "imagen", "precio" })
 public class Producto {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nombre;
-    private String descripcion;
+    private String imagen;
     private int precio;
 
     public Producto() {}
 
-    public Producto(String nombre, String descripcion, int precio) {
+    public Producto(String nombre, String imagen, int precio) {
         this.nombre = nombre;
-        this.descripcion = descripcion;
+        this.imagen = imagen;
         this.precio = precio;
     }
 
@@ -42,12 +42,12 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getImagen() {
+        return imagen;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     public int getPrecio() {
@@ -64,7 +64,7 @@ public class Producto {
         int result = 1;
         result = prime * result + ((id == null) ? 0 : id.hashCode());
         result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
-        result = prime * result + ((descripcion == null) ? 0 : descripcion.hashCode());
+        result = prime * result + ((imagen == null) ? 0 : imagen.hashCode());
         result = prime * result + precio;
         return result;
     }
@@ -88,10 +88,10 @@ public class Producto {
                 return false;
         } else if (!nombre.equals(other.nombre))
             return false;
-        if (descripcion == null) {
-            if (other.descripcion != null)
+        if (imagen == null) {
+            if (other.imagen != null)
                 return false;
-        } else if (!descripcion.equals(other.descripcion))
+        } else if (!imagen.equals(other.imagen))
             return false;
         if (precio != other.precio)
             return false;
@@ -100,7 +100,7 @@ public class Producto {
 
     @Override
     public String toString() {
-        return "Producto [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", precio=" + precio
+        return "Producto [id=" + id + ", nombre=" + nombre + ", imagen=" + imagen + ", precio=" + precio
                 + "]";
     }
 

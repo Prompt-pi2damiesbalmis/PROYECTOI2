@@ -5,18 +5,37 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:PrototipadoEscritorio.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:PrototipadoEscritorio.ViewModels.Tienda"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <StackPanel>
 
+    <UserControl.DataContext>
+        <vm:ListadoAccesoriosVM />
+    </UserControl.DataContext>
+
+    <!--  Grid raíz reemplaza al StackPanel para permitir que el ScrollViewer ocupe el espacio restante  -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <!--  Título  -->
+            <RowDefinition Height="Auto" />
+            <!--  Buscador  -->
+            <RowDefinition Height="*" />
+            <!--  WrapPanel con scroll  -->
+        </Grid.RowDefinitions>
+
+        <!--  ====================== TÍTULO ======================  -->
         <Label
+            Grid.Row="0"
             Margin="0,0,0,20"
             HorizontalAlignment="Center"
             Content="Accesorios"
             FontSize="52" />
 
+        <!--  ====================== BUSCADOR ======================  -->
         <Grid
+            Grid.Row="1"
             Width="600"
             Height="40"
             Margin="0,0,0,40">
@@ -59,517 +78,69 @@
                 Visibility="{Binding Text.IsEmpty, ElementName=SearchBox, Converter={StaticResource BooleanToVisibilityConverter}}" />
         </Grid>
 
-        <!--  ====================== WRAP PANNEL PRINCIPAL ======================  -->
-        <WrapPanel HorizontalAlignment="Center">
+        <!--  ====================== SCROLL + WRAP PANEL ======================  -->
+        <!--  ====================== SCROLL + WRAP PANEL ======================  -->
+        <ScrollViewer
+            Grid.Row="2"
+            HorizontalScrollBarVisibility="Disabled"
+            VerticalScrollBarVisibility="Auto">
 
-            <Border Style="{StaticResource CardContainerStyle}">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
+            <ItemsControl HorizontalAlignment="Center" ItemsSource="{Binding ListaProductos}">
 
-                    <TextBlock
-                        Grid.Row="0"
-                        Style="{StaticResource CardTitleStyle}"
-                        Text="Marco Perfil" />
+                <!--  WrapPanel como panel contenedor  -->
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel HorizontalAlignment="Center" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
 
-                    <TextBlock
-                        Grid.Row="1"
-                        Style="{StaticResource CardSubTextStyle}"
-                        Text="500 pts" />
+                <!--  Plantilla de cada tarjeta  -->
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Style="{StaticResource CardContainerStyle}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
 
-                    <Border Grid.Row="2" Style="{StaticResource CardImageContainerStyle}">
-                        <Image
-                            Width="120"
-                            Height="120"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Source="/Assets/Marco-Personalizado.jpg"
-                            Stretch="Uniform" />
-                    </Border>
+                                <!--  Nombre del producto  -->
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Style="{StaticResource CardTitleStyle}"
+                                    Text="{Binding Nombre}" />
 
-                    <Button
-                        Grid.Row="3"
-                        Content="Editar"
-                        Style="{StaticResource CardButtonStyle}" />
-                </Grid>
-            </Border>
+                                <!--  Precio o puntos  -->
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Style="{StaticResource CardSubTextStyle}"
+                                    Text="{Binding Precio, StringFormat='{}{0} pts'}" />
 
-            <Border
-                Width="217"
-                Margin="10"
-                Background="#F1F5DA"
-                BorderBrush="#E0E0E0"
-                BorderThickness="1"
-                CornerRadius="14">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-
-                    <!--  TÍTULO  -->
-                    <TextBlock
-                        Grid.Row="0"
-                        Margin="16,14,16,4"
-                        FontSize="18"
-                        FontWeight="SemiBold"
-                        Text="Marco Perfil" />
-
-                    <!--  PUNTOS  -->
-                    <TextBlock
-                        Grid.Row="1"
-                        Margin="16,0,16,8"
-                        FontSize="14"
-                        Foreground="Gray"
-                        Text="500 pts" />
-
-                    <!--  IMAGEN  -->
-                    <Border
-                        Grid.Row="2"
-                        Margin="0,0,0,0"
-                        Background="#EFEAF4">
-
-                        <Image
-                            Width="120"
-                            Height="120"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Source="/Assets/Marco-Personalizado.jpg"
-                            Stretch="Uniform" />
-                    </Border>
-
-                    <!--  BOTÓN  -->
-                    <Button
-                        Grid.Row="3"
-                        Height="44"
-                        Margin="0"
-                        Background="#4CAF50"
-                        BorderThickness="0"
-                        Content="Editar"
-                        Cursor="Hand"
-                        FontWeight="SemiBold"
-                        Foreground="White">
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Background="{TemplateBinding Background}" CornerRadius="0,0,14,14">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                <!--  Imagen  -->
+                                <Border Grid.Row="2" Style="{StaticResource CardImageContainerStyle}">
+                                    <Image
+                                        Width="120"
+                                        Height="120"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Source="{Binding Imagen}"
+                                        Stretch="Uniform" />
                                 </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
-                </Grid>
-            </Border>
-            <Border
-                Width="217"
-                Margin="10"
-                Background="#F1F5DA"
-                BorderBrush="#E0E0E0"
-                BorderThickness="1"
-                CornerRadius="14">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
 
-                    <!--  TÍTULO  -->
-                    <TextBlock
-                        Grid.Row="0"
-                        Margin="16,14,16,4"
-                        FontSize="18"
-                        FontWeight="SemiBold"
-                        Text="Marco Perfil" />
+                                <!--  Botón  -->
+                                <Button
+                                    Grid.Row="3"
+                                    Content="Editar"
+                                    Style="{StaticResource CardButtonStyle}" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
 
-                    <!--  PUNTOS  -->
-                    <TextBlock
-                        Grid.Row="1"
-                        Margin="16,0,16,8"
-                        FontSize="14"
-                        Foreground="Gray"
-                        Text="500 pts" />
+            </ItemsControl>
+        </ScrollViewer>
 
-                    <!--  IMAGEN  -->
-                    <Border
-                        Grid.Row="2"
-                        Margin="0,0,0,0"
-                        Background="#EFEAF4">
-
-                        <Image
-                            Width="120"
-                            Height="120"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Source="/Assets/Marco-Personalizado.jpg"
-                            Stretch="Uniform" />
-                    </Border>
-
-                    <!--  BOTÓN  -->
-                    <Button
-                        Grid.Row="3"
-                        Height="44"
-                        Margin="0"
-                        Background="#4CAF50"
-                        BorderThickness="0"
-                        Content="Editar"
-                        Cursor="Hand"
-                        FontWeight="SemiBold"
-                        Foreground="White">
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Background="{TemplateBinding Background}" CornerRadius="0,0,14,14">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
-                </Grid>
-            </Border>
-            <Border
-                Width="217"
-                Margin="10"
-                Background="#F1F5DA"
-                BorderBrush="#E0E0E0"
-                BorderThickness="1"
-                CornerRadius="14">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-
-                    <!--  TÍTULO  -->
-                    <TextBlock
-                        Grid.Row="0"
-                        Margin="16,14,16,4"
-                        FontSize="18"
-                        FontWeight="SemiBold"
-                        Text="Marco Perfil" />
-
-                    <!--  PUNTOS  -->
-                    <TextBlock
-                        Grid.Row="1"
-                        Margin="16,0,16,8"
-                        FontSize="14"
-                        Foreground="Gray"
-                        Text="500 pts" />
-
-                    <!--  IMAGEN  -->
-                    <Border
-                        Grid.Row="2"
-                        Margin="0,0,0,0"
-                        Background="#EFEAF4">
-
-                        <Image
-                            Width="120"
-                            Height="120"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Source="/Assets/Marco-Personalizado.jpg"
-                            Stretch="Uniform" />
-                    </Border>
-
-                    <!--  BOTÓN  -->
-                    <Button
-                        Grid.Row="3"
-                        Height="44"
-                        Margin="0"
-                        Background="#4CAF50"
-                        BorderThickness="0"
-                        Content="Editar"
-                        Cursor="Hand"
-                        FontWeight="SemiBold"
-                        Foreground="White">
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Background="{TemplateBinding Background}" CornerRadius="0,0,14,14">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
-                </Grid>
-            </Border>
-            <Border
-                Width="217"
-                Margin="10"
-                Background="#F1F5DA"
-                BorderBrush="#E0E0E0"
-                BorderThickness="1"
-                CornerRadius="14">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-
-                    <!--  TÍTULO  -->
-                    <TextBlock
-                        Grid.Row="0"
-                        Margin="16,14,16,4"
-                        FontSize="18"
-                        FontWeight="SemiBold"
-                        Text="Marco Perfil" />
-
-                    <!--  PUNTOS  -->
-                    <TextBlock
-                        Grid.Row="1"
-                        Margin="16,0,16,8"
-                        FontSize="14"
-                        Foreground="Gray"
-                        Text="500 pts" />
-
-                    <!--  IMAGEN  -->
-                    <Border
-                        Grid.Row="2"
-                        Margin="0,0,0,0"
-                        Background="#EFEAF4">
-
-                        <Image
-                            Width="120"
-                            Height="120"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Source="/Assets/Marco-Personalizado.jpg"
-                            Stretch="Uniform" />
-                    </Border>
-
-                    <!--  BOTÓN  -->
-                    <Button
-                        Grid.Row="3"
-                        Height="44"
-                        Margin="0"
-                        Background="#4CAF50"
-                        BorderThickness="0"
-                        Content="Editar"
-                        Cursor="Hand"
-                        FontWeight="SemiBold"
-                        Foreground="White">
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Background="{TemplateBinding Background}" CornerRadius="0,0,14,14">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
-                </Grid>
-            </Border>
-            <Border
-                Width="217"
-                Margin="10"
-                Background="#F1F5DA"
-                BorderBrush="#E0E0E0"
-                BorderThickness="1"
-                CornerRadius="14">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-
-                    <!--  TÍTULO  -->
-                    <TextBlock
-                        Grid.Row="0"
-                        Margin="16,14,16,4"
-                        FontSize="18"
-                        FontWeight="SemiBold"
-                        Text="Marco Perfil" />
-
-                    <!--  PUNTOS  -->
-                    <TextBlock
-                        Grid.Row="1"
-                        Margin="16,0,16,8"
-                        FontSize="14"
-                        Foreground="Gray"
-                        Text="500 pts" />
-
-                    <!--  IMAGEN  -->
-                    <Border
-                        Grid.Row="2"
-                        Margin="0,0,0,0"
-                        Background="#EFEAF4">
-
-                        <Image
-                            Width="120"
-                            Height="120"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Source="/Assets/Marco-Personalizado.jpg"
-                            Stretch="Uniform" />
-                    </Border>
-
-                    <!--  BOTÓN  -->
-                    <Button
-                        Grid.Row="3"
-                        Height="44"
-                        Margin="0"
-                        Background="#4CAF50"
-                        BorderThickness="0"
-                        Content="Editar"
-                        Cursor="Hand"
-                        FontWeight="SemiBold"
-                        Foreground="White">
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Background="{TemplateBinding Background}" CornerRadius="0,0,14,14">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
-                </Grid>
-            </Border>
-            <Border
-                Width="217"
-                Margin="10"
-                Background="#F1F5DA"
-                BorderBrush="#E0E0E0"
-                BorderThickness="1"
-                CornerRadius="14">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-
-                    <!--  TÍTULO  -->
-                    <TextBlock
-                        Grid.Row="0"
-                        Margin="16,14,16,4"
-                        FontSize="18"
-                        FontWeight="SemiBold"
-                        Text="Marco Perfil" />
-
-                    <!--  PUNTOS  -->
-                    <TextBlock
-                        Grid.Row="1"
-                        Margin="16,0,16,8"
-                        FontSize="14"
-                        Foreground="Gray"
-                        Text="500 pts" />
-
-                    <!--  IMAGEN  -->
-                    <Border
-                        Grid.Row="2"
-                        Margin="0,0,0,0"
-                        Background="#EFEAF4">
-
-                        <Image
-                            Width="120"
-                            Height="120"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Source="/Assets/Marco-Personalizado.jpg"
-                            Stretch="Uniform" />
-                    </Border>
-
-                    <!--  BOTÓN  -->
-                    <Button
-                        Grid.Row="3"
-                        Height="44"
-                        Margin="0"
-                        Background="#4CAF50"
-                        BorderThickness="0"
-                        Content="Editar"
-                        Cursor="Hand"
-                        FontWeight="SemiBold"
-                        Foreground="White">
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Background="{TemplateBinding Background}" CornerRadius="0,0,14,14">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
-                </Grid>
-            </Border>
-            <Border
-                Width="217"
-                Margin="10"
-                Background="#F1F5DA"
-                BorderBrush="#E0E0E0"
-                BorderThickness="1"
-                CornerRadius="14">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-
-                    <!--  TÍTULO  -->
-                    <TextBlock
-                        Grid.Row="0"
-                        Margin="16,14,16,4"
-                        FontSize="18"
-                        FontWeight="SemiBold"
-                        Text="Marco Perfil" />
-
-                    <!--  PUNTOS  -->
-                    <TextBlock
-                        Grid.Row="1"
-                        Margin="16,0,16,8"
-                        FontSize="14"
-                        Foreground="Gray"
-                        Text="500 pts" />
-
-                    <!--  IMAGEN  -->
-                    <Border
-                        Grid.Row="2"
-                        Margin="0,0,0,0"
-                        Background="#EFEAF4">
-
-                        <Image
-                            Width="120"
-                            Height="120"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Source="/Assets/Marco-Personalizado.jpg"
-                            Stretch="Uniform" />
-                    </Border>
-
-                    <!--  BOTÓN  -->
-                    <Button
-                        Grid.Row="3"
-                        Height="44"
-                        Margin="0"
-                        Background="#4CAF50"
-                        BorderThickness="0"
-                        Content="Editar"
-                        Cursor="Hand"
-                        FontWeight="SemiBold"
-                        Foreground="White">
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Background="{TemplateBinding Background}" CornerRadius="0,0,14,14">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
-                </Grid>
-            </Border>
-
-        </WrapPanel>
-
-
-    </StackPanel>
+    </Grid>
 </UserControl>
