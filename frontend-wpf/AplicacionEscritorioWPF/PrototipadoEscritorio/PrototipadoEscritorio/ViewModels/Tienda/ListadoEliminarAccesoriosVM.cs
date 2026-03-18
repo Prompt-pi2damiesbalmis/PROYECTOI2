@@ -1,16 +1,19 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using PrototipadoEscritorio.Messages;
 using PrototipadoEscritorio.Models;
 using PrototipadoEscritorio.Services;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace PrototipadoEscritorio.ViewModels.Tienda
 {
-    public partial class ListadoAccesoriosVM : ObservableObject, IRecipient<AccesorioAñadidoMessage>
+    public partial class ListadoEliminarAccesoriosVM : ObservableObject, IRecipient<AccesorioAñadidoMessage>
     {
-
         [ObservableProperty]
         private ObservableCollection<Producto> _listaProductos = new();
 
@@ -25,39 +28,16 @@ namespace PrototipadoEscritorio.ViewModels.Tienda
                 BuscarProductos(value);
         }
 
-        [ObservableProperty]
-        private bool _modalVisible = false;
-
-        [ObservableProperty]
-        private EditarAccesorioModalVM _modalVM = new();
-
-        public ListadoAccesoriosVM()
+        public ListadoEliminarAccesoriosVM()
         {
             WeakReferenceMessenger.Default.Register(this);
             CargarProductos();
-
-            // Cerrar modal cuando el ModalVM dispare OnGuardar
-            ModalVM.OnGuardar += () =>
-            {
-                ModalVisible = false;
-                CargarProductos(); // refresca la lista tras guardar
-            };
         }
 
         public void Receive(AccesorioAñadidoMessage message)
         {
             CargarProductos();
         }
-
-        [RelayCommand]
-        private void AbrirEditar(Producto producto)
-        {
-            ModalVM.CargarProducto(producto);
-            ModalVisible = true;
-        }
-
-        [RelayCommand]
-        private void CerrarModal() => ModalVisible = false;
 
         private void CargarProductos()
         {

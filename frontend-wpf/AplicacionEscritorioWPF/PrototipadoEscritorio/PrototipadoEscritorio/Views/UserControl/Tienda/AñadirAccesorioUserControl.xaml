@@ -44,7 +44,8 @@
                         Height="32"
                         VerticalAlignment="Center"
                         Style="{StaticResource TextBoxPlaceholderStyle}"
-                        Tag="Introduzca el nombre..." />
+                        Tag="Introduzca el nombre..."
+                        Text="{Binding Nombre, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
 
                 <!--  Puntos  -->
@@ -53,7 +54,8 @@
                     <TextBox
                         Height="32"
                         Style="{StaticResource TextBoxPlaceholderStyle}"
-                        Tag="Puntos..." />
+                        Tag="Puntos..."
+                        Text="{Binding Precio, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
 
                 <!--  Imagen  -->
@@ -68,6 +70,7 @@
                             Height="28"
                             Padding="10,0"
                             HorizontalAlignment="Right"
+                            Command="{Binding SeleccionarImagenCommand}"
                             Content="Seleccionar img"
                             DockPanel.Dock="Right" />
                     </DockPanel>
@@ -76,7 +79,7 @@
                         Margin="0,4,0,8"
                         FontSize="12"
                         Foreground="Gray"
-                        Text="Marco-Personalizado.jpg" />
+                        Text="{Binding RutaImagenLocal, FallbackValue='Ninguna imagen seleccionada'}" />
 
                     <Border
                         Padding="10"
@@ -86,6 +89,7 @@
                         <Image
                             Width="120"
                             Height="120"
+                            Source="{Binding Previsualizacion}"
                             Stretch="Uniform" />
                     </Border>
                 </StackPanel>
@@ -98,6 +102,7 @@
                     HorizontalAlignment="Right"
                     Background="#4CAF50"
                     BorderThickness="0"
+                    Command="{Binding GuardarCommand}"
                     Content="Guardar"
                     Foreground="White" />
             </Grid>
