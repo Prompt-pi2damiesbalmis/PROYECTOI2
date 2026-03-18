@@ -1,14 +1,20 @@
 package com.proyecto.spring.controladores;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.proyecto.spring.modelos.Producto;
 import com.proyecto.spring.servicios.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 @RestController
@@ -74,6 +80,60 @@ public class ProductoController {
     @PostMapping
     public Producto crear(@RequestBody Producto producto) {
         return productoService.crear(producto);
+    }
+
+    @PostMapping(value = "/con-imagen", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<Producto> crearConImagen(
+            @RequestParam("producto") String productoJson, // <-- cambia @RequestPart por @RequestParam
+            @RequestPart(value = "imagen", required = false) MultipartFile imagen) {
+
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            Producto producto = mapper.readValue(productoJson, Producto.class);
+
+            if (imagen != null && !imagen.isEmpty()) {
+                String nombreArchivo = System.currentTimeMillis() + "_" + imagen.getOriginalFilename();
+                Path ruta = Paths.get("src/main/resources/static/imagenes/productos/" + nombreArchivo);
+                Files.createDirectories(ruta.getParent());
+                Files.write(ruta, imagen.getBytes());
+                producto.setImagen(nombreArchivo);
+            }
+
+            Producto guardado = productoService.crear(producto);
+            return ResponseEntity.ok(guardado);
+
+        } catch (Exception e) {
+            e.printStackTrace(); // verás el error exacto en la consola de Spring
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+
+    @PutMapping(value = "/{id}/con-imagen", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<Producto> actualizarConImagen(
+            @PathVariable Long id,
+            @RequestParam("producto") String productoJson,
+            @RequestPart(value = "imagen", required = false) MultipartFile imagen) {
+
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            Producto datosActualizados = mapper.readValue(productoJson, Producto.class);
+
+            if (imagen != null && !imagen.isEmpty()) {
+                String nombreArchivo = System.currentTimeMillis() + "_" + imagen.getOriginalFilename();
+                Path ruta = Paths.get("src/main/resources/static/imagenes/productos/" + nombreArchivo);
+                Files.createDirectories(ruta.getParent());
+                Files.write(ruta, imagen.getBytes());
+                datosActualizados.setImagen(nombreArchivo);
+            }
+
+            return productoService.actualizar(id, datosActualizados)
+                    .map(ResponseEntity::ok)
+                    .orElse(ResponseEntity.notFound().build());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.internalServerError().build();
+        }
     }
 
     @PutMapping("/{id}")

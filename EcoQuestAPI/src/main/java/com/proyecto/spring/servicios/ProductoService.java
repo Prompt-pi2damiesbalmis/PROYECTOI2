@@ -36,13 +36,18 @@ public class ProductoService {
     }
 
     public Optional<Producto> actualizar(Long id, Producto productoActualizado) {
-        return productoRepository.findById(id).map(producto -> {
-            producto.setNombre(productoActualizado.getNombre());
+    return productoRepository.findById(id).map(producto -> {
+        producto.setNombre(productoActualizado.getNombre());
+        producto.setPrecio(productoActualizado.getPrecio());
+
+        // Solo actualiza la imagen si viene una nueva, si no conserva la anterior
+        if (productoActualizado.getImagen() != null && !productoActualizado.getImagen().isBlank()) {
             producto.setImagen(productoActualizado.getImagen());
-            producto.setPrecio(productoActualizado.getPrecio());
-            return productoRepository.save(producto);
-        });
-    }
+        }
+
+        return productoRepository.save(producto);
+    });
+}
 
     public boolean eliminar(Long id) {
         if (!productoRepository.existsById(id))
