@@ -1,16 +1,21 @@
-# REPORT_PARTICIPACION_08_12_2025_28_12_2025
-
-## Resumen de Estadísticas Generales
-
-*   **Total de usuarios activos:** 3 (Saúl Valcárcel, Michel García, Juan Luís Pérez/kalashnibox)
-*   **Periodo analizado:** 08/12/2025 - 28/12/2025
-*   **Días con actividad:** 2 días principales (15/12, 16/12)
-*   **Total de commits:** 4 (excluyendo merges)
-*   **Archivos modificados únicos:** >20 (Principalmente estructura de proyecto WPF, imágenes y diarios)
+# Informe de Participación en el Repositorio
+## Periodo: 08/12/2025 - 28/12/2025
 
 ---
 
-## Registro de Actividad Detallado
+## 📊 Resumen Estadísticas Generales
+
+| Métrica | Valor |
+|---------|-------|
+| **Total de usuarios activos** | 3 (Saúl Valcárcel, Michel García, Juan Luís Pérez/kalashnibox) |
+| **Periodo analizado** | 08/12/2025 - 28/12/2025 |
+| **Días con actividad** | 2 días principales (15/12, 16/12) |
+| **Total de commits** | 4 (excluyendo merges) |
+| **Archivos modificados únicos** | >20 (Principalmente estructura de proyecto WPF, imágenes y diarios) |
+
+---
+
+## 📝 Registro de Actividad Detallado
 
 | Nombre | Fecha | Archivos modificados (Resumen) | Resumen de lo que ha realizado |
 | :--- | :--- | :--- | :--- |
@@ -21,7 +26,7 @@
 
 ---
 
-## Análisis de Contribuciones Individualizado
+## 👥 Análisis de Contribuciones Individualizado
 
 | Usuario | Commits | Días activos | Contribución principal | Seguimiento (Diario) | Discrepancias | Valoración global |
 | :--- | :---: | :---: | :--- | :--- | :--- | :---: |
@@ -32,7 +37,7 @@
 
 ---
 
-## Resumen Ejecutivo 📈
+## 📈 Resumen Ejecutivo
 
 ### 1. Tendencias y Patrones
 **Desaceleración y Foco en WPF**
@@ -50,3 +55,6 @@ En contraste con el periodo anterior, la actividad ha disminuido drásticamente,
 ### 4. Áreas de Mejora
 1.  **Documentación (Urgente):** Tanto **Michel** como **Juan Luís** deben poner al día sus diarios. Es vital que cada contribución en código tenga su reflejo en el informe individual.
 2.  **Continuidad:** Se recomienda retomar el ritmo de trabajo habitual lo antes posible para avanzar en la implementación de WPF, que apenas ha comenzado.
+
+---
+
