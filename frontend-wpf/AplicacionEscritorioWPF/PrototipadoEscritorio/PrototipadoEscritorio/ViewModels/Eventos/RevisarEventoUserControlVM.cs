@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrototipadoEscritorio.ViewModels
+namespace PrototipadoEscritorio.ViewModels.Eventos
 {
-    public partial class BloquearUsuarioUserControlVM : ObservableObject
+    public partial class RevisarEventoUserControlVM : ObservableObject
     {
 
         

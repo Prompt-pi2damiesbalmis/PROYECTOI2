@@ -89,6 +89,11 @@
 | 26/01/2026 | ⚠S20 | - Bloqueos en los merges de las ramas de git y creación de la pantalla Usuarios  | 1h | - Muchos errores al intentar subir los archivos de la rama local a la nube | - Remover commits que se habían quedado en el historial y cambios en la compilación del proyecto | Mejorar el flujo de las ramas de git y la comunicación a la hora de hacer un merge |
 | 3/02/2026 | 🔄S21 | - Creación de la navegación y compilación del proyecto  | 2h |  |  | Implementación de la navegación en WPF |
 
+## Mayo 2026
+| Fecha | Sesión | Tareas Realizadas | Tiempo | Problemas Encontrados | Soluciones Aplicadas | Reflexión/Aprendizaje |
+|:--: | :--: | :--: | :--: | :--: | :--: | :--: |
+| 10/04/2026 | 🎯S22 | - Finalización de la sección de Tienda + su funcionalidad  | 2h |  |  | Implementación de la sección de Tienda |
+
 
 
 

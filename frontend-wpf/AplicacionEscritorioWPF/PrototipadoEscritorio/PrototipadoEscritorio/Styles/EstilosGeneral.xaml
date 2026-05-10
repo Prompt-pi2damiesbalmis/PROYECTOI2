@@ -205,47 +205,63 @@
     <SolidColorBrush x:Key="CardImageBackgroundBrush" Color="{StaticResource CardImageBackgroundColor}" />
     <SolidColorBrush x:Key="PrimaryButtonBrush" Color="{StaticResource PrimaryButtonColor}" />
 
-    <!--  🟩 ESTILO TARJETA  -->
-    <Style x:Key="CardContainerStyle" TargetType="Border">
+    <!--  ============================================================  -->
+    <!--  🟦 CAPA SOMBRA  -->
+    <!--  Aplicar a: el Border exterior (sin contenido)  -->
+    <!--  ============================================================  -->
+    <Style x:Key="CardShadowLayerStyle" TargetType="Border">
         <Setter Property="CornerRadius" Value="14" />
-        <Setter Property="Margin" Value="10" />
-        <Setter Property="Background" Value="{StaticResource CardBackgroundBrush}" />
-        <Setter Property="BorderBrush" Value="{StaticResource CardBorderBrush}" />
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="Width" Value="217" />
-        <Setter Property="Cursor" Value="Hand" />
-
-        <!--  Sombra inicial  -->
+        <Setter Property="Background" Value="White" />
         <Setter Property="Effect">
             <Setter.Value>
                 <DropShadowEffect
                     BlurRadius="10"
                     Opacity="0.2"
+                    RenderingBias="Quality"
                     ShadowDepth="2" />
             </Setter.Value>
         </Setter>
-
         <Style.Triggers>
-
-            <!--  🖱 MOUSE OVER  -->
-            <Trigger Property="IsMouseOver" Value="True">
-
-                <!--  Cambia fondo  -->
-                <Setter Property="Background" Value="#E8F5C8" />
-
-                <!--  Eleva sombra  -->
+            <!--  El hover se detecta sobre el Grid padre gracias al IsMouseOver heredado  -->
+            <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Grid}}" Value="True">
                 <Setter Property="Effect">
                     <Setter.Value>
                         <DropShadowEffect
                             BlurRadius="18"
                             Opacity="0.35"
+                            RenderingBias="Quality"
                             ShadowDepth="6" />
                     </Setter.Value>
                 </Setter>
-
-            </Trigger>
-
+            </DataTrigger>
         </Style.Triggers>
+    </Style>
+
+    <!--  ============================================================  -->
+    <!--  🟩 CAPA CONTENIDO  -->
+    <!--  Aplicar a: el Border interior (con el contenido real)  -->
+    <!--  ============================================================  -->
+    <Style x:Key="CardContentLayerStyle" TargetType="Border">
+        <Setter Property="CornerRadius" Value="14" />
+        <Setter Property="Background" Value="{StaticResource CardBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource CardBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Cursor" Value="Hand" />
+        <!--  Sin Effect aquí → nunca habrá blur en el contenido  -->
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#E8F5C8" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--  ============================================================  -->
+    <!--  🔲 GRID CONTENEDOR DE TARJETA  -->
+    <!--  Aplicar a: el Grid raíz de cada DataTemplate  -->
+    <!--  ============================================================  -->
+    <Style x:Key="CardWrapperStyle" TargetType="Grid">
+        <Setter Property="Width" Value="217" />
+        <Setter Property="Margin" Value="10" />
     </Style>
 
     <!--  📝 TÍTULO  -->

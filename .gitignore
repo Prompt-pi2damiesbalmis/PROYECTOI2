@@ -14,6 +14,17 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.env
+.claude
+frontend-wpf/AplicacionEscritorioWPF/PrototipadoEscritorio/COPILOT_INSTRUCTIONS.md
+
+
 # Mono auto generated files
 mono_crash.*
 
