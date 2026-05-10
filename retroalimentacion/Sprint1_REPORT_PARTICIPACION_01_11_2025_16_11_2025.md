@@ -53,6 +53,3 @@
 - **IvanAriass**: 40% de commits, mayor volumen de código (243 líneas añadidas en total)
 - **SaulValcarcel**: 60% de commits, mayor frecuencia y consistencia
 
----
-
-*Informe generado automáticamente para el repositorio PROYECTOI2*

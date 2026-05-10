@@ -1,16 +1,21 @@
-# REPORT_PARTICIPACION_10_11_2025_07_12_2025
-
-## Resumen de Estadísticas Generales
-
-*   **Total de usuarios activos:** 4 (Saúl Valcárcel, Michel García, Iván Arias, Abdel/kalashnibox)
-*   **Periodo analizado:** 10/11/2025 - 07/12/2025
-*   **Días con actividad:** 5 días principales (13/11, 18/11, 19/11, 25/11, 02/12)
-*   **Total de commits:** ~40 (excluyendo merges)
-*   **Archivos modificados únicos:** >30 (Diarios, Diseños, Clases Backend/Frontend, Mocks)
+# Informe de Participación en el Repositorio
+## Periodo: 10/11/2025 - 07/12/2025
 
 ---
 
-## Registro de Actividad Detallado
+## 📊 Resumen Estadísticas Generales
+
+| Métrica | Valor |
+|---------|-------|
+| **Total de usuarios activos** | 4 (Saúl Valcárcel, Michel García, Iván Arias, Abdel/kalashnibox) |
+| **Periodo analizado** | 10/11/2025 - 07/12/2025 |
+| **Días con actividad** | 5 días principales (13/11, 18/11, 19/11, 25/11, 02/12) |
+| **Total de commits** | ~40 (excluyendo merges) |
+| **Archivos modificados únicos** | >30 (Diarios, Diseños, Clases Backend/Frontend, Mocks) |
+
+---
+
+## 📝 Registro de Actividad Detallado
 
 | Nombre | Fecha | Archivos modificados (Resumen) | Resumen de lo que ha realizado |
 | :--- | :--- | :--- | :--- |
@@ -30,7 +35,7 @@
 
 ---
 
-## Análisis de Contribuciones Individualizado
+## 👥 Análisis de Contribuciones Individualizado
 
 | Usuario | Commits | Días activos | Contribución principal | Seguimiento (Diario) | Discrepancias | Valoración global |
 | :--- | :---: | :---: | :--- | :--- | :--- | :---: |
@@ -41,7 +46,7 @@
 
 ---
 
-## Resumen Ejecutivo 📈
+## 📈 Resumen Ejecutivo
 
 ### 1. Tendencias y Patrones
 **Transición de Diseño a Implementación (Noviembre - Diciembre)**
