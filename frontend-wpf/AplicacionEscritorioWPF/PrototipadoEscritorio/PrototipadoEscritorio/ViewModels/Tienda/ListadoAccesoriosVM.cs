@@ -5,6 +5,8 @@ using PrototipadoEscritorio.Messages;
 using PrototipadoEscritorio.Models;
 using PrototipadoEscritorio.Services;
 using System.Collections.ObjectModel;
+using System.Windows;
+using System.Windows.Threading;
 
 namespace PrototipadoEscritorio.ViewModels.Tienda
 {
@@ -40,7 +42,11 @@ namespace PrototipadoEscritorio.ViewModels.Tienda
             ModalVM.OnGuardar += () =>
             {
                 ModalVisible = false;
-                CargarProductos(); // refresca la lista tras guardar
+                // Diferir la recarga hasta que WPF termine el ciclo de render del cierre del modal
+                Application.Current.Dispatcher.BeginInvoke(
+                    DispatcherPriority.Background,
+                    new Action(() => WeakReferenceMessenger.Default.Send(new AccesorioAñadidoMessage()))
+                );
             };
         }
 

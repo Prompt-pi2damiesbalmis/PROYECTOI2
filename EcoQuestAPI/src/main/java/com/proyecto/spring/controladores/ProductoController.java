@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.proyecto.spring.modelos.Producto;
 import com.proyecto.spring.servicios.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -44,13 +43,13 @@ public class ProductoController {
     @GetMapping("/imagen/{nombreImagen}")
     public ResponseEntity<byte[]> getImage(@PathVariable String nombreImagen) {
         try {
-            ClassPathResource resource = new ClassPathResource("static/imagenes/productos/" + nombreImagen);
+            Path imagePath = Paths.get("src/main/resources/static/imagenes/productos", nombreImagen);
 
-            if (!resource.exists()) {
+            if (!Files.exists(imagePath)) {
                 return ResponseEntity.notFound().build();
             }
 
-            byte[] imageBytes = resource.getInputStream().readAllBytes();
+            byte[] imageBytes = Files.readAllBytes(imagePath);
             String contentType = detectarContentType(nombreImagen);
 
             return ResponseEntity.ok()
@@ -119,6 +118,18 @@ public class ProductoController {
             Producto datosActualizados = mapper.readValue(productoJson, Producto.class);
 
             if (imagen != null && !imagen.isEmpty()) {
+                // Borrar imagen anterior si existe
+                productoService.obtenerPorId(id).ifPresent(productoViejo -> {
+                    String viejaImagen = productoViejo.getImagen();
+                    if (viejaImagen != null && !viejaImagen.isBlank()) {
+                        try {
+                            Files.deleteIfExists(Paths.get("src/main/resources/static/imagenes/productos", viejaImagen));
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+
                 String nombreArchivo = System.currentTimeMillis() + "_" + imagen.getOriginalFilename();
                 Path ruta = Paths.get("src/main/resources/static/imagenes/productos/" + nombreArchivo);
                 Files.createDirectories(ruta.getParent());

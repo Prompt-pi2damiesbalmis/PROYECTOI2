@@ -77,5 +77,20 @@ namespace PrototipadoEscritorio.Services
 
             return null;
         }
+
+        public static bool EliminarProducto(int id)
+        {
+            try
+            {
+                RestClient client = new RestClient(Properties.Settings.Default.ApiRestEndPoint);
+                RestRequest request = new RestRequest($"productos/{id}", Method.Delete);
+                RestResponse response = client.Execute(request);
+                return response.IsSuccessful;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

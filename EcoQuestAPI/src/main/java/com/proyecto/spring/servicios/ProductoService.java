@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
@@ -50,8 +54,20 @@ public class ProductoService {
 }
 
     public boolean eliminar(Long id) {
-        if (!productoRepository.existsById(id))
+        Optional<Producto> productoOpt = productoRepository.findById(id);
+        if (productoOpt.isEmpty())
             return false;
+
+        String nombreImagen = productoOpt.get().getImagen();
+        if (nombreImagen != null && !nombreImagen.isBlank()) {
+            Path rutaImagen = Paths.get("src/main/resources/static/imagenes/productos", nombreImagen);
+            try {
+                Files.deleteIfExists(rutaImagen);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
         productoRepository.deleteById(id);
         return true;
     }

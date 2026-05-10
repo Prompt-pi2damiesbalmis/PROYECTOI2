@@ -115,7 +115,6 @@ namespace PrototipadoEscritorio.ViewModels.Tienda
             {
                 _productoOriginal.Nombre = productoActualizado.Nombre;
                 _productoOriginal.Precio = productoActualizado.Precio;
-                _productoOriginal.Imagen = productoActualizado.Imagen;
 
                 OnGuardar?.Invoke();
             }

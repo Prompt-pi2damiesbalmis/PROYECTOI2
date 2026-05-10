@@ -1,14 +1,11 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using PrototipadoEscritorio.Messages;
 using PrototipadoEscritorio.Models;
 using PrototipadoEscritorio.Services;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PrototipadoEscritorio.ViewModels.Tienda
 {
@@ -19,6 +16,12 @@ namespace PrototipadoEscritorio.ViewModels.Tienda
 
         [ObservableProperty]
         private string _textoBusqueda = string.Empty;
+
+        [ObservableProperty]
+        private bool _modalVisible = false;
+
+        [ObservableProperty]
+        private ConfirmacionEliminacionModalVM _confirmacionVM = new();
 
         partial void OnTextoBusquedaChanged(string value)
         {
@@ -32,12 +35,46 @@ namespace PrototipadoEscritorio.ViewModels.Tienda
         {
             WeakReferenceMessenger.Default.Register(this);
             CargarProductos();
+
+            // Cuando se confirma la eliminación
+            ConfirmacionVM.OnConfirmar += (item) =>
+            {
+                var producto = item as Producto;
+                if (producto != null)
+                {
+                    ApiRestService.EliminarProducto(producto.Id);
+                    CargarProductos();
+                    WeakReferenceMessenger.Default.Send(new AccesorioAñadidoMessage());
+                }
+                ModalVisible = false;
+            };
+
+            // Cuando se cancela la eliminación
+            ConfirmacionVM.OnCancelar += () =>
+            {
+                ModalVisible = false;
+            };
         }
 
         public void Receive(AccesorioAñadidoMessage message)
         {
             CargarProductos();
         }
+
+        [RelayCommand]
+        public void EliminarAccesorio(Producto producto)
+        {
+            if (producto == null) return;
+
+            string titulo = $"Eliminar: {producto.Nombre}";
+            string mensaje = $"¿Estás seguro de que quieres eliminar \"{producto.Nombre}\"?";
+
+            ConfirmacionVM.CargarConfirmacion(titulo, mensaje, producto);
+            ModalVisible = true;
+        }
+
+        [RelayCommand]
+        private void CerrarModal() => ModalVisible = false;
 
         private void CargarProductos()
         {
