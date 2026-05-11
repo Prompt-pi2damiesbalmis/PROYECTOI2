@@ -12,6 +12,9 @@ namespace PrototipadoEscritorio.Services
     {
         private static UserControl usuariosVista, accesoriosVista, eventosVista, comunidadesVista;
         private static UserControl listadoAccesorios, añadirAccesorio, eliminarAccesorios;
+        private static UserControl listadoEventos, añadirEvento, revisarEventos, eliminarEventos;
+        private static UserControl listadoComunidades, añadirComunidad, revisarComunidades, eliminarComunidades;
+        private static UserControl listadoUsuarios, añadirUsuario, eliminarUsuarios;
 
         public UserControl ObtenerVentanaUsuarios()
         {
@@ -74,6 +77,105 @@ namespace PrototipadoEscritorio.Services
                 eliminarAccesorios = new ListadoEliminarAccesoriosUserControl();
             }
             return eliminarAccesorios;
+        }
+
+        public UserControl ObtenerVentanaListadoEventos()
+        {
+            if (listadoEventos is null)
+            {
+                listadoEventos = new ListadoEventosUserControl();
+            }
+            return listadoEventos;
+        }
+
+        public UserControl ObtenerVentanaAñadirEvento()
+        {
+            if (añadirEvento is null)
+            {
+                añadirEvento = new AñadirEventoUserControl();
+            }
+            return añadirEvento;
+        }
+
+        public UserControl ObtenerVentanaRevisarEventos()
+        {
+            if (revisarEventos is null)
+            {
+                revisarEventos = new ListadoRevisarEventosUserControl();
+            }
+            return revisarEventos;
+        }
+
+        public UserControl ObtenerVentanaEliminarEventos()
+        {
+            if (eliminarEventos is null)
+            {
+                eliminarEventos = new ListadoEliminarEventosUserControl();
+            }
+            return eliminarEventos;
+        }
+
+        public UserControl ObtenerVentanaListadoComunidades()
+        {
+            if (listadoComunidades is null)
+            {
+                listadoComunidades = new ListadoComunidadesUserControl();
+            }
+            return listadoComunidades;
+        }
+
+        public UserControl ObtenerVentanaAñadirComunidad()
+        {
+            if (añadirComunidad is null)
+            {
+                añadirComunidad = new AñadirComunidadUserControl();
+            }
+            return añadirComunidad;
+        }
+
+        public UserControl ObtenerVentanaRevisarComunidades()
+        {
+            if (revisarComunidades is null)
+            {
+                revisarComunidades = new ListadoRevisarComunidadesUserControl();
+            }
+            return revisarComunidades;
+        }
+
+        public UserControl ObtenerVentanaEliminarComunidades()
+        {
+            if (eliminarComunidades is null)
+            {
+                eliminarComunidades = new ListadoEliminarComunidadesUserControl();
+            }
+            return eliminarComunidades;
+        }
+
+        public UserControl ObtenerVentanaListadoUsuarios()
+        {
+            if (listadoUsuarios is null)
+            {
+                listadoUsuarios = new ListadoUsuariosUserControl();
+            }
+            return listadoUsuarios;
+        }
+
+        public UserControl ObtenerVentanaAñadirUsuario()
+        {
+            if (añadirUsuario is null)
+            {
+                añadirUsuario = new AñadirUsuarioUserControl();
+            }
+            return añadirUsuario;
+        }
+
+        public UserControl ObtenerVentanaEliminarUsuarios()
+        {
+            if (eliminarUsuarios is null)
+            {
+                eliminarUsuarios = new ListadoEliminarUsuariosUserControl();
+            }
+            return eliminarUsuarios;
         }
     }
 }
