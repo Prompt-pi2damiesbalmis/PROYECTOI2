@@ -1,8 +1,10 @@
-package com.pmdm.proyectobase2425.ui.features.comunidades
+package com.pmdm.proyectobase.ui.features.comunidadesDentro
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -27,6 +29,7 @@ import com.pmdm.proyectobase2425.R
 import com.pmdm.proyectobase2425.models.Comunidad
 import com.pmdm.proyectobase2425.ui.features.comunidades.dialogos.CrearComunidadDialog
 import com.pmdm.proyectobase2425.ui.features.comunidades.dialogos.EditarComunidadDialog
+import com.pmdm.proyectobase.ui.features.comunidadesDentro.CrearEventoDialog
 import com.pmdm.proyectobase2425.ui.theme.GreenBar
 import com.pmdm.proyectobase2425.ui.theme.ProyectoBase2425Theme
 
@@ -96,29 +99,34 @@ fun ComunidadesDentroScreen(
                     .padding(bottom = 16.dp)
             )
 
-            // TODO: reemplazar por LazyColumn con eventos reales
-            Card(
-                shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White),
-                elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(bottom = 120.dp),
-                onClick = { onNavigateToEvento(1L) } // TODO: pasar ID real del evento
+            // Lista de eventos
+            LazyColumn(
+                modifier = Modifier.fillMaxWidth(),
+                verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                Column {
-                    Image(
-                        painter = painterResource(id = R.drawable.playa),
-                        contentDescription = null,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(180.dp),
-                        contentScale = ContentScale.Crop
-                    )
-                    Text(
-                        text = "Tras 12 horas de trabajo en la limpieza de las playas...",
-                        modifier = Modifier.padding(16.dp)
-                    )
+                items(uiState.eventos) { evento ->
+                    Card(
+                        shape = RoundedCornerShape(16.dp),
+                        colors = CardDefaults.cardColors(containerColor = Color.White),
+                        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
+                        modifier = Modifier.fillMaxWidth(),
+                        onClick = { onNavigateToEvento(evento.id) }
+                    ) {
+                        Column {
+                            Image(
+                                painter = painterResource(id = R.drawable.playa),
+                                contentDescription = null,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(180.dp),
+                                contentScale = ContentScale.Crop
+                            )
+                            Text(
+                                text = evento.nombre,
+                                modifier = Modifier.padding(16.dp)
+                            )
+                        }
+                    }
                 }
             }
         }
@@ -170,10 +178,10 @@ fun ComunidadesDentroScreen(
         }
 
         if (uiState.dialogMode == CommunityMode.CREATE) {
-            CrearComunidadDialog(
+            CrearEventoDialog(
                 onDismiss = { onEvent(ComunidadesDentroEvent.OnDismissDialog) },
-                onConfirm = { nombre, descripcion ->
-                    onEvent(ComunidadesDentroEvent.OnCreateEvento(nombre, descripcion))
+                onConfirm = { nombre, descripcion, fechaHora ->
+                    onEvent(ComunidadesDentroEvent.OnCreateEvento(nombre, descripcion, fechaHora))
                 }
             )
         }

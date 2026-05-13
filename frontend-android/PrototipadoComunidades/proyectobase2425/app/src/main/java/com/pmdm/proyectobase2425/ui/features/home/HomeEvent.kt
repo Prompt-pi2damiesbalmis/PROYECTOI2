@@ -1,4 +1,4 @@
-package com.pmdm.proyectobase2425.ui.theme.features.home
+package com.pmdm.proyectobase.ui.features.home
 
 sealed interface HomeEvent {
     object GoHome : HomeEvent

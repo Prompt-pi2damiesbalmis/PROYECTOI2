@@ -1,4 +1,4 @@
-package com.pmdm.proyectobase2425.ui.theme.navigation
+package com.pmdm.proyectobase.ui.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController

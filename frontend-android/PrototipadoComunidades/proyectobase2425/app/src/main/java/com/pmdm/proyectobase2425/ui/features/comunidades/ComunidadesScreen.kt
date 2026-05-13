@@ -1,4 +1,4 @@
-package com.pmdm.proyectobase2425.ui.theme.features.comunidades
+package com.pmdm.proyectobase.ui.features.comunidades
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape

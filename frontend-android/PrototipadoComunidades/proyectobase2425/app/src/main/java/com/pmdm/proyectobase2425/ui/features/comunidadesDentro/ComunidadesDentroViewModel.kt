@@ -89,7 +89,7 @@ class ComunidadesDentroViewModel @Inject constructor(
                         id = 0L, // Auto-generate
                         nombre = event.nombre,
                         descripcion = event.descripcion,
-                        fechaHora = event.fechaHora.toString(), // Convertir a String
+                        fechaHora = event.fechaHora,
                         ubicacion = event.ubicacion,
                         imagen = "",
                         estado = "Activo",
