@@ -4,19 +4,37 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.pmdm.proyectobase2425.CommunityMode
+import com.pmdm.proyectobase2425.data.repositories.ComunidadRepository
 import com.pmdm.proyectobase2425.models.Comunidad
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ComunidadesViewModel @Inject constructor() : ViewModel() {
+class ComunidadesViewModel @Inject constructor(
+    private val comunidadRepository: ComunidadRepository
+) : ViewModel() {
 
     var state by mutableStateOf(ComunidadesUiState())
         private set
 
     init {
-        cargarComunidades()
+        viewModelScope.launch {
+            comunidadRepository.getAll().collect { comunidadesEntity ->
+                val comunidades = comunidadesEntity.map { entity ->
+                    Comunidad(
+                        id = entity.id,
+                        nombre = entity.nombre,
+                        descripcion = entity.descripcion,
+                        imagen = entity.imagen
+                        // eventos y usuarios se cargarían por separado si fuera necesario
+                    )
+                }
+                state = state.copy(comunidades = comunidades, isLoading = false)
+            }
+        }
     }
 
     fun onEvent(event: ComunidadesEvent) {
@@ -48,18 +66,15 @@ class ComunidadesViewModel @Inject constructor() : ViewModel() {
             return
         }
 
-        val nuevaComunidad = Comunidad(
-            id = (state.comunidades.maxOfOrNull { it.id } ?: 0L) + 1L,
-            nombre = nombre,
-            imagen = "",
-            descripcion = descripcion
-            // eventos y usuarios son emptyList() por defecto
-        )
-
-        state = state.copy(
-            comunidades = state.comunidades + nuevaComunidad,
-            dialogMode = CommunityMode.NONE,
-            error = null
-        )
+        viewModelScope.launch {
+            val nuevaComunidadEntity = com.pmdm.proyectobase2425.data.services.ComunidadEntity(
+                id = (state.comunidades.maxOfOrNull { it.id } ?: 0L) + 1L,
+                nombre = nombre,
+                descripcion = descripcion,
+                imagen = ""
+            )
+            comunidadRepository.upsert(nuevaComunidadEntity)
+            state = state.copy(dialogMode = CommunityMode.NONE, error = null)
+        }
     }
 }

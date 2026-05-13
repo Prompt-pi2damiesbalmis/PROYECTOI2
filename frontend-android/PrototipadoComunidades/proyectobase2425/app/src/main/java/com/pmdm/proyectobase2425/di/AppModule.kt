@@ -7,6 +7,12 @@ import com.pmdm.proyectobase2425.data.room.ComunidadDao
 import com.pmdm.proyectobase2425.data.room.EventoDao
 import com.pmdm.proyectobase2425.data.room.UsuarioComunidadDao
 import com.pmdm.proyectobase2425.data.room.UsuarioDao
+import com.pmdm.proyectobase2425.data.room.UsuarioEventoDao
+import com.pmdm.proyectobase2425.data.repositories.ComunidadRepository
+import com.pmdm.proyectobase2425.data.repositories.EventoRepository
+import com.pmdm.proyectobase2425.data.repositories.UsuarioComunidadRepository
+import com.pmdm.proyectobase2425.data.repositories.UsuarioEventoRepository
+import com.pmdm.proyectobase2425.data.repositories.UsuarioRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -47,6 +53,34 @@ object AppModule {
 
     @Provides
     fun provideUsuarioComunidadDao(db: AppDatabase): UsuarioComunidadDao = db.usuarioComunidadDao()
+
+    @Provides
+    fun provideUsuarioEventoDao(db: AppDatabase): UsuarioEventoDao = db.usuarioEventoDao()
+
+    @Provides
+    @Singleton
+    fun provideComunidadRepository(comunidadDao: ComunidadDao): ComunidadRepository =
+        ComunidadRepository(comunidadDao)
+
+    @Provides
+    @Singleton
+    fun provideEventoRepository(eventoDao: EventoDao): EventoRepository =
+        EventoRepository(eventoDao)
+
+    @Provides
+    @Singleton
+    fun provideUsuarioRepository(usuarioDao: UsuarioDao): UsuarioRepository =
+        UsuarioRepository(usuarioDao)
+
+    @Provides
+    @Singleton
+    fun provideUsuarioComunidadRepository(usuarioComunidadDao: UsuarioComunidadDao): UsuarioComunidadRepository =
+        UsuarioComunidadRepository(usuarioComunidadDao)
+
+    @Provides
+    @Singleton
+    fun provideUsuarioEventoRepository(usuarioEventoDao: UsuarioEventoDao): UsuarioEventoRepository =
+        UsuarioEventoRepository(usuarioEventoDao)
 
     // ── Retrofit ─────────────────────────────────────────────
 
