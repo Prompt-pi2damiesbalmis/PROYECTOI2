@@ -16,13 +16,19 @@ namespace PrototipadoEscritorio.ViewModels.Eventos
         private bool _modalVisible = false;
 
         [ObservableProperty]
+        private bool _detalleModalVisible = false;
+
+        [ObservableProperty]
         private EliminarEventoUserControlVM _eliminarEventoVM = new();
+
+        [ObservableProperty]
+        private DetalleEventoUserControlVM _detalleEventoVM = new();
 
         public ObservableCollection<Evento> ListaEventos { get; } = new()
         {
-            new Evento(1, "Nuevos fondos ODS", "Madrid", "Mayor remuneración para proyectos sostenibles", "/Assets/mundo.png", new DateTime(2026, 6, 15)),
-            new Evento(2, "Cumbre del Clima", "Barcelona", "Conferencia internacional sobre cambio climático", "/Assets/mundo.png", new DateTime(2026, 7, 20)),
-            new Evento(3, "Reciclaje Tech", "Valencia", "Taller de reciclaje de dispositivos electrónicos", "/Assets/mundo.png", new DateTime(2026, 8, 10)),
+            new Evento(1, "Nuevos fondos ODS", "Madrid", "Mayor remuneración para proyectos sostenibles", "/Assets/mundo.png", new DateTime(2026, 6, 15), "EcoComunidad", "/Assets/mundo.png"),
+            new Evento(2, "Cumbre del Clima", "Barcelona", "Conferencia internacional sobre cambio climático", "/Assets/mundo.png", new DateTime(2026, 7, 20), "GreenSostenibilidad", "/Assets/mundo.png"),
+            new Evento(3, "Reciclaje Tech", "Valencia", "Taller de reciclaje de dispositivos electrónicos", "/Assets/mundo.png", new DateTime(2026, 8, 10), "TecnoRecicla", "/Assets/mundo.png"),
         };
 
         public ListadoEliminarEventosVM()
@@ -30,6 +36,12 @@ namespace PrototipadoEscritorio.ViewModels.Eventos
             WeakReferenceMessenger.Default.Register<EliminarEventoMessage>(this, (r, m) =>
             {
                 ModalVisible = false;
+            });
+
+            WeakReferenceMessenger.Default.Register<CerrarDetalleEventoMessage>(this, (r, m) =>
+            {
+                DetalleEventoVM.Evento = new();
+                DetalleModalVisible = false;
             });
         }
 
@@ -44,5 +56,20 @@ namespace PrototipadoEscritorio.ViewModels.Eventos
 
         [RelayCommand]
         private void CerrarModal() => ModalVisible = false;
+
+        [RelayCommand]
+        private void VerDetalleEvento(Evento evento)
+        {
+            if (evento == null) return;
+            DetalleEventoVM.Evento = evento;
+            DetalleModalVisible = true;
+        }
+
+        [RelayCommand]
+        private void CerrarDetalleModal()
+        {
+            DetalleEventoVM.Evento = new();
+            DetalleModalVisible = false;
+        }
     }
 }

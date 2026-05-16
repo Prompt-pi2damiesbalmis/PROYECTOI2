@@ -10,12 +10,17 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
 
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </UserControl.Resources>
+
     <UserControl.DataContext>
         <vm:ListadoEventosVM />
     </UserControl.DataContext>
 
     <Grid>
-        <Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -83,40 +88,113 @@
 
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Grid Style="{StaticResource CardWrapperStyle}">
-                            <Border Style="{StaticResource CardShadowLayerStyle}" />
-                            <Border Style="{StaticResource CardContentLayerStyle}">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="*" />
-                                    </Grid.RowDefinitions>
+                        <Border
+                            Width="520"
+                            MinHeight="90"
+                            Margin="10"
+                            Padding="0"
+                            Background="White"
+                            BorderBrush="#E0E0E0"
+                            BorderThickness="1"
+                            CornerRadius="12"
+                            Cursor="Hand">
+                            <Border.InputBindings>
+                                <MouseBinding
+                                    Command="{Binding DataContext.VerDetalleEventoCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                    CommandParameter="{Binding}"
+                                    Gesture="LeftClick" />
+                            </Border.InputBindings>
+                            <Border.Effect>
+                                <DropShadowEffect
+                                    BlurRadius="8"
+                                    Opacity="0.1"
+                                    ShadowDepth="2" />
+                            </Border.Effect>
 
-                                    <TextBlock
-                                        Grid.Row="0"
-                                        Style="{StaticResource CardTitleStyle}"
-                                        Text="{Binding Nombre}" />
-                                    <TextBlock
-                                        Grid.Row="1"
-                                        Style="{StaticResource CardSubTextStyle}"
-                                        Text="{Binding Ubicacion}" />
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
 
-                                    <Border Grid.Row="2" Style="{StaticResource CardImageContainerStyle}">
+                                <Border
+                                    Grid.Column="0"
+                                    Width="16"
+                                    Background="{Binding ColorBorde}"
+                                    CornerRadius="12,0,0,12" />
+
+                                <Grid Grid.Column="1" Margin="14,12">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Border
+                                        Width="66"
+                                        Height="66"
+                                        Background="#F0F0F0"
+                                        BorderBrush="#E0E0E0"
+                                        BorderThickness="1"
+                                        CornerRadius="33">
                                         <Image
-                                            Width="120"
-                                            Height="120"
-                                            HorizontalAlignment="Center"
-                                            VerticalAlignment="Center"
+                                            Width="56"
+                                            Height="56"
                                             Source="{Binding Imagen}"
                                             Stretch="Uniform" />
                                     </Border>
+
+                                    <StackPanel
+                                        Grid.Column="1"
+                                        Margin="14,0,0,0"
+                                        VerticalAlignment="Center">
+                                        <TextBlock
+                                            FontSize="17"
+                                            FontWeight="SemiBold"
+                                            Foreground="#333"
+                                            Text="{Binding Nombre}"
+                                            TextDecorations="Underline" />
+                                        <TextBlock
+                                            Margin="0,4,0,0"
+                                            FontSize="14"
+                                            Foreground="#888"
+                                            Text="{Binding Ubicacion}" />
+                                    </StackPanel>
                                 </Grid>
-                            </Border>
-                        </Grid>
+
+                                <Border
+                                    Grid.Column="2"
+                                    Width="130"
+                                    Background="#EFEAF4"
+                                    CornerRadius="0,12,12,0">
+                                    <Image Source="{Binding Imagen}" Stretch="UniformToFill" />
+                                </Border>
+                            </Grid>
+                        </Border>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
-        </ScrollViewer>
+            </ScrollViewer>
+        </Grid>
+
+        <Grid Visibility="{Binding ModalVisible, Converter={StaticResource BoolToVisibilityConverter}}">
+            <Button
+                Background="Transparent"
+                BorderThickness="0"
+                Command="{Binding CerrarModalCommand}"
+                Cursor="Arrow"
+                Focusable="False">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Rectangle Fill="{TemplateBinding Background}" />
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <local:DetalleEventoUserControl
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                DataContext="{Binding DetalleEventoVM}" />
+        </Grid>
     </Grid>
 </UserControl>
