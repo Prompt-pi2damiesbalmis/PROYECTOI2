@@ -15,7 +15,7 @@
     </UserControl.Resources>
 
     <UserControl.DataContext>
-        <vm:UsuairosUserControlVM />
+        <vm:UsuariosUserControlVM />
     </UserControl.DataContext>
 
     <Grid>

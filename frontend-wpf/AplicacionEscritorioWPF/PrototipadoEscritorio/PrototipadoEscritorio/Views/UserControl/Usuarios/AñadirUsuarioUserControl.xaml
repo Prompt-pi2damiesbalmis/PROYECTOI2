@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:PrototipadoEscritorio.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:PrototipadoEscritorio.ViewModels.Usuarios"
-    d:DesignHeight="450"
+    d:DesignHeight="650"
     d:DesignWidth="800"
     mc:Ignorable="d">
 
@@ -14,66 +14,146 @@
         <vm:AñadirUsuarioUserControlVM />
     </UserControl.DataContext>
 
-    <StackPanel>
-        <Label
-            Margin="0,0,0,40"
-            HorizontalAlignment="Center"
-            Content="Añadir Usuario"
-            FontSize="52" />
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="0,0,0,40">
+            <Label
+                Margin="0,0,0,30"
+                HorizontalAlignment="Center"
+                Content="Añadir Usuario"
+                FontSize="52" />
 
-        <Border
-            Width="420"
-            Padding="20"
-            Background="White"
-            CornerRadius="12">
+            <Border
+                Width="480"
+                Padding="24"
+                Background="White"
+                CornerRadius="12">
 
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
 
-                <StackPanel Grid.Row="0" Margin="0,0,0,10">
-                    <TextBlock FontWeight="SemiBold" Text="Nombre de usuario:" />
-                    <TextBox
-                        Height="32"
-                        Style="{StaticResource TextBoxPlaceholderStyle}"
-                        Tag="Introduzca el nombre de usuario..."
-                        Text="{Binding NombreUsuario, UpdateSourceTrigger=PropertyChanged}" />
-                </StackPanel>
+                    <StackPanel Grid.Row="0" Margin="0,0,0,10">
+                        <TextBlock FontWeight="SemiBold" Text="Nombre de usuario:" />
+                        <TextBox
+                            Height="32"
+                            Style="{StaticResource TextBoxPlaceholderStyle}"
+                            Tag="Introduzca el nombre de usuario..."
+                            Text="{Binding NombreUsuario, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
 
-                <StackPanel Grid.Row="1" Margin="0,0,0,10">
-                    <TextBlock FontWeight="SemiBold" Text="Nombre completo:" />
-                    <TextBox
-                        Height="32"
-                        Style="{StaticResource TextBoxPlaceholderStyle}"
-                        Tag="Nombre y apellidos..."
-                        Text="{Binding NombreCompleto, UpdateSourceTrigger=PropertyChanged}" />
-                </StackPanel>
+                    <StackPanel Grid.Row="1" Margin="0,0,0,10">
+                        <TextBlock FontWeight="SemiBold" Text="Nombre:" />
+                        <TextBox
+                            Height="32"
+                            Style="{StaticResource TextBoxPlaceholderStyle}"
+                            Tag="Nombre..."
+                            Text="{Binding Nombre, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
 
-                <StackPanel Grid.Row="2" Margin="0,0,0,10">
-                    <TextBlock FontWeight="SemiBold" Text="Email:" />
-                    <TextBox
-                        Height="32"
-                        Style="{StaticResource TextBoxPlaceholderStyle}"
-                        Tag="email@ejemplo.com..."
-                        Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" />
-                </StackPanel>
+                    <StackPanel Grid.Row="2" Margin="0,0,0,10">
+                        <TextBlock FontWeight="SemiBold" Text="Apellido:" />
+                        <TextBox
+                            Height="32"
+                            Style="{StaticResource TextBoxPlaceholderStyle}"
+                            Tag="Apellido..."
+                            Text="{Binding Apellido, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
 
-                <Button
-                    Grid.Row="4"
-                    Width="100"
-                    Height="36"
-                    HorizontalAlignment="Right"
-                    Background="#4CAF50"
-                    BorderThickness="0"
-                    Command="{Binding GuardarCommand}"
-                    Content="Guardar"
-                    Foreground="White" />
-            </Grid>
-        </Border>
-    </StackPanel>
+                    <StackPanel Grid.Row="3" Margin="0,0,0,10">
+                        <TextBlock FontWeight="SemiBold" Text="Email:" />
+                        <TextBox
+                            Height="32"
+                            Style="{StaticResource TextBoxPlaceholderStyle}"
+                            Tag="email@ejemplo.com..."
+                            Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="4" Margin="0,0,0,10">
+                        <TextBlock FontWeight="SemiBold" Text="Edad:" />
+                        <TextBox
+                            Height="32"
+                            Style="{StaticResource TextBoxPlaceholderStyle}"
+                            Tag="Edad..."
+                            Text="{Binding Edad, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="5" Margin="0,0,0,10">
+                        <TextBlock FontWeight="SemiBold" Text="Descripción:" />
+                        <TextBox
+                            Height="60"
+                            Style="{StaticResource TextBoxPlaceholderStyle}"
+                            Tag="Descripción..."
+                            Text="{Binding Descripcion, UpdateSourceTrigger=PropertyChanged}"
+                            TextWrapping="Wrap"
+                            AcceptsReturn="True" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="6" Margin="0,0,0,10">
+                        <TextBlock FontWeight="SemiBold" Text="Contraseña:" />
+                        <TextBox
+                            Height="32"
+                            Style="{StaticResource TextBoxPlaceholderStyle}"
+                            Tag="Contraseña..."
+                            Text="{Binding Contraseña, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="7" Margin="0,0,0,10">
+                        <DockPanel>
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontWeight="SemiBold"
+                                Text="Imagen de perfil:" />
+                            <Button
+                                Width="150"
+                                Height="28"
+                                Padding="10,0"
+                                HorizontalAlignment="Right"
+                                Command="{Binding SeleccionarImagenCommand}"
+                                Content="Seleccionar img"
+                                DockPanel.Dock="Right" />
+                        </DockPanel>
+
+                        <TextBlock
+                            Margin="0,4,0,8"
+                            FontSize="12"
+                            Foreground="Gray"
+                            Text="{Binding RutaImagenLocal, FallbackValue='Ninguna imagen seleccionada'}" />
+
+                        <Border
+                            Padding="10"
+                            BorderBrush="#DDD"
+                            BorderThickness="1"
+                            CornerRadius="8">
+                            <Image
+                                Width="120"
+                                Height="120"
+                                Source="{Binding Previsualizacion}"
+                                Stretch="Uniform" />
+                        </Border>
+                    </StackPanel>
+
+                    <Button
+                        Grid.Row="9"
+                        Width="120"
+                        Height="36"
+                        HorizontalAlignment="Right"
+                        Background="#4CAF50"
+                        BorderThickness="0"
+                        Command="{Binding GuardarCommand}"
+                        Content="Guardar"
+                        Foreground="White" />
+                </Grid>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
 </UserControl>

@@ -5,7 +5,7 @@ using System.Windows.Controls;
 
 namespace PrototipadoEscritorio.ViewModels
 {
-    public partial class UsuairosUserControlVM : ObservableObject
+    public partial class UsuariosUserControlVM : ObservableObject
     {
         private NavegacionService sn;
 
@@ -15,7 +15,7 @@ namespace PrototipadoEscritorio.ViewModels
         [ObservableProperty]
         private UserControl? _contenidoVentana;
 
-        public UsuairosUserControlVM()
+        public UsuariosUserControlVM()
         {
             sn = new NavegacionService();
             ContenidoVentana = sn.ObtenerVentanaListadoUsuarios();

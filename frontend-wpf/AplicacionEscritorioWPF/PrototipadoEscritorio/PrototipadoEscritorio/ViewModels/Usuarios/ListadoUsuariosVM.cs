@@ -3,11 +3,13 @@ using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using PrototipadoEscritorio.Messages;
 using PrototipadoEscritorio.Models;
+using PrototipadoEscritorio.Services;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace PrototipadoEscritorio.ViewModels.Usuarios
 {
-    public partial class ListadoUsuariosVM : ObservableObject
+    public partial class ListadoUsuariosVM : ObservableObject, IRecipient<UsuarioAñadidoMessage>
     {
         [ObservableProperty]
         private string _textoBusqueda = string.Empty;
@@ -18,15 +20,9 @@ namespace PrototipadoEscritorio.ViewModels.Usuarios
         [ObservableProperty]
         private BloquearUsuarioUserControlVM _bloquearUsuarioVM = new();
 
-        public ObservableCollection<Usuario> ListaUsuarios { get; } = new()
-        {
-            new Usuario(1, "juan_garcia", "García, Juan", "juan@email.com", "/Assets/avatares.png", "Eco Acción, Tribu Verde"),
-            new Usuario(2, "maria_lopez", "López, María", "maria@email.com", "/Assets/avatares.png", "Playas Limpias, Todos Unidos"),
-            new Usuario(3, "carlos_rod", "Rodríguez, Carlos", "carlos@email.com", "/Assets/avatares.png", "Eco Connection"),
-            new Usuario(4, "ana_martin", "Martín, Ana", "ana@email.com", "/Assets/avatares.png", "Tribu Verde, Eco Tech"),
-            new Usuario(5, "luis_fer", "Fernández, Luis", "luis@email.com", "/Assets/avatares.png", "Eco Acción, Playas Limpias"),
-            new Usuario(6, "sofia_perez", "Pérez, Sofía", "sofia@email.com", "/Assets/avatares.png", "Todos Unidos, Eco Connection"),
-        };
+        public ObservableCollection<Usuario> ListaUsuarios { get; } = new();
+
+        private System.Collections.Generic.List<Usuario> _todosUsuarios = new();
 
         public ListadoUsuariosVM()
         {
@@ -34,6 +30,43 @@ namespace PrototipadoEscritorio.ViewModels.Usuarios
             {
                 ModalVisible = false;
             });
+
+            WeakReferenceMessenger.Default.Register(this);
+            CargarUsuarios();
+        }
+
+        public void CargarUsuarios()
+        {
+            var usuarios = ApiRestService.GetUsuarios();
+            _todosUsuarios = usuarios ?? new System.Collections.Generic.List<Usuario>();
+            FiltrarUsuarios();
+        }
+
+        partial void OnTextoBusquedaChanged(string value)
+        {
+            FiltrarUsuarios();
+        }
+
+        private void FiltrarUsuarios()
+        {
+            ListaUsuarios.Clear();
+            var filtrados = string.IsNullOrWhiteSpace(TextoBusqueda)
+                ? _todosUsuarios
+                : _todosUsuarios.Where(u =>
+                    u.NombreUsuario.Contains(TextoBusqueda) ||
+                    u.Nombre.Contains(TextoBusqueda) ||
+                    u.Apellido.Contains(TextoBusqueda) ||
+                    u.Email.Contains(TextoBusqueda)).ToList();
+
+            foreach (var u in filtrados)
+            {
+                ListaUsuarios.Add(u);
+            }
+        }
+
+        public void Receive(UsuarioAñadidoMessage message)
+        {
+            CargarUsuarios();
         }
 
         [RelayCommand]

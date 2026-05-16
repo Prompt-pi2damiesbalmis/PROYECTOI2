@@ -1,9 +1,14 @@
 package com.proyecto.spring.servicios;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +24,18 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
+    @Value("${app.base.url}")
+    private String baseUrl;
+
     public List<Usuario> obtenerTodos() {
-        return usuarioRepository.findAll();
+        return usuarioRepository.findAll().stream()
+                .map(u -> {
+                    if (u.getImagen() != null && !u.getImagen().isBlank()) {
+                        u.setImagen(baseUrl + "/api/usuarios/imagen/" + u.getImagen());
+                    }
+                    return u;
+                })
+                .toList();
     }
 
     public Optional<Usuario> obtenerPorId(Long id) {
@@ -35,21 +50,48 @@ public class UsuarioService {
     public Optional<Usuario> actualizar(Long id, Usuario usuarioActualizado) {
         return usuarioRepository.findById(id).map(usuario -> {
             usuario.setNombreUsuario(usuarioActualizado.getNombreUsuario());
-            usuario.setContraseña(usuarioActualizado.getContraseña());
+            if (usuarioActualizado.getContraseña() != null && !usuarioActualizado.getContraseña().isBlank()) {
+                usuario.setContraseña(passwordEncoder.encode(usuarioActualizado.getContraseña()));
+            }
             usuario.setNombre(usuarioActualizado.getNombre());
             usuario.setApellido(usuarioActualizado.getApellido());
             usuario.setDescripcion(usuarioActualizado.getDescripcion());
             usuario.setEdad(usuarioActualizado.getEdad());
             usuario.setEmail(usuarioActualizado.getEmail());
-            usuario.setImagen(usuarioActualizado.getImagen());
+            if (usuarioActualizado.getImagen() != null && !usuarioActualizado.getImagen().isBlank()) {
+                usuario.setImagen(usuarioActualizado.getImagen());
+            }
             return usuarioRepository.save(usuario);
         });
     }
 
     public boolean eliminar(Long id) {
-        if (!usuarioRepository.existsById(id))
+        Optional<Usuario> usuarioOpt = usuarioRepository.findById(id);
+        if (usuarioOpt.isEmpty())
             return false;
+
+        String nombreImagen = usuarioOpt.get().getImagen();
+        if (nombreImagen != null && !nombreImagen.isBlank()) {
+            Path rutaImagen = Paths.get("src/main/resources/static/imagenes/usuarios", nombreImagen);
+            try {
+                Files.deleteIfExists(rutaImagen);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
         usuarioRepository.deleteById(id);
         return true;
+    }
+
+    public List<Usuario> buscarPorNombre(String nombre) {
+        return usuarioRepository.findByNombreUsuarioContainingIgnoreCase(nombre).stream()
+                .map(u -> {
+                    if (u.getImagen() != null && !u.getImagen().isBlank()) {
+                        u.setImagen(baseUrl + "/api/usuarios/imagen/" + u.getImagen());
+                    }
+                    return u;
+                })
+                .toList();
     }
 }
