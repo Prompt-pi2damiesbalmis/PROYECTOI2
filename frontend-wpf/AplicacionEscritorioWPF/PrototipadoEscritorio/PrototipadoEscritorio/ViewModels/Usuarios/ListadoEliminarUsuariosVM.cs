@@ -10,7 +10,7 @@ using System.Windows;
 
 namespace PrototipadoEscritorio.ViewModels.Usuarios
 {
-    public partial class ListadoEliminarUsuariosVM : ObservableObject
+    public partial class ListadoEliminarUsuariosVM : ObservableObject, IRecipient<UsuarioAñadidoMessage>
     {
         [ObservableProperty]
         private string _textoBusqueda = string.Empty;
@@ -27,6 +27,8 @@ namespace PrototipadoEscritorio.ViewModels.Usuarios
 
         public ListadoEliminarUsuariosVM()
         {
+            WeakReferenceMessenger.Default.Register(this);
+
             WeakReferenceMessenger.Default.Register<EliminarUsuarioMessage>(this, (r, m) =>
             {
                 if (m.Value != null)
@@ -67,6 +69,11 @@ namespace PrototipadoEscritorio.ViewModels.Usuarios
             {
                 ListaUsuarios.Add(u);
             }
+        }
+
+        public void Receive(UsuarioAñadidoMessage message)
+        {
+            CargarUsuarios();
         }
 
         [RelayCommand]
