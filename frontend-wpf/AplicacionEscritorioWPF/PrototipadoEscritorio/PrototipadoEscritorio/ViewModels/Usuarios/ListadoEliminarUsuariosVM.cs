@@ -43,7 +43,7 @@ namespace PrototipadoEscritorio.ViewModels.Usuarios
 
         public void CargarUsuarios()
         {
-            var usuarios = ApiRestService.GetUsuarios();
+            var usuarios = ApiRestService.GetUsuariosTodos();
             _todosUsuarios = usuarios ?? new System.Collections.Generic.List<Usuario>();
             FiltrarUsuarios();
         }

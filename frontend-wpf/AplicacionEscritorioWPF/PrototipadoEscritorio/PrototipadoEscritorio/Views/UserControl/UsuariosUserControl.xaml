@@ -61,10 +61,18 @@
 
                 <Button
                     HorizontalAlignment="Center"
+                    Command="{Binding AbrirListadoBloqueadosCommand}"
+                    Style="{DynamicResource BotonesMenuHamburguesa}">
+                    Usuarios Bloqueados
+                </Button>
+
+                <Button
+                    HorizontalAlignment="Center"
                     Command="{Binding AbrirEliminarUsuarioCommand}"
                     Style="{DynamicResource BotonesMenuHamburguesa}">
                     Eliminar Usuario
                 </Button>
+
             </StackPanel>
         </DockPanel>
 

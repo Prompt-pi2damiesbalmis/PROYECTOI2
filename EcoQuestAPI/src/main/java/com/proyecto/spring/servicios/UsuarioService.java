@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,7 +29,7 @@ public class UsuarioService {
     private String baseUrl;
 
     public List<Usuario> obtenerTodos() {
-        return usuarioRepository.findAll().stream()
+        return usuarioRepository.findByBloqueadoFalse().stream()
                 .map(u -> {
                     if (u.getImagen() != null && !u.getImagen().isBlank()) {
                         u.setImagen(baseUrl + "/api/usuarios/imagen/" + u.getImagen());
@@ -85,7 +86,7 @@ public class UsuarioService {
     }
 
     public List<Usuario> buscarPorNombre(String nombre) {
-        return usuarioRepository.findByNombreUsuarioContainingIgnoreCase(nombre).stream()
+        return usuarioRepository.findByNombreUsuarioContainingIgnoreCaseAndBloqueadoFalse(nombre).stream()
                 .map(u -> {
                     if (u.getImagen() != null && !u.getImagen().isBlank()) {
                         u.setImagen(baseUrl + "/api/usuarios/imagen/" + u.getImagen());
@@ -93,5 +94,45 @@ public class UsuarioService {
                     return u;
                 })
                 .toList();
+    }
+
+    public List<Usuario> obtenerTodosSinFiltro() {
+        return usuarioRepository.findAll().stream()
+                .map(u -> {
+                    if (u.getImagen() != null && !u.getImagen().isBlank()) {
+                        u.setImagen(baseUrl + "/api/usuarios/imagen/" + u.getImagen());
+                    }
+                    return u;
+                })
+                .toList();
+    }
+
+    public List<Usuario> obtenerBloqueados() {
+        return usuarioRepository.findByBloqueadoTrue().stream()
+                .map(u -> {
+                    if (u.getImagen() != null && !u.getImagen().isBlank()) {
+                        u.setImagen(baseUrl + "/api/usuarios/imagen/" + u.getImagen());
+                    }
+                    return u;
+                })
+                .toList();
+    }
+
+    public Optional<Usuario> bloquear(Long id, String causa) {
+        return usuarioRepository.findById(id).map(usuario -> {
+            usuario.setBloqueado(true);
+            usuario.setCausaBloqueo(causa);
+            usuario.setFechaBloqueo(LocalDateTime.now());
+            return usuarioRepository.save(usuario);
+        });
+    }
+
+    public Optional<Usuario> desbloquear(Long id) {
+        return usuarioRepository.findById(id).map(usuario -> {
+            usuario.setBloqueado(false);
+            usuario.setCausaBloqueo(null);
+            usuario.setFechaBloqueo(null);
+            return usuarioRepository.save(usuario);
+        });
     }
 }

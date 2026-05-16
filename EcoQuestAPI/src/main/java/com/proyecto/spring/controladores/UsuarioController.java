@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -167,6 +168,36 @@ public class UsuarioController {
             e.printStackTrace();
             return ResponseEntity.internalServerError().build();
         }
+    }
+
+    @GetMapping("/todos")
+    public List<UsuarioDTO> obtenerTodosSinFiltro() {
+        return usuarioService.obtenerTodosSinFiltro().stream()
+                .map(UsuarioDTO::new)
+                .collect(Collectors.toList());
+    }
+
+    @GetMapping("/bloqueados")
+    public List<UsuarioDTO> obtenerBloqueados() {
+        return usuarioService.obtenerBloqueados().stream()
+                .map(UsuarioDTO::new)
+                .collect(Collectors.toList());
+    }
+
+    @PutMapping("/{id}/bloquear")
+    public ResponseEntity<UsuarioDTO> bloquear(@PathVariable Long id,
+            @RequestBody Map<String, String> body) {
+        String causa = body.getOrDefault("causa", "Sin especificar");
+        return usuarioService.bloquear(id, causa)
+                .map(u -> ResponseEntity.ok(new UsuarioDTO(u)))
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @PutMapping("/{id}/desbloquear")
+    public ResponseEntity<UsuarioDTO> desbloquear(@PathVariable Long id) {
+        return usuarioService.desbloquear(id)
+                .map(u -> ResponseEntity.ok(new UsuarioDTO(u)))
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{id}")

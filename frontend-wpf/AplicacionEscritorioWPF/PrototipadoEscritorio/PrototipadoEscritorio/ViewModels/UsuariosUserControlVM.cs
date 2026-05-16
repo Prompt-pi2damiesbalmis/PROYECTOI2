@@ -44,5 +44,11 @@ namespace PrototipadoEscritorio.ViewModels
         {
             ContenidoVentana = sn.ObtenerVentanaEliminarUsuarios();
         }
+
+        [RelayCommand]
+        private void AbrirListadoBloqueados()
+        {
+            ContenidoVentana = sn.ObtenerVentanaListadoBloqueados();
+        }
     }
 }

@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace PrototipadoEscritorio.ViewModels.Usuarios
 {
-    public partial class ListadoUsuariosVM : ObservableObject, IRecipient<UsuarioAñadidoMessage>
+    public partial class ListadoBloqueadosVM : ObservableObject, IRecipient<UsuarioAñadidoMessage>
     {
         [ObservableProperty]
         private string _textoBusqueda = string.Empty;
@@ -18,69 +18,68 @@ namespace PrototipadoEscritorio.ViewModels.Usuarios
         private bool _modalVisible = false;
 
         [ObservableProperty]
-        private BloquearUsuarioUserControlVM _bloquearUsuarioVM = new();
+        private DesbloquearUsuarioUserControlVM _desbloquearUsuarioVM = new();
 
-        public ObservableCollection<Usuario> ListaUsuarios { get; } = new();
+        public ObservableCollection<Usuario> ListaBloqueados { get; } = new();
 
-        private System.Collections.Generic.List<Usuario> _todosUsuarios = new();
+        private System.Collections.Generic.List<Usuario> _todosBloqueados = new();
 
-        public ListadoUsuariosVM()
+        public ListadoBloqueadosVM()
         {
-            WeakReferenceMessenger.Default.Register<BloquearUsuarioMessage>(this, async (r, m) =>
+            WeakReferenceMessenger.Default.Register<DesbloquearUsuarioMessage>(this, async (r, m) =>
             {
                 if (m.Value != null)
                 {
-                    await ApiRestService.BloquearUsuario(m.Value.Id, BloquearUsuarioVM.Causa);
+                    await ApiRestService.DesbloquearUsuario(m.Value.Id);
                     WeakReferenceMessenger.Default.Send(new UsuarioAñadidoMessage());
-                    CargarUsuarios();
+                    CargarBloqueados();
                 }
                 ModalVisible = false;
             });
 
             WeakReferenceMessenger.Default.Register(this);
-            CargarUsuarios();
+            CargarBloqueados();
         }
 
-        public void CargarUsuarios()
+        public void CargarBloqueados()
         {
-            var usuarios = ApiRestService.GetUsuarios();
-            _todosUsuarios = usuarios ?? new System.Collections.Generic.List<Usuario>();
-            FiltrarUsuarios();
+            var usuarios = ApiRestService.GetUsuariosBloqueados();
+            _todosBloqueados = usuarios ?? new System.Collections.Generic.List<Usuario>();
+            FiltrarBloqueados();
         }
 
         partial void OnTextoBusquedaChanged(string value)
         {
-            FiltrarUsuarios();
+            FiltrarBloqueados();
         }
 
-        private void FiltrarUsuarios()
+        private void FiltrarBloqueados()
         {
-            ListaUsuarios.Clear();
+            ListaBloqueados.Clear();
             var filtrados = string.IsNullOrWhiteSpace(TextoBusqueda)
-                ? _todosUsuarios
-                : _todosUsuarios.Where(u =>
+                ? _todosBloqueados
+                : _todosBloqueados.Where(u =>
                     u.NombreUsuario.Contains(TextoBusqueda) ||
                     u.Nombre.Contains(TextoBusqueda) ||
                     u.Apellido.Contains(TextoBusqueda) ||
-                    u.Email.Contains(TextoBusqueda)).ToList();
+                    u.CausaBloqueo.Contains(TextoBusqueda)).ToList();
 
             foreach (var u in filtrados)
             {
-                ListaUsuarios.Add(u);
+                ListaBloqueados.Add(u);
             }
         }
 
         public void Receive(UsuarioAñadidoMessage message)
         {
-            CargarUsuarios();
+            CargarBloqueados();
         }
 
         [RelayCommand]
-        private void BloquearUsuario(Usuario usuario)
+        private void DesbloquearUsuario(Usuario usuario)
         {
             if (usuario == null) return;
-            BloquearUsuarioVM.Usuario = usuario;
-            BloquearUsuarioVM.Causa = string.Empty;
+            DesbloquearUsuarioVM.Usuario = usuario;
             ModalVisible = true;
         }
 

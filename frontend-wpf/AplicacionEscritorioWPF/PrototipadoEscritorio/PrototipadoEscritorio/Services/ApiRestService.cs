@@ -100,6 +100,14 @@ namespace PrototipadoEscritorio.Services
             return JsonConvert.DeserializeObject<List<Usuario>>(response.Content);
         }
 
+        public static List<Usuario> GetUsuariosTodos()
+        {
+            RestClient client = new RestClient(Properties.Settings.Default.ApiRestEndPoint);
+            RestRequest request = new RestRequest("usuarios/todos", Method.Get);
+            RestResponse response = client.Execute(request);
+            return JsonConvert.DeserializeObject<List<Usuario>>(response.Content);
+        }
+
         public static List<Usuario> BuscarUsuariosPorNombre(string nombre)
         {
             RestClient client = new RestClient(Properties.Settings.Default.ApiRestEndPoint);
@@ -185,6 +193,50 @@ namespace PrototipadoEscritorio.Services
             catch
             {
                 return false;
+            }
+        }
+
+        public static List<Usuario> GetUsuariosBloqueados()
+        {
+            RestClient client = new RestClient(Properties.Settings.Default.ApiRestEndPoint);
+            RestRequest request = new RestRequest("usuarios/bloqueados", Method.Get);
+            RestResponse response = client.Execute(request);
+            return JsonConvert.DeserializeObject<List<Usuario>>(response.Content);
+        }
+
+        public static async Task<Usuario?> BloquearUsuario(int id, string causa)
+        {
+            try
+            {
+                RestClient client = new RestClient(Properties.Settings.Default.ApiRestEndPoint);
+                RestRequest request = new RestRequest($"usuarios/{id}/bloquear", Method.Put);
+                var body = JsonConvert.SerializeObject(new { causa });
+                request.AddParameter("application/json", body, ParameterType.RequestBody);
+                RestResponse response = await client.ExecuteAsync(request);
+                if (response.IsSuccessful)
+                    return JsonConvert.DeserializeObject<Usuario>(response.Content);
+                return null;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public static async Task<Usuario?> DesbloquearUsuario(int id)
+        {
+            try
+            {
+                RestClient client = new RestClient(Properties.Settings.Default.ApiRestEndPoint);
+                RestRequest request = new RestRequest($"usuarios/{id}/desbloquear", Method.Put);
+                RestResponse response = await client.ExecuteAsync(request);
+                if (response.IsSuccessful)
+                    return JsonConvert.DeserializeObject<Usuario>(response.Content);
+                return null;
+            }
+            catch
+            {
+                return null;
             }
         }
     }

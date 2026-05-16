@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using Newtonsoft.Json;
+using System;
 using System.Runtime.Serialization;
 
 namespace PrototipadoEscritorio.Models
@@ -47,11 +48,29 @@ namespace PrototipadoEscritorio.Models
         [DataMember]
         private string _imagen = string.Empty;
 
+        [ObservableProperty]
+        [JsonProperty("bloqueado")]
+        [DataMember]
+        private bool _bloqueado;
+
+        [ObservableProperty]
+        [JsonProperty("causaBloqueo")]
+        [DataMember]
+        private string _causaBloqueo = string.Empty;
+
+        [ObservableProperty]
+        [JsonProperty("fechaBloqueo")]
+        [DataMember]
+        private DateTime? _fechaBloqueo;
+
         public string NombreCompleto => string.IsNullOrEmpty(Apellido) ? Nombre : $"{Apellido}, {Nombre}";
 
         public string Avatar => Imagen;
 
         public string Comunidades => string.Empty;
+
+        public string FechaBloqueoFormateada =>
+            FechaBloqueo.HasValue ? FechaBloqueo.Value.ToString("dd/MM/yyyy HH:mm") : string.Empty;
 
         public Usuario() { }
     }

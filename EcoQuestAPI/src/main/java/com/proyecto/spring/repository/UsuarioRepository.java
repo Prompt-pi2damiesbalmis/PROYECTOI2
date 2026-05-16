@@ -10,4 +10,7 @@ import com.proyecto.spring.modelos.Usuario;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     List<Usuario> findByNombreUsuarioContainingIgnoreCase(String nombreUsuario);
+    List<Usuario> findByBloqueadoTrue();
+    List<Usuario> findByBloqueadoFalse();
+    List<Usuario> findByNombreUsuarioContainingIgnoreCaseAndBloqueadoFalse(String nombreUsuario);
 }

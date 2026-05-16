@@ -14,7 +14,7 @@ namespace PrototipadoEscritorio.Services
         private static UserControl listadoAccesorios, añadirAccesorio, eliminarAccesorios;
         private static UserControl listadoEventos, añadirEvento, revisarEventos, eliminarEventos;
         private static UserControl listadoComunidades, añadirComunidad, revisarComunidades, eliminarComunidades;
-        private static UserControl listadoUsuarios, añadirUsuario, eliminarUsuarios;
+        private static UserControl listadoUsuarios, añadirUsuario, eliminarUsuarios, listadoBloqueados;
 
         public UserControl ObtenerVentanaUsuarios()
         {
@@ -176,6 +176,15 @@ namespace PrototipadoEscritorio.Services
                 eliminarUsuarios = new ListadoEliminarUsuariosUserControl();
             }
             return eliminarUsuarios;
+        }
+
+        public UserControl ObtenerVentanaListadoBloqueados()
+        {
+            if (listadoBloqueados is null)
+            {
+                listadoBloqueados = new ListadoBloqueadosUserControl();
+            }
+            return listadoBloqueados;
         }
     }
 }
