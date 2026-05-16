@@ -13,6 +13,16 @@ namespace PrototipadoEscritorio.ViewModels.Eventos
 
         public string FechaFormateada => Evento.Fecha.ToString("dd/MM/yyyy");
 
+        public string NombreComunidadMostrar => string.IsNullOrEmpty(Evento.NombreComunidad)
+            ? "Administración EcoQuest"
+            : Evento.NombreComunidad;
+
+        partial void OnEventoChanged(Evento value)
+        {
+            OnPropertyChanged(nameof(FechaFormateada));
+            OnPropertyChanged(nameof(NombreComunidadMostrar));
+        }
+
         [RelayCommand]
         private void Cerrar()
         {

@@ -21,159 +21,173 @@
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-        <Label
-            Grid.Row="0"
-            Margin="0,0,0,20"
-            HorizontalAlignment="Center"
-            Content="Eventos"
-            FontSize="52" />
+            <Label
+                Grid.Row="0"
+                Margin="0,0,0,20"
+                HorizontalAlignment="Center"
+                Content="Eventos"
+                FontSize="52" />
 
-        <Grid
-            Grid.Row="1"
-            Width="600"
-            Height="40"
-            Margin="0,0,0,40">
-            <Border
-                Padding="12,0"
-                Background="White"
-                BorderBrush="#E0E0E0"
-                BorderThickness="1"
-                CornerRadius="20">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <TextBlock
-                        VerticalAlignment="Center"
-                        FontSize="16"
-                        Foreground="#888"
-                        Text="🔍" />
-                    <TextBox
-                        x:Name="SearchBox"
-                        Grid.Column="1"
-                        Margin="8,0,0,0"
-                        VerticalAlignment="Center"
-                        Background="Transparent"
-                        BorderThickness="0"
-                        FontSize="14"
-                        Text="{Binding TextoBusqueda, UpdateSourceTrigger=PropertyChanged}" />
-                </Grid>
-            </Border>
-            <TextBlock
-                Margin="48,0,0,0"
-                VerticalAlignment="Center"
-                Foreground="#999"
-                IsHitTestVisible="False"
-                Text="Buscar evento"
-                Visibility="{Binding Text.IsEmpty, ElementName=SearchBox, Converter={StaticResource BooleanToVisibilityConverter}}" />
-        </Grid>
+            <Grid
+                Grid.Row="1"
+                Width="600"
+                Height="40"
+                Margin="0,0,0,40">
+                <Border
+                    Padding="12,0"
+                    Background="White"
+                    BorderBrush="#E0E0E0"
+                    BorderThickness="1"
+                    CornerRadius="20">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            FontSize="16"
+                            Foreground="#888"
+                            Text="🔍" />
+                        <TextBox
+                            x:Name="SearchBox"
+                            Grid.Column="1"
+                            Margin="8,0,0,0"
+                            VerticalAlignment="Center"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            FontSize="14"
+                            Text="{Binding TextoBusqueda, UpdateSourceTrigger=PropertyChanged}" />
+                    </Grid>
+                </Border>
+                <TextBlock
+                    Margin="48,0,0,0"
+                    VerticalAlignment="Center"
+                    Foreground="#999"
+                    IsHitTestVisible="False"
+                    Text="Buscar evento"
+                    Visibility="{Binding Text.IsEmpty, ElementName=SearchBox, Converter={StaticResource BooleanToVisibilityConverter}}" />
+            </Grid>
 
-        <ScrollViewer
-            Grid.Row="2"
-            HorizontalScrollBarVisibility="Disabled"
-            VerticalScrollBarVisibility="Auto">
+            <ScrollViewer
+                Grid.Row="2"
+                HorizontalScrollBarVisibility="Disabled"
+                VerticalScrollBarVisibility="Auto">
 
-            <ItemsControl HorizontalAlignment="Center" ItemsSource="{Binding ListaEventos}">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel HorizontalAlignment="Center" />
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
+                <ItemsControl HorizontalAlignment="Center" ItemsSource="{Binding ListaEventos}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel HorizontalAlignment="Center" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
 
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Border
-                            Width="520"
-                            MinHeight="90"
-                            Margin="10"
-                            Padding="0"
-                            Background="White"
-                            BorderBrush="#E0E0E0"
-                            BorderThickness="1"
-                            CornerRadius="12"
-                            Cursor="Hand">
-                            <Border.InputBindings>
-                                <MouseBinding
-                                    Command="{Binding DataContext.VerDetalleEventoCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                                    CommandParameter="{Binding}"
-                                    Gesture="LeftClick" />
-                            </Border.InputBindings>
-                            <Border.Effect>
-                                <DropShadowEffect
-                                    BlurRadius="8"
-                                    Opacity="0.1"
-                                    ShadowDepth="2" />
-                            </Border.Effect>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border
+                                Width="520"
+                                Height="100"
+                                Margin="10"
+                                Padding="0"
+                                Background="White"
+                                BorderBrush="#E0E0E0"
+                                BorderThickness="1"
+                                CornerRadius="12"
+                                Cursor="Hand">
+                                <Border.InputBindings>
+                                    <MouseBinding
+                                        Command="{Binding DataContext.VerDetalleEventoCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                        CommandParameter="{Binding}"
+                                        Gesture="LeftClick" />
+                                </Border.InputBindings>
+                                <Border.Effect>
+                                    <DropShadowEffect
+                                        BlurRadius="8"
+                                        Opacity="0.1"
+                                        ShadowDepth="2" />
+                                </Border.Effect>
 
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
-
-                                <Border
-                                    Grid.Column="0"
-                                    Width="16"
-                                    Background="{Binding ColorBorde}"
-                                    CornerRadius="12,0,0,12" />
-
-                                <Grid Grid.Column="1" Margin="14,12">
+                                <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
 
                                     <Border
-                                        Width="66"
-                                        Height="66"
-                                        Background="#F0F0F0"
-                                        BorderBrush="#E0E0E0"
-                                        BorderThickness="1"
-                                        CornerRadius="33">
-                                        <Image
-                                            Width="56"
-                                            Height="56"
-                                            Source="{Binding Imagen}"
-                                            Stretch="Uniform" />
+                                        Grid.Column="0"
+                                        Width="16"
+                                        Background="{Binding ColorBorde}"
+                                        CornerRadius="12,0,0,12" />
+
+                                    <Grid Grid.Column="1" Margin="14,12">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Border
+                                            Width="66"
+                                            Height="66"
+                                            Background="#F0F0F0"
+                                            BorderBrush="#E0E0E0"
+                                            BorderThickness="1"
+                                            CornerRadius="33">
+                                            <Border.Clip>
+                                                <EllipseGeometry Center="33,33" RadiusX="33" RadiusY="33" />
+                                            </Border.Clip>
+                                            <Image
+                                                Source="{Binding UrlImagenComunidad}"
+                                                Stretch="UniformToFill" />
+                                        </Border>
+
+                                            <StackPanel
+                                                Grid.Column="1"
+                                                Margin="14,0,0,0"
+                                                VerticalAlignment="Center">
+                                                <TextBlock
+                                                    FontSize="13"
+                                                    FontWeight="SemiBold"
+                                                    Foreground="#888"
+                                                    Text="{Binding NombreComunidadMostrar}" />
+                                                <TextBlock
+                                                    FontSize="17"
+                                                    FontWeight="SemiBold"
+                                                    Foreground="#333"
+                                                    Text="{Binding Nombre}"
+                                                    TextDecorations="Underline" />
+                                            <TextBlock
+                                                Margin="0,4,0,0"
+                                                FontSize="14"
+                                                Foreground="#888"
+                                                Text="{Binding Ubicacion}" />
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <Border
+                                        Grid.Column="2"
+                                        Width="130"
+                                        Height="100"
+                                        Background="#EFEAF4"
+                                        ClipToBounds="True"
+                                        CornerRadius="0,12,12,0">
+                                        <Border.Clip>
+                                            <RectangleGeometry
+                                                RadiusX="12"
+                                                RadiusY="12"
+                                                Rect="0,0,130,100" />
+                                        </Border.Clip>
+                                        <Image Source="{Binding UrlImagen}" Stretch="UniformToFill" />
                                     </Border>
-
-                                    <StackPanel
-                                        Grid.Column="1"
-                                        Margin="14,0,0,0"
-                                        VerticalAlignment="Center">
-                                        <TextBlock
-                                            FontSize="17"
-                                            FontWeight="SemiBold"
-                                            Foreground="#333"
-                                            Text="{Binding Nombre}"
-                                            TextDecorations="Underline" />
-                                        <TextBlock
-                                            Margin="0,4,0,0"
-                                            FontSize="14"
-                                            Foreground="#888"
-                                            Text="{Binding Ubicacion}" />
-                                    </StackPanel>
                                 </Grid>
-
-                                <Border
-                                    Grid.Column="2"
-                                    Width="130"
-                                    Background="#EFEAF4"
-                                    CornerRadius="0,12,12,0">
-                                    <Image Source="{Binding Imagen}" Stretch="UniformToFill" />
-                                </Border>
-                            </Grid>
-                        </Border>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
             </ScrollViewer>
         </Grid>
 

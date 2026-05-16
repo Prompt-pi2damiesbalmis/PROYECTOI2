@@ -239,5 +239,140 @@ namespace PrototipadoEscritorio.Services
                 return null;
             }
         }
+
+        // ==================== EVENTOS ====================
+
+        public static List<Evento> GetEventos()
+        {
+            RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
+            RestRequest request = new("eventos", Method.Get);
+            RestResponse response = client.Execute(request);
+            return JsonConvert.DeserializeObject<List<Evento>>(response.Content);
+        }
+
+        public static List<Evento> BuscarEventosPorNombre(string nombre)
+        {
+            RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
+            RestRequest request = new("eventos/buscar", Method.Get);
+            request.AddQueryParameter("nombre", nombre);
+            RestResponse response = client.Execute(request);
+            return JsonConvert.DeserializeObject<List<Evento>>(response.Content);
+        }
+
+        public static List<Evento> BuscarEventosPorEstado(string estado)
+        {
+            RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
+            RestRequest request = new("eventos/estado", Method.Get);
+            request.AddQueryParameter("estado", estado);
+            RestResponse response = client.Execute(request);
+            return JsonConvert.DeserializeObject<List<Evento>>(response.Content);
+        }
+
+        public static async Task<Evento?> CrearEvento(string nombre, string descripcion, string ubicacion, string fechaHora, string? rutaImagen)
+        {
+            RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
+            RestRequest request = new("eventos/con-imagen", Method.Post);
+
+            var eventoJson = JsonConvert.SerializeObject(new
+            {
+                nombre,
+                descripcion,
+                ubicacion,
+                fechaHora,
+                estado = "ACTIVO"
+            });
+            request.AddParameter("evento", eventoJson, ParameterType.GetOrPost);
+
+            if (!string.IsNullOrEmpty(rutaImagen) && File.Exists(rutaImagen))
+            {
+                request.AddFile("imagen", rutaImagen);
+            }
+
+            request.AlwaysMultipartFormData = true;
+
+            RestResponse response = await client.ExecuteAsync(request);
+
+            if (response.IsSuccessful)
+                return JsonConvert.DeserializeObject<Evento>(response.Content);
+
+            return null;
+        }
+
+        public static bool EliminarEvento(int id)
+        {
+            try
+            {
+                RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
+                RestRequest request = new($"eventos/{id}", Method.Delete);
+                RestResponse response = client.Execute(request);
+                return response.IsSuccessful;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public static async Task<bool> CancelarEvento(int id)
+        {
+            try
+            {
+                RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
+                RestRequest request = new($"eventos/{id}/cancelar", Method.Patch);
+                RestResponse response = await client.ExecuteAsync(request);
+                return response.IsSuccessful;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public static async Task<bool> CancelarEventoConMotivo(int id, string motivo)
+        {
+            try
+            {
+                RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
+                RestRequest request = new($"eventos/{id}/cancelar-con-motivo", Method.Patch);
+                var body = JsonConvert.SerializeObject(new { motivo });
+                request.AddParameter("application/json", body, ParameterType.RequestBody);
+                RestResponse response = await client.ExecuteAsync(request);
+                return response.IsSuccessful;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public static async Task<bool> AceptarEvento(int id)
+        {
+            try
+            {
+                RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
+                RestRequest request = new($"eventos/{id}/aprobar", Method.Patch);
+                RestResponse response = await client.ExecuteAsync(request);
+                return response.IsSuccessful;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public static async Task<bool> FinalizarEvento(int id)
+        {
+            try
+            {
+                RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
+                RestRequest request = new($"eventos/{id}/finalizar", Method.Patch);
+                RestResponse response = await client.ExecuteAsync(request);
+                return response.IsSuccessful;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

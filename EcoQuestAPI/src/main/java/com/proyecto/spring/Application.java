@@ -71,23 +71,29 @@ public class Application {
 
 				// Eventos
 				Evento e1 = new Evento("Carrera de Montaña", "Ruta de 20km por la sierra",
-						LocalDateTime.of(2026, 5, 10, 9, 0), "Sierra Norte", "carrera.jpg", "Activo");
+						LocalDateTime.of(2026, 5, 10, 9, 0), "Sierra Norte", "carrera.jpg", "ACTIVO");
 				Evento e2 = new Evento("Taller de Fotografía", "Aprende técnicas de fotografía nocturna",
-						LocalDateTime.of(2026, 6, 15, 20, 0), "Centro Cultural", "taller.jpg", "Activo");
+						LocalDateTime.of(2026, 6, 15, 20, 0), "Centro Cultural", "taller.jpg", "ACTIVO");
 				Evento e3 = new Evento("Escalada en Roca", "Sesión de escalada para todos los niveles",
-						LocalDateTime.of(2026, 7, 20, 10, 0), "Pedriza", "escalada.jpg", "Activo");
+						LocalDateTime.of(2026, 7, 20, 10, 0), "Pedriza", "escalada.jpg", "ACTIVO");
+				Evento e4 = new Evento("Ruta en Kayak", "Excursión guiada en kayak por la costa con parada para snorkel",
+    					LocalDateTime.of(2026, 8, 5, 9, 30), "Cabo de Gata","kayak.jpg","PENDIENTE");
 				e1.setComunidad(c1);
 				e2.setComunidad(c2);
 				e3.setComunidad(c1);
+				e4.setComunidad(c2);
 				eventoRepository.save(e1);
 				eventoRepository.save(e2);
 				eventoRepository.save(e3);
+				eventoRepository.save(e4);
 				e1.setComunidad(c1);
 				e2.setComunidad(c2);
 				e3.setComunidad(c1);
+				e4.setComunidad(c2);
 				eventoRepository.save(e1);
 				eventoRepository.save(e2);
 				eventoRepository.save(e3);
+				eventoRepository.save(e4);
 
 				// Usuarios en eventos
 				u1.setEventos(new ArrayList<>(List.of(e1, e3)));

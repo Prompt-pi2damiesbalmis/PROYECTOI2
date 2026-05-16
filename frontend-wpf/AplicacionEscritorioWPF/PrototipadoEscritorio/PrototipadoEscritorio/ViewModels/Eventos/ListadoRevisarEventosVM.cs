@@ -3,7 +3,10 @@ using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using PrototipadoEscritorio.Messages;
 using PrototipadoEscritorio.Models;
+using PrototipadoEscritorio.Services;
+using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace PrototipadoEscritorio.ViewModels.Eventos
 {
@@ -19,22 +22,35 @@ namespace PrototipadoEscritorio.ViewModels.Eventos
         private bool _detalleModalVisible = false;
 
         [ObservableProperty]
+        private bool _modalAceptarVisible = false;
+
+        [ObservableProperty]
         private RevisarEventoUserControlVM _revisarEventoVM = new();
 
         [ObservableProperty]
         private DetalleEventoUserControlVM _detalleEventoVM = new();
 
-        public ObservableCollection<Evento> ListaEventos { get; } = new()
-        {
-            new Evento(1, "Nuevos fondos ODS", "Madrid", "Mayor remuneración para proyectos sostenibles", "/Assets/mundo.png", new DateTime(2026, 6, 15), "EcoComunidad", "/Assets/mundo.png"),
-            new Evento(2, "Cumbre del Clima", "Barcelona", "Conferencia internacional sobre cambio climático", "/Assets/mundo.png", new DateTime(2026, 7, 20), "GreenSostenibilidad", "/Assets/mundo.png"),
-            new Evento(3, "Reciclaje Tech", "Valencia", "Taller de reciclaje de dispositivos electrónicos", "/Assets/mundo.png", new DateTime(2026, 8, 10), "TecnoRecicla", "/Assets/mundo.png"),
-        };
+        [ObservableProperty]
+        private ConfirmacionEliminacionModalVM _confirmacionAceptarVM = new();
+
+        public ObservableCollection<Evento> ListaEventos { get; } = new();
 
         public ListadoRevisarEventosVM()
         {
-            WeakReferenceMessenger.Default.Register<RevisarEventoMessage>(this, (r, m) =>
+            CargarEventos();
+
+            WeakReferenceMessenger.Default.Register<EventoAñadidoMessage>(this, (r, m) =>
             {
+                CargarEventos();
+            });
+
+            WeakReferenceMessenger.Default.Register<RevisarEventoMessage>(this, async (r, m) =>
+            {
+                if (m.Value != null)
+                {
+                    await ApiRestService.CancelarEvento(m.Value.EventoId);
+                    WeakReferenceMessenger.Default.Send(new EventoAñadidoMessage());
+                }
                 ModalVisible = false;
             });
 
@@ -43,6 +59,45 @@ namespace PrototipadoEscritorio.ViewModels.Eventos
                 DetalleEventoVM.Evento = new();
                 DetalleModalVisible = false;
             });
+
+            ConfirmacionAceptarVM.OnConfirmar += (item) =>
+            {
+                var evento = item as Evento;
+                if (evento != null)
+                {
+                    _ = ApiRestService.AceptarEvento(evento.EventoId);
+                    CargarEventos();
+                    WeakReferenceMessenger.Default.Send(new EventoAñadidoMessage());
+                }
+                ModalAceptarVisible = false;
+            };
+
+            ConfirmacionAceptarVM.OnCancelar += () =>
+            {
+                ModalAceptarVisible = false;
+            };
+        }
+
+        public void CargarEventos()
+        {
+            var eventos = ApiRestService.BuscarEventosPorEstado("PENDIENTE");
+            ListaEventos.Clear();
+            foreach (var e in eventos)
+                ListaEventos.Add(e);
+        }
+
+        [RelayCommand]
+        private void Buscar()
+        {
+            if (string.IsNullOrWhiteSpace(TextoBusqueda))
+            {
+                CargarEventos();
+                return;
+            }
+            var resultados = ApiRestService.BuscarEventosPorNombre(TextoBusqueda);
+            ListaEventos.Clear();
+            foreach (var e in resultados.Where(e => e.Estado == "PENDIENTE"))
+                ListaEventos.Add(e);
         }
 
         [RelayCommand]
@@ -56,6 +111,20 @@ namespace PrototipadoEscritorio.ViewModels.Eventos
 
         [RelayCommand]
         private void CerrarModal() => ModalVisible = false;
+
+        [RelayCommand]
+        private void AceptarEvento(Evento evento)
+        {
+            if (evento == null) return;
+            string titulo = $"Aceptar: {evento.Nombre}";
+            string mensaje = $"¿Estás seguro de que quieres aceptar \"{evento.Nombre}\"?";
+            ConfirmacionAceptarVM.CargarConfirmacion(titulo, mensaje, evento,
+                "#27AE60", "#27AE60", "#1E8449", "#145A32", "Aceptar");
+            ModalAceptarVisible = true;
+        }
+
+        [RelayCommand]
+        private void CerrarModalAceptar() => ModalAceptarVisible = false;
 
         [RelayCommand]
         private void VerDetalleEvento(Evento evento)

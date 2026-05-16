@@ -52,11 +52,12 @@
                             Height="36"
                             Background="#FFFFFF"
                             CornerRadius="18">
+                            <Border.Clip>
+                                <EllipseGeometry Center="18,18" RadiusX="18" RadiusY="18" />
+                            </Border.Clip>
                             <Image
-                                Width="30"
-                                Height="30"
-                                Source="{Binding Evento.ImagenComunidad}"
-                                Stretch="Uniform" />
+                                Source="{Binding Evento.UrlImagenComunidad}"
+                                Stretch="UniformToFill" />
                         </Border>
                         <TextBlock
                             Margin="10,0,0,0"
@@ -64,7 +65,7 @@
                             FontSize="15"
                             FontWeight="SemiBold"
                             Foreground="White"
-                            Text="{Binding Evento.NombreComunidad}" />
+                            Text="{Binding NombreComunidadMostrar}" />
                     </StackPanel>
                 </Border>
 
@@ -75,7 +76,7 @@
                             Background="#EFEAF4"
                             CornerRadius="12">
                             <Image
-                                Source="{Binding Evento.Imagen}"
+                                Source="{Binding Evento.UrlImagen}"
                                 Stretch="Uniform" />
                         </Border>
 
