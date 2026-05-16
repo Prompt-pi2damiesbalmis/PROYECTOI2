@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using PrototipadoEscritorio.Messages;
 using PrototipadoEscritorio.Models;
+using PrototipadoEscritorio.Services;
 using System.Collections.ObjectModel;
 
 namespace PrototipadoEscritorio.ViewModels.Eventos
@@ -16,21 +17,62 @@ namespace PrototipadoEscritorio.ViewModels.Eventos
         private bool _modalVisible = false;
 
         [ObservableProperty]
+        private bool _detalleModalVisible = false;
+
+        [ObservableProperty]
         private EliminarEventoUserControlVM _eliminarEventoVM = new();
 
-        public ObservableCollection<Evento> ListaEventos { get; } = new()
-        {
-            new Evento(1, "Nuevos fondos ODS", "Madrid", "Mayor remuneración para proyectos sostenibles", "/Assets/mundo.png", new DateTime(2026, 6, 15)),
-            new Evento(2, "Cumbre del Clima", "Barcelona", "Conferencia internacional sobre cambio climático", "/Assets/mundo.png", new DateTime(2026, 7, 20)),
-            new Evento(3, "Reciclaje Tech", "Valencia", "Taller de reciclaje de dispositivos electrónicos", "/Assets/mundo.png", new DateTime(2026, 8, 10)),
-        };
+        [ObservableProperty]
+        private DetalleEventoUserControlVM _detalleEventoVM = new();
+
+        public ObservableCollection<Evento> ListaEventos { get; } = new();
 
         public ListadoEliminarEventosVM()
         {
+            CargarEventos();
+
+            WeakReferenceMessenger.Default.Register<EventoAñadidoMessage>(this, (r, m) =>
+            {
+                CargarEventos();
+            });
+
             WeakReferenceMessenger.Default.Register<EliminarEventoMessage>(this, (r, m) =>
             {
+                if (m.Value != null)
+                {
+                    ApiRestService.EliminarEvento(m.Value.EventoId);
+                    WeakReferenceMessenger.Default.Send(new EventoAñadidoMessage());
+                }
                 ModalVisible = false;
             });
+
+            WeakReferenceMessenger.Default.Register<CerrarDetalleEventoMessage>(this, (r, m) =>
+            {
+                DetalleEventoVM.Evento = new();
+                DetalleModalVisible = false;
+            });
+        }
+
+        public void CargarEventos()
+        {
+            var eventos = ApiRestService.GetEventos();
+            ListaEventos.Clear();
+            foreach (var e in eventos)
+                ListaEventos.Add(e);
+        }
+
+        [RelayCommand]
+        private void Buscar()
+        {
+            if (string.IsNullOrWhiteSpace(TextoBusqueda))
+            {
+                CargarEventos();
+                return;
+            }
+            var resultados = ApiRestService.BuscarEventosPorNombre(TextoBusqueda);
+            ListaEventos.Clear();
+            foreach (var e in resultados)
+                ListaEventos.Add(e);
         }
 
         [RelayCommand]
@@ -44,5 +86,20 @@ namespace PrototipadoEscritorio.ViewModels.Eventos
 
         [RelayCommand]
         private void CerrarModal() => ModalVisible = false;
+
+        [RelayCommand]
+        private void VerDetalleEvento(Evento evento)
+        {
+            if (evento == null) return;
+            DetalleEventoVM.Evento = evento;
+            DetalleModalVisible = true;
+        }
+
+        [RelayCommand]
+        private void CerrarDetalleModal()
+        {
+            DetalleEventoVM.Evento = new();
+            DetalleModalVisible = false;
+        }
     }
 }

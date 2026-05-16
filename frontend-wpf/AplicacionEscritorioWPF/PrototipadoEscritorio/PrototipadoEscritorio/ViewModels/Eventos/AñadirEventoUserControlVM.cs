@@ -1,11 +1,12 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.Win32;
+using PrototipadoEscritorio.Messages;
+using PrototipadoEscritorio.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media.Imaging;
 
 namespace PrototipadoEscritorio.ViewModels.Eventos
@@ -55,7 +56,53 @@ namespace PrototipadoEscritorio.ViewModels.Eventos
         [RelayCommand]
         private async Task Guardar()
         {
-            // Implementar lógica de guardado
+            try
+            {
+                if (string.IsNullOrWhiteSpace(Nombre) || string.IsNullOrWhiteSpace(Ubicacion))
+                {
+                    MessageBox.Show("Rellena los campos obligatorios", "Aviso",
+                        MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                var fechaHora = Fecha?.ToString("o") ?? DateTime.Now.ToString("o");
+
+                var creado = await ApiRestService.CrearEvento(
+                    Nombre,
+                    Descripcion,
+                    Ubicacion,
+                    fechaHora,
+                    RutaImagenLocal
+                );
+
+                if (creado != null)
+                {
+                    WeakReferenceMessenger.Default.Send(new EventoAñadidoMessage());
+                    MessageBox.Show("Evento añadido correctamente", "Éxito",
+                        MessageBoxButton.OK, MessageBoxImage.Information);
+                    LimpiarFormulario();
+                }
+                else
+                {
+                    MessageBox.Show("Error al guardar el evento", "Error",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Excepción: {ex.Message}", "Error",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void LimpiarFormulario()
+        {
+            Nombre = string.Empty;
+            Ubicacion = string.Empty;
+            Descripcion = string.Empty;
+            Fecha = null;
+            RutaImagenLocal = null;
+            Previsualizacion = null;
         }
     }
 }

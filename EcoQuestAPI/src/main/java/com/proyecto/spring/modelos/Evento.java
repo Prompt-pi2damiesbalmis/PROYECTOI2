@@ -27,6 +27,7 @@ public class Evento {
     private String ubicacion;
     private String imagen;
     private String estado;
+    private String motivoCancelacion;
 
     @JsonIgnore
     @ManyToMany(mappedBy = "eventos")
@@ -122,6 +123,14 @@ public class Evento {
         this.estado = estado;
     }
 
+    public String getMotivoCancelacion() {
+        return motivoCancelacion;
+    }
+
+    public void setMotivoCancelacion(String motivoCancelacion) {
+        this.motivoCancelacion = motivoCancelacion;
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -135,6 +144,7 @@ public class Evento {
         result = prime * result + ((usuarios == null) ? 0 : usuarios.hashCode());
         result = prime * result + ((comunidad == null) ? 0 : comunidad.hashCode());
         result = prime * result + ((estado == null) ? 0 : estado.hashCode());
+        result = prime * result + ((motivoCancelacion == null) ? 0 : motivoCancelacion.hashCode());
         return result;
     }
 
@@ -192,6 +202,11 @@ public class Evento {
                 return false;
         } else if (!estado.equals(other.estado))
             return false;
+        if (motivoCancelacion == null) {
+            if (other.motivoCancelacion != null)
+                return false;
+        } else if (!motivoCancelacion.equals(other.motivoCancelacion))
+            return false;
         return true;
     }
 
@@ -199,7 +214,7 @@ public class Evento {
     public String toString() {
         return "Evento [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", fechaHora=" + fechaHora
                 + ", ubicacion=" + ubicacion + ", imagen=" + imagen + ", usuarios=" + usuarios + ", comunidad="
-                + comunidad + ", estado=" + estado + "]";
+                + comunidad + ", estado=" + estado + ", motivoCancelacion=" + motivoCancelacion + "]";
     }
 
 }

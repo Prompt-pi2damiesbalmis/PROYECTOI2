@@ -1,9 +1,14 @@
 package com.proyecto.spring.controladores;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,6 +42,40 @@ public class ComunidadController {
         return comunidadService.obtenerPorId(id)
                 .map(c -> ResponseEntity.ok(new ComunidadDTO(c)))
                 .orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/imagen/{nombreImagen}")
+    public ResponseEntity<byte[]> getImage(@PathVariable String nombreImagen) {
+        try {
+            Path imagePath = Paths.get("src/main/resources/static/imagenes/comunidades", nombreImagen);
+
+            if (!Files.exists(imagePath)) {
+                return ResponseEntity.notFound().build();
+            }
+
+            byte[] imageBytes = Files.readAllBytes(imagePath);
+            String nombre = nombreImagen.toLowerCase();
+            String contentType;
+            if (nombre.endsWith(".jpg") || nombre.endsWith(".jpeg"))
+                contentType = "image/jpeg";
+            else if (nombre.endsWith(".png"))
+                contentType = "image/png";
+            else if (nombre.endsWith(".gif"))
+                contentType = "image/gif";
+            else if (nombre.endsWith(".webp"))
+                contentType = "image/webp";
+            else if (nombre.endsWith(".bmp"))
+                contentType = "image/bmp";
+            else
+                contentType = "application/octet-stream";
+
+            return ResponseEntity.ok()
+                    .header(HttpHeaders.CONTENT_TYPE, contentType)
+                    .body(imageBytes);
+
+        } catch (IOException e) {
+            return ResponseEntity.internalServerError().build();
+        }
     }
 
     @PostMapping
