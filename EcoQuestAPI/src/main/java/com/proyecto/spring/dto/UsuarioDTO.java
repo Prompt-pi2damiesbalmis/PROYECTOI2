@@ -6,7 +6,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 import com.proyecto.spring.modelos.Usuario;
 
-@JsonPropertyOrder({"id", "nombreUsuario", "nombre", "apellido", "descripcion", "edad", "email", "imagen", "comunidades", "eventos"})
+import java.time.LocalDateTime;
+
+@JsonPropertyOrder({"id", "nombreUsuario", "nombre", "apellido", "descripcion", "edad", "email", "imagen",
+    "bloqueado", "causaBloqueo", "fechaBloqueo", "comunidades", "eventos"})
 public class UsuarioDTO {
     public Long id;
     public String nombreUsuario;
@@ -16,6 +19,9 @@ public class UsuarioDTO {
     public int edad;
     public String email;
     public String imagen;
+    public boolean bloqueado;
+    public String causaBloqueo;
+    public LocalDateTime fechaBloqueo;
     public List<ComunidadResumenDTO> comunidades;
     public List<Evento> eventos;
 
@@ -28,6 +34,9 @@ public class UsuarioDTO {
         this.edad = u.getEdad();
         this.email = u.getEmail();
         this.imagen = u.getImagen();
+        this.bloqueado = u.isBloqueado();
+        this.causaBloqueo = u.getCausaBloqueo();
+        this.fechaBloqueo = u.getFechaBloqueo();
         this.eventos = u.getEventos();
         this.comunidades = u.getComunidades() == null ? List.of() :
             u.getComunidades().stream()

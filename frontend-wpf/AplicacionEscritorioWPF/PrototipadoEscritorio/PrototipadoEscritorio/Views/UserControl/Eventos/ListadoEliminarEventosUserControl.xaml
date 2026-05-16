@@ -122,6 +122,7 @@
                                             Grid.Row="3"
                                             Background="IndianRed"
                                             Command="{Binding DataContext.EliminarEventoCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                            CommandParameter="{Binding}"
                                             Content="Eliminar"
                                             Style="{StaticResource CardButtonStyle}" />
                                     </Grid>

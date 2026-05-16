@@ -1,5 +1,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
+using PrototipadoEscritorio.Messages;
 using PrototipadoEscritorio.Models;
 using System.Collections.ObjectModel;
 
@@ -23,9 +25,19 @@ namespace PrototipadoEscritorio.ViewModels.Comunidades
             new Comunidad(3, "Playas Limpias", "/Assets/comunidad6.jpg"),
         };
 
-        [RelayCommand]
-        private void RevisarComunidad()
+        public ListadoRevisarComunidadesVM()
         {
+            WeakReferenceMessenger.Default.Register<RevisarComunidadMessage>(this, (r, m) =>
+            {
+                ModalVisible = false;
+            });
+        }
+
+        [RelayCommand]
+        private void RevisarComunidad(Comunidad comunidad)
+        {
+            if (comunidad == null) return;
+            RevisarComunidadVM.Comunidad = comunidad;
             RevisarComunidadVM.Razon = string.Empty;
             ModalVisible = true;
         }

@@ -117,6 +117,7 @@
                                             Grid.Row="2"
                                             Background="Orange"
                                             Command="{Binding DataContext.RevisarComunidadCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                            CommandParameter="{Binding}"
                                             Content="Revisar"
                                             Style="{StaticResource CardButtonStyle}" />
                                     </Grid>

@@ -117,6 +117,7 @@
                                             Grid.Row="2"
                                             Background="IndianRed"
                                             Command="{Binding DataContext.EliminarComunidadCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                            CommandParameter="{Binding}"
                                             Content="Eliminar"
                                             Style="{StaticResource CardButtonStyle}" />
                                     </Grid>

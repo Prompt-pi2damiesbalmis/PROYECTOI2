@@ -4,16 +4,14 @@ using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 
 namespace PrototipadoEscritorio.Services
 {
     public class ApiRestService
     {
+        // ==================== PRODUCTOS ====================
+
         public static List<Producto> GetProductos()
         {
             RestClient client = new RestClient(Properties.Settings.Default.ApiRestEndPoint);
@@ -39,7 +37,6 @@ namespace PrototipadoEscritorio.Services
             var productoJson = JsonConvert.SerializeObject(new { nombre, precio });
             request.AddParameter("producto", productoJson, ParameterType.GetOrPost);
 
-            // Imagen
             if (!string.IsNullOrEmpty(rutaImagen) && File.Exists(rutaImagen))
             {
                 request.AddFile("imagen", rutaImagen);
@@ -90,6 +87,156 @@ namespace PrototipadoEscritorio.Services
             catch
             {
                 return false;
+            }
+        }
+
+        // ==================== USUARIOS ====================
+
+        public static List<Usuario> GetUsuarios()
+        {
+            RestClient client = new RestClient(Properties.Settings.Default.ApiRestEndPoint);
+            RestRequest request = new RestRequest("usuarios", Method.Get);
+            RestResponse response = client.Execute(request);
+            return JsonConvert.DeserializeObject<List<Usuario>>(response.Content);
+        }
+
+        public static List<Usuario> GetUsuariosTodos()
+        {
+            RestClient client = new RestClient(Properties.Settings.Default.ApiRestEndPoint);
+            RestRequest request = new RestRequest("usuarios/todos", Method.Get);
+            RestResponse response = client.Execute(request);
+            return JsonConvert.DeserializeObject<List<Usuario>>(response.Content);
+        }
+
+        public static List<Usuario> BuscarUsuariosPorNombre(string nombre)
+        {
+            RestClient client = new RestClient(Properties.Settings.Default.ApiRestEndPoint);
+            RestRequest request = new RestRequest("usuarios/buscar", Method.Get);
+            request.AddQueryParameter("nombre", nombre);
+            RestResponse response = client.Execute(request);
+            return JsonConvert.DeserializeObject<List<Usuario>>(response.Content);
+        }
+
+        public static async Task<Usuario?> CrearUsuarioConImagen(string nombreUsuario, string nombre, string apellido, string email, int edad, string descripcion, string contraseña, string? rutaImagen)
+        {
+            RestClient client = new RestClient(Properties.Settings.Default.ApiRestEndPoint);
+            RestRequest request = new RestRequest("usuarios/con-imagen", Method.Post);
+
+            var usuarioJson = JsonConvert.SerializeObject(new
+            {
+                nombreUsuario,
+                nombre,
+                apellido,
+                email,
+                edad,
+                descripcion,
+                contraseña
+            });
+            request.AddParameter("usuario", usuarioJson, ParameterType.GetOrPost);
+
+            if (!string.IsNullOrEmpty(rutaImagen) && File.Exists(rutaImagen))
+            {
+                request.AddFile("imagen", rutaImagen);
+            }
+
+            request.AlwaysMultipartFormData = true;
+
+            RestResponse response = await client.ExecuteAsync(request);
+
+            if (response.IsSuccessful)
+                return JsonConvert.DeserializeObject<Usuario>(response.Content);
+
+            return null;
+        }
+
+        public static async Task<Usuario?> EditarUsuarioConImagen(int id, string nombreUsuario, string nombre, string apellido, string email, int edad, string descripcion, string? contraseña, string? rutaImagen)
+        {
+            RestClient client = new RestClient(Properties.Settings.Default.ApiRestEndPoint);
+            RestRequest request = new RestRequest($"usuarios/{id}/con-imagen", Method.Put);
+
+            var usuarioJson = JsonConvert.SerializeObject(new
+            {
+                nombreUsuario,
+                nombre,
+                apellido,
+                email,
+                edad,
+                descripcion,
+                contraseña
+            });
+            request.AddParameter("usuario", usuarioJson, ParameterType.GetOrPost);
+
+            if (!string.IsNullOrEmpty(rutaImagen) && File.Exists(rutaImagen))
+            {
+                request.AddFile("imagen", rutaImagen);
+            }
+
+            request.AlwaysMultipartFormData = true;
+
+            RestResponse response = await client.ExecuteAsync(request);
+
+            if (response.IsSuccessful)
+                return JsonConvert.DeserializeObject<Usuario>(response.Content);
+
+            return null;
+        }
+
+        public static bool EliminarUsuario(int id)
+        {
+            try
+            {
+                RestClient client = new RestClient(Properties.Settings.Default.ApiRestEndPoint);
+                RestRequest request = new RestRequest($"usuarios/{id}", Method.Delete);
+                RestResponse response = client.Execute(request);
+                return response.IsSuccessful;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public static List<Usuario> GetUsuariosBloqueados()
+        {
+            RestClient client = new RestClient(Properties.Settings.Default.ApiRestEndPoint);
+            RestRequest request = new RestRequest("usuarios/bloqueados", Method.Get);
+            RestResponse response = client.Execute(request);
+            return JsonConvert.DeserializeObject<List<Usuario>>(response.Content);
+        }
+
+        public static async Task<Usuario?> BloquearUsuario(int id, string causa)
+        {
+            try
+            {
+                RestClient client = new RestClient(Properties.Settings.Default.ApiRestEndPoint);
+                RestRequest request = new RestRequest($"usuarios/{id}/bloquear", Method.Put);
+                var body = JsonConvert.SerializeObject(new { causa });
+                request.AddParameter("application/json", body, ParameterType.RequestBody);
+                RestResponse response = await client.ExecuteAsync(request);
+                if (response.IsSuccessful)
+                    return JsonConvert.DeserializeObject<Usuario>(response.Content);
+                return null;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public static async Task<Usuario?> DesbloquearUsuario(int id)
+        {
+            try
+            {
+                RestClient client = new RestClient(Properties.Settings.Default.ApiRestEndPoint);
+                RestRequest request = new RestRequest($"usuarios/{id}/desbloquear", Method.Put);
+                RestResponse response = await client.ExecuteAsync(request);
+                if (response.IsSuccessful)
+                    return JsonConvert.DeserializeObject<Usuario>(response.Content);
+                return null;
+            }
+            catch
+            {
+                return null;
             }
         }
     }

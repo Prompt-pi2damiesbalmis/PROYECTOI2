@@ -1,33 +1,77 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using System.Collections.ObjectModel;
+using Newtonsoft.Json;
+using System;
+using System.Runtime.Serialization;
 
 namespace PrototipadoEscritorio.Models
 {
+    [DataContract]
     public partial class Usuario : ObservableObject
     {
-        public int UsuarioId { get; set; }
+        [ObservableProperty]
+        [JsonProperty("id")]
+        [DataMember]
+        private int _id;
 
         [ObservableProperty]
-        private string nombreUsuario = string.Empty;
+        [JsonProperty("nombreUsuario")]
+        [DataMember]
+        private string _nombreUsuario = string.Empty;
 
         [ObservableProperty]
-        private string nombreCompleto = string.Empty;
+        [JsonProperty("nombre")]
+        [DataMember]
+        private string _nombre = string.Empty;
 
         [ObservableProperty]
-        private string email = string.Empty;
+        [JsonProperty("apellido")]
+        [DataMember]
+        private string _apellido = string.Empty;
 
         [ObservableProperty]
-        private string avatar = string.Empty;
+        [JsonProperty("descripcion")]
+        [DataMember]
+        private string _descripcion = string.Empty;
+
+        [ObservableProperty]
+        [JsonProperty("edad")]
+        [DataMember]
+        private int _edad;
+
+        [ObservableProperty]
+        [JsonProperty("email")]
+        [DataMember]
+        private string _email = string.Empty;
+
+        [ObservableProperty]
+        [JsonProperty("imagen")]
+        [DataMember]
+        private string _imagen = string.Empty;
+
+        [ObservableProperty]
+        [JsonProperty("bloqueado")]
+        [DataMember]
+        private bool _bloqueado;
+
+        [ObservableProperty]
+        [JsonProperty("causaBloqueo")]
+        [DataMember]
+        private string _causaBloqueo = string.Empty;
+
+        [ObservableProperty]
+        [JsonProperty("fechaBloqueo")]
+        [DataMember]
+        private DateTime? _fechaBloqueo;
+
+        public string NombreCompleto => string.IsNullOrEmpty(Apellido) ? Nombre : $"{Apellido}, {Nombre}";
+
+        public string Avatar => Imagen;
+
+        public string Comunidades => string.Empty;
+
+        public string FechaBloqueoFormateada =>
+            FechaBloqueo.HasValue ? FechaBloqueo.Value.ToString("dd/MM/yyyy HH:mm") : string.Empty;
 
         public Usuario() { }
-
-        public Usuario(int usuarioId, string nombreUsuario, string nombreCompleto, string email, string avatar)
-        {
-            UsuarioId = usuarioId;
-            NombreUsuario = nombreUsuario;
-            NombreCompleto = nombreCompleto;
-            Email = email;
-            Avatar = avatar;
-        }
     }
 }

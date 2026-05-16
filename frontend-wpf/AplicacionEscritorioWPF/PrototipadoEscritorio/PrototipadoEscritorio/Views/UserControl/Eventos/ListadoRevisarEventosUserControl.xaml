@@ -122,6 +122,7 @@
                                             Grid.Row="3"
                                             Background="Orange"
                                             Command="{Binding DataContext.RevisarEventoCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                            CommandParameter="{Binding}"
                                             Content="Revisar"
                                             Style="{StaticResource CardButtonStyle}" />
                                     </Grid>
