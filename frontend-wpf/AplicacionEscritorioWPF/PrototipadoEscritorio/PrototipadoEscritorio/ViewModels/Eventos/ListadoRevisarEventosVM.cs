@@ -1,5 +1,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
+using PrototipadoEscritorio.Messages;
 using PrototipadoEscritorio.Models;
 using System.Collections.ObjectModel;
 
@@ -23,9 +25,19 @@ namespace PrototipadoEscritorio.ViewModels.Eventos
             new Evento(3, "Reciclaje Tech", "Valencia", "Taller de reciclaje de dispositivos electrónicos", "/Assets/mundo.png", new DateTime(2026, 8, 10)),
         };
 
-        [RelayCommand]
-        private void RevisarEvento()
+        public ListadoRevisarEventosVM()
         {
+            WeakReferenceMessenger.Default.Register<RevisarEventoMessage>(this, (r, m) =>
+            {
+                ModalVisible = false;
+            });
+        }
+
+        [RelayCommand]
+        private void RevisarEvento(Evento evento)
+        {
+            if (evento == null) return;
+            RevisarEventoVM.Evento = evento;
             RevisarEventoVM.Razon = string.Empty;
             ModalVisible = true;
         }

@@ -1,5 +1,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
+using PrototipadoEscritorio.Messages;
 using PrototipadoEscritorio.Models;
 using System.Collections.ObjectModel;
 
@@ -23,9 +25,19 @@ namespace PrototipadoEscritorio.ViewModels.Usuarios
             new Usuario(3, "carlos_rod", "Rodríguez, Carlos", "carlos@email.com", "/Assets/avatares.png"),
         };
 
-        [RelayCommand]
-        private void EliminarUsuario()
+        public ListadoEliminarUsuariosVM()
         {
+            WeakReferenceMessenger.Default.Register<EliminarUsuarioMessage>(this, (r, m) =>
+            {
+                ModalVisible = false;
+            });
+        }
+
+        [RelayCommand]
+        private void EliminarUsuario(Usuario usuario)
+        {
+            if (usuario == null) return;
+            EliminarUsuarioVM.Usuario = usuario;
             ModalVisible = true;
         }
 
