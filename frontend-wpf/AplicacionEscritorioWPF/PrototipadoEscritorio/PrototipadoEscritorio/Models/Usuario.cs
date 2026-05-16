@@ -19,15 +19,19 @@ namespace PrototipadoEscritorio.Models
         [ObservableProperty]
         private string avatar = string.Empty;
 
+        [ObservableProperty]
+        private string comunidades = string.Empty;
+
         public Usuario() { }
 
-        public Usuario(int usuarioId, string nombreUsuario, string nombreCompleto, string email, string avatar)
+        public Usuario(int usuarioId, string nombreUsuario, string nombreCompleto, string email, string avatar, string comunidades)
         {
             UsuarioId = usuarioId;
             NombreUsuario = nombreUsuario;
             NombreCompleto = nombreCompleto;
             Email = email;
             Avatar = avatar;
+            Comunidades = comunidades;
         }
     }
 }
