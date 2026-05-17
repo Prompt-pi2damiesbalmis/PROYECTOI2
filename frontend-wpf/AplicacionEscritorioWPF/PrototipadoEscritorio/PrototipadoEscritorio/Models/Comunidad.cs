@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using PrototipadoEscritorio.Properties;
 using System;
+using System.Collections.Generic;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
@@ -24,6 +25,10 @@ namespace PrototipadoEscritorio.Models
         [ObservableProperty]
         [JsonProperty("imagen")]
         private string _imagen = string.Empty;
+
+        [ObservableProperty]
+        [JsonProperty("usuarios")]
+        private List<UsuarioResumen> _usuarios = new();
 
         [JsonIgnore]
         public ImageSource UrlImagen

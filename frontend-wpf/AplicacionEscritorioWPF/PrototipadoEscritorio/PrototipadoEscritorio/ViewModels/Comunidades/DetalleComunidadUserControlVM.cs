@@ -3,6 +3,8 @@ using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using PrototipadoEscritorio.Messages;
 using PrototipadoEscritorio.Models;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace PrototipadoEscritorio.ViewModels.Comunidades
 {
@@ -11,9 +13,21 @@ namespace PrototipadoEscritorio.ViewModels.Comunidades
         [ObservableProperty]
         private Comunidad _comunidad = new();
 
+        public int NumeroMiembros => Comunidad.Usuarios?.Count ?? 0;
+
+        public ObservableCollection<string> RolesUnicos { get; } = new();
+
         partial void OnComunidadChanged(Comunidad value)
         {
             OnPropertyChanged(nameof(Comunidad));
+            OnPropertyChanged(nameof(NumeroMiembros));
+
+            RolesUnicos.Clear();
+            if (value?.Usuarios != null)
+            {
+                foreach (var rol in value.Usuarios.Select(u => u.Rol).Distinct())
+                    RolesUnicos.Add(rol);
+            }
         }
 
         [RelayCommand]

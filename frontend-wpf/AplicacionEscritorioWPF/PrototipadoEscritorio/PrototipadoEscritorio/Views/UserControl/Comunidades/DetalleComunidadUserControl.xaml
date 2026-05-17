@@ -10,7 +10,7 @@
 
     <Border
         Width="460"
-        MaxHeight="600"
+        MaxHeight="680"
         Background="White"
         BorderBrush="#E4E9E6"
         BorderThickness="1"
@@ -93,6 +93,103 @@
                             Text="{Binding Comunidad.Nombre}"
                             TextDecorations="Underline"
                             TextWrapping="Wrap" />
+
+                        <Border
+                            Margin="0,10,0,0"
+                            Padding="16"
+                            Background="#F6FAF8"
+                            BorderBrush="#E4E9E6"
+                            BorderThickness="1"
+                            CornerRadius="10">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        FontSize="18"
+                                        Text="👥" />
+                                    <TextBlock
+                                        Margin="10,0,0,0"
+                                        VerticalAlignment="Center"
+                                        FontSize="11"
+                                        FontWeight="SemiBold"
+                                        Foreground="#5A6B60"
+                                        Text="MIEMBROS" />
+                                </StackPanel>
+
+                                <Border
+                                    Height="1"
+                                    Margin="0,10,0,0"
+                                    Background="#E4E9E6" />
+
+                                <StackPanel Margin="0,12,0,0" Orientation="Horizontal">
+                                    <TextBlock
+                                        FontSize="28"
+                                        FontWeight="Bold"
+                                        Foreground="#3BB273"
+                                        Text="{Binding NumeroMiembros}" />
+                                    <TextBlock
+                                        Margin="8,12,0,0"
+                                        FontSize="14"
+                                        FontWeight="SemiBold"
+                                        Foreground="#1F2A24"
+                                        Text="miembros" />
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+
+                        <Border
+                            Margin="0,10,0,0"
+                            Padding="16"
+                            Background="#F0F7F3"
+                            BorderBrush="#3BB273"
+                            BorderThickness="1"
+                            CornerRadius="10">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        FontSize="16"
+                                        Text="🏷️" />
+                                    <TextBlock
+                                        Margin="8,0,0,0"
+                                        VerticalAlignment="Center"
+                                        FontSize="11"
+                                        FontWeight="SemiBold"
+                                        Foreground="#5A6B60"
+                                        Text="ROLES" />
+                                </StackPanel>
+
+                                <Border
+                                    Height="1"
+                                    Margin="0,10,0,0"
+                                    Background="#D4E8DA" />
+
+                                <ItemsControl
+                                    Margin="0,12,0,0"
+                                    ItemsSource="{Binding RolesUnicos}">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel />
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border
+                                                Margin="0,0,8,4"
+                                                Padding="14,6"
+                                                Background="#3BB273"
+                                                CornerRadius="14">
+                                                <TextBlock
+                                                    FontSize="12"
+                                                    FontWeight="SemiBold"
+                                                    Foreground="White"
+                                                    Text="{Binding}" />
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                        </Border>
 
                         <Border
                             Margin="0,12,0,0"
