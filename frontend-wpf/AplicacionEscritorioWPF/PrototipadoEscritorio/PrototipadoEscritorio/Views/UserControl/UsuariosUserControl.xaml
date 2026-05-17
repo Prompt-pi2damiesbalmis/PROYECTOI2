@@ -78,7 +78,7 @@
 
         <Grid
             Grid.Column="1"
-            Margin="10"
+            Margin="20"
             VerticalAlignment="Top">
             <Grid>
                 <Button
@@ -89,7 +89,7 @@
                     Command="{Binding ToggleDockCommand}"
                     Content="☰"
                     Cursor="Hand"
-                    FontSize="20" />
+                    FontSize="30" />
             </Grid>
         </Grid>
     </Grid>

@@ -18,7 +18,13 @@ namespace PrototipadoEscritorio.ViewModels.Usuarios
         private bool _modalVisible = false;
 
         [ObservableProperty]
+        private bool _detalleModalVisible = false;
+
+        [ObservableProperty]
         private BloquearUsuarioUserControlVM _bloquearUsuarioVM = new();
+
+        [ObservableProperty]
+        private DetalleUsuarioUserControlVM _detalleUsuarioVM = new();
 
         public ObservableCollection<Usuario> ListaUsuarios { get; } = new();
 
@@ -35,6 +41,11 @@ namespace PrototipadoEscritorio.ViewModels.Usuarios
                     CargarUsuarios();
                 }
                 ModalVisible = false;
+            });
+
+            WeakReferenceMessenger.Default.Register<CerrarDetalleUsuarioMessage>(this, (r, m) =>
+            {
+                DetalleModalVisible = false;
             });
 
             WeakReferenceMessenger.Default.Register(this);
@@ -86,5 +97,16 @@ namespace PrototipadoEscritorio.ViewModels.Usuarios
 
         [RelayCommand]
         private void CerrarModal() => ModalVisible = false;
+
+        [RelayCommand]
+        private void VerDetalle(Usuario usuario)
+        {
+            if (usuario == null) return;
+            DetalleUsuarioVM.Usuario = usuario;
+            DetalleModalVisible = true;
+        }
+
+        [RelayCommand]
+        private void CerrarDetalle() => DetalleModalVisible = false;
     }
 }

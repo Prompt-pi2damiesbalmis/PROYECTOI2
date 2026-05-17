@@ -2,12 +2,20 @@
 using Newtonsoft.Json;
 using System;
 using System.Runtime.Serialization;
+using System.Windows.Media;
 
 namespace PrototipadoEscritorio.Models
 {
     [DataContract]
     public partial class Usuario : ObservableObject
     {
+        private static readonly Random _random = new();
+        private static readonly string[] _coloresHex =
+        {
+            "#FF6B6B", "#4ECDC4", "#45B7D1", "#96CEB4", "#F7DC6F",
+            "#DDA0DD", "#98D8C8", "#F39C12", "#BB8FCE", "#85C1E9",
+            "#E67E22", "#2ECC71", "#E74C3C", "#3498DB", "#1ABC9C"
+        };
         [ObservableProperty]
         [JsonProperty("id")]
         [DataMember]
@@ -71,6 +79,9 @@ namespace PrototipadoEscritorio.Models
 
         public string FechaBloqueoFormateada =>
             FechaBloqueo.HasValue ? FechaBloqueo.Value.ToString("dd/MM/yyyy HH:mm") : string.Empty;
+
+        [JsonIgnore]
+        public SolidColorBrush ColorBorde { get; } = new((Color)ColorConverter.ConvertFromString(_coloresHex[_random.Next(_coloresHex.Length)]));
 
         public Usuario() { }
     }

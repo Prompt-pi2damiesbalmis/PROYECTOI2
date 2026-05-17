@@ -77,7 +77,7 @@
 
         <Grid
             Grid.Column="1"
-            Margin="30"
+            Margin="20"
             VerticalAlignment="Top">
             <Grid>
                 <Button
