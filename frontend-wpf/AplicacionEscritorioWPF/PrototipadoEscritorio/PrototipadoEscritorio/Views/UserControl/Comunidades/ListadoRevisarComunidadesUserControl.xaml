@@ -81,54 +81,110 @@
 
                 <ItemsControl HorizontalAlignment="Center" ItemsSource="{Binding ListaComunidades}">
                     <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel HorizontalAlignment="Center" />
-                        </ItemsPanelTemplate>
+                    <ItemsPanelTemplate>
+                        <WrapPanel HorizontalAlignment="Center" />
+                    </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
 
                     <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Grid Style="{StaticResource CardWrapperStyle}">
-                                <Border Style="{StaticResource CardShadowLayerStyle}" />
-                                <Border Style="{StaticResource CardContentLayerStyle}">
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto" />
-                                            <RowDefinition Height="*" />
-                                            <RowDefinition Height="Auto" />
-                                        </Grid.RowDefinitions>
+                    <DataTemplate>
+                        <Grid Style="{StaticResource CardWrapperStyle}">
+                            <Grid.InputBindings>
+                                <MouseBinding
+                                    Command="{Binding DataContext.VerDetalleComunidadCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                    CommandParameter="{Binding}"
+                                    Gesture="LeftClick" />
+                            </Grid.InputBindings>
+                            <Border Style="{StaticResource CardShadowLayerStyle}" />
+                            <Border Style="{StaticResource CardContentLayerStyle}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
 
-                                        <TextBlock
-                                            Grid.Row="0"
-                                            Style="{StaticResource CardTitleStyle}"
-                                            Text="{Binding Nombre}" />
+                                    <TextBlock
+                                        Grid.Row="0"
+                                        Style="{StaticResource CardTitleStyle}"
+                                        Text="{Binding Nombre}" />
 
-                                        <Border Grid.Row="1" Style="{StaticResource CardImageContainerStyle}">
-                                            <Image
-                                                Width="140"
-                                                Height="140"
-                                                HorizontalAlignment="Center"
-                                                VerticalAlignment="Center"
-                                                Source="{Binding Imagen}"
-                                                Stretch="Uniform" />
-                                        </Border>
+                                    <Border Grid.Row="1" Style="{StaticResource CardImageContainerStyle}">
+                                        <Image
+                                            Source="{Binding UrlImagen}"
+                                            Stretch="UniformToFill" />
+                                    </Border>
+
+                                    <Grid Grid.Row="2">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
 
                                         <Button
-                                            Grid.Row="2"
-                                            Background="Orange"
+                                            Grid.Column="0"
                                             Command="{Binding DataContext.RevisarComunidadCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
                                             CommandParameter="{Binding}"
                                             Content="Revisar"
-                                            Style="{StaticResource CardButtonStyle}" />
+                                            Cursor="Hand"
+                                            FontWeight="SemiBold"
+                                            Foreground="White"
+                                            Background="#F0A030"
+                                            BorderThickness="0"
+                                            Height="44">
+                                            <Button.Template>
+                                                <ControlTemplate TargetType="Button">
+                                                    <Border
+                                                        Background="{TemplateBinding Background}"
+                                                        CornerRadius="0,0,0,14">
+                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                    </Border>
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsPressed" Value="True">
+                                                            <Setter Property="Opacity" Value="0.9" />
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Button.Template>
+                                        </Button>
+
+                                        <Button
+                                            Grid.Column="1"
+                                            Command="{Binding DataContext.AceptarComunidadCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                            CommandParameter="{Binding}"
+                                            Content="Aceptar"
+                                            Cursor="Hand"
+                                            FontWeight="SemiBold"
+                                            Foreground="White"
+                                            Background="#27AE60"
+                                            BorderThickness="0"
+                                            Height="44">
+                                            <Button.Template>
+                                                <ControlTemplate TargetType="Button">
+                                                    <Border
+                                                        Background="{TemplateBinding Background}"
+                                                        CornerRadius="0,0,14,0">
+                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                    </Border>
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsPressed" Value="True">
+                                                            <Setter Property="Opacity" Value="0.9" />
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Button.Template>
+                                        </Button>
                                     </Grid>
-                                </Border>
-                            </Grid>
-                        </DataTemplate>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
             </ScrollViewer>
         </Grid>
 
+        <!-- Revision modal overlay -->
         <Grid Visibility="{Binding ModalVisible, Converter={StaticResource BoolToVisibilityConverter}}">
             <Button
                 Background="Transparent"
@@ -147,6 +203,48 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 DataContext="{Binding RevisarComunidadVM}" />
+        </Grid>
+
+        <!-- Detail modal overlay -->
+        <Grid Visibility="{Binding ModalDetalleVisible, Converter={StaticResource BoolToVisibilityConverter}}">
+            <Button
+                Background="Transparent"
+                BorderThickness="0"
+                Command="{Binding CerrarModalCommand}"
+                Cursor="Arrow"
+                Focusable="False">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Rectangle Fill="{TemplateBinding Background}" />
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <local:DetalleComunidadUserControl
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                DataContext="{Binding DetalleComunidadVM}" />
+        </Grid>
+
+        <!-- Aceptar confirmation modal overlay -->
+        <Grid Visibility="{Binding ModalAceptarVisible, Converter={StaticResource BoolToVisibilityConverter}}">
+            <Button
+                Background="Transparent"
+                BorderThickness="0"
+                Command="{Binding CerrarModalAceptarCommand}"
+                Cursor="Arrow"
+                Focusable="False">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Rectangle Fill="{TemplateBinding Background}" />
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <local:ConfirmacionEliminacionModalUserControl
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                DataContext="{Binding ConfirmacionAceptarVM}" />
         </Grid>
     </Grid>
 </UserControl>

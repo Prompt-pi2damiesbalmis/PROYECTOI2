@@ -14,6 +14,11 @@ public class Comunidad {
     private String nombre;
     private String descripcion;
     private String imagen;
+    private String estado;
+    private String motivoCancelacion;
+
+    @Column(columnDefinition = "TEXT")
+    private String roles;
 
     @OneToMany(mappedBy = "comunidad", cascade = CascadeType.ALL)
     private List<Evento> eventos;
@@ -29,6 +34,7 @@ public class Comunidad {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.imagen = imagen;
+        this.estado = "ACTIVO";
     }
 
     public Long getId() {
@@ -63,6 +69,30 @@ public class Comunidad {
         this.imagen = imagen;
     }
 
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getMotivoCancelacion() {
+        return motivoCancelacion;
+    }
+
+    public void setMotivoCancelacion(String motivoCancelacion) {
+        this.motivoCancelacion = motivoCancelacion;
+    }
+
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
+
     public List<UsuarioComunidad> getUsuarios() {
         return usuarios;
     }
@@ -87,6 +117,9 @@ public class Comunidad {
         result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
         result = prime * result + ((descripcion == null) ? 0 : descripcion.hashCode());
         result = prime * result + ((imagen == null) ? 0 : imagen.hashCode());
+        result = prime * result + ((estado == null) ? 0 : estado.hashCode());
+        result = prime * result + ((motivoCancelacion == null) ? 0 : motivoCancelacion.hashCode());
+        result = prime * result + ((roles == null) ? 0 : roles.hashCode());
         result = prime * result + ((usuarios == null) ? 0 : usuarios.hashCode());
         result = prime * result + ((eventos == null) ? 0 : eventos.hashCode());
         return result;
@@ -121,6 +154,21 @@ public class Comunidad {
                 return false;
         } else if (!imagen.equals(other.imagen))
             return false;
+        if (estado == null) {
+            if (other.estado != null)
+                return false;
+        } else if (!estado.equals(other.estado))
+            return false;
+        if (motivoCancelacion == null) {
+            if (other.motivoCancelacion != null)
+                return false;
+        } else if (!motivoCancelacion.equals(other.motivoCancelacion))
+            return false;
+        if (roles == null) {
+            if (other.roles != null)
+                return false;
+        } else if (!roles.equals(other.roles))
+            return false;
         if (usuarios == null) {
             if (other.usuarios != null)
                 return false;
@@ -137,7 +185,9 @@ public class Comunidad {
     @Override
     public String toString() {
         return "Comunidad [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", imagen=" + imagen
-                + ", usuarios=" + usuarios + ", eventos=" + eventos +"]";
+                + ", estado=" + estado + ", motivoCancelacion=" + motivoCancelacion
+                + ", roles=" + roles
+                + ", usuarios=" + usuarios + ", eventos=" + eventos + "]";
     }
 
 }

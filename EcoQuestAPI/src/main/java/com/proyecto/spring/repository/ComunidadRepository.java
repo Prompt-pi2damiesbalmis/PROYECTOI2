@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.proyecto.spring.modelos.Comunidad;
 
 @Repository
-public interface ComunidadRepository extends JpaRepository<Comunidad, Long> {}
+public interface ComunidadRepository extends JpaRepository<Comunidad, Long> {
+    java.util.List<Comunidad> findByEstado(String estado);
+}
