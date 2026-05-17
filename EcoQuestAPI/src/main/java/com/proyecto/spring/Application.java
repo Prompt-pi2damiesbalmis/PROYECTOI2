@@ -64,7 +64,7 @@ public class Application {
 						"deportes.jpg");
 				Comunidad c4 = new Comunidad("Senderistas del Norte", "Rutas de senderismo por el norte de España",
 						"fotografia.jpg");
-				c4.setEstado("EN_REVISION");
+				c4.setEstado("PENDIENTE");
 				Comunidad c5 = new Comunidad("Huertos Urbanos", "Cultiva tus propios alimentos en la ciudad",
 						"fotografia.jpg");
 				c5.setEstado("CANCELADO");

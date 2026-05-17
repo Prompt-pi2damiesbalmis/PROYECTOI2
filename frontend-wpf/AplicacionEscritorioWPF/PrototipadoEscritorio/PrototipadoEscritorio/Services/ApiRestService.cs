@@ -250,14 +250,14 @@ namespace PrototipadoEscritorio.Services
             return JsonConvert.DeserializeObject<List<Comunidad>>(response.Content);
         }
 
-        public static async Task<bool> CrearComunidad(string nombre, string descripcion, string? rutaImagen)
+        public static async Task<bool> CrearComunidad(string nombre, string descripcion, string roles, string? rutaImagen)
         {
             try
             {
                 RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
                 RestRequest request = new("comunidades/con-imagen", Method.Post);
 
-                var comunidadJson = JsonConvert.SerializeObject(new { nombre, descripcion });
+                var comunidadJson = JsonConvert.SerializeObject(new { nombre, descripcion, roles });
                 request.AddParameter("comunidad", comunidadJson, ParameterType.GetOrPost);
 
                 if (!string.IsNullOrEmpty(rutaImagen) && File.Exists(rutaImagen))
@@ -300,6 +300,23 @@ namespace PrototipadoEscritorio.Services
             {
                 RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
                 RestRequest request = new($"comunidades/{id}/en-revision", Method.Patch);
+                var body = JsonConvert.SerializeObject(new { motivo });
+                request.AddParameter("application/json", body, ParameterType.RequestBody);
+                RestResponse response = await client.ExecuteAsync(request);
+                return response.IsSuccessful;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public static async Task<bool> RevisarComunidad(int id, string motivo)
+        {
+            try
+            {
+                RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
+                RestRequest request = new($"comunidades/{id}/revisar", Method.Patch);
                 var body = JsonConvert.SerializeObject(new { motivo });
                 request.AddParameter("application/json", body, ParameterType.RequestBody);
                 RestResponse response = await client.ExecuteAsync(request);

@@ -155,6 +155,15 @@ public class ComunidadController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @PatchMapping("/{id}/revisar")
+    public ResponseEntity<Comunidad> revisar(@PathVariable Long id,
+            @RequestBody Map<String, String> body) {
+        String motivo = body.getOrDefault("motivo", "Sin especificar");
+        return comunidadService.revisar(id, motivo)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
     @PatchMapping("/{id}/aprobar")
     public ResponseEntity<Comunidad> aprobar(@PathVariable Long id) {
         return comunidadService.cambiarEstado(id, "ACTIVO")

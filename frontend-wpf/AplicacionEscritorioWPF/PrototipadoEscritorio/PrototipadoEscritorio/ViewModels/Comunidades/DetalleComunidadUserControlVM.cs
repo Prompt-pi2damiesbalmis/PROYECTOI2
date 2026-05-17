@@ -26,10 +26,20 @@ namespace PrototipadoEscritorio.ViewModels.Comunidades
             OnPropertyChanged(nameof(NumeroMiembros));
 
             RolesUnicos.Clear();
+
             if (value?.Usuarios != null)
             {
                 foreach (var rol in value.Usuarios.Select(u => u.Rol).Distinct())
                     RolesUnicos.Add(rol);
+            }
+
+            if (!string.IsNullOrEmpty(value?.Roles))
+            {
+                foreach (var rol in value.Roles.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries))
+                {
+                    if (!RolesUnicos.Contains(rol))
+                        RolesUnicos.Add(rol);
+                }
             }
         }
 

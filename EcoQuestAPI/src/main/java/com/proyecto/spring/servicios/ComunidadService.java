@@ -68,7 +68,15 @@ public class ComunidadService {
 
     public Optional<Comunidad> enviarARevision(Long id, String motivo) {
         return comunidadRepository.findById(id).map(comunidad -> {
-            comunidad.setEstado("EN_REVISION");
+            comunidad.setEstado("PENDIENTE");
+            comunidad.setMotivoCancelacion(motivo);
+            return comunidadRepository.save(comunidad);
+        });
+    }
+
+    public Optional<Comunidad> revisar(Long id, String motivo) {
+        return comunidadRepository.findById(id).map(comunidad -> {
+            comunidad.setEstado("REVISION");
             comunidad.setMotivoCancelacion(motivo);
             return comunidadRepository.save(comunidad);
         });

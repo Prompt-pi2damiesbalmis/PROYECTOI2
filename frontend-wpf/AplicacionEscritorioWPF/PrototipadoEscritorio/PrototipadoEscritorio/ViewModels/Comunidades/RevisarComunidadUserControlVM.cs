@@ -32,7 +32,7 @@ namespace PrototipadoEscritorio.ViewModels.Comunidades
         {
             if (Comunidad?.ComunidadId > 0)
             {
-                await ApiRestService.AprobarComunidad(Comunidad.ComunidadId);
+                await ApiRestService.RevisarComunidad(Comunidad.ComunidadId, Razon?.Trim() ?? "");
             }
             WeakReferenceMessenger.Default.Send(new RevisarComunidadMessage(Comunidad));
         }

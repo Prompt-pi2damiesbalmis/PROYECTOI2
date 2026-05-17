@@ -17,6 +17,9 @@ public class Comunidad {
     private String estado;
     private String motivoCancelacion;
 
+    @Column(columnDefinition = "TEXT")
+    private String roles;
+
     @OneToMany(mappedBy = "comunidad", cascade = CascadeType.ALL)
     private List<Evento> eventos;
 
@@ -82,6 +85,14 @@ public class Comunidad {
         this.motivoCancelacion = motivoCancelacion;
     }
 
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
+
     public List<UsuarioComunidad> getUsuarios() {
         return usuarios;
     }
@@ -108,6 +119,7 @@ public class Comunidad {
         result = prime * result + ((imagen == null) ? 0 : imagen.hashCode());
         result = prime * result + ((estado == null) ? 0 : estado.hashCode());
         result = prime * result + ((motivoCancelacion == null) ? 0 : motivoCancelacion.hashCode());
+        result = prime * result + ((roles == null) ? 0 : roles.hashCode());
         result = prime * result + ((usuarios == null) ? 0 : usuarios.hashCode());
         result = prime * result + ((eventos == null) ? 0 : eventos.hashCode());
         return result;
@@ -152,6 +164,11 @@ public class Comunidad {
                 return false;
         } else if (!motivoCancelacion.equals(other.motivoCancelacion))
             return false;
+        if (roles == null) {
+            if (other.roles != null)
+                return false;
+        } else if (!roles.equals(other.roles))
+            return false;
         if (usuarios == null) {
             if (other.usuarios != null)
                 return false;
@@ -169,6 +186,7 @@ public class Comunidad {
     public String toString() {
         return "Comunidad [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", imagen=" + imagen
                 + ", estado=" + estado + ", motivoCancelacion=" + motivoCancelacion
+                + ", roles=" + roles
                 + ", usuarios=" + usuarios + ", eventos=" + eventos + "]";
     }
 

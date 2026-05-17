@@ -34,7 +34,7 @@
                 CornerRadius="14">
 
                 <StackPanel>
-                    <!-- Nombre -->
+                    <!--  Nombre  -->
                     <StackPanel Margin="0,0,0,16">
                         <TextBlock
                             Margin="0,0,0,6"
@@ -50,6 +50,7 @@
                             <TextBox
                                 Height="38"
                                 Padding="12,0"
+                                VerticalContentAlignment="Center"
                                 Background="Transparent"
                                 BorderThickness="0"
                                 FontSize="14"
@@ -58,7 +59,7 @@
                         </Border>
                     </StackPanel>
 
-                    <!-- Descripción -->
+                    <!--  Descripción  -->
                     <StackPanel Margin="0,0,0,16">
                         <TextBlock
                             Margin="0,0,0,6"
@@ -74,24 +75,24 @@
                             <TextBox
                                 Height="90"
                                 Padding="12,8"
+                                AcceptsReturn="True"
                                 Background="Transparent"
                                 BorderThickness="0"
                                 FontSize="14"
                                 Foreground="#1F2A24"
+                                Text="{Binding Descripcion, UpdateSourceTrigger=PropertyChanged}"
                                 TextWrapping="Wrap"
-                                AcceptsReturn="True"
-                                VerticalScrollBarVisibility="Auto"
-                                Text="{Binding Descripcion, UpdateSourceTrigger=PropertyChanged}" />
+                                VerticalScrollBarVisibility="Auto" />
                         </Border>
                     </StackPanel>
 
-                    <!-- Separator -->
+                    <!--  Separator  -->
                     <Border
                         Height="1"
                         Margin="0,0,0,16"
                         Background="#E4E9E6" />
 
-                    <!-- Imagen -->
+                    <!--  Imagen  -->
                     <StackPanel Margin="0,0,0,20">
                         <DockPanel Margin="0,0,0,8">
                             <TextBlock
@@ -104,23 +105,19 @@
                                 Width="130"
                                 Height="30"
                                 HorizontalAlignment="Right"
+                                Background="#3BB273"
+                                BorderThickness="0"
                                 Command="{Binding SeleccionarImagenCommand}"
                                 Content="Seleccionar"
                                 Cursor="Hand"
                                 DockPanel.Dock="Right"
                                 FontSize="13"
                                 FontWeight="SemiBold"
-                                Foreground="White"
-                                Background="#3BB273"
-                                BorderThickness="0">
+                                Foreground="White">
                                 <Button.Template>
                                     <ControlTemplate TargetType="Button">
-                                        <Border
-                                            Background="{TemplateBinding Background}"
-                                            CornerRadius="6">
-                                            <ContentPresenter
-                                                HorizontalAlignment="Center"
-                                                VerticalAlignment="Center" />
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="6">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                                         </Border>
                                     </ControlTemplate>
                                 </Button.Template>
@@ -141,35 +138,98 @@
                             Background="#EDF3EF"
                             BorderBrush="#E4E9E6"
                             BorderThickness="1"
-                            CornerRadius="10"
-                            ClipToBounds="True">
-                            <Image
-                                Source="{Binding Previsualizacion}"
-                                Stretch="Uniform" />
+                            ClipToBounds="True"
+                            CornerRadius="10">
+                            <Image Source="{Binding Previsualizacion}" Stretch="Uniform" />
                         </Border>
                     </StackPanel>
 
-                    <!-- Guardar -->
+                    <!--  Roles  -->
+                    <StackPanel Margin="0,0,0,16">
+                        <TextBlock
+                            Margin="0,0,0,6"
+                            FontSize="13"
+                            FontWeight="SemiBold"
+                            Foreground="#1F2A24"
+                            Text="Roles (opcional)" />
+                        <Border
+                            Background="#F6FAF8"
+                            BorderBrush="#E4E9E6"
+                            BorderThickness="1"
+                            CornerRadius="8">
+                            <TextBox
+                                Height="38"
+                                Padding="12,0"
+                                VerticalContentAlignment="Center"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                FontSize="14"
+                                Foreground="#1F2A24"
+                                Text="{Binding NuevoRol, UpdateSourceTrigger=PropertyChanged}">
+                                <TextBox.InputBindings>
+                                    <KeyBinding Key="Enter" Command="{Binding AgregarRolCommand}" />
+                                </TextBox.InputBindings>
+                            </TextBox>
+                        </Border>
+
+                        <ItemsControl Margin="0,8,0,0" ItemsSource="{Binding RolesDisponibles}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border
+                                        Margin="0,0,6,6"
+                                        Padding="10,4"
+                                        Background="#3BB273"
+                                        CornerRadius="12">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                VerticalAlignment="Center"
+                                                FontSize="12"
+                                                FontWeight="SemiBold"
+                                                Foreground="White"
+                                                Text="{Binding}" />
+                                            <Button
+                                                Width="16"
+                                                Height="16"
+                                                Margin="6,0,0,0"
+                                                Padding="0"
+                                                VerticalContentAlignment="Center"
+                                                Background="Transparent"
+                                                BorderThickness="0"
+                                                Command="{Binding DataContext.QuitarRolCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                                CommandParameter="{Binding}"
+                                                Content="✕"
+                                                Cursor="Hand"
+                                                FontSize="10"
+                                                Foreground="White" />
+                                        </StackPanel>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+
+                    <!--  Guardar  -->
                     <Button
                         Width="120"
                         Height="38"
                         HorizontalAlignment="Right"
+                        Background="#3BB273"
+                        BorderThickness="0"
                         Command="{Binding GuardarCommand}"
                         Content="Guardar"
                         Cursor="Hand"
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Foreground="White"
-                        Background="#3BB273"
-                        BorderThickness="0">
+                        Foreground="White">
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
-                                <Border
-                                    Background="{TemplateBinding Background}"
-                                    CornerRadius="8">
-                                    <ContentPresenter
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Center" />
+                                <Border Background="{TemplateBinding Background}" CornerRadius="8">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                                 </Border>
                             </ControlTemplate>
                         </Button.Template>

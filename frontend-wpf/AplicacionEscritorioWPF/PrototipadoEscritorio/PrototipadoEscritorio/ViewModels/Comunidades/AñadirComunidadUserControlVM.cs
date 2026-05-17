@@ -5,6 +5,8 @@ using Microsoft.Win32;
 using PrototipadoEscritorio.Messages;
 using PrototipadoEscritorio.Services;
 using System;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media.Imaging;
@@ -24,6 +26,11 @@ namespace PrototipadoEscritorio.ViewModels.Comunidades
 
         [ObservableProperty]
         private BitmapImage? _previsualizacion;
+
+        [ObservableProperty]
+        private string _nuevoRol = string.Empty;
+
+        public ObservableCollection<string> RolesDisponibles { get; } = new();
 
         [RelayCommand]
         private void SeleccionarImagen()
@@ -48,6 +55,24 @@ namespace PrototipadoEscritorio.ViewModels.Comunidades
         }
 
         [RelayCommand]
+        private void AgregarRol()
+        {
+            var rol = NuevoRol?.Trim().ToUpperInvariant();
+            if (string.IsNullOrWhiteSpace(rol)) return;
+
+            if (!RolesDisponibles.Contains(rol, StringComparer.OrdinalIgnoreCase))
+                RolesDisponibles.Add(rol);
+
+            NuevoRol = string.Empty;
+        }
+
+        [RelayCommand]
+        private void QuitarRol(string rol)
+        {
+            RolesDisponibles.Remove(rol);
+        }
+
+        [RelayCommand]
         private async Task Guardar()
         {
             try
@@ -59,7 +84,8 @@ namespace PrototipadoEscritorio.ViewModels.Comunidades
                     return;
                 }
 
-                var resultado = await ApiRestService.CrearComunidad(Nombre.Trim(), Descripcion?.Trim() ?? "", RutaImagenLocal);
+                var rolesStr = string.Join(",", RolesDisponibles);
+                var resultado = await ApiRestService.CrearComunidad(Nombre.Trim(), Descripcion?.Trim() ?? "", rolesStr, RutaImagenLocal);
                 if (resultado)
                 {
                     WeakReferenceMessenger.Default.Send(new ComunidadAñadidaMessage());
@@ -86,6 +112,8 @@ namespace PrototipadoEscritorio.ViewModels.Comunidades
             Descripcion = string.Empty;
             RutaImagenLocal = null;
             Previsualizacion = null;
+            RolesDisponibles.Clear();
+            NuevoRol = string.Empty;
         }
     }
 }

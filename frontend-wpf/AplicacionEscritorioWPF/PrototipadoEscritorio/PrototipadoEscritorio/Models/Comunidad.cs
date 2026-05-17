@@ -35,6 +35,10 @@ namespace PrototipadoEscritorio.Models
         private string _motivoCancelacion = string.Empty;
 
         [ObservableProperty]
+        [JsonProperty("roles")]
+        private string _roles = string.Empty;
+
+        [ObservableProperty]
         [JsonProperty("usuarios")]
         private List<UsuarioResumen> _usuarios = new();
 

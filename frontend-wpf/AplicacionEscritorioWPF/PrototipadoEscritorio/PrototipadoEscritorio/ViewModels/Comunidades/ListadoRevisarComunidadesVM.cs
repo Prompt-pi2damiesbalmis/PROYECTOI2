@@ -21,10 +21,16 @@ namespace PrototipadoEscritorio.ViewModels.Comunidades
         private bool _modalDetalleVisible = false;
 
         [ObservableProperty]
+        private bool _modalAceptarVisible = false;
+
+        [ObservableProperty]
         private RevisarComunidadUserControlVM _revisarComunidadVM = new();
 
         [ObservableProperty]
         private DetalleComunidadUserControlVM _detalleComunidadVM = new();
+
+        [ObservableProperty]
+        private ConfirmacionEliminacionModalVM _confirmacionAceptarVM = new();
 
         public ObservableCollection<Comunidad> ListaComunidades { get; } = new();
 
@@ -48,11 +54,28 @@ namespace PrototipadoEscritorio.ViewModels.Comunidades
                 DetalleComunidadVM.Comunidad = new();
                 ModalDetalleVisible = false;
             });
+
+            ConfirmacionAceptarVM.OnConfirmar += async (item) =>
+            {
+                var comunidad = item as Comunidad;
+                if (comunidad != null)
+                {
+                    await ApiRestService.AprobarComunidad(comunidad.ComunidadId);
+                    WeakReferenceMessenger.Default.Send(new ComunidadAñadidaMessage());
+                    CargarComunidades();
+                }
+                ModalAceptarVisible = false;
+            };
+
+            ConfirmacionAceptarVM.OnCancelar += () =>
+            {
+                ModalAceptarVisible = false;
+            };
         }
 
         public void CargarComunidades()
         {
-            var comunidades = ApiRestService.GetComunidadesPorEstado("EN_REVISION");
+            var comunidades = ApiRestService.GetComunidadesPorEstado("PENDIENTE");
             ListaComunidades.Clear();
             foreach (var c in comunidades)
                 ListaComunidades.Add(c);
@@ -65,7 +88,7 @@ namespace PrototipadoEscritorio.ViewModels.Comunidades
                 CargarComunidades();
                 return;
             }
-            var todas = ApiRestService.GetComunidadesPorEstado("EN_REVISION");
+            var todas = ApiRestService.GetComunidadesPorEstado("PENDIENTE");
             var resultados = todas.Where(c => c.Nombre.Contains(value, System.StringComparison.OrdinalIgnoreCase)).ToList();
             ListaComunidades.Clear();
             foreach (var c in resultados)
@@ -79,6 +102,17 @@ namespace PrototipadoEscritorio.ViewModels.Comunidades
             RevisarComunidadVM.Comunidad = comunidad;
             RevisarComunidadVM.Razon = string.Empty;
             ModalVisible = true;
+        }
+
+        [RelayCommand]
+        private void AceptarComunidad(Comunidad comunidad)
+        {
+            if (comunidad == null) return;
+            string titulo = $"Aceptar: {comunidad.Nombre}";
+            string mensaje = $"¿Estás seguro de que quieres aceptar \"{comunidad.Nombre}\"?";
+            ConfirmacionAceptarVM.CargarConfirmacion(titulo, mensaje, comunidad,
+                "#27AE60", "#27AE60", "#1E8449", "#145A32", "Aceptar");
+            ModalAceptarVisible = true;
         }
 
         [RelayCommand]
@@ -100,5 +134,8 @@ namespace PrototipadoEscritorio.ViewModels.Comunidades
                 ModalDetalleVisible = false;
             }
         }
+
+        [RelayCommand]
+        private void CerrarModalAceptar() => ModalAceptarVisible = false;
     }
 }
