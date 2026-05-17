@@ -250,6 +250,32 @@ namespace PrototipadoEscritorio.Services
             return JsonConvert.DeserializeObject<List<Comunidad>>(response.Content);
         }
 
+        public static async Task<bool> CrearComunidad(string nombre, string descripcion, string? rutaImagen)
+        {
+            try
+            {
+                RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
+                RestRequest request = new("comunidades/con-imagen", Method.Post);
+
+                var comunidadJson = JsonConvert.SerializeObject(new { nombre, descripcion });
+                request.AddParameter("comunidad", comunidadJson, ParameterType.GetOrPost);
+
+                if (!string.IsNullOrEmpty(rutaImagen) && File.Exists(rutaImagen))
+                {
+                    request.AddFile("imagen", rutaImagen);
+                }
+
+                request.AlwaysMultipartFormData = true;
+
+                RestResponse response = await client.ExecuteAsync(request);
+                return response.IsSuccessful;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public static List<Comunidad> BuscarComunidadesPorNombre(string nombre)
         {
             RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
@@ -257,6 +283,77 @@ namespace PrototipadoEscritorio.Services
             RestResponse response = client.Execute(request);
             var todas = JsonConvert.DeserializeObject<List<Comunidad>>(response.Content);
             return todas?.FindAll(c => c.Nombre.Contains(nombre, StringComparison.OrdinalIgnoreCase)) ?? new();
+        }
+
+        public static List<Comunidad> GetComunidadesPorEstado(string estado)
+        {
+            RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
+            RestRequest request = new("comunidades/estado", Method.Get);
+            request.AddQueryParameter("estado", estado);
+            RestResponse response = client.Execute(request);
+            return JsonConvert.DeserializeObject<List<Comunidad>>(response.Content);
+        }
+
+        public static async Task<bool> EnviarComunidadARevision(int id, string motivo)
+        {
+            try
+            {
+                RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
+                RestRequest request = new($"comunidades/{id}/en-revision", Method.Patch);
+                var body = JsonConvert.SerializeObject(new { motivo });
+                request.AddParameter("application/json", body, ParameterType.RequestBody);
+                RestResponse response = await client.ExecuteAsync(request);
+                return response.IsSuccessful;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public static async Task<bool> AprobarComunidad(int id)
+        {
+            try
+            {
+                RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
+                RestRequest request = new($"comunidades/{id}/aprobar", Method.Patch);
+                RestResponse response = await client.ExecuteAsync(request);
+                return response.IsSuccessful;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public static async Task<bool> CancelarComunidad(int id)
+        {
+            try
+            {
+                RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
+                RestRequest request = new($"comunidades/{id}/cancelar", Method.Patch);
+                RestResponse response = await client.ExecuteAsync(request);
+                return response.IsSuccessful;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public static bool EliminarComunidad(int id)
+        {
+            try
+            {
+                RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
+                RestRequest request = new($"comunidades/{id}", Method.Delete);
+                RestResponse response = client.Execute(request);
+                return response.IsSuccessful;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         // ==================== EVENTOS ====================

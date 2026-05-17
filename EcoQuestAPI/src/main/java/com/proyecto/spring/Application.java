@@ -60,14 +60,30 @@ public class Application {
 				Comunidad c1 = new Comunidad("Deportes Extremos", "Comunidad para amantes del deporte extremo",
 						"deportes.jpg");
 				Comunidad c2 = new Comunidad("Fotografía Urbana", "Comparte tus fotos de la ciudad", "fotografia.jpg");
+				Comunidad c3 = new Comunidad("Eco Guerreros", "Luchamos por un planeta más limpio y sostenible",
+						"deportes.jpg");
+				Comunidad c4 = new Comunidad("Senderistas del Norte", "Rutas de senderismo por el norte de España",
+						"fotografia.jpg");
+				c4.setEstado("EN_REVISION");
+				Comunidad c5 = new Comunidad("Huertos Urbanos", "Cultiva tus propios alimentos en la ciudad",
+						"fotografia.jpg");
+				c5.setEstado("CANCELADO");
 				comunidadRepository.save(c1);
 				comunidadRepository.save(c2);
+				comunidadRepository.save(c3);
+				comunidadRepository.save(c4);
+				comunidadRepository.save(c5);
 
 				// Usuarios en comunidades con roles
 				usuarioComunidadRepository.save(new UsuarioComunidad(u1, c1, "ADMIN"));
 				usuarioComunidadRepository.save(new UsuarioComunidad(u2, c1, "MIEMBRO"));
 				usuarioComunidadRepository.save(new UsuarioComunidad(u2, c2, "ADMIN"));
 				usuarioComunidadRepository.save(new UsuarioComunidad(u3, c2, "MIEMBRO"));
+				usuarioComunidadRepository.save(new UsuarioComunidad(u1, c3, "ADMIN"));
+				usuarioComunidadRepository.save(new UsuarioComunidad(u3, c3, "MIEMBRO"));
+				usuarioComunidadRepository.save(new UsuarioComunidad(u2, c4, "ADMIN"));
+				usuarioComunidadRepository.save(new UsuarioComunidad(u1, c5, "ADMIN"));
+				usuarioComunidadRepository.save(new UsuarioComunidad(u2, c5, "MIEMBRO"));
 
 				// Eventos
 				Evento e1 = new Evento("Carrera de Montaña", "Ruta de 20km por la sierra",

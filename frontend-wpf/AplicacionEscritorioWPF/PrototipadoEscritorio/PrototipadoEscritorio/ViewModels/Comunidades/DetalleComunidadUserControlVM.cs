@@ -13,6 +13,9 @@ namespace PrototipadoEscritorio.ViewModels.Comunidades
         [ObservableProperty]
         private Comunidad _comunidad = new();
 
+        [ObservableProperty]
+        private string _colorTipo = "verde";
+
         public int NumeroMiembros => Comunidad.Usuarios?.Count ?? 0;
 
         public ObservableCollection<string> RolesUnicos { get; } = new();

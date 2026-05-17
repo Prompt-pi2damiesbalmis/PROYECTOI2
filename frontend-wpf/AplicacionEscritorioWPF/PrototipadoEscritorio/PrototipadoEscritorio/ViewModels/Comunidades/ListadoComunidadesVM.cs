@@ -26,6 +26,11 @@ namespace PrototipadoEscritorio.ViewModels.Comunidades
         {
             CargarComunidades();
 
+            WeakReferenceMessenger.Default.Register<ComunidadAñadidaMessage>(this, (r, m) =>
+            {
+                CargarComunidades();
+            });
+
             WeakReferenceMessenger.Default.Register<CerrarDetalleComunidadMessage>(this, (r, m) =>
             {
                 DetalleComunidadVM.Comunidad = new();
@@ -35,7 +40,7 @@ namespace PrototipadoEscritorio.ViewModels.Comunidades
 
         public void CargarComunidades()
         {
-            var comunidades = ApiRestService.GetComunidades();
+            var comunidades = ApiRestService.GetComunidadesPorEstado("ACTIVO");
             ListaComunidades.Clear();
             foreach (var c in comunidades)
                 ListaComunidades.Add(c);
@@ -48,7 +53,8 @@ namespace PrototipadoEscritorio.ViewModels.Comunidades
                 CargarComunidades();
                 return;
             }
-            var resultados = ApiRestService.BuscarComunidadesPorNombre(value);
+            var todas = ApiRestService.GetComunidadesPorEstado("ACTIVO");
+            var resultados = todas.Where(c => c.Nombre.Contains(value, System.StringComparison.OrdinalIgnoreCase)).ToList();
             ListaComunidades.Clear();
             foreach (var c in resultados)
                 ListaComunidades.Add(c);

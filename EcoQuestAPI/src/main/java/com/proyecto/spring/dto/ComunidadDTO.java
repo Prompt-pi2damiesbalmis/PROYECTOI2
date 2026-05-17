@@ -7,12 +7,14 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.proyecto.spring.modelos.Comunidad;
 import com.proyecto.spring.modelos.Evento;
 
-@JsonPropertyOrder({ "id", "nombre", "descripcion", "imagen", "usuarios", "eventos" })
+@JsonPropertyOrder({ "id", "nombre", "descripcion", "imagen", "estado", "motivoCancelacion", "usuarios", "eventos" })
 public class ComunidadDTO {
     public Long id;
     public String nombre;
     public String descripcion;
     public String imagen;
+    public String estado;
+    public String motivoCancelacion;
     public List<UsuarioResumenDTO> usuarios;
     public List<Evento> eventos;
 
@@ -21,6 +23,8 @@ public class ComunidadDTO {
         this.nombre = c.getNombre();
         this.descripcion = c.getDescripcion();
         this.imagen = c.getImagen();
+        this.estado = c.getEstado();
+        this.motivoCancelacion = c.getMotivoCancelacion();
         this.usuarios = c.getUsuarios() == null ? List.of()
                 : c.getUsuarios().stream()
                         .map(uc -> new UsuarioResumenDTO(uc.getUsuario().getNombreUsuario(), uc.getRol()))

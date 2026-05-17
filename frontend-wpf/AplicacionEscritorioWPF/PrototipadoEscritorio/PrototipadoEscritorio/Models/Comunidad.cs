@@ -27,6 +27,14 @@ namespace PrototipadoEscritorio.Models
         private string _imagen = string.Empty;
 
         [ObservableProperty]
+        [JsonProperty("estado")]
+        private string _estado = string.Empty;
+
+        [ObservableProperty]
+        [JsonProperty("motivoCancelacion")]
+        private string _motivoCancelacion = string.Empty;
+
+        [ObservableProperty]
         [JsonProperty("usuarios")]
         private List<UsuarioResumen> _usuarios = new();
 

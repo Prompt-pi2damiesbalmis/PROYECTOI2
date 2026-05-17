@@ -1,11 +1,12 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.Win32;
+using PrototipadoEscritorio.Messages;
+using PrototipadoEscritorio.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media.Imaging;
 
 namespace PrototipadoEscritorio.ViewModels.Comunidades
@@ -14,6 +15,9 @@ namespace PrototipadoEscritorio.ViewModels.Comunidades
     {
         [ObservableProperty]
         private string _nombre = string.Empty;
+
+        [ObservableProperty]
+        private string _descripcion = string.Empty;
 
         [ObservableProperty]
         private string? _rutaImagenLocal;
@@ -46,7 +50,42 @@ namespace PrototipadoEscritorio.ViewModels.Comunidades
         [RelayCommand]
         private async Task Guardar()
         {
-            // Implementar lógica de guardado
+            try
+            {
+                if (string.IsNullOrWhiteSpace(Nombre))
+                {
+                    MessageBox.Show("Rellena los campos obligatorios", "Aviso",
+                        MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                var resultado = await ApiRestService.CrearComunidad(Nombre.Trim(), Descripcion?.Trim() ?? "", RutaImagenLocal);
+                if (resultado)
+                {
+                    WeakReferenceMessenger.Default.Send(new ComunidadAñadidaMessage());
+                    MessageBox.Show("Comunidad añadida correctamente", "Éxito",
+                        MessageBoxButton.OK, MessageBoxImage.Information);
+                    LimpiarFormulario();
+                }
+                else
+                {
+                    MessageBox.Show("Error al guardar la comunidad", "Error",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Excepción: {ex.Message}", "Error",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void LimpiarFormulario()
+        {
+            Nombre = string.Empty;
+            Descripcion = string.Empty;
+            RutaImagenLocal = null;
+            Previsualizacion = null;
         }
     }
 }

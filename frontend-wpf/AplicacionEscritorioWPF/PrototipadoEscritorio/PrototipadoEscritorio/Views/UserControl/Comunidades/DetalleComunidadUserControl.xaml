@@ -4,9 +4,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:conv="clr-namespace:PrototipadoEscritorio.Converters"
     d:DesignHeight="540"
     d:DesignWidth="500"
     mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <conv:ColorTipoToBrushConverter x:Key="ColorTipoToBrush" />
+    </UserControl.Resources>
 
     <Border
         Width="460"
@@ -29,10 +34,24 @@
             </Grid.ColumnDefinitions>
 
             <Border
+                x:Name="LeftBar"
                 Grid.Column="0"
                 Width="16"
-                Background="#3BB273"
-                CornerRadius="16,0,0,16" />
+                CornerRadius="16,0,0,16">
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Setter Property="Background" Value="#3BB273" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ColorTipo}" Value="amarillo">
+                                <Setter Property="Background" Value="#F0A030" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ColorTipo}" Value="rojo">
+                                <Setter Property="Background" Value="#E74C3C" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+            </Border>
 
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
@@ -41,9 +60,22 @@
                 </Grid.RowDefinitions>
 
                 <Border
+                    x:Name="HeaderBar"
                     Grid.Row="0"
-                    Background="#3BB273"
                     CornerRadius="0,16,0,0">
+                    <Border.Style>
+                        <Style TargetType="Border">
+                            <Setter Property="Background" Value="#3BB273" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ColorTipo}" Value="amarillo">
+                                    <Setter Property="Background" Value="#F0A030" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ColorTipo}" Value="rojo">
+                                    <Setter Property="Background" Value="#E74C3C" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
                     <StackPanel
                         Margin="14,10,14,10"
                         Orientation="Horizontal">
@@ -123,10 +155,24 @@
 
                                 <StackPanel Margin="0,12,0,0" Orientation="Horizontal">
                                     <TextBlock
+                                        x:Name="MiembrosCount"
                                         FontSize="28"
                                         FontWeight="Bold"
-                                        Foreground="#3BB273"
-                                        Text="{Binding NumeroMiembros}" />
+                                        Text="{Binding NumeroMiembros}">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Foreground" Value="#3BB273" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding ColorTipo}" Value="amarillo">
+                                                        <Setter Property="Foreground" Value="#F0A030" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding ColorTipo}" Value="rojo">
+                                                        <Setter Property="Foreground" Value="#E74C3C" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
                                     <TextBlock
                                         Margin="8,12,0,0"
                                         FontSize="14"
@@ -138,12 +184,13 @@
                         </Border>
 
                         <Border
+                            x:Name="RolesSection"
                             Margin="0,10,0,0"
                             Padding="16"
-                            Background="#F0F7F3"
-                            BorderBrush="#3BB273"
                             BorderThickness="1"
-                            CornerRadius="10">
+                            CornerRadius="10"
+                            Background="#F6FAF8"
+                            BorderBrush="#E4E9E6">
                             <StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock
@@ -162,7 +209,7 @@
                                 <Border
                                     Height="1"
                                     Margin="0,10,0,0"
-                                    Background="#D4E8DA" />
+                                    Background="#E4E9E6" />
 
                                 <ItemsControl
                                     Margin="0,12,0,0"
@@ -177,8 +224,8 @@
                                             <Border
                                                 Margin="0,0,8,4"
                                                 Padding="14,6"
-                                                Background="#3BB273"
-                                                CornerRadius="14">
+                                                CornerRadius="14"
+                                                Background="{Binding DataContext.ColorTipo, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource ColorTipoToBrush}}">
                                                 <TextBlock
                                                     FontSize="12"
                                                     FontWeight="SemiBold"
@@ -206,6 +253,7 @@
                         </Border>
 
                         <Button
+                            x:Name="CerrarBtn"
                             Height="36"
                             Margin="0,16,0,0"
                             Padding="20,0"
@@ -215,11 +263,11 @@
                             Cursor="Hand"
                             FontSize="14"
                             FontWeight="SemiBold"
-                            Foreground="White">
+                            Foreground="White"
+                            BorderThickness="0">
                             <Button.Style>
                                 <Style TargetType="Button">
                                     <Setter Property="Background" Value="#3BB273" />
-                                    <Setter Property="BorderThickness" Value="0" />
                                     <Setter Property="Template">
                                         <Setter.Value>
                                             <ControlTemplate TargetType="Button">
@@ -241,6 +289,14 @@
                                             </ControlTemplate>
                                         </Setter.Value>
                                     </Setter>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ColorTipo}" Value="amarillo">
+                                            <Setter Property="Background" Value="#F0A030" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding ColorTipo}" Value="rojo">
+                                            <Setter Property="Background" Value="#E74C3C" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
                                 </Style>
                             </Button.Style>
                         </Button>
@@ -249,4 +305,5 @@
             </Grid>
         </Grid>
     </Border>
+
 </UserControl>

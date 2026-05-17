@@ -89,6 +89,12 @@
                     <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Grid Style="{StaticResource CardWrapperStyle}">
+                            <Grid.InputBindings>
+                                <MouseBinding
+                                    Command="{Binding DataContext.VerDetalleComunidadCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                    CommandParameter="{Binding}"
+                                    Gesture="LeftClick" />
+                            </Grid.InputBindings>
                             <Border Style="{StaticResource CardShadowLayerStyle}" />
                             <Border Style="{StaticResource CardContentLayerStyle}">
                                 <Grid>
@@ -124,6 +130,7 @@
             </ScrollViewer>
         </Grid>
 
+        <!-- Revision modal overlay -->
         <Grid Visibility="{Binding ModalVisible, Converter={StaticResource BoolToVisibilityConverter}}">
             <Button
                 Background="Transparent"
@@ -142,6 +149,27 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 DataContext="{Binding RevisarComunidadVM}" />
+        </Grid>
+
+        <!-- Detail modal overlay -->
+        <Grid Visibility="{Binding ModalDetalleVisible, Converter={StaticResource BoolToVisibilityConverter}}">
+            <Button
+                Background="Transparent"
+                BorderThickness="0"
+                Command="{Binding CerrarModalCommand}"
+                Cursor="Arrow"
+                Focusable="False">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Rectangle Fill="{TemplateBinding Background}" />
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <local:DetalleComunidadUserControl
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                DataContext="{Binding DetalleComunidadVM}" />
         </Grid>
     </Grid>
 </UserControl>

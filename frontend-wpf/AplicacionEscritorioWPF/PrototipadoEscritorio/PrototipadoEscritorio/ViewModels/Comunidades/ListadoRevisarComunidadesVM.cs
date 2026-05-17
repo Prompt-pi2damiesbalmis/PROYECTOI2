@@ -3,7 +3,9 @@ using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using PrototipadoEscritorio.Messages;
 using PrototipadoEscritorio.Models;
+using PrototipadoEscritorio.Services;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace PrototipadoEscritorio.ViewModels.Comunidades
 {
@@ -16,21 +18,58 @@ namespace PrototipadoEscritorio.ViewModels.Comunidades
         private bool _modalVisible = false;
 
         [ObservableProperty]
+        private bool _modalDetalleVisible = false;
+
+        [ObservableProperty]
         private RevisarComunidadUserControlVM _revisarComunidadVM = new();
 
-        public ObservableCollection<Comunidad> ListaComunidades { get; } = new()
-        {
-            new Comunidad(1, "Eco Acción", "/Assets/comunidad2.jpg"),
-            new Comunidad(2, "Tribu Verde", "/Assets/comunidad3.jpg"),
-            new Comunidad(3, "Playas Limpias", "/Assets/comunidad6.jpg"),
-        };
+        [ObservableProperty]
+        private DetalleComunidadUserControlVM _detalleComunidadVM = new();
+
+        public ObservableCollection<Comunidad> ListaComunidades { get; } = new();
 
         public ListadoRevisarComunidadesVM()
         {
+            CargarComunidades();
+
+            WeakReferenceMessenger.Default.Register<ComunidadAñadidaMessage>(this, (r, m) =>
+            {
+                CargarComunidades();
+            });
+
             WeakReferenceMessenger.Default.Register<RevisarComunidadMessage>(this, (r, m) =>
             {
                 ModalVisible = false;
+                CargarComunidades();
             });
+
+            WeakReferenceMessenger.Default.Register<CerrarDetalleComunidadMessage>(this, (r, m) =>
+            {
+                DetalleComunidadVM.Comunidad = new();
+                ModalDetalleVisible = false;
+            });
+        }
+
+        public void CargarComunidades()
+        {
+            var comunidades = ApiRestService.GetComunidadesPorEstado("EN_REVISION");
+            ListaComunidades.Clear();
+            foreach (var c in comunidades)
+                ListaComunidades.Add(c);
+        }
+
+        partial void OnTextoBusquedaChanged(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                CargarComunidades();
+                return;
+            }
+            var todas = ApiRestService.GetComunidadesPorEstado("EN_REVISION");
+            var resultados = todas.Where(c => c.Nombre.Contains(value, System.StringComparison.OrdinalIgnoreCase)).ToList();
+            ListaComunidades.Clear();
+            foreach (var c in resultados)
+                ListaComunidades.Add(c);
         }
 
         [RelayCommand]
@@ -43,6 +82,23 @@ namespace PrototipadoEscritorio.ViewModels.Comunidades
         }
 
         [RelayCommand]
-        private void CerrarModal() => ModalVisible = false;
+        private void VerDetalleComunidad(Comunidad comunidad)
+        {
+            if (comunidad == null) return;
+            DetalleComunidadVM.Comunidad = comunidad;
+            DetalleComunidadVM.ColorTipo = "amarillo";
+            ModalDetalleVisible = true;
+        }
+
+        [RelayCommand]
+        private void CerrarModal()
+        {
+            if (ModalVisible) ModalVisible = false;
+            if (ModalDetalleVisible)
+            {
+                DetalleComunidadVM.Comunidad = new();
+                ModalDetalleVisible = false;
+            }
+        }
     }
 }
