@@ -154,6 +154,15 @@ public class EventoController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @PatchMapping("/{id}/en-revision")
+    public ResponseEntity<Evento> enviarARevision(@PathVariable Long id,
+            @RequestBody Map<String, String> body) {
+        String motivo = body.getOrDefault("motivo", "Sin especificar");
+        return eventoService.enviarARevision(id, motivo)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
     @PatchMapping("/{id}/cancelar-con-motivo")
     public ResponseEntity<Evento> cancelarConMotivo(@PathVariable Long id,
             @RequestBody Map<String, String> body) {

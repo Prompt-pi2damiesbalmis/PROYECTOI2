@@ -345,6 +345,23 @@ namespace PrototipadoEscritorio.Services
             }
         }
 
+        public static async Task<bool> EnviarARevision(int id, string motivo)
+        {
+            try
+            {
+                RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
+                RestRequest request = new($"eventos/{id}/en-revision", Method.Patch);
+                var body = JsonConvert.SerializeObject(new { motivo });
+                request.AddParameter("application/json", body, ParameterType.RequestBody);
+                RestResponse response = await client.ExecuteAsync(request);
+                return response.IsSuccessful;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public static async Task<bool> AceptarEvento(int id)
         {
             try

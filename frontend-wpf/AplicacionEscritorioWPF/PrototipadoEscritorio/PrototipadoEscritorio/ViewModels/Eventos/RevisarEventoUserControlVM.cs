@@ -28,7 +28,7 @@ namespace PrototipadoEscritorio.ViewModels.Eventos
         [RelayCommand]
         private void Confirmar()
         {
-            WeakReferenceMessenger.Default.Send(new RevisarEventoMessage(Evento));
+            WeakReferenceMessenger.Default.Send(new RevisarEventoMessage(Evento, Razon));
         }
     }
 }

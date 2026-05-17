@@ -10,6 +10,10 @@ namespace PrototipadoEscritorio.Messages
 {
     public class RevisarEventoMessage : ValueChangedMessage<Evento>
     {
-        public RevisarEventoMessage(Evento evento) : base(evento) {}
+        public string Motivo { get; }
+        public RevisarEventoMessage(Evento evento, string motivo = "") : base(evento)
+        {
+            Motivo = motivo;
+        }
     }
 }
