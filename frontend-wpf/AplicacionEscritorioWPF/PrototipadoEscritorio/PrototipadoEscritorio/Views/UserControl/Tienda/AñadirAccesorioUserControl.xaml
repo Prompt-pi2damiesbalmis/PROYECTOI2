@@ -20,41 +20,26 @@
             VerticalAlignment="Top">
             <TextBlock
                 Margin="0,40,0,28"
-                HorizontalAlignment="Center"
-                FontSize="38"
-                FontWeight="SemiBold"
-                Foreground="#1F2A24"
+                Style="{StaticResource FormTitleText}"
                 Text="Añadir Accesorio" />
 
             <Border
                 Padding="28,24"
-                Background="White"
-                BorderBrush="#E4E9E6"
-                BorderThickness="1"
-                CornerRadius="14">
+                Style="{StaticResource FormCard}">
 
                 <StackPanel>
                     <!-- Nombre -->
                     <StackPanel Margin="0,0,0,16">
                         <TextBlock
                             Margin="0,0,0,6"
-                            FontSize="13"
-                            FontWeight="SemiBold"
-                            Foreground="#1F2A24"
+                            Style="{StaticResource FormLabel}"
                             Text="Nombre" />
-                        <Border
-                            Background="#F6FAF8"
-                            BorderBrush="#E4E9E6"
-                            BorderThickness="1"
-                            CornerRadius="8">
+                        <Border Style="{StaticResource FormInputBorder}">
                             <TextBox
                                 Height="38"
                                 Padding="12,0"
                                 VerticalContentAlignment="Center"
-                                Background="Transparent"
-                                BorderThickness="0"
-                                FontSize="14"
-                                Foreground="#1F2A24"
+                                Style="{StaticResource FormTextBox}"
                                 Text="{Binding Nombre, UpdateSourceTrigger=PropertyChanged}" />
                         </Border>
                     </StackPanel>
@@ -63,106 +48,58 @@
                     <StackPanel Margin="0,0,0,16">
                         <TextBlock
                             Margin="0,0,0,6"
-                            FontSize="13"
-                            FontWeight="SemiBold"
-                            Foreground="#1F2A24"
+                            Style="{StaticResource FormLabel}"
                             Text="Puntos" />
-                        <Border
-                            Background="#F6FAF8"
-                            BorderBrush="#E4E9E6"
-                            BorderThickness="1"
-                            CornerRadius="8">
+                        <Border Style="{StaticResource FormInputBorder}">
                             <TextBox
                                 Height="38"
                                 Padding="12,0"
                                 VerticalContentAlignment="Center"
-                                Background="Transparent"
-                                BorderThickness="0"
-                                FontSize="14"
-                                Foreground="#1F2A24"
+                                Style="{StaticResource FormTextBox}"
                                 Text="{Binding Precio, UpdateSourceTrigger=PropertyChanged}" />
                         </Border>
                     </StackPanel>
 
                     <!-- Separator -->
                     <Border
-                        Height="1"
                         Margin="0,0,0,16"
-                        Background="#E4E9E6" />
+                        Style="{StaticResource FormSeparator}" />
 
                     <!-- Imagen -->
                     <StackPanel Margin="0,0,0,20">
                         <DockPanel Margin="0,0,0,8">
                             <TextBlock
                                 VerticalAlignment="Center"
-                                FontSize="13"
-                                FontWeight="SemiBold"
-                                Foreground="#1F2A24"
+                                Style="{StaticResource FormLabel}"
                                 Text="Imagen" />
                             <Button
-                                Width="130"
-                                Height="30"
                                 HorizontalAlignment="Right"
-                                Background="#3BB273"
-                                BorderThickness="0"
-                                Command="{Binding SeleccionarImagenCommand}"
-                                Content="Seleccionar"
-                                Cursor="Hand"
                                 DockPanel.Dock="Right"
-                                FontSize="13"
-                                FontWeight="SemiBold"
-                                Foreground="White">
-                                <Button.Template>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border Background="{TemplateBinding Background}" CornerRadius="6">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                        </Border>
-                                    </ControlTemplate>
-                                </Button.Template>
-                            </Button>
+                                Style="{StaticResource FormImageSelectButton}"
+                                Command="{Binding SeleccionarImagenCommand}"
+                                Content="Seleccionar" />
                         </DockPanel>
 
                         <TextBlock
                             Margin="0,0,0,8"
-                            FontSize="12"
-                            Foreground="#999"
+                            Style="{StaticResource FormImagePathText}"
                             Text="{Binding RutaImagenLocal, FallbackValue='Ninguna imagen seleccionada', TargetNullValue='Ninguna imagen seleccionada'}" />
 
                         <Border
                             Width="120"
                             Height="120"
-                            Padding="0"
                             HorizontalAlignment="Left"
-                            Background="#EDF3EF"
-                            BorderBrush="#E4E9E6"
-                            BorderThickness="1"
-                            ClipToBounds="True"
-                            CornerRadius="10">
+                            Style="{StaticResource FormImagePreviewBox}">
                             <Image Source="{Binding Previsualizacion}" Stretch="Uniform" />
                         </Border>
                     </StackPanel>
 
                     <!-- Guardar -->
                     <Button
-                        Width="120"
-                        Height="38"
                         HorizontalAlignment="Right"
-                        Background="#3BB273"
-                        BorderThickness="0"
+                        Style="{StaticResource FormGuardarButton}"
                         Command="{Binding GuardarCommand}"
-                        Content="Guardar"
-                        Cursor="Hand"
-                        FontSize="14"
-                        FontWeight="SemiBold"
-                        Foreground="White">
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Background="{TemplateBinding Background}" CornerRadius="8">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
+                        Content="Guardar" />
                 </StackPanel>
             </Border>
         </StackPanel>

@@ -20,18 +20,12 @@
             VerticalAlignment="Top">
             <TextBlock
                 Margin="0,40,0,28"
-                HorizontalAlignment="Center"
-                FontSize="38"
-                FontWeight="SemiBold"
-                Foreground="#1F2A24"
+                Style="{StaticResource FormTitleText}"
                 Text="Añadir Usuario" />
 
             <Border
                 Padding="24,20"
-                Background="White"
-                BorderBrush="#E4E9E6"
-                BorderThickness="1"
-                CornerRadius="14">
+                Style="{StaticResource FormCard}">
 
                 <Grid Width="350">
                     <Grid.ColumnDefinitions>
@@ -57,23 +51,14 @@
                         Margin="0,0,0,12">
                         <TextBlock
                             Margin="0,0,0,5"
-                            FontSize="13"
-                            FontWeight="SemiBold"
-                            Foreground="#1F2A24"
+                            Style="{StaticResource FormLabel}"
                             Text="Nombre de usuario" />
-                        <Border
-                            Background="#F6FAF8"
-                            BorderBrush="#E4E9E6"
-                            BorderThickness="1"
-                            CornerRadius="8">
+                        <Border Style="{StaticResource FormInputBorder}">
                             <TextBox
                                 Height="36"
                                 Padding="12,0"
                                 VerticalContentAlignment="Center"
-                                Background="Transparent"
-                                BorderThickness="0"
-                                FontSize="14"
-                                Foreground="#1F2A24"
+                                Style="{StaticResource FormTextBox}"
                                 Text="{Binding NombreUsuario, UpdateSourceTrigger=PropertyChanged}" />
                         </Border>
                     </StackPanel>
@@ -85,23 +70,14 @@
                         Margin="0,0,0,12">
                         <TextBlock
                             Margin="0,0,0,5"
-                            FontSize="13"
-                            FontWeight="SemiBold"
-                            Foreground="#1F2A24"
+                            Style="{StaticResource FormLabel}"
                             Text="Nombre" />
-                        <Border
-                            Background="#F6FAF8"
-                            BorderBrush="#E4E9E6"
-                            BorderThickness="1"
-                            CornerRadius="8">
+                        <Border Style="{StaticResource FormInputBorder}">
                             <TextBox
                                 Height="36"
                                 Padding="12,0"
                                 VerticalContentAlignment="Center"
-                                Background="Transparent"
-                                BorderThickness="0"
-                                FontSize="14"
-                                Foreground="#1F2A24"
+                                Style="{StaticResource FormTextBox}"
                                 Text="{Binding Nombre, UpdateSourceTrigger=PropertyChanged}" />
                         </Border>
                     </StackPanel>
@@ -112,23 +88,14 @@
                         Margin="0,0,0,12">
                         <TextBlock
                             Margin="0,0,0,5"
-                            FontSize="13"
-                            FontWeight="SemiBold"
-                            Foreground="#1F2A24"
+                            Style="{StaticResource FormLabel}"
                             Text="Apellido" />
-                        <Border
-                            Background="#F6FAF8"
-                            BorderBrush="#E4E9E6"
-                            BorderThickness="1"
-                            CornerRadius="8">
+                        <Border Style="{StaticResource FormInputBorder}">
                             <TextBox
                                 Height="36"
                                 Padding="12,0"
                                 VerticalContentAlignment="Center"
-                                Background="Transparent"
-                                BorderThickness="0"
-                                FontSize="14"
-                                Foreground="#1F2A24"
+                                Style="{StaticResource FormTextBox}"
                                 Text="{Binding Apellido, UpdateSourceTrigger=PropertyChanged}" />
                         </Border>
                     </StackPanel>
@@ -148,23 +115,14 @@
                             <StackPanel Grid.Column="0">
                                 <TextBlock
                                     Margin="0,0,0,5"
-                                    FontSize="13"
-                                    FontWeight="SemiBold"
-                                    Foreground="#1F2A24"
+                                    Style="{StaticResource FormLabel}"
                                     Text="Email" />
-                                <Border
-                                    Background="#F6FAF8"
-                                    BorderBrush="#E4E9E6"
-                                    BorderThickness="1"
-                                    CornerRadius="8">
+                                <Border Style="{StaticResource FormInputBorder}">
                                     <TextBox
                                         Height="36"
                                         Padding="12,0"
                                         VerticalContentAlignment="Center"
-                                        Background="Transparent"
-                                        BorderThickness="0"
-                                        FontSize="14"
-                                        Foreground="#1F2A24"
+                                        Style="{StaticResource FormTextBox}"
                                         Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" />
                                 </Border>
                             </StackPanel>
@@ -172,23 +130,14 @@
                             <StackPanel Grid.Column="2">
                                 <TextBlock
                                     Margin="0,0,0,5"
-                                    FontSize="13"
-                                    FontWeight="SemiBold"
-                                    Foreground="#1F2A24"
+                                    Style="{StaticResource FormLabel}"
                                     Text="Edad" />
-                                <Border
-                                    Background="#F6FAF8"
-                                    BorderBrush="#E4E9E6"
-                                    BorderThickness="1"
-                                    CornerRadius="8">
+                                <Border Style="{StaticResource FormInputBorder}">
                                     <TextBox
                                         Height="36"
                                         Padding="12,0"
                                         VerticalContentAlignment="Center"
-                                        Background="Transparent"
-                                        BorderThickness="0"
-                                        FontSize="14"
-                                        Foreground="#1F2A24"
+                                        Style="{StaticResource FormTextBox}"
                                         Text="{Binding Edad, UpdateSourceTrigger=PropertyChanged}" />
                                 </Border>
                             </StackPanel>
@@ -202,23 +151,14 @@
                         Margin="0,0,0,12">
                         <TextBlock
                             Margin="0,0,0,5"
-                            FontSize="13"
-                            FontWeight="SemiBold"
-                            Foreground="#1F2A24"
+                            Style="{StaticResource FormLabel}"
                             Text="Contraseña" />
-                        <Border
-                            Background="#F6FAF8"
-                            BorderBrush="#E4E9E6"
-                            BorderThickness="1"
-                            CornerRadius="8">
+                        <Border Style="{StaticResource FormInputBorder}">
                             <TextBox
                                 Height="36"
                                 Padding="12,0"
                                 VerticalContentAlignment="Center"
-                                Background="Transparent"
-                                BorderThickness="0"
-                                FontSize="14"
-                                Foreground="#1F2A24"
+                                Style="{StaticResource FormTextBox}"
                                 Text="{Binding Contraseña, UpdateSourceTrigger=PropertyChanged}" />
                         </Border>
                     </StackPanel>
@@ -230,26 +170,14 @@
                         Margin="0,0,0,12">
                         <TextBlock
                             Margin="0,0,0,5"
-                            FontSize="13"
-                            FontWeight="SemiBold"
-                            Foreground="#1F2A24"
+                            Style="{StaticResource FormLabel}"
                             Text="Descripción" />
-                        <Border
-                            Background="#F6FAF8"
-                            BorderBrush="#E4E9E6"
-                            BorderThickness="1"
-                            CornerRadius="8">
+                        <Border Style="{StaticResource FormInputBorder}">
                             <TextBox
                                 Height="50"
                                 Padding="12,6"
-                                AcceptsReturn="True"
-                                Background="Transparent"
-                                BorderThickness="0"
-                                FontSize="14"
-                                Foreground="#1F2A24"
-                                Text="{Binding Descripcion, UpdateSourceTrigger=PropertyChanged}"
-                                TextWrapping="Wrap"
-                                VerticalScrollBarVisibility="Auto" />
+                                Style="{StaticResource FormMultiTextBox}"
+                                Text="{Binding Descripcion, UpdateSourceTrigger=PropertyChanged}" />
                         </Border>
                     </StackPanel>
 
@@ -257,9 +185,8 @@
                     <Border
                         Grid.Row="5"
                         Grid.ColumnSpan="3"
-                        Height="1"
                         Margin="0,0,0,14"
-                        Background="#E4E9E6" />
+                        Style="{StaticResource FormSeparator}" />
 
                     <!--  Row 6: Imagen de perfil  -->
                     <StackPanel
@@ -269,49 +196,26 @@
                         <DockPanel Margin="0,0,0,8">
                             <TextBlock
                                 VerticalAlignment="Center"
-                                FontSize="13"
-                                FontWeight="SemiBold"
-                                Foreground="#1F2A24"
+                                Style="{StaticResource FormLabel}"
                                 Text="Imagen de perfil" />
                             <Button
-                                Width="130"
-                                Height="30"
                                 HorizontalAlignment="Right"
-                                Background="#3BB273"
-                                BorderThickness="0"
-                                Command="{Binding SeleccionarImagenCommand}"
-                                Content="Seleccionar"
-                                Cursor="Hand"
                                 DockPanel.Dock="Right"
-                                FontSize="13"
-                                FontWeight="SemiBold"
-                                Foreground="White">
-                                <Button.Template>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border Background="{TemplateBinding Background}" CornerRadius="6">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                        </Border>
-                                    </ControlTemplate>
-                                </Button.Template>
-                            </Button>
+                                Style="{StaticResource FormImageSelectButton}"
+                                Command="{Binding SeleccionarImagenCommand}"
+                                Content="Seleccionar" />
                         </DockPanel>
 
                         <TextBlock
                             Margin="0,0,0,8"
-                            FontSize="12"
-                            Foreground="#999"
+                            Style="{StaticResource FormImagePathText}"
                             Text="{Binding RutaImagenLocal, FallbackValue='Ninguna imagen seleccionada', TargetNullValue='Ninguna imagen seleccionada'}" />
 
                         <Border
                             Width="100"
                             Height="100"
-                            Padding="0"
                             HorizontalAlignment="Left"
-                            Background="#EDF3EF"
-                            BorderBrush="#E4E9E6"
-                            BorderThickness="1"
-                            ClipToBounds="True"
-                            CornerRadius="10">
+                            Style="{StaticResource FormImagePreviewBox}">
                             <Image Source="{Binding Previsualizacion}" Stretch="Uniform" />
                         </Border>
                     </StackPanel>
@@ -320,25 +224,10 @@
                     <Button
                         Grid.Row="7"
                         Grid.ColumnSpan="3"
-                        Width="120"
-                        Height="38"
                         HorizontalAlignment="Right"
-                        Background="#3BB273"
-                        BorderThickness="0"
+                        Style="{StaticResource FormGuardarButton}"
                         Command="{Binding GuardarCommand}"
-                        Content="Guardar"
-                        Cursor="Hand"
-                        FontSize="14"
-                        FontWeight="SemiBold"
-                        Foreground="White">
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Background="{TemplateBinding Background}" CornerRadius="8">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
+                        Content="Guardar" />
                 </Grid>
             </Border>
         </StackPanel>
