@@ -125,6 +125,14 @@ public class EventoService {
         });
     }
 
+    public Optional<Evento> enviarARevision(Long id, String motivo) {
+        return eventoRepository.findById(id).map(evento -> {
+            evento.setEstado("REVISION");
+            evento.setMotivoCancelacion(motivo);
+            return eventoRepository.save(evento);
+        });
+    }
+
     public boolean eliminar(Long id) {
         Optional<Evento> eventoOpt = eventoRepository.findById(id);
         if (eventoOpt.isEmpty())

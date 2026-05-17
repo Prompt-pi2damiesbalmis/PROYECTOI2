@@ -48,7 +48,7 @@ namespace PrototipadoEscritorio.ViewModels.Eventos
             {
                 if (m.Value != null)
                 {
-                    await ApiRestService.CancelarEvento(m.Value.EventoId);
+                    await ApiRestService.EnviarARevision(m.Value.EventoId, m.Motivo);
                     WeakReferenceMessenger.Default.Send(new EventoAñadidoMessage());
                 }
                 ModalVisible = false;
@@ -86,15 +86,14 @@ namespace PrototipadoEscritorio.ViewModels.Eventos
                 ListaEventos.Add(e);
         }
 
-        [RelayCommand]
-        private void Buscar()
+        partial void OnTextoBusquedaChanged(string value)
         {
-            if (string.IsNullOrWhiteSpace(TextoBusqueda))
+            if (string.IsNullOrWhiteSpace(value))
             {
                 CargarEventos();
                 return;
             }
-            var resultados = ApiRestService.BuscarEventosPorNombre(TextoBusqueda);
+            var resultados = ApiRestService.BuscarEventosPorNombre(value);
             ListaEventos.Clear();
             foreach (var e in resultados.Where(e => e.Estado == "PENDIENTE"))
                 ListaEventos.Add(e);
