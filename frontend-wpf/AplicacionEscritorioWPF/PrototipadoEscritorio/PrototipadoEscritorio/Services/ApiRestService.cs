@@ -240,6 +240,25 @@ namespace PrototipadoEscritorio.Services
             }
         }
 
+        // ==================== COMUNIDADES ====================
+
+        public static List<Comunidad> GetComunidades()
+        {
+            RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
+            RestRequest request = new("comunidades", Method.Get);
+            RestResponse response = client.Execute(request);
+            return JsonConvert.DeserializeObject<List<Comunidad>>(response.Content);
+        }
+
+        public static List<Comunidad> BuscarComunidadesPorNombre(string nombre)
+        {
+            RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
+            RestRequest request = new("comunidades", Method.Get);
+            RestResponse response = client.Execute(request);
+            var todas = JsonConvert.DeserializeObject<List<Comunidad>>(response.Content);
+            return todas?.FindAll(c => c.Nombre.Contains(nombre, StringComparison.OrdinalIgnoreCase)) ?? new();
+        }
+
         // ==================== EVENTOS ====================
 
         public static List<Evento> GetEventos()
