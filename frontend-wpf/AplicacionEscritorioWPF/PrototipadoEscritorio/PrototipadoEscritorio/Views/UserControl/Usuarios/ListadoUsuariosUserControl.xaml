@@ -96,12 +96,30 @@
                                 BorderBrush="#E0E0E0"
                                 BorderThickness="1"
                                 CornerRadius="12">
-                                <Border.Effect>
-                                    <DropShadowEffect
-                                        BlurRadius="8"
-                                        Opacity="0.1"
-                                        ShadowDepth="2" />
-                                </Border.Effect>
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="Effect">
+                                            <Setter.Value>
+                                                <DropShadowEffect
+                                                    BlurRadius="8"
+                                                    Opacity="0.1"
+                                                    ShadowDepth="2" />
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Effect">
+                                                    <Setter.Value>
+                                                        <DropShadowEffect
+                                                            BlurRadius="18"
+                                                            Opacity="0.22"
+                                                            ShadowDepth="6" />
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
 
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -135,13 +153,12 @@
                                                 BorderBrush="#E0E0E0"
                                                 BorderThickness="1"
                                                 CornerRadius="35">
+                                                <Border.Clip>
+                                                    <EllipseGeometry Center="35,35" RadiusX="35" RadiusY="35" />
+                                                </Border.Clip>
                                                 <Image
-                                                    Width="60"
-                                                    Height="60"
-                                                    HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"
                                                     Source="{Binding Imagen}"
-                                                    Stretch="Uniform" />
+                                                    Stretch="UniformToFill" />
                                             </Border>
 
                                             <StackPanel Grid.Column="1" VerticalAlignment="Center">
