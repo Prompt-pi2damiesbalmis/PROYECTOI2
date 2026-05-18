@@ -4,9 +4,9 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
+import com.pmdm.proyectobase.ui.features.comunidades.ComunidadesScreen
 import com.pmdm.proyectobase2425.ui.features.comunidades.ComunidadesEvent
 import com.pmdm.proyectobase2425.ui.features.comunidades.ComunidadesViewModel
-import com.pmdm.proyectobase2425.ui.theme.features.comunidades.ComunidadesScreen
 import kotlinx.serialization.Serializable
 
 @Serializable

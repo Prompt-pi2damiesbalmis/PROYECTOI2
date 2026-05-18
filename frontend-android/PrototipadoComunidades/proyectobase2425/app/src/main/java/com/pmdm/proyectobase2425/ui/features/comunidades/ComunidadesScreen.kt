@@ -1,4 +1,4 @@
-package com.pmdm.proyectobase2425.ui.theme.features.comunidades
+package com.pmdm.proyectobase.ui.features.comunidades
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -65,8 +65,8 @@ fun ComunidadesScreen(
         if (uiState.dialogMode == CommunityMode.CREATE) {
             CrearComunidadDialog(
                 onDismiss = { onEvent(ComunidadesEvent.OnDismissDialog) },
-                onConfirm = { nombre, descripcion ->
-                    onEvent(ComunidadesEvent.OnCreateComunidad(nombre, descripcion))
+                onConfirm = { nombre, descripcion, imagenUri ->
+                    onEvent(ComunidadesEvent.OnCreateComunidad(nombre, descripcion, imagenUri))
                 }
             )
         }

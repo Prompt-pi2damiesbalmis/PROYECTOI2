@@ -2,11 +2,17 @@ package com.pmdm.proyectobase2425.ui.features.InicioRegistro
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.pmdm.proyectobase2425.data.repositories.UsuarioRepository
+import com.pmdm.proyectobase2425.data.services.UsuarioEntity
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class InicioRegistroViewModel @Inject constructor() : ViewModel() {
+class InicioRegistroViewModel @Inject constructor(
+    private val usuarioRepository: UsuarioRepository
+) : ViewModel() {
 
     var uiState =  mutableStateOf(InicioRegistroUiState())
         private set
@@ -98,7 +104,15 @@ class InicioRegistroViewModel @Inject constructor() : ViewModel() {
             error = null
         )
 
-        // Aquí iría Firebase / API
+        val usuarioEntity = UsuarioEntity(
+            id = 1L,
+            nombreUsuario = uiState.value.username,
+            nombre = uiState.value.username,
+            email = uiState.value.email
+        )
+        viewModelScope.launch {
+            usuarioRepository.upsert(usuarioEntity)
+        }
 
         uiState.value = uiState.value.copy(
             isLoading = false,

@@ -7,8 +7,9 @@ import com.pmdm.proyectobase2425.data.services.ComunidadEntity
 import com.pmdm.proyectobase2425.data.room.EventoDao
 import com.pmdm.proyectobase2425.data.services.EventoEntity
 import com.pmdm.proyectobase2425.data.room.UsuarioComunidadDao
-import com.pmdm.proyectobase2425.data.services.UsuarioComunidadEntity
 import com.pmdm.proyectobase2425.data.room.UsuarioDao
+import com.pmdm.proyectobase2425.data.services.UsuarioComunidadEntity
+import com.pmdm.proyectobase2425.data.room.UsuarioEventoDao
 import com.pmdm.proyectobase2425.data.services.UsuarioEntity
 import com.pmdm.proyectobase2425.data.services.UsuarioEventoEntity
 
@@ -21,7 +22,7 @@ import com.pmdm.proyectobase2425.data.services.UsuarioEventoEntity
         UsuarioComunidadEntity::class,
         UsuarioEventoEntity::class
     ],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
@@ -29,4 +30,5 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun eventoDao(): EventoDao
     abstract fun usuarioDao(): UsuarioDao
     abstract fun usuarioComunidadDao(): UsuarioComunidadDao
+    abstract fun usuarioEventoDao(): UsuarioEventoDao
 }

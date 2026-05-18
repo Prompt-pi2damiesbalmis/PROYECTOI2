@@ -1,4 +1,4 @@
-package com.pmdm.proyectobase2425.features
+package com.pmdm.proyectobase.ui.features.InicioRegistro
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

@@ -20,15 +20,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.pmdm.proyectobase.ui.navigation.AppNavHost
 import com.pmdm.proyectobase2425.R
 import com.pmdm.proyectobase2425.ui.navigation.AppNavigation.route.AjustesRoute
-import com.pmdm.proyectobase2425.ui.navigation.AppNavigation.route.ComunidadesRoute
+import com.pmdm.proyectobase2425.ui.navigation.AppNavigation.route.EventoRoute
 import com.pmdm.proyectobase2425.ui.navigation.AppNavigation.route.HomeRoute
 import com.pmdm.proyectobase2425.ui.navigation.AppNavigation.route.PerfilRoute
 import com.pmdm.proyectobase2425.ui.navigation.AppNavigation.route.TiendaRoute
 import com.pmdm.proyectobase2425.ui.theme.GreenBar
 import com.pmdm.proyectobase2425.ui.theme.ProyectoBase2425Theme
-import com.pmdm.proyectobase2425.ui.theme.navigation.AppNavHost
 
 // ─── Composable real con ViewModel (usado en producción) ───
 @Composable
@@ -107,13 +107,13 @@ fun HomeScreenContent(
 
                     IconButton(
                         onClick = {
-                            navController.navigate(ComunidadesRoute) {
+                            navController.navigate(EventoRoute()) {
                                 launchSingleTop = true
                             }
                         },
                         modifier = Modifier.weight(1f)
                     ) {
-                        Icon(Icons.Filled.List, contentDescription = "Comunidad")
+                        Icon(Icons.Filled.List, contentDescription = "Eventos")
                     }
 
                     IconButton(
