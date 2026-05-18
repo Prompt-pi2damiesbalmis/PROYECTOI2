@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.pmdm.proyectobase2425.CommunityMode
 import com.pmdm.proyectobase2425.data.repositories.ComunidadRepository
+import com.pmdm.proyectobase2425.data.services.ComunidadEntity
 import com.pmdm.proyectobase2425.models.Comunidad
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -23,18 +24,32 @@ class ComunidadesViewModel @Inject constructor(
     init {
         viewModelScope.launch {
             comunidadRepository.getAll().collect { comunidadesEntity ->
-                val comunidades = comunidadesEntity.map { entity ->
-                    Comunidad(
-                        id = entity.id,
-                        nombre = entity.nombre,
-                        descripcion = entity.descripcion,
-                        imagen = entity.imagen
-                        // eventos y usuarios se cargarían por separado si fuera necesario
-                    )
+                if (comunidadesEntity.isEmpty()) {
+                    comunidadRepository.upsertAll(comunidadesSeed)
+                } else {
+                    val comunidades = comunidadesEntity.map { entity ->
+                        Comunidad(
+                            id = entity.id,
+                            nombre = entity.nombre,
+                            descripcion = entity.descripcion,
+                            imagen = entity.imagen
+                        )
+                    }
+                    state = state.copy(comunidades = comunidades, isLoading = false)
                 }
-                state = state.copy(comunidades = comunidades, isLoading = false)
             }
         }
+    }
+
+    companion object {
+        private val comunidadesSeed = listOf(
+            ComunidadEntity(id = 1L, nombre = "Todos Unidos",
+                descripcion = "Somos la Comunidad Eco-Conexión, y ¡acabamos de aterrizar en esta aplicación!", imagen = ""),
+            ComunidadEntity(id = 2L, nombre = "EcoWarriors",
+                descripcion = "Comprometidos con el medio ambiente y la sostenibilidad local.", imagen = ""),
+            ComunidadEntity(id = 3L, nombre = "Verde Urbano",
+                descripcion = "Transformando espacios urbanos en zonas más verdes y habitables.", imagen = ""),
+        )
     }
 
     fun onEvent(event: ComunidadesEvent) {
