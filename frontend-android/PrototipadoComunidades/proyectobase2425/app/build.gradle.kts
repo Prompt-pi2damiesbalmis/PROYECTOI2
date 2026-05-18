@@ -10,12 +10,12 @@ plugins {
 
 android {
     namespace = "com.pmdm.proyectobase2425"
-    compileSdk = 35
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.pmdm.proyectobase2425"
         minSdk = 28
-        targetSdk = 35
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
