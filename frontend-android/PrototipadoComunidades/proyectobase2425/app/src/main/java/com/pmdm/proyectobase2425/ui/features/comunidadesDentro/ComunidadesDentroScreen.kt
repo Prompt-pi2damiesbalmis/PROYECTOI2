@@ -153,13 +153,15 @@ fun ComunidadesDentroScreen(
                         onEvent(ComunidadesDentroEvent.OnAddEventoClick)
                     }
                 )
-                DropdownMenuItem(
-                    text = { Text("Editar comunidad") },
-                    onClick = {
-                        menuExpanded = false
-                        onEvent(ComunidadesDentroEvent.OnEditComunidadClick)
-                    }
-                )
+                if (uiState.esCreador) {
+                    DropdownMenuItem(
+                        text = { Text("Editar comunidad") },
+                        onClick = {
+                            menuExpanded = false
+                            onEvent(ComunidadesDentroEvent.OnEditComunidadClick)
+                        }
+                    )
+                }
             }
         }
 

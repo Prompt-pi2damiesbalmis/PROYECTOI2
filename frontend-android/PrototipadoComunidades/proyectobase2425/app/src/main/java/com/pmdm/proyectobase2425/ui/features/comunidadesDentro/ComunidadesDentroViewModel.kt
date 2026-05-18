@@ -34,9 +34,14 @@ class ComunidadesDentroViewModel @Inject constructor(
                         id = comunidadEntity.id,
                         nombre = comunidadEntity.nombre,
                         descripcion = comunidadEntity.descripcion,
-                        imagen = comunidadEntity.imagen
+                        imagen = comunidadEntity.imagen,
+                        creadorId = comunidadEntity.creadorId
                     )
-                    state = state.copy(comunidad = comunidad, isLoading = false)
+                    state = state.copy(
+                        comunidad = comunidad,
+                        esCreador = comunidadEntity.creadorId == 1L,
+                        isLoading = false
+                    )
                 }
             }
         }
