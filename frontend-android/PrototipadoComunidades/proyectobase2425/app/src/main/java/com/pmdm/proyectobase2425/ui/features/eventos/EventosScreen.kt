@@ -116,7 +116,7 @@ private fun EventoCard(evento: Evento, onClick: () -> Unit) {
             Spacer(modifier = Modifier.width(10.dp))
 
             AsyncImage(
-                model = if (evento.imagen.isNotEmpty()) evento.imagen else R.drawable.comunidad2,
+                model = if (evento.imagen.isNotEmpty()) evento.imagen else R.drawable.iconoeco,
                 contentDescription = null,
                 modifier = Modifier
                     .size(52.dp)

@@ -28,7 +28,7 @@ class EventosViewModel @Inject constructor(
                         id = entity.id,
                         nombre = entity.nombre,
                         descripcion = entity.descripcion,
-                        fechaHora = LocalDateTime.parse(entity.fechaHora),
+                        fechaHora = runCatching { LocalDateTime.parse(entity.fechaHora) }.getOrDefault(LocalDateTime.now()),
                         ubicacion = entity.ubicacion,
                         imagen = entity.imagen,
                         estado = entity.estado

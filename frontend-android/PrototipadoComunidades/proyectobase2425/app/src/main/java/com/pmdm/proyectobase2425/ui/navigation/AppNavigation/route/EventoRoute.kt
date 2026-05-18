@@ -1,14 +1,16 @@
 package com.pmdm.proyectobase2425.ui.navigation.AppNavigation.route
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Text
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
+import com.pmdm.proyectobase2425.ui.features.eventoDentro.EventoDentroScreen
+import com.pmdm.proyectobase2425.ui.features.eventoDentro.EventoDentroViewModel
+import com.pmdm.proyectobase2425.ui.features.eventos.EventosScreen
+import com.pmdm.proyectobase2425.ui.features.eventos.EventosViewModel
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -19,8 +21,36 @@ fun NavGraphBuilder.eventoDestination(
 ) {
     composable<EventoRoute> { backStackEntry ->
         val route = backStackEntry.toRoute<EventoRoute>()
-        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-            Text("Evento ${route.eventoId} — próximamente")
+
+        if (route.eventoId == 0L) {
+            EventosDestination(navController)
+        } else {
+            EventoDentroDestination(navController, route.eventoId)
         }
     }
+}
+
+@Composable
+private fun EventosDestination(navController: NavHostController) {
+    val vm: EventosViewModel = hiltViewModel()
+    EventosScreen(
+        uiState = vm.state,
+        onEvent = { event -> vm.onEvent(event) },
+        onNavigateToEvento = { eventoId ->
+            navController.navigate(EventoRoute(eventoId))
+        }
+    )
+}
+
+@Composable
+private fun EventoDentroDestination(navController: NavHostController, eventoId: Long) {
+    val vm: EventoDentroViewModel = hiltViewModel()
+    LaunchedEffect(eventoId) {
+        vm.cargarEvento(eventoId)
+    }
+    EventoDentroScreen(
+        eventoId = eventoId,
+        uiState = vm.state,
+        onEvent = { event -> vm.onEvent(event) }
+    )
 }

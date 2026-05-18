@@ -19,7 +19,7 @@ import com.pmdm.proyectobase2425.data.services.ComunidadEntity
     indices = [Index("comunidadId")]
 )
 data class EventoEntity(
-    @PrimaryKey val id: Long = 0,
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
     val nombre: String = "",
     val descripcion: String = "",
     val fechaHora: String = "",   // guardado como String ISO: "2026-05-10T09:00:00"
