@@ -26,5 +26,6 @@ data class EventoEntity(
     val ubicacion: String = "",
     val imagen: String = "",
     val estado: String = "",
-    val comunidadId: Long = 0
+    val comunidadId: Long = 0,
+    val creadorId: Long = 0
 )

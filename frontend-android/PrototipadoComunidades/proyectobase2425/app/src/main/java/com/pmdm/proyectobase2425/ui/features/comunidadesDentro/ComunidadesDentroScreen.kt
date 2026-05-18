@@ -9,6 +9,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -27,6 +28,7 @@ import com.pmdm.proyectobase2425.R
 import com.pmdm.proyectobase2425.models.Comunidad
 import com.pmdm.proyectobase2425.ui.features.comunidades.dialogos.EditarComunidadDialog
 import com.pmdm.proyectobase.ui.features.comunidadesDentro.CrearEventoDialog
+import com.pmdm.proyectobase2425.ui.features.comunidadesDentro.EditarEventoDialog
 import com.pmdm.proyectobase2425.ui.theme.GreenBar
 import com.pmdm.proyectobase2425.ui.theme.ProyectoBase2425Theme
 
@@ -102,26 +104,47 @@ fun ComunidadesDentroScreen(
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 uiState.eventos.forEach { evento ->
-                    Card(
-                        shape = RoundedCornerShape(16.dp),
-                        colors = CardDefaults.cardColors(containerColor = Color.White),
-                        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
-                        modifier = Modifier.fillMaxWidth(),
-                        onClick = { onNavigateToEvento(evento.id) }
-                    ) {
-                        Column {
-                            Image(
-                                painter = painterResource(id = R.drawable.playa),
-                                contentDescription = null,
+                    Box(modifier = Modifier.fillMaxWidth()) {
+                        Card(
+                            shape = RoundedCornerShape(16.dp),
+                            colors = CardDefaults.cardColors(containerColor = Color.White),
+                            elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
+                            modifier = Modifier.fillMaxWidth(),
+                            onClick = { onNavigateToEvento(evento.id) }
+                        ) {
+                            Column {
+                                Image(
+                                    painter = painterResource(id = R.drawable.playa),
+                                    contentDescription = null,
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .height(180.dp),
+                                    contentScale = ContentScale.Crop
+                                )
+                                Text(
+                                    text = evento.nombre,
+                                    modifier = Modifier.padding(16.dp)
+                                )
+                            }
+                        }
+                        if (evento.creadorId == 1L) {
+                            Box(
                                 modifier = Modifier
-                                    .fillMaxWidth()
-                                    .height(180.dp),
-                                contentScale = ContentScale.Crop
-                            )
-                            Text(
-                                text = evento.nombre,
-                                modifier = Modifier.padding(16.dp)
-                            )
+                                    .align(Alignment.TopEnd)
+                                    .padding(8.dp)
+                                    .clip(CircleShape)
+                                    .background(Color.Black.copy(alpha = 0.45f))
+                            ) {
+                                IconButton(
+                                    onClick = { onEvent(ComunidadesDentroEvent.OnEditEventoClick(evento.id)) }
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Filled.Edit,
+                                        contentDescription = "Editar evento",
+                                        tint = Color.White
+                                    )
+                                }
+                            }
                         }
                     }
                 }
@@ -181,6 +204,18 @@ fun ComunidadesDentroScreen(
                 onDismiss = { onEvent(ComunidadesDentroEvent.OnDismissDialog) },
                 onConfirm = { nombre, descripcion, fechaHora ->
                     onEvent(ComunidadesDentroEvent.OnCreateEvento(nombre, descripcion, fechaHora))
+                }
+            )
+        }
+
+        if (uiState.dialogMode == CommunityMode.EDIT_EVENT && uiState.eventoEnEdicion != null) {
+            EditarEventoDialog(
+                nombreInicial = uiState.eventoEnEdicion.nombre,
+                descripcionInicial = uiState.eventoEnEdicion.descripcion,
+                fechaInicialISO = uiState.eventoEnEdicion.fechaHora.toString(),
+                onDismiss = { onEvent(ComunidadesDentroEvent.OnDismissDialog) },
+                onConfirm = { nombre, descripcion, fechaHora ->
+                    onEvent(ComunidadesDentroEvent.OnConfirmEditEvento(nombre, descripcion, fechaHora))
                 }
             )
         }

@@ -22,7 +22,7 @@ import com.pmdm.proyectobase2425.data.services.UsuarioEventoEntity
         UsuarioComunidadEntity::class,
         UsuarioEventoEntity::class
     ],
-    version = 3,
+    version = 4,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
