@@ -1,5 +1,6 @@
 package com.proyecto.spring.modelos;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -28,6 +29,9 @@ public class Usuario {
     private int edad;
     private String email;
     private String imagen;
+    private boolean bloqueado;
+    private String causaBloqueo;
+    private LocalDateTime fechaBloqueo;
 
     @JsonManagedReference("usuario-comunidades")
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
@@ -50,6 +54,7 @@ public class Usuario {
         this.edad = edad;
         this.email = email;
         this.imagen = imagen;
+        this.bloqueado = false;
     }
 
     public Long getId() {
@@ -124,6 +129,30 @@ public class Usuario {
         this.imagen = imagen;
     }
 
+    public boolean isBloqueado() {
+        return bloqueado;
+    }
+
+    public void setBloqueado(boolean bloqueado) {
+        this.bloqueado = bloqueado;
+    }
+
+    public String getCausaBloqueo() {
+        return causaBloqueo;
+    }
+
+    public void setCausaBloqueo(String causaBloqueo) {
+        this.causaBloqueo = causaBloqueo;
+    }
+
+    public LocalDateTime getFechaBloqueo() {
+        return fechaBloqueo;
+    }
+
+    public void setFechaBloqueo(LocalDateTime fechaBloqueo) {
+        this.fechaBloqueo = fechaBloqueo;
+    }
+
     public List<UsuarioComunidad> getComunidades() {
         return comunidades;
     }
@@ -153,6 +182,9 @@ public class Usuario {
         result = prime * result + edad;
         result = prime * result + ((email == null) ? 0 : email.hashCode());
         result = prime * result + ((imagen == null) ? 0 : imagen.hashCode());
+        result = prime * result + (bloqueado ? 1231 : 1237);
+        result = prime * result + ((causaBloqueo == null) ? 0 : causaBloqueo.hashCode());
+        result = prime * result + ((fechaBloqueo == null) ? 0 : fechaBloqueo.hashCode());
         result = prime * result + ((comunidades == null) ? 0 : comunidades.hashCode());
         result = prime * result + ((eventos == null) ? 0 : eventos.hashCode());
         return result;
@@ -209,6 +241,18 @@ public class Usuario {
                 return false;
         } else if (!imagen.equals(other.imagen))
             return false;
+        if (bloqueado != other.bloqueado)
+            return false;
+        if (causaBloqueo == null) {
+            if (other.causaBloqueo != null)
+                return false;
+        } else if (!causaBloqueo.equals(other.causaBloqueo))
+            return false;
+        if (fechaBloqueo == null) {
+            if (other.fechaBloqueo != null)
+                return false;
+        } else if (!fechaBloqueo.equals(other.fechaBloqueo))
+            return false;
         if (comunidades == null) {
             if (other.comunidades != null)
                 return false;
@@ -226,7 +270,8 @@ public class Usuario {
     public String toString() {
         return "Usuario [id=" + id + ", nombreUsuario=" + nombreUsuario + ", contraseña=" + contraseña + ", nombre="
                 + nombre + ", apellido=" + apellido + ", descripcion=" + descripcion + ", edad=" + edad + ", email="
-                + email + ", imagen=" + imagen + ", comunidades=" + comunidades + ", eventos="
+                + email + ", imagen=" + imagen + ", bloqueado=" + bloqueado + ", causaBloqueo=" + causaBloqueo
+                + ", fechaBloqueo=" + fechaBloqueo + ", comunidades=" + comunidades + ", eventos="
                 + eventos + "]";
     }
 

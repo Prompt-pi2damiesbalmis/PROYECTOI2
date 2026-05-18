@@ -195,92 +195,79 @@
     <!--  ACCESORIOS  -->
 
     <!--  🎨 COLORES  -->
-    <Color x:Key="CardBackgroundColor">#F1F5DA</Color>
-    <Color x:Key="CardBorderColor">#E0E0E0</Color>
-    <Color x:Key="CardImageBackgroundColor">#EFEAF4</Color>
-    <Color x:Key="PrimaryButtonColor">#4CAF50</Color>
+    <Color x:Key="CardBackgroundColor">#F5F9F6</Color>
+    <Color x:Key="CardBorderColor">#E4E9E6</Color>
+    <Color x:Key="CardImageBackgroundColor">#EDF3EF</Color>
+    <Color x:Key="PrimaryButtonColor">#3BB273</Color>
+    <Color x:Key="CardHoverColor">#F0F7F3</Color>
 
     <SolidColorBrush x:Key="CardBackgroundBrush" Color="{StaticResource CardBackgroundColor}" />
     <SolidColorBrush x:Key="CardBorderBrush" Color="{StaticResource CardBorderColor}" />
     <SolidColorBrush x:Key="CardImageBackgroundBrush" Color="{StaticResource CardImageBackgroundColor}" />
     <SolidColorBrush x:Key="PrimaryButtonBrush" Color="{StaticResource PrimaryButtonColor}" />
+    <SolidColorBrush x:Key="CardHoverBrush" Color="{StaticResource CardHoverColor}" />
 
-    <!--  ============================================================  -->
-    <!--  🟦 CAPA SOMBRA  -->
-    <!--  Aplicar a: el Border exterior (sin contenido)  -->
-    <!--  ============================================================  -->
     <Style x:Key="CardShadowLayerStyle" TargetType="Border">
-        <Setter Property="CornerRadius" Value="14" />
+        <Setter Property="CornerRadius" Value="16" />
         <Setter Property="Background" Value="White" />
         <Setter Property="Effect">
             <Setter.Value>
                 <DropShadowEffect
-                    BlurRadius="10"
-                    Opacity="0.2"
+                    BlurRadius="14"
+                    Opacity="0.12"
                     RenderingBias="Quality"
-                    ShadowDepth="2" />
+                    ShadowDepth="3" />
             </Setter.Value>
         </Setter>
         <Style.Triggers>
-            <!--  El hover se detecta sobre el Grid padre gracias al IsMouseOver heredado  -->
             <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Grid}}" Value="True">
                 <Setter Property="Effect">
                     <Setter.Value>
                         <DropShadowEffect
-                            BlurRadius="18"
-                            Opacity="0.35"
+                            BlurRadius="22"
+                            Opacity="0.22"
                             RenderingBias="Quality"
-                            ShadowDepth="6" />
+                            ShadowDepth="8" />
                     </Setter.Value>
                 </Setter>
             </DataTrigger>
         </Style.Triggers>
     </Style>
 
-    <!--  ============================================================  -->
-    <!--  🟩 CAPA CONTENIDO  -->
-    <!--  Aplicar a: el Border interior (con el contenido real)  -->
-    <!--  ============================================================  -->
     <Style x:Key="CardContentLayerStyle" TargetType="Border">
-        <Setter Property="CornerRadius" Value="14" />
-        <Setter Property="Background" Value="{StaticResource CardBackgroundBrush}" />
+        <Setter Property="CornerRadius" Value="16" />
+        <Setter Property="Background" Value="White" />
         <Setter Property="BorderBrush" Value="{StaticResource CardBorderBrush}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Cursor" Value="Hand" />
-        <!--  Sin Effect aquí → nunca habrá blur en el contenido  -->
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#E8F5C8" />
-            </Trigger>
-        </Style.Triggers>
     </Style>
 
-    <!--  ============================================================  -->
-    <!--  🔲 GRID CONTENEDOR DE TARJETA  -->
-    <!--  Aplicar a: el Grid raíz de cada DataTemplate  -->
-    <!--  ============================================================  -->
     <Style x:Key="CardWrapperStyle" TargetType="Grid">
-        <Setter Property="Width" Value="217" />
+        <Setter Property="Width" Value="230" />
+        <Setter Property="Height" Value="280" />
         <Setter Property="Margin" Value="10" />
+        <Setter Property="VerticalAlignment" Value="Top" />
     </Style>
 
-    <!--  📝 TÍTULO  -->
     <Style x:Key="CardTitleStyle" TargetType="TextBlock">
-        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontSize" Value="16" />
         <Setter Property="FontWeight" Value="SemiBold" />
-        <Setter Property="Margin" Value="16,14,16,4" />
+        <Setter Property="Foreground" Value="{StaticResource BrushPrimaryText}" />
+        <Setter Property="Margin" Value="16,14,16,8" />
+        <Setter Property="TextTrimming" Value="CharacterEllipsis" />
     </Style>
 
-    <!--  🔹 SUBTEXTO  -->
     <Style x:Key="CardSubTextStyle" TargetType="TextBlock">
-        <Setter Property="FontSize" Value="14" />
-        <Setter Property="Foreground" Value="Gray" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="Foreground" Value="{StaticResource BrushSecondaryText}" />
         <Setter Property="Margin" Value="16,0,16,8" />
     </Style>
 
-    <!--  🖼 CONTENEDOR IMAGEN  -->
     <Style x:Key="CardImageContainerStyle" TargetType="Border">
         <Setter Property="Background" Value="{StaticResource CardImageBackgroundBrush}" />
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="Margin" Value="16,0,16,16" />
+        <Setter Property="ClipToBounds" Value="True" />
     </Style>
 
     <!--  🟢 BOTÓN  -->
@@ -309,6 +296,11 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style x:Key="CardDangerButtonStyle" TargetType="Button" BasedOn="{StaticResource CardButtonStyle}">
+        <Setter Property="Background" Value="#E74C3C" />
+    </Style>
+
     <Style x:Key="FocusVisual">
         <Setter Property="Control.Template">
             <Setter.Value>
@@ -382,6 +374,131 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <!--  Form Styles (Añadir views)  -->
+    <Style x:Key="FormTitleText" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="38" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Foreground" Value="#FF1F2A24" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="FormCard" TargetType="Border">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="BorderBrush" Value="#FFE4E9E6" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="14" />
+    </Style>
+
+    <Style x:Key="FormLabel" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Foreground" Value="#FF1F2A24" />
+    </Style>
+
+    <Style x:Key="FormInputBorder" TargetType="Border">
+        <Setter Property="Background" Value="#FFF6FAF8" />
+        <Setter Property="BorderBrush" Value="#FFE4E9E6" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="8" />
+    </Style>
+
+    <Style x:Key="FormTextBox" TargetType="TextBox">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Foreground" Value="#FF1F2A24" />
+    </Style>
+
+    <Style x:Key="FormMultiTextBox" TargetType="TextBox">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Foreground" Value="#FF1F2A24" />
+        <Setter Property="AcceptsReturn" Value="True" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+    </Style>
+
+    <Style x:Key="FormImageSelectButton" TargetType="Button">
+        <Setter Property="Width" Value="130" />
+        <Setter Property="Height" Value="30" />
+        <Setter Property="Background" Value="#FF3BB273" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border
+                        x:Name="BtnBorder"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="6">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="BtnBorder" Property="Background" Value="#2E8E5C" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="BtnBorder" Property="Background" Value="#237047" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FormGuardarButton" TargetType="Button">
+        <Setter Property="Width" Value="120" />
+        <Setter Property="Height" Value="38" />
+        <Setter Property="Background" Value="#FF3BB273" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border
+                        x:Name="BtnBorder"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="8">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="BtnBorder" Property="Background" Value="#2E8E5C" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="BtnBorder" Property="Background" Value="#237047" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FormSeparator" TargetType="Border">
+        <Setter Property="Height" Value="1" />
+        <Setter Property="Background" Value="#FFE4E9E6" />
+    </Style>
+
+    <Style x:Key="FormImagePreviewBox" TargetType="Border">
+        <Setter Property="Background" Value="#FFEDF3EF" />
+        <Setter Property="BorderBrush" Value="#FFE4E9E6" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="ClipToBounds" Value="True" />
+    </Style>
+
+    <Style x:Key="FormImagePathText" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Foreground" Value="#FF999999" />
     </Style>
 
 </ResourceDictionary>

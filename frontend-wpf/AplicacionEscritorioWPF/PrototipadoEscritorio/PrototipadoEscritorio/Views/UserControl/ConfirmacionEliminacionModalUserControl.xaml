@@ -26,10 +26,10 @@
                 <!--  Botones  -->
             </Grid.RowDefinitions>
 
-            <!--  ===== HEADER ROJO =====  -->
+            <!--  ===== HEADER =====  -->
             <Border
                 Grid.Row="0"
-                Background="#AF4C4E"
+                Background="{Binding ColorHeader}"
                 CornerRadius="10,10,0,0">
                 <TextBlock
                     Padding="24,16"
@@ -101,38 +101,32 @@
                     Width="100"
                     Height="40"
                     Command="{Binding ConfirmarCommand}"
-                    Content="Eliminar"
+                    Content="{Binding TextoConfirmar}"
                     Cursor="Hand"
-                    Foreground="White">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="#AF4C4E" />
-                            <Setter Property="FontSize" Value="14" />
-                            <Setter Property="FontWeight" Value="SemiBold" />
-                            <Setter Property="BorderThickness" Value="0" />
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border
-                                            Padding="{TemplateBinding Padding}"
-                                            Background="{TemplateBinding Background}"
-                                            BorderThickness="0"
-                                            CornerRadius="8">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                        </Border>
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Background" Value="#8B3A3C" />
-                                            </Trigger>
-                                            <Trigger Property="IsPressed" Value="True">
-                                                <Setter Property="Background" Value="#6B2A2C" />
-                                            </Trigger>
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </Button.Style>
+                    FontSize="14"
+                    FontWeight="SemiBold"
+                    Foreground="White"
+                    BorderThickness="0">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border
+                                x:Name="border"
+                                Padding="{TemplateBinding Padding}"
+                                Background="{Binding ColorConfirmar}"
+                                BorderThickness="0"
+                                CornerRadius="8">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="{Binding ColorConfirmarHover}" />
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="{Binding ColorConfirmarPress}" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
                 </Button>
             </StackPanel>
         </Grid>

@@ -94,6 +94,8 @@
 |:--: | :--: | :--: | :--: | :--: | :--: | :--: |
 | 10/04/2026 | 🎯S22 | - Finalización de la sección de Tienda + su funcionalidad  | 2h |  |  | Implementación de la sección de Tienda |
 | 11/04/2026 | 🔥S23 | - Maquetación, navegación y estilados generales en proceso + funcioncionalidad para navegar por más vistas | 2h |  |  | Gracias a las prácticas he gestionado mucho mejor el proyecto y la resolución de conflictos, lo que me ha permitido mejorar mi capacidad para gestionar el flujo de trabajo. |
+| 16/04/2026 | 🔥🎯S24 | - Creación completa de la sección de Usuarios y su funcionalidad + Prácticamente realizada la creación de la sección de Eventos y su funcionalidad | 5h |  |  | Gracias a las prácticas he gestionado mucho mejor el proyecto y la resolución de conflictos, lo que me ha permitido mejorar mi capacidad para gestionar el flujo de trabajo. |
+| 17/04/2026 | 🔥🎯S25 | - Proyecto de WPF y ApiRest finalizados. No descarto hacer cambios gráficos o implementar nuevas funcionalidades | 5h |  |  | No he tenido ningún problema ni complicación |
 
 
 

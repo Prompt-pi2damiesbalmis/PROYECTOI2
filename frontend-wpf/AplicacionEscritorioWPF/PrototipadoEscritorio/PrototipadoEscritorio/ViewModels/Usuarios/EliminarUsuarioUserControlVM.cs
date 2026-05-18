@@ -4,7 +4,7 @@ using CommunityToolkit.Mvvm.Messaging;
 using PrototipadoEscritorio.Messages;
 using PrototipadoEscritorio.Models;
 
-namespace PrototipadoEscritorio.ViewModels
+namespace PrototipadoEscritorio.ViewModels.Usuarios
 {
     public partial class EliminarUsuarioUserControlVM : ObservableObject
     {

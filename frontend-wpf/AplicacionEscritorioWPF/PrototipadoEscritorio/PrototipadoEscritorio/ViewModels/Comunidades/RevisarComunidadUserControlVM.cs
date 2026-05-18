@@ -3,6 +3,8 @@ using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using PrototipadoEscritorio.Messages;
 using PrototipadoEscritorio.Models;
+using PrototipadoEscritorio.Services;
+using System.Threading.Tasks;
 
 namespace PrototipadoEscritorio.ViewModels.Comunidades
 {
@@ -26,8 +28,12 @@ namespace PrototipadoEscritorio.ViewModels.Comunidades
         }
 
         [RelayCommand]
-        private void Confirmar()
+        private async Task Confirmar()
         {
+            if (Comunidad?.ComunidadId > 0)
+            {
+                await ApiRestService.RevisarComunidad(Comunidad.ComunidadId, Razon?.Trim() ?? "");
+            }
             WeakReferenceMessenger.Default.Send(new RevisarComunidadMessage(Comunidad));
         }
     }
