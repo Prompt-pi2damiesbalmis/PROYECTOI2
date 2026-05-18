@@ -90,7 +90,6 @@ class ComunidadesDentroViewModel @Inject constructor(
                         nombre = event.nombre,
                         descripcion = event.descripcion,
                         fechaHora = event.fechaHora,
-                        ubicacion = event.ubicacion,
                         imagen = "",
                         estado = "Activo",
                         comunidadId = state.comunidad?.id ?: 0L

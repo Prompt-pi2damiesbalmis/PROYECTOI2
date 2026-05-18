@@ -5,7 +5,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
-import com.pmdm.proyectobase2425.features.InicioSesionScreen
+import com.pmdm.proyectobase.ui.features.InicioRegistro.InicioSesionScreen
 import com.pmdm.proyectobase2425.ui.features.InicioRegistro.InicioRegistroEvent
 import com.pmdm.proyectobase2425.ui.features.InicioRegistro.InicioRegistroViewModel
 import kotlinx.serialization.Serializable

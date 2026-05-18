@@ -5,8 +5,8 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
-import com.pmdm.proyectobase2425.ui.features.comunidades.ComunidadesDentroScreen
-import com.pmdm.proyectobase2425.ui.features.comunidades.ComunidadesDentroViewModel
+import com.pmdm.proyectobase2425.ui.features.comunidadesDentro.ComunidadesDentroScreen
+import com.pmdm.proyectobase2425.ui.features.comunidadesDentro.ComunidadesDentroViewModel
 import kotlinx.serialization.Serializable
 
 @Serializable

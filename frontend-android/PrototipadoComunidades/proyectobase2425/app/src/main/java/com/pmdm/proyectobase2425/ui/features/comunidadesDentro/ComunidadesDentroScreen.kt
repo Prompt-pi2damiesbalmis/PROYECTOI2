@@ -1,4 +1,4 @@
-package com.pmdm.proyectobase.ui.features.comunidadesDentro
+package com.pmdm.proyectobase2425.ui.features.comunidadesDentro
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -27,7 +27,6 @@ import androidx.compose.ui.unit.sp
 import com.pmdm.proyectobase2425.CommunityMode
 import com.pmdm.proyectobase2425.R
 import com.pmdm.proyectobase2425.models.Comunidad
-import com.pmdm.proyectobase2425.ui.features.comunidades.dialogos.CrearComunidadDialog
 import com.pmdm.proyectobase2425.ui.features.comunidades.dialogos.EditarComunidadDialog
 import com.pmdm.proyectobase.ui.features.comunidadesDentro.CrearEventoDialog
 import com.pmdm.proyectobase2425.ui.theme.GreenBar

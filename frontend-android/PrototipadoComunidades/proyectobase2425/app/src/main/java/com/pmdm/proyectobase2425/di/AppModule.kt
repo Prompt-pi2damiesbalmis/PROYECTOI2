@@ -2,7 +2,7 @@ package com.pmdm.proyectobase2425.di
 
 import android.content.Context
 import androidx.room.Room
-import com.google.firebase.appdistribution.gradle.ApiService
+import com.pmdm.proyectobase2425.data.services.ApiService
 import com.pmdm.proyectobase2425.data.room.ComunidadDao
 import com.pmdm.proyectobase2425.data.room.EventoDao
 import com.pmdm.proyectobase2425.data.room.UsuarioComunidadDao

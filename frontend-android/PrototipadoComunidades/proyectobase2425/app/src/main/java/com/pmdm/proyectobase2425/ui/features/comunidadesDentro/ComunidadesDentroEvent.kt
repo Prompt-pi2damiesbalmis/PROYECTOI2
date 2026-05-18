@@ -1,4 +1,4 @@
-package com.pmdm.proyectobase2425.ui.features.comunidades
+package com.pmdm.proyectobase2425.ui.features.comunidadesDentro
 
 sealed interface ComunidadesDentroEvent {
     object OnAddEventoClick : ComunidadesDentroEvent
