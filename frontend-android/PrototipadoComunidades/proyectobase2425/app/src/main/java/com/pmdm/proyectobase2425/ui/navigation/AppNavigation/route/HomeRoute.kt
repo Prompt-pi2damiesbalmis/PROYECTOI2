@@ -1,9 +1,12 @@
 package com.pmdm.proyectobase2425.ui.navigation.AppNavigation.route
 
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
-import com.pmdm.proyectobase2425.ui.features.home.HomeMainScreen
+import com.pmdm.proyectobase.ui.features.comunidades.ComunidadesScreen
+import com.pmdm.proyectobase2425.ui.features.comunidades.ComunidadesEvent
+import com.pmdm.proyectobase2425.ui.features.comunidades.ComunidadesViewModel
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -13,6 +16,16 @@ fun NavGraphBuilder.homeDestination(
     navController: NavHostController
 ) {
     composable<HomeRoute> {
-        HomeMainScreen()
+        val vm: ComunidadesViewModel = hiltViewModel()
+        ComunidadesScreen(
+            uiState = vm.state,
+            onEvent = { event ->
+                when (event) {
+                    is ComunidadesEvent.OnComunidadClick ->
+                        navController.navigate(ComunidadDentroRoute(event.comunidadId))
+                    else -> vm.onEvent(event)
+                }
+            }
+        )
     }
 }
