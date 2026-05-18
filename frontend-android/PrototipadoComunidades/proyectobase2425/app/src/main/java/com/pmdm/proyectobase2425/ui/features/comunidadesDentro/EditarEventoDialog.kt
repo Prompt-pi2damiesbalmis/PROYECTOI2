@@ -1,4 +1,4 @@
-package com.pmdm.proyectobase.ui.features.comunidadesDentro
+package com.pmdm.proyectobase2425.ui.features.comunidadesDentro
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -19,23 +19,44 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import java.time.Instant
+import java.time.LocalDate
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CrearEventoDialog(
+fun EditarEventoDialog(
+    nombreInicial: String,
+    descripcionInicial: String,
+    fechaInicialISO: String,
     onDismiss: () -> Unit,
     onConfirm: (String, String, String) -> Unit
 ) {
-    var nombre by remember { mutableStateOf("") }
-    var descripcion by remember { mutableStateOf("") }
-    var fechaDisplay by remember { mutableStateOf("") }
-    var fechaISO by remember { mutableStateOf("") }
+    var nombre by remember { mutableStateOf(nombreInicial) }
+    var descripcion by remember { mutableStateOf(descripcionInicial) }
+
+    val displayFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+
+    val initialMillis = remember(fechaInicialISO) {
+        runCatching {
+            LocalDate.parse(fechaInicialISO.substringBefore('T'))
+                .atStartOfDay()
+                .toInstant(ZoneOffset.UTC)
+                .toEpochMilli()
+        }.getOrNull()
+    }
+
+    val fechaDisplayInicial = remember(fechaInicialISO) {
+        runCatching {
+            LocalDate.parse(fechaInicialISO.substringBefore('T')).format(displayFormatter)
+        }.getOrDefault("")
+    }
+
+    var fechaDisplay by remember { mutableStateOf(fechaDisplayInicial) }
+    var fechaISO by remember { mutableStateOf(fechaInicialISO) }
     var mostrarDatePicker by remember { mutableStateOf(false) }
 
-    val datePickerState = rememberDatePickerState()
-    val displayFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+    val datePickerState = rememberDatePickerState(initialSelectedDateMillis = initialMillis)
 
     if (mostrarDatePicker) {
         DatePickerDialog(
@@ -66,21 +87,9 @@ fun CrearEventoDialog(
 
     AlertDialog(
         onDismissRequest = onDismiss,
-        confirmButton = {
-            Button(
-                onClick = { onConfirm(nombre, descripcion, fechaISO) }
-            ) {
-                Text("Crear evento")
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text("Cancelar")
-            }
-        },
         title = {
             Text(
-                text = "Crear evento",
+                text = "Editar evento",
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Bold
             )
@@ -119,6 +128,18 @@ fun CrearEventoDialog(
                 ) {
                     Text("Seleccionar fecha")
                 }
+            }
+        },
+        confirmButton = {
+            Button(
+                onClick = { onConfirm(nombre, descripcion, fechaISO) }
+            ) {
+                Text("Guardar cambios")
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) {
+                Text("Cancelar")
             }
         }
     )

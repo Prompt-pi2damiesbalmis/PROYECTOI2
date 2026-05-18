@@ -19,12 +19,13 @@ import com.pmdm.proyectobase2425.data.services.ComunidadEntity
     indices = [Index("comunidadId")]
 )
 data class EventoEntity(
-    @PrimaryKey val id: Long = 0,
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
     val nombre: String = "",
     val descripcion: String = "",
     val fechaHora: String = "",   // guardado como String ISO: "2026-05-10T09:00:00"
     val ubicacion: String = "",
     val imagen: String = "",
     val estado: String = "",
-    val comunidadId: Long = 0
+    val comunidadId: Long = 0,
+    val creadorId: Long = 0
 )

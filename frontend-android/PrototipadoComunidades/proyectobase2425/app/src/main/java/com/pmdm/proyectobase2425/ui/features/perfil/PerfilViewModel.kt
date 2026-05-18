@@ -132,7 +132,7 @@ class PerfilViewModel @Inject constructor(
                                     id = eventoEntity.id,
                                     nombre = eventoEntity.nombre,
                                     descripcion = eventoEntity.descripcion,
-                                    fechaHora = LocalDateTime.parse(eventoEntity.fechaHora),
+                                    fechaHora = runCatching { LocalDateTime.parse(eventoEntity.fechaHora) }.getOrDefault(LocalDateTime.now()),
                                     ubicacion = eventoEntity.ubicacion,
                                     imagen = eventoEntity.imagen,
                                     estado = eventoEntity.estado

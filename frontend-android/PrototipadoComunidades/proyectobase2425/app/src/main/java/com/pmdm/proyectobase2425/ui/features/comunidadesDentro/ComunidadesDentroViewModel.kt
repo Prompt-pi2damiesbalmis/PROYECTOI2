@@ -53,10 +53,11 @@ class ComunidadesDentroViewModel @Inject constructor(
                         id = entity.id,
                         nombre = entity.nombre,
                         descripcion = entity.descripcion,
-                        fechaHora = LocalDateTime.parse(entity.fechaHora), // Asumiendo formato ISO
+                        fechaHora = runCatching { LocalDateTime.parse(entity.fechaHora) }.getOrDefault(LocalDateTime.now()),
                         ubicacion = entity.ubicacion,
                         imagen = entity.imagen,
-                        estado = entity.estado
+                        estado = entity.estado,
+                        creadorId = entity.creadorId
                     )
                 }
                 state = state.copy(eventos = eventos)
@@ -73,7 +74,7 @@ class ComunidadesDentroViewModel @Inject constructor(
                 state = state.copy(dialogMode = CommunityMode.EDIT)
 
             is ComunidadesDentroEvent.OnDismissDialog ->
-                state = state.copy(dialogMode = CommunityMode.NONE)
+                state = state.copy(dialogMode = CommunityMode.NONE, eventoEnEdicion = null)
 
             is ComunidadesDentroEvent.OnConfirmEditComunidad -> {
                 viewModelScope.launch {
@@ -91,16 +92,42 @@ class ComunidadesDentroViewModel @Inject constructor(
             is ComunidadesDentroEvent.OnCreateEvento -> {
                 viewModelScope.launch {
                     val nuevoEventoEntity = EventoEntity(
-                        id = 0L, // Auto-generate
+                        id = 0L,
                         nombre = event.nombre,
                         descripcion = event.descripcion,
                         fechaHora = event.fechaHora,
                         imagen = "",
                         estado = "Activo",
-                        comunidadId = state.comunidad?.id ?: 0L
+                        comunidadId = state.comunidad?.id ?: 0L,
+                        creadorId = 1L
                     )
                     eventoRepository.upsert(nuevoEventoEntity)
                     state = state.copy(dialogMode = CommunityMode.NONE)
+                }
+            }
+
+            is ComunidadesDentroEvent.OnEditEventoClick -> {
+                val evento = state.eventos.find { it.id == event.eventoId }
+                state = state.copy(dialogMode = CommunityMode.EDIT_EVENT, eventoEnEdicion = evento)
+            }
+
+            is ComunidadesDentroEvent.OnConfirmEditEvento -> {
+                state.eventoEnEdicion?.let { eventoActual ->
+                    viewModelScope.launch {
+                        eventoRepository.upsert(
+                            EventoEntity(
+                                id = eventoActual.id,
+                                nombre = event.nombre,
+                                descripcion = event.descripcion,
+                                fechaHora = event.fechaHora,
+                                imagen = eventoActual.imagen,
+                                estado = eventoActual.estado,
+                                comunidadId = state.comunidad?.id ?: 0L,
+                                creadorId = eventoActual.creadorId
+                            )
+                        )
+                        state = state.copy(dialogMode = CommunityMode.NONE, eventoEnEdicion = null)
+                    }
                 }
             }
         }

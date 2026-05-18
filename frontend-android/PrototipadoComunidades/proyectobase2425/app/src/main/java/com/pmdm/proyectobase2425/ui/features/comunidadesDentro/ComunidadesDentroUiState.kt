@@ -10,5 +10,6 @@ data class ComunidadesDentroUiState(
     val esCreador: Boolean = false,
     val isLoading: Boolean = false,
     val error: String? = null,
-    val dialogMode: CommunityMode = CommunityMode.NONE
+    val dialogMode: CommunityMode = CommunityMode.NONE,
+    val eventoEnEdicion: Evento? = null
 )

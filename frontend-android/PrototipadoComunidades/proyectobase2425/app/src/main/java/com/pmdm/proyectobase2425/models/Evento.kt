@@ -10,6 +10,7 @@ data class Evento(
     val ubicacion: String = "",
     val imagen: String = "",
     val estado: String = "",
+    val creadorId: Long = 0,
     val comunidad: Comunidad? = null,
     val usuarios: List<Usuario> = emptyList()
 )
