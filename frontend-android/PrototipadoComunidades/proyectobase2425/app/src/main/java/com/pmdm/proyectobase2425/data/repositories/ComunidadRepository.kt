@@ -15,6 +15,8 @@ class ComunidadRepository @Inject constructor(
 
     fun getById(id: Long): Flow<ComunidadEntity?> = comunidadDao.getById(id)
 
+    suspend fun insertAllIfAbsent(comunidades: List<ComunidadEntity>) = comunidadDao.insertAllIfAbsent(comunidades)
+
     suspend fun upsertAll(comunidades: List<ComunidadEntity>) = comunidadDao.upsertAll(comunidades)
 
     suspend fun upsert(comunidad: ComunidadEntity) = comunidadDao.upsert(comunidad)

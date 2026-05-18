@@ -65,8 +65,8 @@ fun ComunidadesScreen(
         if (uiState.dialogMode == CommunityMode.CREATE) {
             CrearComunidadDialog(
                 onDismiss = { onEvent(ComunidadesEvent.OnDismissDialog) },
-                onConfirm = { nombre, descripcion ->
-                    onEvent(ComunidadesEvent.OnCreateComunidad(nombre, descripcion))
+                onConfirm = { nombre, descripcion, imagenUri ->
+                    onEvent(ComunidadesEvent.OnCreateComunidad(nombre, descripcion, imagenUri))
                 }
             )
         }

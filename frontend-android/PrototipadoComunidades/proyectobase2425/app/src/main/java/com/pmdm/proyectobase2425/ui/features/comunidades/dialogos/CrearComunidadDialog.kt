@@ -1,5 +1,8 @@
 package com.pmdm.proyectobase2425.ui.features.comunidades.dialogos
 
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContracts.PickVisualMedia
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -11,23 +14,36 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.text.font.FontWeight
 
 @Composable
 fun CrearComunidadDialog(
     onDismiss: () -> Unit,
-    onConfirm: (String, String) -> Unit
+    onConfirm: (String, String, String) -> Unit
 ) {
     var nombre by remember { mutableStateOf("") }
     var descripcion by remember { mutableStateOf("") }
+    var imagenUri by remember { mutableStateOf("") }
+
+    val context = LocalContext.current
+    val launcher = rememberLauncherForActivityResult(PickVisualMedia()) { uri ->
+        if (uri != null) {
+            context.contentResolver.takePersistableUriPermission(
+                uri,
+                android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION
+            )
+            imagenUri = uri.toString()
+        }
+    }
 
     AlertDialog(
         onDismissRequest = onDismiss,
         confirmButton = {
             Button(
-                onClick = { onConfirm(nombre, descripcion) }
+                onClick = { onConfirm(nombre, descripcion, imagenUri) }
             ) {
                 Text("Crear comunidad")
             }
@@ -64,10 +80,12 @@ fun CrearComunidadDialog(
                 )
 
                 Button(
-                    onClick = { },
+                    onClick = {
+                        launcher.launch(PickVisualMediaRequest(PickVisualMedia.ImageOnly))
+                    },
                     modifier = Modifier.align(Alignment.Start)
                 ) {
-                    Text("Seleccionar foto")
+                    Text(if (imagenUri.isEmpty()) "Seleccionar foto" else "Foto seleccionada ✓")
                 }
             }
         }

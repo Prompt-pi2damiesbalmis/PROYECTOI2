@@ -23,20 +23,19 @@ class ComunidadesViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
+            comunidadRepository.insertAllIfAbsent(comunidadesSeed)
+        }
+        viewModelScope.launch {
             comunidadRepository.getAll().collect { comunidadesEntity ->
-                if (comunidadesEntity.isEmpty()) {
-                    comunidadRepository.upsertAll(comunidadesSeed)
-                } else {
-                    val comunidades = comunidadesEntity.map { entity ->
-                        Comunidad(
-                            id = entity.id,
-                            nombre = entity.nombre,
-                            descripcion = entity.descripcion,
-                            imagen = entity.imagen
-                        )
-                    }
-                    state = state.copy(comunidades = comunidades, isLoading = false)
+                val comunidades = comunidadesEntity.map { entity ->
+                    Comunidad(
+                        id = entity.id,
+                        nombre = entity.nombre,
+                        descripcion = entity.descripcion,
+                        imagen = entity.imagen
+                    )
                 }
+                state = state.copy(comunidades = comunidades, isLoading = false)
             }
         }
     }
@@ -56,7 +55,7 @@ class ComunidadesViewModel @Inject constructor(
         when (event) {
             is ComunidadesEvent.OnAddComunidadClick -> onAddComunidadClick()
             is ComunidadesEvent.OnDismissDialog -> onDismissDialog()
-            is ComunidadesEvent.OnCreateComunidad -> onCreateComunidad(event.nombre, event.descripcion)
+            is ComunidadesEvent.OnCreateComunidad -> onCreateComunidad(event.nombre, event.descripcion, event.imagenUri)
             is ComunidadesEvent.OnComunidadClick -> { /* Interceptado en el destination */ }
         }
     }
@@ -75,7 +74,7 @@ class ComunidadesViewModel @Inject constructor(
         state = state.copy(dialogMode = CommunityMode.NONE)
     }
 
-    private fun onCreateComunidad(nombre: String, descripcion: String) {
+    private fun onCreateComunidad(nombre: String, descripcion: String, imagenUri: String) {
         if (nombre.isBlank() || descripcion.isBlank()) {
             state = state.copy(error = "El nombre y la descripción no pueden estar vacíos")
             return
@@ -86,7 +85,7 @@ class ComunidadesViewModel @Inject constructor(
                 id = (state.comunidades.maxOfOrNull { it.id } ?: 0L) + 1L,
                 nombre = nombre,
                 descripcion = descripcion,
-                imagen = ""
+                imagen = imagenUri
             )
             comunidadRepository.upsert(nuevaComunidadEntity)
             state = state.copy(dialogMode = CommunityMode.NONE, error = null)
