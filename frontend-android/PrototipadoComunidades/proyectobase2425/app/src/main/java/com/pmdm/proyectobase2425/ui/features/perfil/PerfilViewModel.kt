@@ -10,6 +10,7 @@ import com.pmdm.proyectobase2425.data.repositories.EventoRepository
 import com.pmdm.proyectobase2425.data.repositories.UsuarioComunidadRepository
 import com.pmdm.proyectobase2425.data.repositories.UsuarioEventoRepository
 import com.pmdm.proyectobase2425.data.repositories.UsuarioRepository
+import com.pmdm.proyectobase2425.data.services.UsuarioEntity
 import com.pmdm.proyectobase2425.models.Comunidad
 import com.pmdm.proyectobase2425.models.Evento
 import com.pmdm.proyectobase2425.models.Usuario
@@ -47,6 +48,24 @@ class PerfilViewModel @Inject constructor(
                     showEventos = !state.showEventos,
                     showComunidades = false
                 )
+            }
+            is PerfilEvent.OnFotoSeleccionada -> {
+                val usuarioActualizado = state.usuario.copy(imagen = event.uri)
+                state = state.copy(usuario = usuarioActualizado)
+                viewModelScope.launch {
+                    usuarioRepository.upsert(
+                        UsuarioEntity(
+                            id = state.usuario.id,
+                            nombreUsuario = state.usuario.nombreUsuario,
+                            nombre = state.usuario.nombre,
+                            apellido = state.usuario.apellido,
+                            descripcion = state.usuario.descripcion,
+                            edad = state.usuario.edad,
+                            email = state.usuario.email,
+                            imagen = event.uri
+                        )
+                    )
+                }
             }
         }
     }

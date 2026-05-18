@@ -8,5 +8,6 @@ data class ComunidadEntity(
     @PrimaryKey val id: Long = 0,
     val nombre: String = "",
     val descripcion: String = "",
-    val imagen: String = ""
+    val imagen: String = "",
+    val creadorId: Long = 0
 )

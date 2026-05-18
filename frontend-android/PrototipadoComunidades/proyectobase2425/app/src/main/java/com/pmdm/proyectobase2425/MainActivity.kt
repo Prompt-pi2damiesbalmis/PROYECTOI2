@@ -8,7 +8,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.rememberNavController
+import com.pmdm.proyectobase2425.ui.features.ajustes.AjustesViewModel
 import com.pmdm.proyectobase2425.ui.features.home.HomeScreen
 import com.pmdm.proyectobase2425.ui.navigation.InicioRegistroNavigation.AuthNavHost
 import com.pmdm.proyectobase2425.ui.theme.ProyectoBase2425Theme
@@ -20,7 +22,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            ProyectoBase2425Theme {
+            val ajustesVm: AjustesViewModel = hiltViewModel()
+            ProyectoBase2425Theme(darkTheme = ajustesVm.state.temaOscuro) {
                 var isAuthenticated by remember { mutableStateOf(false) }
 
                 if (isAuthenticated) {

@@ -1,6 +1,5 @@
 package com.pmdm.proyectobase2425.ui.features.comunidades
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,12 +14,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.pmdm.proyectobase2425.models.Comunidad
+import coil.compose.AsyncImage
 import com.pmdm.proyectobase2425.R
+import com.pmdm.proyectobase2425.models.Comunidad
 
 @Composable
 fun ComunidadesCard(
@@ -28,6 +27,7 @@ fun ComunidadesCard(
     onClick: (Int) -> Unit
 ) {
     Card(
+        onClick = { onClick(comunidad.id.toInt()) },
         modifier = Modifier
             .fillMaxWidth()
             .aspectRatio(1f),
@@ -51,11 +51,11 @@ fun ComunidadesCard(
                 modifier = Modifier.padding(bottom = 8.dp)
             )
 
-            Image(
-                painter = painterResource(id = R.drawable.comunidad2),
+            AsyncImage(
+                model = if (comunidad.imagen.isNotEmpty()) comunidad.imagen else R.drawable.comunidad2,
                 contentDescription = comunidad.nombre,
                 modifier = Modifier.fillMaxSize(),
-                contentScale = ContentScale.Fit
+                contentScale = ContentScale.Crop
             )
         }
     }

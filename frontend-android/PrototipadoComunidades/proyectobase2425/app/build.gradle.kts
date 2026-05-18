@@ -65,6 +65,7 @@ dependencies {
     implementation(libs.pmdm.ies.balmis.components)
     implementation(libs.pmdm.ies.balmis.utilities)
     implementation(libs.androidx.emoji2.emojipicker)
+    implementation(libs.coil.compose)
     implementation(libs.androidx.navigation.runtime.ktx)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.compose.runtime)

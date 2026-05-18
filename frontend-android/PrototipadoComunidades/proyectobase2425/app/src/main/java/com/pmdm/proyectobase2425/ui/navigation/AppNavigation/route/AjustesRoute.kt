@@ -1,5 +1,7 @@
 package com.pmdm.proyectobase2425.ui.navigation.AppNavigation.route
 
+import androidx.activity.ComponentActivity
+import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
@@ -16,7 +18,8 @@ fun NavGraphBuilder.ajustesDestination(
     onLogout: () -> Unit
 ) {
     composable<AjustesRoute> {
-        val vm: AjustesViewModel = hiltViewModel()
+        val activity = LocalContext.current as ComponentActivity
+        val vm: AjustesViewModel = hiltViewModel(activity)
         AjustesScreen(
             uiState = vm.state,
             onEvent = { event -> vm.onEvent(event) },

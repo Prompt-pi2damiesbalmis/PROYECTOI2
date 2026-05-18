@@ -1,7 +1,11 @@
 package com.pmdm.proyectobase2425.ui.features.perfil
 
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContracts.PickVisualMedia
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
@@ -16,10 +20,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
 import com.pmdm.proyectobase2425.models.Comunidad
 import com.pmdm.proyectobase2425.models.Evento
 import com.pmdm.proyectobase2425.models.Usuario
@@ -33,6 +40,17 @@ fun PerfilScreen(
     uiState: PerfilUiState,
     onEvent: (PerfilEvent) -> Unit
 ) {
+    val context = LocalContext.current
+    val launcher = rememberLauncherForActivityResult(PickVisualMedia()) { uri ->
+        if (uri != null) {
+            context.contentResolver.takePersistableUriPermission(
+                uri,
+                android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION
+            )
+            onEvent(PerfilEvent.OnFotoSeleccionada(uri.toString()))
+        }
+    }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -42,20 +60,32 @@ fun PerfilScreen(
     ) {
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Avatar
+        // Avatar — pulsar para cambiar foto
         Box(
             modifier = Modifier
                 .size(110.dp)
                 .clip(CircleShape)
-                .background(Color.LightGray),
+                .background(Color.LightGray)
+                .clickable {
+                    launcher.launch(PickVisualMediaRequest(PickVisualMedia.ImageOnly))
+                },
             contentAlignment = Alignment.Center
         ) {
-            Text(
-                text = uiState.usuario.nombreUsuario.take(1).uppercase(),
-                fontSize = 40.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color.White
-            )
+            if (uiState.usuario.imagen.isNotEmpty()) {
+                AsyncImage(
+                    model = uiState.usuario.imagen,
+                    contentDescription = "Foto de perfil",
+                    modifier = Modifier.fillMaxSize(),
+                    contentScale = ContentScale.Crop
+                )
+            } else {
+                Text(
+                    text = uiState.usuario.nombreUsuario.take(1).uppercase(),
+                    fontSize = 40.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color.White
+                )
+            }
         }
 
         Spacer(modifier = Modifier.height(12.dp))

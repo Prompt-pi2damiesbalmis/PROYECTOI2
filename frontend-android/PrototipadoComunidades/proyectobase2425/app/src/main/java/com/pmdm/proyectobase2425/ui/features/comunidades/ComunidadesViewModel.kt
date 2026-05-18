@@ -32,7 +32,8 @@ class ComunidadesViewModel @Inject constructor(
                         id = entity.id,
                         nombre = entity.nombre,
                         descripcion = entity.descripcion,
-                        imagen = entity.imagen
+                        imagen = entity.imagen,
+                        creadorId = entity.creadorId
                     )
                 }
                 state = state.copy(comunidades = comunidades, isLoading = false)
@@ -43,11 +44,14 @@ class ComunidadesViewModel @Inject constructor(
     companion object {
         private val comunidadesSeed = listOf(
             ComunidadEntity(id = 1L, nombre = "Todos Unidos",
-                descripcion = "Somos la Comunidad Eco-Conexión, y ¡acabamos de aterrizar en esta aplicación!", imagen = ""),
+                descripcion = "Somos la Comunidad Eco-Conexión, y ¡acabamos de aterrizar en esta aplicación!",
+                imagen = "android.resource://com.pmdm.proyectobase2425/drawable/todosunidos"),
             ComunidadEntity(id = 2L, nombre = "EcoWarriors",
-                descripcion = "Comprometidos con el medio ambiente y la sostenibilidad local.", imagen = ""),
+                descripcion = "Comprometidos con el medio ambiente y la sostenibilidad local.",
+                imagen = "android.resource://com.pmdm.proyectobase2425/drawable/comunidad3"),
             ComunidadEntity(id = 3L, nombre = "Verde Urbano",
-                descripcion = "Transformando espacios urbanos en zonas más verdes y habitables.", imagen = ""),
+                descripcion = "Transformando espacios urbanos en zonas más verdes y habitables.",
+                imagen = "android.resource://com.pmdm.proyectobase2425/drawable/comunidad4"),
         )
     }
 
@@ -85,7 +89,8 @@ class ComunidadesViewModel @Inject constructor(
                 id = (state.comunidades.maxOfOrNull { it.id } ?: 0L) + 1L,
                 nombre = nombre,
                 descripcion = descripcion,
-                imagen = imagenUri
+                imagen = imagenUri,
+                creadorId = 1L
             )
             comunidadRepository.upsert(nuevaComunidadEntity)
             state = state.copy(dialogMode = CommunityMode.NONE, error = null)

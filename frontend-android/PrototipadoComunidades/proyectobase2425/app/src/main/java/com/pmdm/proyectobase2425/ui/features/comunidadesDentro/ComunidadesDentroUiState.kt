@@ -7,6 +7,7 @@ import com.pmdm.proyectobase2425.models.Evento
 data class ComunidadesDentroUiState(
     val comunidad: Comunidad? = null,
     val eventos: List<Evento> = emptyList(),
+    val esCreador: Boolean = false,
     val isLoading: Boolean = false,
     val error: String? = null,
     val dialogMode: CommunityMode = CommunityMode.NONE

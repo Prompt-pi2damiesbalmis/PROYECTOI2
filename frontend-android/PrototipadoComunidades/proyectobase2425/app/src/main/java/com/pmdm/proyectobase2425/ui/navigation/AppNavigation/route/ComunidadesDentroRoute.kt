@@ -1,5 +1,6 @@
 package com.pmdm.proyectobase2425.ui.navigation.AppNavigation.route
 
+import androidx.compose.runtime.LaunchedEffect
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
@@ -19,7 +20,11 @@ fun NavGraphBuilder.comunidadDentroDestination(
         val route = backStackEntry.toRoute<ComunidadDentroRoute>()
         val vm: ComunidadesDentroViewModel = hiltViewModel()
 
-         ComunidadesDentroScreen(
+        LaunchedEffect(route.comunidadId) {
+            vm.cargarComunidad(route.comunidadId.toLong())
+        }
+
+        ComunidadesDentroScreen(
             comunidadId = route.comunidadId.toLong(),
             uiState = vm.state,
             onEvent = { event -> vm.onEvent(event) },
