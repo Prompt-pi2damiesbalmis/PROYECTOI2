@@ -56,10 +56,14 @@
                                 Height="123"
                                 BorderThickness="2"
                                 CornerRadius="20">
+                                <Border.Clip>
+                                    <RectangleGeometry
+                                        RadiusX="20"
+                                        RadiusY="20"
+                                        Rect="0,0,123,123" />
+                                </Border.Clip>
 
-                                <Border.Background>
-                                    <SolidColorBrush Color="#1B5E20" />
-                                </Border.Background>
+                                <Image Source="/Assets/logo.png" />
 
                             </Border>
 
