@@ -18,6 +18,7 @@
 		<None Remove="Assets\comunidad6.jpg" />
 		<None Remove="Assets\EcoTech.jpg" />
 		<None Remove="Assets\Fondo.png" />
+		<None Remove="Assets\logo.png" />
 		<None Remove="Assets\mundo.png" />
 		<None Remove="Assets\periodicos.jpg" />
 		<None Remove="Assets\todosunidos.png" />
@@ -29,7 +30,6 @@
 
 	<ItemGroup>
 		<Resource Include="Assets\avatares.png" />
-		<Resource Include="Assets\logo2.png" />
 		<Resource Include="Assets\comunidad2.jpg" />
 		<Resource Include="Assets\comunidad3.jpg" />
 		<Resource Include="Assets\comunidad4.jpg" />
@@ -37,6 +37,7 @@
 		<Resource Include="Assets\comunidad6.jpg" />
 		<Resource Include="Assets\EcoTech.jpg" />
 		<Resource Include="Assets\Fondo.png" />
+		<Resource Include="Assets\logo.png" />
 		<Resource Include="Assets\mundo.png" />
 		<Resource Include="Assets\periodicos.jpg" />
 		<Resource Include="Assets\todosunidos.png" />
