@@ -45,7 +45,6 @@ style: |
 
   .cols2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
   .cols3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; align-items: start; }
-  .cols4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; align-items: start; }
   .center { text-align: center; }
   .caption { text-align: center; font-size: 0.72em; color: #666; margin-top: 6px; }
 
@@ -58,9 +57,7 @@ style: |
     border-radius: 20px; padding: 2px 11px; font-size: 0.68em;
     font-weight: 700; margin: 2px 2px; letter-spacing: 0.02em;
   }
-  .tag-blue  { background: #1565C0; }
-  .tag-org   { background: #E65100; }
-  .tag-gray  { background: #546E7A; }
+  .tag-gray { background: #546E7A; }
 
   .arch-box {
     border: 2px solid #4CAF50; border-radius: 8px;
@@ -69,17 +66,18 @@ style: |
   }
   .arch-box strong { color: #1B5E20; }
   .arch-box small  { color: #666; display: block; font-size: 0.85em; }
-  .arch-arrow { text-align: center; color: #81C784; font-size: 1.3em; margin: 1px 0; line-height: 1; }
+  .arch-arrow {
+    text-align: center; color: #81C784; font-size: 1.1em;
+    margin: 1px 0; line-height: 1; font-style: italic; font-size: 0.75em; color: #555;
+  }
 
   section.cover {
     background: linear-gradient(145deg, #1B5E20 0%, #2E7D32 55%, #43A047 100%);
     color: #fff;
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 56px 68px;
+    padding: 0;
+    display: flex;
+    align-items: stretch;
   }
-  section.cover h1 { color: #fff; border-bottom: 3px solid rgba(255,255,255,0.35); font-size: 2.8em; margin-bottom: 12px; }
-  section.cover .sub  { color: #C8E6C9; font-size: 1.0em; margin-bottom: 28px; }
-  section.cover .meta { color: rgba(255,255,255,0.82); font-size: 0.80em; line-height: 2.1; }
   section.cover::after { color: rgba(255,255,255,0.3); }
 
   section.divider {
@@ -94,27 +92,32 @@ style: |
 
 <!-- _class: cover -->
 
-# 🌿 EcoQuest
-
-<div class="sub">Plataforma de concienciación ambiental gamificada</div>
-
-<div class="meta">
-  👥 <strong>Equipo Prompt</strong> &nbsp;·&nbsp; IES Doctor Balmis &nbsp;·&nbsp; DAM 2025–2026<br/>
-  📱 App Android &nbsp;·&nbsp; ☁️ API REST &nbsp;·&nbsp; 🖥️ Panel WPF
+<div style="display:grid; grid-template-columns:240px 1fr; width:100%; height:100%; align-items:center; padding: 56px 60px; gap:52px;">
+<div style="text-align:center;">
+<img src="slides_img/logo.png" style="width:200px; border-radius:20px; box-shadow:0 8px 28px rgba(0,0,0,0.45);" />
+</div>
+<div>
+<h1 style="color:#fff; border-bottom:3px solid rgba(255,255,255,0.35); font-size:2.8em; margin-bottom:14px;">EcoQuest</h1>
+<div style="color:#C8E6C9; font-size:1.05em; margin-bottom:32px;">Plataforma de concienciación ambiental gamificada</div>
+<div style="color:rgba(255,255,255,0.85); font-size:0.82em; line-height:2.2;">
+  <strong>Equipo Prompt</strong> &nbsp;·&nbsp; IES Doctor Balmis &nbsp;·&nbsp; DAM 2025–2026<br/>
+  App Android &nbsp;·&nbsp; API REST &nbsp;·&nbsp; Panel WPF
+</div>
+</div>
 </div>
 
 ---
 
-# 💡 Introducción
+# Introducción
 
 <div class="cols2">
 <div>
 
-## ¿Por qué EcoQuest?
+## Por qué EcoQuest
 
-- 🌍 La gente quiere actuar, pero no sabe cómo
-- 🏘️ Falta de canales para organizarse localmente
-- 🎮 Las apps verdes existentes no enganchan
+- La gente quiere actuar, pero no sabe cómo
+- Falta de canales para organizarse localmente
+- Las apps verdes existentes no enganchan
 
 ## Nuestra propuesta
 
@@ -126,16 +129,16 @@ style: |
 <div>
 
 <div class="card">
-  <strong>🎯 Objetivo</strong><br/>
+  <strong>Objetivo</strong><br/>
   Fomentar hábitos sostenibles mediante comunidades locales, eventos reales y recompensas.
 </div>
 <div class="card">
-  <strong>👥 Usuarios</strong><br/>
+  <strong>Usuarios</strong><br/>
   <span class="tag">Usuario</span> App Android<br/>
   <span class="tag tag-gray">Administrador</span> Panel WPF
 </div>
 <div class="card">
-  <strong>🔗 Integración total</strong><br/>
+  <strong>Integración total</strong><br/>
   Móvil y escritorio comparten datos en tiempo real a través de la misma API REST.
 </div>
 
@@ -144,18 +147,18 @@ style: |
 
 ---
 
-# 🏛️ Arquitectura del sistema
+# Arquitectura del sistema
 
 <div class="cols2">
 <div>
 
-<div class="arch-box"><strong>📱 App Android</strong><small>Kotlin · Jetpack Compose · Hilt · Room · Retrofit</small></div>
-<div class="arch-arrow">⬆️⬇️&nbsp; REST / JWT</div>
-<div class="arch-box" style="border-color:#1565C0"><strong>☁️ API REST</strong><small>Spring Boot 3.4 · Java 21 · Puerto 9000</small></div>
-<div class="arch-arrow">⬆️⬇️&nbsp; JPA / Hibernate</div>
-<div class="arch-box" style="border-color:#6A1B9A"><strong>🗄️ Base de datos</strong><small>PostgreSQL (prod) · H2 (dev)</small></div>
-<div class="arch-arrow">⬆️⬇️&nbsp; REST / JWT</div>
-<div class="arch-box" style="border-color:#E65100"><strong>🖥️ Panel Admin WPF</strong><small>C# · .NET · MVVM</small></div>
+<div class="arch-box"><strong>App Android</strong><small>Kotlin · Jetpack Compose · Hilt · Room · Retrofit</small></div>
+<div class="arch-arrow">↕ REST / JWT</div>
+<div class="arch-box" style="border-color:#1565C0"><strong>API REST</strong><small>Spring Boot 3.4 · Java 21 · Puerto 9000</small></div>
+<div class="arch-arrow">↕ JPA / Hibernate</div>
+<div class="arch-box" style="border-color:#6A1B9A"><strong>Base de datos</strong><small>PostgreSQL (prod) · H2 (dev)</small></div>
+<div class="arch-arrow">↕ REST / JWT</div>
+<div class="arch-box" style="border-color:#E65100"><strong>Panel Admin WPF</strong><small>C# · .NET · MVVM</small></div>
 
 </div>
 <div>
@@ -164,11 +167,11 @@ style: |
 
 ```
 Compose UI  ←  estado (UiState)
-     ↓  eventos (sealed interface)
+     |  eventos (sealed interface)
 ViewModel   ←  Hilt @Inject
-     ↓
+     |
 Repository
-  ↓          ↓
+  |          |
 Room DB    Retrofit
 (offline)  (API REST)
 ```
@@ -184,13 +187,13 @@ Room DB    Retrofit
 
 <!-- _class: divider -->
 
-# 📱 App Android
+# App Android
 
 ### Funcionalidades y pantallas
 
 ---
 
-# 🔐 Autenticación
+# Autenticación
 
 <div class="cols2">
 <div class="center">
@@ -209,7 +212,7 @@ Room DB    Retrofit
 
 ---
 
-# 🏠 Pantalla principal y navegación
+# Pantalla principal y navegación
 
 <div class="cols2">
 <div class="center">
@@ -225,11 +228,11 @@ Room DB    Retrofit
 - Barra inferior fija con 3 destinos principales
 - Icono de perfil en la esquina superior izquierda
 - Icono de ajustes en la esquina superior derecha
-- Fondo generativo con paisaje animado en Compose Canvas
+- Fondo generativo con paisaje en Compose Canvas
 
-<div class="card" style="margin-top: 16px">
-  🎨 <strong>Canvas personalizado</strong><br/>
-  El paisaje de colinas se dibuja con <code>DrawScope</code> y trazados cúbicos (<code>cubicTo</code>) — sin imágenes, solo código.
+<div class="card" style="margin-top:16px">
+  <strong>Canvas personalizado</strong><br/>
+  El paisaje de colinas se dibuja con <code>DrawScope</code> y trazados cúbicos (<code>cubicTo</code>) — sin imágenes, solo código Kotlin.
 </div>
 
 </div>
@@ -237,7 +240,7 @@ Room DB    Retrofit
 
 ---
 
-# 🤝 Comunidades
+# Comunidades
 
 <div class="cols2">
 <div class="center">
@@ -256,7 +259,7 @@ Room DB    Retrofit
 
 ---
 
-# 🤝 Crear y editar comunidad
+# Crear y editar comunidad
 
 <div class="cols2">
 <div class="center">
@@ -275,7 +278,7 @@ Room DB    Retrofit
 
 ---
 
-# 📅 Eventos
+# Eventos
 
 <div class="cols2">
 <div class="center">
@@ -294,7 +297,7 @@ Room DB    Retrofit
 
 ---
 
-# 📅 Editar eventos
+# Editar eventos
 
 <div class="cols2">
 <div class="center">
@@ -307,16 +310,16 @@ Room DB    Retrofit
 
 ## Tipos de evento
 
-<div class="card">📢 <strong>Evento Comunitario</strong><br/>Actividades organizadas por la comunidad</div>
-<div class="card">📰 <strong>Noticia</strong><br/>Información relevante para los miembros</div>
-<div class="card">🚨 <strong>Urgente</strong><br/>Acciones que requieren respuesta inmediata</div>
+<div class="card"><strong>Evento Comunitario</strong><br/>Actividades organizadas por la comunidad</div>
+<div class="card"><strong>Noticia</strong><br/>Información relevante para los miembros</div>
+<div class="card"><strong>Urgente</strong><br/>Acciones que requieren respuesta inmediata</div>
 
 </div>
 </div>
 
 ---
 
-# 🏪 Tienda de Puntos
+# Tienda de Puntos
 
 <div class="cols2">
 <div class="center">
@@ -335,7 +338,7 @@ Room DB    Retrofit
 
 ---
 
-# 👤 Perfil de usuario
+# Perfil de usuario
 
 <div class="cols2">
 <div class="center">
@@ -354,7 +357,7 @@ Room DB    Retrofit
 - Título desbloqueado al subir de nivel
 
 <div class="card" style="margin-top:16px">
-  🏆 <strong>Ejemplo de logro</strong><br/>
+  <strong>Ejemplo de logro</strong><br/>
   "Has salvado 12 árboles con tus acciones. La naturaleza te aplaude."
 </div>
 
@@ -365,13 +368,13 @@ Room DB    Retrofit
 
 <!-- _class: divider -->
 
-# 🖥️ Panel de Administración
+# Panel de Administración
 
 ### WPF · C# · .NET · MVVM
 
 ---
 
-# 🖥️ Gestión de usuarios
+# Gestión de usuarios
 
 <div class="cols2">
 <div class="center">
@@ -390,7 +393,7 @@ Room DB    Retrofit
 
 ---
 
-# 🖥️ Gestión de comunidades
+# Gestión de comunidades
 
 <div class="cols3">
 <div class="center">
@@ -415,7 +418,7 @@ Room DB    Retrofit
 
 ---
 
-# 🖥️ Gestión de eventos
+# Gestión de eventos
 
 <div class="cols3">
 <div class="center">
@@ -440,7 +443,7 @@ Room DB    Retrofit
 
 ---
 
-# 🖥️ Gestión de accesorios (Tienda)
+# Gestión de accesorios (Tienda)
 
 <div class="cols3">
 <div class="center">
@@ -465,7 +468,7 @@ Room DB    Retrofit
 
 ---
 
-# 🔧 Características técnicas destacables
+# Características técnicas destacables
 
 <div class="cols2">
 <div>
@@ -529,24 +532,24 @@ suspend fun insertAllIfAbsent(
 
 ---
 
-# 🏁 Conclusión
+# Conclusión
 
 <div class="cols2">
 <div>
 
 ## Lo que hemos construido
 
-- 📱 App Android con 10+ pantallas funcionales
-- ☁️ API REST con autenticación JWT
-- 🖥️ Panel WPF con gestión completa
-- 🔗 Las 3 plataformas conectadas en tiempo real
+- App Android con 10+ pantallas funcionales
+- API REST con autenticación JWT
+- Panel WPF con gestión completa
+- Las 3 plataformas conectadas en tiempo real
 
 ## Posibles ampliaciones
 
-- 📍 Geolocalización de eventos en mapa
-- 🤖 Retos personalizados con IA
-- 🔔 Notificaciones push
-- 🌐 Versión web responsive
+- Geolocalización de eventos en mapa
+- Retos personalizados con IA
+- Notificaciones push
+- Versión web responsive
 
 </div>
 <div>
@@ -554,16 +557,16 @@ suspend fun insertAllIfAbsent(
 ## El equipo — Equipo Prompt
 
 <div class="card">
-  ✅ <strong>Puntos fuertes</strong><br/>
+  <strong>Puntos fuertes</strong><br/>
   Reparto claro por plataforma. Buen uso de Git para integrar el trabajo de todo el equipo.
 </div>
 <div class="card">
-  ⚡ <strong>Mayor reto</strong><br/>
+  <strong>Mayor reto</strong><br/>
   Coordinar 3 plataformas distintas sobre una sola API requirió definir bien los contratos desde el principio.
 </div>
 <div class="card">
-  📚 <strong>Mayor aprendizaje</strong><br/>
-  Jetpack Compose y MVVM en un proyecto real de tamaño considerable. También la integración completa backend ↔ móvil ↔ escritorio.
+  <strong>Mayor aprendizaje</strong><br/>
+  Jetpack Compose y MVVM en un proyecto real. También la integración completa backend, móvil y escritorio.
 </div>
 
 </div>
@@ -573,11 +576,16 @@ suspend fun insertAllIfAbsent(
 
 <!-- _class: cover -->
 
-# 🌿 ¡Gracias!
-
-<div class="sub">Esta ha sido nuestra propuesta — EcoQuest</div>
-
-<div class="meta">
-  👥 <strong>Equipo Prompt</strong> &nbsp;·&nbsp; IES Doctor Balmis · DAM 2025–2026<br/><br/>
-  🔗 github.com/Prompt-pi2damiesbalmis/PROYECTOI2
+<div style="display:grid; grid-template-columns:240px 1fr; width:100%; height:100%; align-items:center; padding:56px 60px; gap:52px;">
+<div style="text-align:center;">
+<img src="slides_img/logo.png" style="width:200px; border-radius:20px; box-shadow:0 8px 28px rgba(0,0,0,0.45);" />
+</div>
+<div>
+<h1 style="color:#fff; border-bottom:3px solid rgba(255,255,255,0.35); font-size:2.8em; margin-bottom:16px;">Gracias</h1>
+<div style="color:#C8E6C9; font-size:1.05em; margin-bottom:32px;">Esta ha sido nuestra propuesta — EcoQuest</div>
+<div style="color:rgba(255,255,255,0.85); font-size:0.82em; line-height:2.2;">
+  <strong>Equipo Prompt</strong> &nbsp;·&nbsp; IES Doctor Balmis · DAM 2025–2026<br/>
+  github.com/Prompt-pi2damiesbalmis/PROYECTOI2
+</div>
+</div>
 </div>
