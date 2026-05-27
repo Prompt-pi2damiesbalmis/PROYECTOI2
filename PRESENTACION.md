@@ -131,7 +131,7 @@ style: |
 </div>
 <div class="card">
   <strong>👥 Usuarios</strong><br/>
-  <span class="tag">Ciudadano</span> App Android<br/>
+  <span class="tag">Usuario</span> App Android<br/>
   <span class="tag tag-gray">Administrador</span> Panel WPF
 </div>
 <div class="card">
