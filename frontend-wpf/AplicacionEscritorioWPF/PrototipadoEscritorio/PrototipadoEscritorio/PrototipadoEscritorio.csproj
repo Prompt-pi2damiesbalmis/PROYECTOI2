@@ -11,7 +11,6 @@
 
 	<ItemGroup>
 		<None Remove="Assets\avatares.png" />
-		<None Remove="Assets\Captura de pantalla 2025-12-04 132052.png" />
 		<None Remove="Assets\comunidad2.jpg" />
 		<None Remove="Assets\comunidad3.jpg" />
 		<None Remove="Assets\comunidad4.jpg" />
@@ -30,7 +29,7 @@
 
 	<ItemGroup>
 		<Resource Include="Assets\avatares.png" />
-		<Resource Include="Assets\Captura de pantalla 2025-12-04 132052.png" />
+		<Resource Include="Assets\logo2.png" />
 		<Resource Include="Assets\comunidad2.jpg" />
 		<Resource Include="Assets\comunidad3.jpg" />
 		<Resource Include="Assets\comunidad4.jpg" />

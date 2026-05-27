@@ -14,19 +14,27 @@ namespace PrototipadoEscritorio.Services
 
         public static List<Producto> GetProductos()
         {
-            RestClient client = new RestClient(Properties.Settings.Default.ApiRestEndPoint);
-            RestRequest request = new RestRequest("productos", Method.Get);
-            RestResponse response = client.Execute(request);
-            return JsonConvert.DeserializeObject<List<Producto>>(response.Content);
+            try
+            {
+                RestClient client = new RestClient(Properties.Settings.Default.ApiRestEndPoint);
+                RestRequest request = new RestRequest("productos", Method.Get);
+                RestResponse response = client.Execute(request);
+                return JsonConvert.DeserializeObject<List<Producto>>(response.Content) ?? new();
+            }
+            catch { return new(); }
         }
 
         public static List<Producto> BuscarProductosPorNombre(string nombre)
         {
-            RestClient client = new RestClient(Properties.Settings.Default.ApiRestEndPoint);
-            RestRequest request = new RestRequest("productos/buscar", Method.Get);
-            request.AddQueryParameter("nombre", nombre);
-            RestResponse response = client.Execute(request);
-            return JsonConvert.DeserializeObject<List<Producto>>(response.Content);
+            try
+            {
+                RestClient client = new RestClient(Properties.Settings.Default.ApiRestEndPoint);
+                RestRequest request = new RestRequest("productos/buscar", Method.Get);
+                request.AddQueryParameter("nombre", nombre);
+                RestResponse response = client.Execute(request);
+                return JsonConvert.DeserializeObject<List<Producto>>(response.Content) ?? new();
+            }
+            catch { return new(); }
         }
 
         public static async Task<Producto?> CrearProductoConImagen(string nombre, int precio, string? rutaImagen)
@@ -94,27 +102,39 @@ namespace PrototipadoEscritorio.Services
 
         public static List<Usuario> GetUsuarios()
         {
-            RestClient client = new RestClient(Properties.Settings.Default.ApiRestEndPoint);
-            RestRequest request = new RestRequest("usuarios", Method.Get);
-            RestResponse response = client.Execute(request);
-            return JsonConvert.DeserializeObject<List<Usuario>>(response.Content);
+            try
+            {
+                RestClient client = new RestClient(Properties.Settings.Default.ApiRestEndPoint);
+                RestRequest request = new RestRequest("usuarios", Method.Get);
+                RestResponse response = client.Execute(request);
+                return JsonConvert.DeserializeObject<List<Usuario>>(response.Content) ?? new();
+            }
+            catch { return new(); }
         }
 
         public static List<Usuario> GetUsuariosTodos()
         {
-            RestClient client = new RestClient(Properties.Settings.Default.ApiRestEndPoint);
-            RestRequest request = new RestRequest("usuarios/todos", Method.Get);
-            RestResponse response = client.Execute(request);
-            return JsonConvert.DeserializeObject<List<Usuario>>(response.Content);
+            try
+            {
+                RestClient client = new RestClient(Properties.Settings.Default.ApiRestEndPoint);
+                RestRequest request = new RestRequest("usuarios/todos", Method.Get);
+                RestResponse response = client.Execute(request);
+                return JsonConvert.DeserializeObject<List<Usuario>>(response.Content) ?? new();
+            }
+            catch { return new(); }
         }
 
         public static List<Usuario> BuscarUsuariosPorNombre(string nombre)
         {
-            RestClient client = new RestClient(Properties.Settings.Default.ApiRestEndPoint);
-            RestRequest request = new RestRequest("usuarios/buscar", Method.Get);
-            request.AddQueryParameter("nombre", nombre);
-            RestResponse response = client.Execute(request);
-            return JsonConvert.DeserializeObject<List<Usuario>>(response.Content);
+            try
+            {
+                RestClient client = new RestClient(Properties.Settings.Default.ApiRestEndPoint);
+                RestRequest request = new RestRequest("usuarios/buscar", Method.Get);
+                request.AddQueryParameter("nombre", nombre);
+                RestResponse response = client.Execute(request);
+                return JsonConvert.DeserializeObject<List<Usuario>>(response.Content) ?? new();
+            }
+            catch { return new(); }
         }
 
         public static async Task<Usuario?> CrearUsuarioConImagen(string nombreUsuario, string nombre, string apellido, string email, int edad, string descripcion, string contraseña, string? rutaImagen)
@@ -198,10 +218,14 @@ namespace PrototipadoEscritorio.Services
 
         public static List<Usuario> GetUsuariosBloqueados()
         {
-            RestClient client = new RestClient(Properties.Settings.Default.ApiRestEndPoint);
-            RestRequest request = new RestRequest("usuarios/bloqueados", Method.Get);
-            RestResponse response = client.Execute(request);
-            return JsonConvert.DeserializeObject<List<Usuario>>(response.Content);
+            try
+            {
+                RestClient client = new RestClient(Properties.Settings.Default.ApiRestEndPoint);
+                RestRequest request = new RestRequest("usuarios/bloqueados", Method.Get);
+                RestResponse response = client.Execute(request);
+                return JsonConvert.DeserializeObject<List<Usuario>>(response.Content) ?? new();
+            }
+            catch { return new(); }
         }
 
         public static async Task<Usuario?> BloquearUsuario(int id, string causa)
@@ -244,10 +268,14 @@ namespace PrototipadoEscritorio.Services
 
         public static List<Comunidad> GetComunidades()
         {
-            RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
-            RestRequest request = new("comunidades", Method.Get);
-            RestResponse response = client.Execute(request);
-            return JsonConvert.DeserializeObject<List<Comunidad>>(response.Content);
+            try
+            {
+                RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
+                RestRequest request = new("comunidades", Method.Get);
+                RestResponse response = client.Execute(request);
+                return JsonConvert.DeserializeObject<List<Comunidad>>(response.Content) ?? new();
+            }
+            catch { return new(); }
         }
 
         public static async Task<bool> CrearComunidad(string nombre, string descripcion, string roles, string? rutaImagen)
@@ -278,20 +306,28 @@ namespace PrototipadoEscritorio.Services
 
         public static List<Comunidad> BuscarComunidadesPorNombre(string nombre)
         {
-            RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
-            RestRequest request = new("comunidades", Method.Get);
-            RestResponse response = client.Execute(request);
-            var todas = JsonConvert.DeserializeObject<List<Comunidad>>(response.Content);
-            return todas?.FindAll(c => c.Nombre.Contains(nombre, StringComparison.OrdinalIgnoreCase)) ?? new();
+            try
+            {
+                RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
+                RestRequest request = new("comunidades", Method.Get);
+                RestResponse response = client.Execute(request);
+                var todas = JsonConvert.DeserializeObject<List<Comunidad>>(response.Content);
+                return todas?.FindAll(c => c.Nombre.Contains(nombre, StringComparison.OrdinalIgnoreCase)) ?? new();
+            }
+            catch { return new(); }
         }
 
         public static List<Comunidad> GetComunidadesPorEstado(string estado)
         {
-            RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
-            RestRequest request = new("comunidades/estado", Method.Get);
-            request.AddQueryParameter("estado", estado);
-            RestResponse response = client.Execute(request);
-            return JsonConvert.DeserializeObject<List<Comunidad>>(response.Content);
+            try
+            {
+                RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
+                RestRequest request = new("comunidades/estado", Method.Get);
+                request.AddQueryParameter("estado", estado);
+                RestResponse response = client.Execute(request);
+                return JsonConvert.DeserializeObject<List<Comunidad>>(response.Content) ?? new();
+            }
+            catch { return new(); }
         }
 
         public static async Task<bool> EnviarComunidadARevision(int id, string motivo)
@@ -377,28 +413,40 @@ namespace PrototipadoEscritorio.Services
 
         public static List<Evento> GetEventos()
         {
-            RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
-            RestRequest request = new("eventos", Method.Get);
-            RestResponse response = client.Execute(request);
-            return JsonConvert.DeserializeObject<List<Evento>>(response.Content);
+            try
+            {
+                RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
+                RestRequest request = new("eventos", Method.Get);
+                RestResponse response = client.Execute(request);
+                return JsonConvert.DeserializeObject<List<Evento>>(response.Content) ?? new();
+            }
+            catch { return new(); }
         }
 
         public static List<Evento> BuscarEventosPorNombre(string nombre)
         {
-            RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
-            RestRequest request = new("eventos/buscar", Method.Get);
-            request.AddQueryParameter("nombre", nombre);
-            RestResponse response = client.Execute(request);
-            return JsonConvert.DeserializeObject<List<Evento>>(response.Content);
+            try
+            {
+                RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
+                RestRequest request = new("eventos/buscar", Method.Get);
+                request.AddQueryParameter("nombre", nombre);
+                RestResponse response = client.Execute(request);
+                return JsonConvert.DeserializeObject<List<Evento>>(response.Content) ?? new();
+            }
+            catch { return new(); }
         }
 
         public static List<Evento> BuscarEventosPorEstado(string estado)
         {
-            RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
-            RestRequest request = new("eventos/estado", Method.Get);
-            request.AddQueryParameter("estado", estado);
-            RestResponse response = client.Execute(request);
-            return JsonConvert.DeserializeObject<List<Evento>>(response.Content);
+            try
+            {
+                RestClient client = new(Properties.Settings.Default.ApiRestEndPoint);
+                RestRequest request = new("eventos/estado", Method.Get);
+                request.AddQueryParameter("estado", estado);
+                RestResponse response = client.Execute(request);
+                return JsonConvert.DeserializeObject<List<Evento>>(response.Content) ?? new();
+            }
+            catch { return new(); }
         }
 
         public static async Task<Evento?> CrearEvento(string nombre, string descripcion, string ubicacion, string fechaHora, string? rutaImagen)
