@@ -1,4 +1,10 @@
 package com.pmdm.proyectobase2425.ui.features.tienda
 
-class TiendaUiState {
-}
+import com.pmdm.proyectobase2425.models.Producto
+
+data class TiendaUiState(
+    val puntos: Int = 0,
+    val productosDestacados: List<Producto> = emptyList(),
+    val isLoading: Boolean = false,
+    val error: String? = null
+)

@@ -1,4 +1,7 @@
 package com.pmdm.proyectobase2425.ui.features.tienda
 
-interface TiendaEvent {
+sealed interface TiendaEvent {
+    object OnCanjearClick : TiendaEvent
+    data class OnProductoClick(val productoId: Long) : TiendaEvent
+    object OnComoCunseguirPuntosClick : TiendaEvent
 }

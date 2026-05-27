@@ -1,13 +1,11 @@
 package com.pmdm.proyectobase2425.ui.navigation.AppNavigation.route
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Text
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
+import com.pmdm.proyectobase2425.ui.features.tienda.TiendaScreen
+import com.pmdm.proyectobase2425.ui.features.tienda.TiendaViewModel
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -17,8 +15,10 @@ fun NavGraphBuilder.tiendaDestination(
     navController: NavHostController
 ) {
     composable<TiendaRoute> {
-        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-            Text("Tienda — próximamente")
-        }
+        val vm: TiendaViewModel = hiltViewModel()
+        TiendaScreen(
+            uiState = vm.state,
+            onEvent = { event -> vm.onEvent(event) }
+        )
     }
 }

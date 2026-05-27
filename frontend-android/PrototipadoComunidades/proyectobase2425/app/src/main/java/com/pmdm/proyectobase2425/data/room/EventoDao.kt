@@ -2,6 +2,8 @@ package com.pmdm.proyectobase2425.data.room
 
 import androidx.room.Dao
 import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Upsert
 import com.pmdm.proyectobase2425.data.services.EventoEntity
@@ -18,6 +20,9 @@ interface EventoDao {
 
     @Query("SELECT * FROM eventos WHERE comunidadId = :comunidadId")
     fun getByComunidad(comunidadId: Long): Flow<List<EventoEntity>>
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertAllIfAbsent(eventos: List<EventoEntity>)
 
     @Upsert
     suspend fun upsertAll(eventos: List<EventoEntity>)

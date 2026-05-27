@@ -13,6 +13,8 @@ class EventoRepository @Inject constructor(
 
     fun getAll(): Flow<List<EventoEntity>> = eventoDao.getAll()
 
+    suspend fun insertAllIfAbsent(eventos: List<EventoEntity>) = eventoDao.insertAllIfAbsent(eventos)
+
     fun getById(id: Long): Flow<EventoEntity?> = eventoDao.getById(id)
 
     fun getByComunidad(comunidadId: Long): Flow<List<EventoEntity>> = eventoDao.getByComunidad(comunidadId)
