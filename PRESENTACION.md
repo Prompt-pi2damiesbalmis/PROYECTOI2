@@ -4,177 +4,103 @@ theme: default
 paginate: true
 html: true
 style: |
-  /* ── Reset ── */
   * { box-sizing: border-box; }
 
-  /* ── Base ── */
   section {
     font-family: "Segoe UI", Arial, sans-serif;
     background: #ffffff;
     color: #1a1a1a;
-    padding: 44px 56px;
-    font-size: 22px;
+    padding: 36px 50px;
+    font-size: 20px;
   }
-  section::after {
-    color: #aaa;
-    font-size: 0.65em;
-  }
+  section::after { color: #bbb; font-size: 0.62em; }
 
-  /* ── Headings ── */
   h1 {
     color: #1B5E20;
-    font-size: 1.7em;
+    font-size: 1.65em;
     border-bottom: 4px solid #2E7D32;
-    padding-bottom: 10px;
-    margin: 0 0 24px;
+    padding-bottom: 8px;
+    margin: 0 0 20px;
   }
-  h2 { color: #2E7D32; font-size: 1.25em; margin: 16px 0 8px; }
-  h3 { color: #388E3C; font-size: 1.0em; margin: 10px 0 4px; }
+  h2 { color: #2E7D32; font-size: 1.1em; margin: 12px 0 6px; }
+  h3 { color: #388E3C; font-size: 0.95em; margin: 8px 0 4px; }
 
-  /* ── Lists ── */
-  ul { margin: 0 0 0 1.3em; line-height: 1.9; }
-  li { font-size: 0.88em; }
+  ul { margin: 0 0 0 1.2em; line-height: 1.85; }
+  li { font-size: 0.84em; }
 
-  /* ── Code ── */
   code {
-    background: #F1F8E9;
-    color: #1B5E20;
-    border-radius: 4px;
-    padding: 1px 6px;
-    font-size: 0.8em;
+    background: #F1F8E9; color: #1B5E20;
+    border-radius: 4px; padding: 1px 6px; font-size: 0.78em;
   }
   pre {
     background: #F8FBF8;
     border-left: 5px solid #43A047;
     border-radius: 6px;
-    padding: 14px 18px;
-    font-size: 0.72em;
-    line-height: 1.55;
-    margin: 8px 0;
+    padding: 12px 16px;
+    font-size: 0.68em;
+    line-height: 1.5;
+    margin: 6px 0;
   }
   pre code { background: none; color: #1a1a1a; padding: 0; font-size: 1em; }
 
-  /* ── Layout helpers ── */
-  .cols2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 28px;
-    align-items: start;
-  }
-  .cols3 {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 18px;
-    align-items: start;
-  }
+  .cols2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+  .cols3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; align-items: start; }
+  .cols4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; align-items: start; }
   .center { text-align: center; }
+  .caption { text-align: center; font-size: 0.72em; color: #666; margin-top: 6px; }
 
-  /* ── Cards ── */
   .card {
-    background: #F1F8E9;
-    border-left: 5px solid #4CAF50;
-    border-radius: 8px;
-    padding: 14px 18px;
-    margin-bottom: 10px;
-    font-size: 0.85em;
+    background: #F1F8E9; border-left: 5px solid #4CAF50;
+    border-radius: 8px; padding: 12px 16px; margin-bottom: 8px; font-size: 0.82em;
   }
   .tag {
-    display: inline-block;
-    background: #2E7D32;
-    color: #fff;
-    border-radius: 20px;
-    padding: 3px 12px;
-    font-size: 0.72em;
-    font-weight: 700;
-    margin: 3px 2px;
-    letter-spacing: 0.02em;
+    display: inline-block; background: #2E7D32; color: #fff;
+    border-radius: 20px; padding: 2px 11px; font-size: 0.68em;
+    font-weight: 700; margin: 2px 2px; letter-spacing: 0.02em;
   }
-  .tag-gray {
-    display: inline-block;
-    background: #546E7A;
-    color: #fff;
-    border-radius: 20px;
-    padding: 3px 12px;
-    font-size: 0.72em;
-    font-weight: 700;
-    margin: 3px 2px;
-  }
+  .tag-blue  { background: #1565C0; }
+  .tag-org   { background: #E65100; }
+  .tag-gray  { background: #546E7A; }
 
-  /* ── Architecture boxes ── */
   .arch-box {
-    border: 2px solid #4CAF50;
-    border-radius: 10px;
-    padding: 10px 16px;
-    margin: 5px 0;
-    font-size: 0.8em;
-    text-align: center;
-    background: #fff;
+    border: 2px solid #4CAF50; border-radius: 8px;
+    padding: 8px 12px; margin: 4px 0; font-size: 0.78em;
+    text-align: center; background: #fff;
   }
-  .arch-box strong { color: #1B5E20; font-size: 1.05em; }
-  .arch-box small { color: #555; display: block; margin-top: 2px; font-size: 0.85em; }
-  .arch-arrow {
-    text-align: center;
-    color: #81C784;
-    font-size: 1.4em;
-    margin: 2px 0;
-    line-height: 1;
-  }
+  .arch-box strong { color: #1B5E20; }
+  .arch-box small  { color: #666; display: block; font-size: 0.85em; }
+  .arch-arrow { text-align: center; color: #81C784; font-size: 1.3em; margin: 1px 0; line-height: 1; }
 
-  /* ── Cover ── */
   section.cover {
     background: linear-gradient(145deg, #1B5E20 0%, #2E7D32 55%, #43A047 100%);
     color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 60px 72px;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 56px 68px;
   }
-  section.cover h1 {
-    color: #fff;
-    border-bottom: 3px solid rgba(255,255,255,0.35);
-    font-size: 3em;
-    margin-bottom: 14px;
-  }
-  section.cover .subtitle {
-    color: #C8E6C9;
-    font-size: 1.05em;
-    margin-bottom: 30px;
-  }
-  section.cover .meta {
-    color: rgba(255,255,255,0.8);
-    font-size: 0.82em;
-    line-height: 2.1;
-  }
-  section.cover::after { color: rgba(255,255,255,0.35); }
+  section.cover h1 { color: #fff; border-bottom: 3px solid rgba(255,255,255,0.35); font-size: 2.8em; margin-bottom: 12px; }
+  section.cover .sub  { color: #C8E6C9; font-size: 1.0em; margin-bottom: 28px; }
+  section.cover .meta { color: rgba(255,255,255,0.82); font-size: 0.80em; line-height: 2.1; }
+  section.cover::after { color: rgba(255,255,255,0.3); }
 
-  /* ── Section divider ── */
   section.divider {
     background: #F1F8E9;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
   }
-  section.divider h1 { border: none; font-size: 2.8em; }
-  section.divider p { color: #555; font-size: 0.9em; margin-top: 6px; }
+  section.divider h1 { border: none; font-size: 2.6em; }
+  section.divider p  { color: #555; font-size: 0.88em; margin-top: 6px; }
 
-  /* ── Images ── */
-  img {
-    border-radius: 10px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.18);
-  }
+  img { border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.18); }
 ---
 
 <!-- _class: cover -->
 
 # 🌿 EcoQuest
 
-<div class="subtitle">Plataforma de concienciación ambiental gamificada</div>
+<div class="sub">Plataforma de concienciación ambiental gamificada</div>
 
 <div class="meta">
   👥 <strong>Equipo Prompt</strong> &nbsp;·&nbsp; IES Doctor Balmis &nbsp;·&nbsp; DAM 2025–2026<br/>
-  📱 App Android &nbsp;·&nbsp; ☁️ API REST &nbsp;·&nbsp; 🖥️ Panel de Administración WPF
+  📱 App Android &nbsp;·&nbsp; ☁️ API REST &nbsp;·&nbsp; 🖥️ Panel WPF
 </div>
 
 ---
@@ -194,7 +120,7 @@ style: |
 
 - Comunidades vecinales conectadas
 - Eventos y retos ecológicos reales
-- Sistema de puntos que motiva la participación
+- Sistema de puntos que motiva
 
 </div>
 <div>
@@ -203,16 +129,14 @@ style: |
   <strong>🎯 Objetivo</strong><br/>
   Fomentar hábitos sostenibles mediante comunidades locales, eventos reales y recompensas.
 </div>
-
 <div class="card">
   <strong>👥 Usuarios</strong><br/>
-  <span class="tag">Ciudadano</span> usa la app móvil<br/>
-  <span class="tag-gray">Administrador</span> gestiona desde el panel WPF
+  <span class="tag">Ciudadano</span> App Android<br/>
+  <span class="tag tag-gray">Administrador</span> Panel WPF
 </div>
-
 <div class="card">
-  <strong>🔗 Conectado</strong><br/>
-  Móvil y escritorio comparten datos en tiempo real a través de la API REST.
+  <strong>🔗 Integración total</strong><br/>
+  Móvil y escritorio comparten datos en tiempo real a través de la misma API REST.
 </div>
 
 </div>
@@ -226,86 +150,32 @@ style: |
 <div>
 
 <div class="arch-box"><strong>📱 App Android</strong><small>Kotlin · Jetpack Compose · Hilt · Room · Retrofit</small></div>
-<div class="arch-arrow">⬆️⬇️  REST / JWT</div>
+<div class="arch-arrow">⬆️⬇️&nbsp; REST / JWT</div>
 <div class="arch-box" style="border-color:#1565C0"><strong>☁️ API REST</strong><small>Spring Boot 3.4 · Java 21 · Puerto 9000</small></div>
-<div class="arch-arrow">⬆️⬇️  JPA / Hibernate</div>
+<div class="arch-arrow">⬆️⬇️&nbsp; JPA / Hibernate</div>
 <div class="arch-box" style="border-color:#6A1B9A"><strong>🗄️ Base de datos</strong><small>PostgreSQL (prod) · H2 (dev)</small></div>
-<div class="arch-arrow">⬆️⬇️  REST / JWT</div>
+<div class="arch-arrow">⬆️⬇️&nbsp; REST / JWT</div>
 <div class="arch-box" style="border-color:#E65100"><strong>🖥️ Panel Admin WPF</strong><small>C# · .NET · MVVM</small></div>
 
 </div>
 <div>
 
-## Android — patrón MVVM
+## Android — MVVM por pantalla
 
 ```
-Compose UI
-   ↕ eventos / estado
-ViewModel  ←  Hilt DI
-   ↕
+Compose UI  ←  estado (UiState)
+     ↓  eventos (sealed interface)
+ViewModel   ←  Hilt @Inject
+     ↓
 Repository
-   ↕         ↕
+  ↓          ↓
 Room DB    Retrofit
 (offline)  (API REST)
 ```
 
-- Cada pantalla: `Screen` + `ViewModel` + `UiState` + `Event`
-- Estado reactivo con `Flow` y `mutableStateOf`
+- Cada feature: `Screen` + `ViewModel` + `UiState` + `Event`
+- Estado reactivo: `Flow` + `mutableStateOf`
 - Navegación type-safe con `@Serializable`
-
-</div>
-</div>
-
----
-
-# ✨ Funcionalidades — App Android
-
-<div class="cols2" style="align-items:center">
-<div style="text-align:center">
-
-![height:400px](slides_img/comunidades.png)
-
-</div>
-<div>
-
-## Comunidades
-
-- Explorar y unirse a comunidades locales
-- Mural compartido por comunidad
-- El administrador aprueba comunidades nuevas
-
-## Eventos comunitarios
-
-- Feed filtrable en tiempo real
-- Tipos: Comunitario · Noticia · Urgente
-- Cualquier miembro puede crear eventos
-
-</div>
-</div>
-
----
-
-# ✨ Funcionalidades — App Android
-
-<div class="cols2" style="align-items:center">
-<div style="text-align:center">
-
-![height:400px](slides_img/tienda.png)
-
-</div>
-<div>
-
-## Tienda de Puntos
-
-- Los usuarios acumulan puntos participando
-- Catálogo de recompensas canjeables
-- Vista de puntos disponibles en tiempo real
-
-## Perfil de usuario
-
-- Datos personales editables
-- Historial de actividad
-- Foto de perfil
 
 </div>
 </div>
@@ -314,31 +184,52 @@ Room DB    Retrofit
 
 <!-- _class: divider -->
 
-# 🖥️ App de Escritorio
+# 📱 App Android
 
-### Panel de administración — WPF · C# · MVVM
+### Funcionalidades y pantallas
 
 ---
 
-# 🖥️ Panel de Administración
+# 🔐 Autenticación
 
-<div class="cols2" style="align-items:center">
-<div style="text-align:center">
+<div class="cols2">
+<div class="center">
 
-![height:390px](slides_img/escritorio_main.png)
+![height:400px](slides_img/login.png)
+<div class="caption">Inicio de sesión con correo y contraseña</div>
+
+</div>
+<div class="center">
+
+![height:400px](slides_img/registro.png)
+<div class="caption">Registro con validación de campos</div>
+
+</div>
+</div>
+
+---
+
+# 🏠 Pantalla principal y navegación
+
+<div class="cols2">
+<div class="center">
+
+![height:400px](slides_img/plantilla.png)
+<div class="caption">Home con navegación inferior: Home · Comunidad · Tienda</div>
 
 </div>
 <div>
 
-## Destinada al administrador
+## Estructura de navegación
 
-- Gestión completa de usuarios
-- Aprobar o rechazar comunidades
-- Moderar eventos publicados
-- Gestionar complementos de la tienda
+- Barra inferior fija con 3 destinos principales
+- Icono de perfil en la esquina superior izquierda
+- Icono de ajustes en la esquina superior derecha
+- Fondo generativo con paisaje animado en Compose Canvas
 
-<div class="card" style="margin-top:16px">
-  🔗 <strong>Lo que hace el admin se refleja en tiempo real en la app móvil</strong> — comparten la misma API REST y base de datos.
+<div class="card" style="margin-top: 16px">
+  🎨 <strong>Canvas personalizado</strong><br/>
+  El paisaje de colinas se dibuja con <code>DrawScope</code> y trazados cúbicos (<code>cubicTo</code>) — sin imágenes, solo código.
 </div>
 
 </div>
@@ -346,24 +237,233 @@ Room DB    Retrofit
 
 ---
 
-# 🖥️ Panel — Gestión de comunidades
+# 🤝 Comunidades
 
-<div class="cols2" style="align-items:center">
-<div style="text-align:center">
+<div class="cols2">
+<div class="center">
 
-![height:390px](slides_img/escritorio_comunidades.png)
-
-</div>
-<div style="text-align:center">
-
-![height:390px](slides_img/escritorio_aceptar.png)
+![height:390px](slides_img/comunidades.png)
+<div class="caption">Lista de comunidades disponibles</div>
 
 </div>
+<div class="center">
+
+![height:390px](slides_img/comunidad.png)
+<div class="caption">Detalle de comunidad con lista de eventos</div>
+
+</div>
 </div>
 
-<p style="text-align:center; font-size:0.8em; color:#555; margin-top:8px">
-  Lista de comunidades &nbsp;·&nbsp; Flujo de aprobación de comunidades pendientes
-</p>
+---
+
+# 🤝 Crear y editar comunidad
+
+<div class="cols2">
+<div class="center">
+
+![height:400px](slides_img/crear_comunidad.png)
+<div class="caption">Diálogo: crear nueva comunidad</div>
+
+</div>
+<div class="center">
+
+![height:400px](slides_img/editar_comunidad.png)
+<div class="caption">Diálogo: editar comunidad existente</div>
+
+</div>
+</div>
+
+---
+
+# 📅 Eventos
+
+<div class="cols2">
+<div class="center">
+
+![height:390px](slides_img/eventos_lista.png)
+<div class="caption">Feed de eventos con búsqueda en tiempo real</div>
+
+</div>
+<div class="center">
+
+![height:390px](slides_img/crear_evento.png)
+<div class="caption">Formulario de creación de evento</div>
+
+</div>
+</div>
+
+---
+
+# 📅 Editar eventos
+
+<div class="cols2">
+<div class="center">
+
+![height:400px](slides_img/editar_evento.png)
+<div class="caption">Editor de evento con datos precargados</div>
+
+</div>
+<div>
+
+## Tipos de evento
+
+<div class="card">📢 <strong>Evento Comunitario</strong><br/>Actividades organizadas por la comunidad</div>
+<div class="card">📰 <strong>Noticia</strong><br/>Información relevante para los miembros</div>
+<div class="card">🚨 <strong>Urgente</strong><br/>Acciones que requieren respuesta inmediata</div>
+
+</div>
+</div>
+
+---
+
+# 🏪 Tienda de Puntos
+
+<div class="cols2">
+<div class="center">
+
+![height:400px](slides_img/tienda.png)
+<div class="caption">Puntos disponibles y producto destacado</div>
+
+</div>
+<div class="center">
+
+![height:400px](slides_img/tienda_complementos.png)
+<div class="caption">Catálogo de complementos canjeables</div>
+
+</div>
+</div>
+
+---
+
+# 👤 Perfil de usuario
+
+<div class="cols2">
+<div class="center">
+
+![height:430px](slides_img/perfil.png)
+<div class="caption">Perfil con nivel, logros y progreso al siguiente nivel</div>
+
+</div>
+<div>
+
+## Gamificación del perfil
+
+- Sistema de niveles (ej. Nivel 5 - Basurita)
+- Barra de progreso hacia el siguiente nivel
+- Logros personales por acciones ecológicas
+- Título desbloqueado al subir de nivel
+
+<div class="card" style="margin-top:16px">
+  🏆 <strong>Ejemplo de logro</strong><br/>
+  "Has salvado 12 árboles con tus acciones. La naturaleza te aplaude."
+</div>
+
+</div>
+</div>
+
+---
+
+<!-- _class: divider -->
+
+# 🖥️ Panel de Administración
+
+### WPF · C# · .NET · MVVM
+
+---
+
+# 🖥️ Gestión de usuarios
+
+<div class="cols2">
+<div class="center">
+
+![height:370px](slides_img/escritorio_usuarios.png)
+<div class="caption">Lista de todos los usuarios registrados</div>
+
+</div>
+<div class="center">
+
+![height:370px](slides_img/escritorio_bloquear.png)
+<div class="caption">Diálogo de bloqueo con causa y duración</div>
+
+</div>
+</div>
+
+---
+
+# 🖥️ Gestión de comunidades
+
+<div class="cols2">
+<div class="center">
+
+![height:360px](slides_img/escritorio_comunidades.png)
+<div class="caption">Lista de comunidades activas</div>
+
+</div>
+<div class="center">
+
+![height:360px](slides_img/escritorio_revision_comunidades.png)
+<div class="caption">Comunidades pendientes de aprobación</div>
+
+</div>
+</div>
+
+<div class="center" style="margin-top:10px">
+
+![height:240px](slides_img/escritorio_aceptar.png)
+<div class="caption">Vista detalle para aceptar o denegar una comunidad</div>
+
+</div>
+
+---
+
+# 🖥️ Gestión de eventos
+
+<div class="cols2">
+<div class="center">
+
+![height:360px](slides_img/escritorio_eventos.png)
+<div class="caption">Lista de todos los eventos</div>
+
+</div>
+<div class="center">
+
+![height:360px](slides_img/escritorio_eventos_revision.png)
+<div class="caption">Eventos pendientes de revisión</div>
+
+</div>
+</div>
+
+<div class="center" style="margin-top:10px">
+
+![height:240px](slides_img/escritorio_evento_revision.png)
+<div class="caption">Detalle del evento para aprobar o rechazar</div>
+
+</div>
+
+---
+
+# 🖥️ Gestión de accesorios (Tienda)
+
+<div class="cols3">
+<div class="center">
+
+![height:300px](slides_img/escritorio_accesorios.png)
+<div class="caption">Catálogo de accesorios</div>
+
+</div>
+<div class="center">
+
+![height:300px](slides_img/escritorio_add_accesorio.png)
+<div class="caption">Añadir accesorio nuevo</div>
+
+</div>
+<div class="center">
+
+![height:300px](slides_img/escritorio_edit_accesorio.png)
+<div class="caption">Editar accesorio existente</div>
+
+</div>
+</div>
 
 ---
 
@@ -372,37 +472,39 @@ Room DB    Retrofit
 <div class="cols2">
 <div>
 
-## Jetpack Compose + MVVM
+## Estado reactivo — Flow + Compose
 
 ```kotlin
-@HiltViewModel
-class EventosViewModel @Inject constructor(
-    private val repo: EventoRepository
-) : ViewModel() {
+// ViewModel: un único estado observable
+var state by mutableStateOf(EventosUiState())
+    private set
 
-    var state by mutableStateOf(EventosUiState())
-        private set
-
-    init {
-        viewModelScope.launch {
-            repo.getAll().collect { lista ->
-                state = state.copy(eventos = lista)
-            }
+init {
+    viewModelScope.launch {
+        // Flow de Room: la UI se actualiza sola
+        // cuando cambia la base de datos
+        repo.getAll().collect { lista ->
+            state = state.copy(eventos = lista)
         }
     }
 }
 ```
 
-Estado reactivo: cuando cambia la BD, la UI se actualiza sola.
+## Inyección de dependencias — Hilt
+
+```kotlin
+@HiltViewModel
+class EventosViewModel @Inject constructor(
+    private val repo: EventoRepository
+) : ViewModel()
+```
 
 </div>
 <div>
 
-## Autenticación JWT
+## Autenticación JWT — Retrofit interceptor
 
 ```kotlin
-// Retrofit interceptor añade el token
-// automáticamente en cada petición
 class AuthInterceptor(private val token: String)
     : Interceptor {
     override fun intercept(chain: Chain) =
@@ -414,53 +516,15 @@ class AuthInterceptor(private val token: String)
 }
 ```
 
-## Hilt — Inyección de dependencias
-
-<span class="tag">@HiltViewModel</span>
-<span class="tag">@Singleton</span>
-<span class="tag">@Inject constructor</span>
-
-Sin instanciar manualmente ningún repositorio ni DAO.
-
-</div>
-</div>
-
----
-
-# 🔧 Características técnicas destacables
-
-<div class="cols2">
-<div>
-
-## Room — persistencia local
+## Room — datos offline + seed idempotente
 
 ```kotlin
-@Dao
-interface EventoDao {
-    @Query("SELECT * FROM eventos")
-    fun getAll(): Flow<List<EventoEntity>>
-
-    // IGNORE = idempotente: no sobreescribe
-    // datos existentes en reinicios
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertAllIfAbsent(
-        eventos: List<EventoEntity>
-    )
-}
+// IGNORE: no sobreescribe si ya existe
+@Insert(onConflict = OnConflictStrategy.IGNORE)
+suspend fun insertAllIfAbsent(
+    eventos: List<EventoEntity>
+)
 ```
-
-La app funciona **offline** gracias a Room. Retrofit sincroniza cuando hay conexión.
-
-</div>
-<div>
-
-## Stack completo
-
-<div class="card"><span class="tag">Kotlin</span> <span class="tag">Jetpack Compose</span> <span class="tag">Hilt</span> <span class="tag">Room</span> <span class="tag">Retrofit</span> <span class="tag">Coil</span><br/><small style="color:#555">App Android</small></div>
-
-<div class="card"><span class="tag-gray">Spring Boot 3.4</span> <span class="tag-gray">Java 21</span> <span class="tag-gray">JWT</span> <span class="tag-gray">JPA</span> <span class="tag-gray">PostgreSQL</span><br/><small style="color:#555">API REST</small></div>
-
-<div class="card"><span class="tag" style="background:#E65100">C#</span> <span class="tag" style="background:#E65100">WPF</span> <span class="tag" style="background:#E65100">.NET</span> <span class="tag" style="background:#E65100">MVVM</span><br/><small style="color:#555">Panel administrador</small></div>
 
 </div>
 </div>
@@ -472,16 +536,16 @@ La app funciona **offline** gracias a Room. Retrofit sincroniza cuando hay conex
 <div class="cols2">
 <div>
 
-## Lo que hemos entregado
+## Lo que hemos construido
 
-- 📱 App Android funcional (6 pantallas)
-- ☁️ API REST con auth JWT
-- 🖥️ Panel de administración WPF
-- 🔗 Las 3 plataformas conectadas
+- 📱 App Android con 10+ pantallas funcionales
+- ☁️ API REST con autenticación JWT
+- 🖥️ Panel WPF con gestión completa
+- 🔗 Las 3 plataformas conectadas en tiempo real
 
 ## Posibles ampliaciones
 
-- 📍 Geolocalización de eventos
+- 📍 Geolocalización de eventos en mapa
 - 🤖 Retos personalizados con IA
 - 🔔 Notificaciones push
 - 🌐 Versión web responsive
@@ -492,16 +556,16 @@ La app funciona **offline** gracias a Room. Retrofit sincroniza cuando hay conex
 ## El equipo — Equipo Prompt
 
 <div class="card">
-  ✅ <strong>Pros</strong><br/>
-  Reparto claro de tareas por plataforma. Buen uso de Git para integrar el trabajo.
+  ✅ <strong>Puntos fuertes</strong><br/>
+  Reparto claro por plataforma. Buen uso de Git para integrar el trabajo de todo el equipo.
 </div>
 <div class="card">
-  ⚡ <strong>Retos</strong><br/>
-  Coordinar 3 plataformas distintas con una sola API compartida requirió definir bien los contratos desde el principio.
+  ⚡ <strong>Mayor reto</strong><br/>
+  Coordinar 3 plataformas distintas sobre una sola API requirió definir bien los contratos desde el principio.
 </div>
 <div class="card">
-  📚 <strong>Aprendizaje principal</strong><br/>
-  Jetpack Compose y MVVM en un proyecto real de tamaño considerable.
+  📚 <strong>Mayor aprendizaje</strong><br/>
+  Jetpack Compose y MVVM en un proyecto real de tamaño considerable. También la integración completa backend ↔ móvil ↔ escritorio.
 </div>
 
 </div>
@@ -513,7 +577,7 @@ La app funciona **offline** gracias a Room. Retrofit sincroniza cuando hay conex
 
 # 🌿 ¡Gracias!
 
-<div class="subtitle">Esta ha sido nuestra propuesta — EcoQuest</div>
+<div class="sub">Esta ha sido nuestra propuesta — EcoQuest</div>
 
 <div class="meta">
   👥 <strong>Equipo Prompt</strong> &nbsp;·&nbsp; IES Doctor Balmis · DAM 2025–2026<br/><br/>
