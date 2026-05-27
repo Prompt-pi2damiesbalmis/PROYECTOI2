@@ -392,52 +392,50 @@ Room DB    Retrofit
 
 # 🖥️ Gestión de comunidades
 
-<div class="cols2">
+<div class="cols3">
 <div class="center">
 
-![height:360px](slides_img/escritorio_comunidades.png)
+![height:280px](slides_img/escritorio_comunidades.png)
 <div class="caption">Lista de comunidades activas</div>
 
 </div>
 <div class="center">
 
-![height:360px](slides_img/escritorio_revision_comunidades.png)
+![height:280px](slides_img/escritorio_revision_comunidades.png)
 <div class="caption">Comunidades pendientes de aprobación</div>
 
 </div>
+<div class="center">
+
+![height:280px](slides_img/escritorio_aceptar.png)
+<div class="caption">Detalle: aceptar o denegar comunidad</div>
+
 </div>
-
-<div class="center" style="margin-top:10px">
-
-![height:240px](slides_img/escritorio_aceptar.png)
-<div class="caption">Vista detalle para aceptar o denegar una comunidad</div>
-
 </div>
 
 ---
 
 # 🖥️ Gestión de eventos
 
-<div class="cols2">
+<div class="cols3">
 <div class="center">
 
-![height:360px](slides_img/escritorio_eventos.png)
+![height:280px](slides_img/escritorio_eventos.png)
 <div class="caption">Lista de todos los eventos</div>
 
 </div>
 <div class="center">
 
-![height:360px](slides_img/escritorio_eventos_revision.png)
+![height:280px](slides_img/escritorio_eventos_revision.png)
 <div class="caption">Eventos pendientes de revisión</div>
 
 </div>
+<div class="center">
+
+![height:280px](slides_img/escritorio_evento_revision.png)
+<div class="caption">Detalle: aprobar o rechazar evento</div>
+
 </div>
-
-<div class="center" style="margin-top:10px">
-
-![height:240px](slides_img/escritorio_evento_revision.png)
-<div class="caption">Detalle del evento para aprobar o rechazar</div>
-
 </div>
 
 ---
