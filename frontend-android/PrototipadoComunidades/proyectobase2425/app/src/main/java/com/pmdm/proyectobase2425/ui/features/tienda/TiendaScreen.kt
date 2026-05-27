@@ -42,8 +42,6 @@ import com.pmdm.proyectobase2425.ui.theme.ProyectoBase2425Theme
 import java.text.NumberFormat
 import java.util.Locale
 
-private val FondoVerde = Color(0xFFE8F5E9)
-
 @Composable
 fun TiendaScreen(
     uiState: TiendaUiState,
@@ -56,7 +54,6 @@ fun TiendaScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(FondoVerde)
             .verticalScroll(rememberScrollState())
     ) {
         Text(

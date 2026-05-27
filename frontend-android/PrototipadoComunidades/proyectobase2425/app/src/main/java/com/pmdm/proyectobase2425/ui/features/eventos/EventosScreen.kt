@@ -28,8 +28,6 @@ import com.pmdm.proyectobase2425.ui.theme.GreenBar
 import com.pmdm.proyectobase2425.ui.theme.ProyectoBase2425Theme
 import java.time.LocalDateTime
 
-private val FondoVerde = Color(0xFFE8F5E9)
-
 private fun colorBorde(estado: String): Color = when (estado.lowercase()) {
     "noticia"  -> Color(0xFFE53935)
     "urgente"  -> Color(0xFFFF6F00)
@@ -46,7 +44,6 @@ fun EventosScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(FondoVerde)
             .padding(horizontal = 16.dp)
     ) {
         Spacer(modifier = Modifier.height(16.dp))

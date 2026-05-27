@@ -3,6 +3,7 @@ package com.pmdm.proyectobase.ui.navigation
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
+import com.pmdm.proyectobase2425.ui.navigation.AppNavigation.route.EventoRoute
 import com.pmdm.proyectobase2425.ui.navigation.AppNavigation.route.HomeRoute
 import com.pmdm.proyectobase2425.ui.navigation.AppNavigation.route.ajustesDestination
 import com.pmdm.proyectobase2425.ui.navigation.AppNavigation.route.comunidadDentroDestination
@@ -19,7 +20,7 @@ fun AppNavHost(
 ) {
     NavHost(
         navController = navController,
-        startDestination = HomeRoute
+        startDestination = EventoRoute()
     ) {
         homeDestination(navController)
         comunidadesDestination(navController)
