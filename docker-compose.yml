@@ -1,0 +1,44 @@
+services:
+
+  # ── Base de datos PostgreSQL ───────────────────────────────────────────────
+  db:
+    image: postgres:16-alpine
+    container_name: ecoquest-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ecoquest
+      POSTGRES_USER: ${DB_USER:-admin}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-1234}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-admin} -d ecoquest"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── API REST Spring Boot ───────────────────────────────────────────────────
+  api:
+    build:
+      context: ./EcoQuestAPI
+    container_name: ecoquest-api
+    restart: unless-stopped
+    ports:
+      - "9000:9000"
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      DB_URL: jdbc:postgresql://db:5432/ecoquest
+      DB_USER: ${DB_USER:-admin}
+      DB_PASSWORD: ${DB_PASSWORD:-1234}
+      BASE_URL: http://localhost:9000
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - imagenes:/app/imagenes
+
+volumes:
+  postgres_data:
+  imagenes:
