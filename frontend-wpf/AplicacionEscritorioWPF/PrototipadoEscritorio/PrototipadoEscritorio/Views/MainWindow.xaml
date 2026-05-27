@@ -58,7 +58,7 @@
                                 CornerRadius="20">
 
                                 <Border.Background>
-                                    <ImageBrush ImageSource="/Assets/logo2.png" Stretch="UniformToFill" />
+                                    <SolidColorBrush Color="#1B5E20" />
                                 </Border.Background>
 
                             </Border>
